@@ -1,0 +1,22 @@
+{
+  "name": "minisizeproject",
+  "version": "1.0.0",
+  "description": "This github repo is for our teams final assessment in Creative Industries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minisize/minisizeproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minisize/minisizeproject/issues"
+  },
+  "homepage": "https://github.com/minisize/minisizeproject#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
