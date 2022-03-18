@@ -1,5 +1,5 @@
 header nav {
-  padding: .25vw .75vh;
+  padding: 4vh 2vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,10 +10,17 @@ header nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  border: 2px solid black;
+}
+
+header nav button {
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 header nav .Side_Nav_Right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
@@ -26,10 +33,9 @@ header nav .Side_Navigation {
 }
 
 header nav .Main_Navigation {
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
-  border: 2px solid black;
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
 }
 
 header nav .Main_Navigation ul {
@@ -46,5 +52,43 @@ header nav .Main_Navigation ul {
 
 header nav .Main_Navigation ul li {
   list-style: none;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0vh 2vw;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+footer .Footer_Wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .Footer_Wrap button {
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+footer .Footer_Wrap h5, footer .Footer_Wrap h6, footer .Footer_Wrap label {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 /*# sourceMappingURL=header_n_footer.css.map */

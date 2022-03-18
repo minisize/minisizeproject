@@ -1,14 +1,19 @@
 //This Section is for the Header SCSS
 
 header nav{
-    padding: .25vw .75vh;
+    padding: 4vh 2vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 2px solid black;
+}
+
+header nav button{
+    border-style: none;
+    background-color: rgba($color: #000000, $alpha: 0);
 }
 
 header nav .Side_Nav_Right{
+    display: flex;
     justify-content: end;
 }
 
@@ -17,8 +22,7 @@ header nav .Side_Navigation{
 }
 
 header nav .Main_Navigation {
-    flex: 2;
-    border: 2px solid black;
+    flex: 5;
 }
 header nav .Main_Navigation ul{
     display: flex;
@@ -31,3 +35,24 @@ header nav .Main_Navigation ul li{
 }
 
 //This Section is for the Footer SCSS
+
+footer{
+    display: flex;
+    padding: 0vh 2vw;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer .Footer_Wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+footer .Footer_Wrap button{
+    border-style: none;
+    background-color: rgba($color: #000000, $alpha: 0);
+}
+footer .Footer_Wrap h5, footer .Footer_Wrap h6, footer .Footer_Wrap label{
+    align-self: center;
+}
