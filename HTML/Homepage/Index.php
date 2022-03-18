@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Minisize </title>
 
+    <!-- SCSS Links -->
+    <link rel="stylesheet" href="../../CSS/Includes/header_n_footer.css">
+
     <!-- bootstrap link -->
     <link rel="stylesheet" href="../../styles/main.css">
+
     
 </head>
 <body>

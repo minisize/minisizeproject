@@ -1,18 +1,18 @@
 <header>
         <nav>
-            <div> 
+            <div class="Side_Navigation Side_Nav_Left"> 
                 settings icon
             </div>
-            <div> 
+            <div class="Main_Navigation"> 
                 <ul>
-                    <li>Home</li>
-                    <li>Shop</li>
+                    <li> <button> Home </button> </li>
+                    <li><button> products </button></li>
                     <label> Website icon </label>
-                    <li>Blog</li>
-                    <li>About</li>
+                    <li><button> Blog </button></li>
+                    <li><button> About </button></li>
                 </ul>
             </div>
-            <div>
+            <div class="Side_Navigation Side_Nav_Right">
                 <label for=""><button>Profile Icon</button></label>
                 <label for=""><button>Shopping Cart Icon</button></label>
             </div>

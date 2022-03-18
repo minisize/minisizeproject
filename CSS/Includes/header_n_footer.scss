@@ -1,8 +1,33 @@
 //This Section is for the Header SCSS
 
 header nav{
+    padding: .25vw .75vh;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+
+header nav .Side_Nav_Right{
+    justify-content: end;
+}
+
+header nav .Side_Navigation{
+    flex: 1;
+}
+
+header nav .Main_Navigation {
+    flex: 2;
+    border: 2px solid black;
+}
+header nav .Main_Navigation ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+header nav .Main_Navigation ul li{
+    list-style: none;
 }
 
 //This Section is for the Footer SCSS
