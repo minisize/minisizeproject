@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Minisize </title>
 
+    <!-- CSS Link -->
+
+    <link rel="stylesheet" href="../../styles/Includes/header_n_footer.css">
+
     <!-- bootstrap link -->
     <link rel="stylesheet" href="../../styles/main.css">
 
@@ -14,10 +18,10 @@
 
 <header>
         <nav>
-            <div class="Side_Navigation Side_Nav_Left"> 
+            <div class="side-navigation side-nav-left"> 
                 settings icon
             </div>
-            <div class="Main_Navigation"> 
+            <div class="main-navigation"> 
                 <ul>
                     <li> <button> Home </button> </li>
                     <li><button> products </button></li>
@@ -26,7 +30,7 @@
                     <li><button> About </button></li>
                 </ul>
             </div>
-            <div class="Side_Navigation Side_Nav_Right">
+            <div class="side-navigation side-nav-right">
                 <label for=""><button>Profile Icon</button></label>
                 <label for=""><button>Shopping Cart Icon</button></label>
             </div>

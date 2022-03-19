@@ -17,7 +17,7 @@ header nav button {
   background-color: rgba(0, 0, 0, 0);
 }
 
-header nav .Side_Nav_Right {
+header nav .side-nav-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,19 +26,19 @@ header nav .Side_Nav_Right {
           justify-content: end;
 }
 
-header nav .Side_Navigation {
+header nav .side-navigation {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-header nav .Main_Navigation {
+header nav .main-navigation {
   -webkit-box-flex: 5;
       -ms-flex: 5;
           flex: 5;
 }
 
-header nav .Main_Navigation ul {
+header nav .main-navigation ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,7 +50,7 @@ header nav .Main_Navigation ul {
       justify-content: space-around;
 }
 
-header nav .Main_Navigation ul li {
+header nav .main-navigation ul li {
   list-style: none;
 }
 
@@ -68,7 +68,7 @@ footer {
           justify-content: space-between;
 }
 
-footer .Footer_Wrap {
+footer .footer-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,12 +81,12 @@ footer .Footer_Wrap {
           justify-content: center;
 }
 
-footer .Footer_Wrap button {
+footer .footer_wrap button {
   border-style: none;
   background-color: rgba(0, 0, 0, 0);
 }
 
-footer .Footer_Wrap h5, footer .Footer_Wrap h6, footer .Footer_Wrap label {
+footer .footer-wrap h5, footer .footer-wrap h6, footer .footer-wrap label {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
