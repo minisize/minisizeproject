@@ -7,7 +7,7 @@
     <title>Document</title>
 
     <!-- bootstrap link -->
-    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="assets/styles/main.css">
     
 </head>
 <body>
