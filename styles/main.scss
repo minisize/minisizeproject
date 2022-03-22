@@ -1,5 +1,7 @@
 // add variable overrides here
-
+$theme-colors: (
+    "primary": #000000
+);
 
 // include all of bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
