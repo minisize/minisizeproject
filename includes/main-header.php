@@ -7,11 +7,10 @@
     <title> Minisize </title>
 
     <!-- CSS Link -->
-
-    <link rel="stylesheet" href="../../styles/Includes/header_n_footer.css">
+    <link rel="stylesheet" href="../assets/styles/Includes/header_n_footer.css">
 
     <!-- bootstrap link -->
-    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../assets/styles/main.css">
 
     
 </head>

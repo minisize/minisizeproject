@@ -1,6 +1,6 @@
     <!-- Default Header Paste-->
     <?php
-        include_once '../include/header.php';
+        include_once './HTML/include/header.php';
     ?>
 
 
@@ -96,5 +96,5 @@
 
     <!-- Default Footer Paste -->
     <?php
-        include_once '../include/footer.php';
+        include_once './HTML/include/footer.php';
     ?>
