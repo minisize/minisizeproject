@@ -14,12 +14,12 @@
     <div id="acc-body">
         <nav id="side-nav">
             <ul>
-                <li>Profile</li>
-                <li>Orders</li>
-                <li>Wishlist</li>
-                <li>Address</li>
-                <li>Payment</li>
-                <li>Points</li>
+                <li><a href="account-profile.php">Profile</a></li>
+                <li><a href="account-orders.php">Orders</a></li>
+                <li><a href="account-wishlist.php">Wishlist</a></li>
+                <li><a href="account-address.php">Address</a></li>
+                <li><a href="account-payment.php">Payment</a></li>
+                <li><a href="account-points.php">Points</a></li>
                 <li>Log Out</li>
             </ul>
         </nav>
