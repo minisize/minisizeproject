@@ -1,9 +1,8 @@
     <!-- Default Header Paste-->
     <?php
-        include_once '../include/header.php';
+        include("includes/main-header.php");
     ?>
 
-<<<<<<< HEAD:index.php
     <!-- bootstrap link -->
     <link rel="stylesheet" href="assets/styles/main.css">
     
@@ -22,15 +21,6 @@
                         <li>About</li>
                     </ul>
                 </div>
-=======
-
-    <!-- Enter Main Content Here-->
-
-    <main>
-        <div class="homepage_product_1">
-
-            <label for=""> Picture of Hand </label>
->>>>>>> feature_homepage:HTML/home/index.php
             <div>
                 <h1> MiniSize </h1>
                 <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -117,5 +107,5 @@
 
     <!-- Default Footer Paste -->
     <?php
-        include_once '../include/footer.php';
+        include("includes/main-footer.php");
     ?>
