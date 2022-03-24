@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 23, 2022 at 07:01 AM
+-- Generation Time: Mar 24, 2022 at 08:13 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -105,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` varchar(50) NOT NULL,
   `short_description` varchar(100) NOT NULL,
   `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -119,6 +120,7 @@ CREATE TABLE IF NOT EXISTS `key_ingredient` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -229,6 +231,7 @@ CREATE TABLE IF NOT EXISTS `skin_concern` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
