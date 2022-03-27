@@ -1,6 +1,6 @@
     <!-- Default Header Paste-->
     <?php
-        include_once '../include/header.php';
+        include_once '/wamp64/www/phpservers/minisizeproject/includes/main-header.php';
     ?>
 
 
@@ -13,8 +13,7 @@
 
             <h1> Cream </h1>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Easy on the eyes. Hydrate and nourish with textures tailored for the area that ages fastest.
             </p>
             </div>
             <div class="container2"> Picture Product </div>
@@ -192,5 +191,5 @@
 
     <!-- Default Footer Paste -->
     <?php
-        include_once '../include/footer.php';
+        include_once '/wamp64/www/phpservers/minisizeproject/includes/main-footer.php';
     ?>

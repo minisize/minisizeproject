@@ -1,6 +1,6 @@
     <!-- Default Header Paste-->
     <?php
-        include_once './HTML/include/header.php';
+        include_once '/wamp64/www/phpservers/minisizeproject/includes/main-header.php';
     ?>
 
 
@@ -96,5 +96,5 @@
 
     <!-- Default Footer Paste -->
     <?php
-        include_once './HTML/include/footer.php';
+        include_once '/wamp64/www/phpservers/minisizeproject/includes/main-footer.php';
     ?>
