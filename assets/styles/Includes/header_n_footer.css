@@ -1,3 +1,7 @@
+body {
+  background-color: burlywood;
+}
+
 header nav {
   padding: 4vh 2vw;
   display: -webkit-box;
