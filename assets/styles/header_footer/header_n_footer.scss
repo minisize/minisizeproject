@@ -42,7 +42,8 @@ header nav .main-navigation ul li{
 }
 
 .dropdown-menu{
-    background-color: lightgoldenrodyellow;
+    padding: 0;
+    background-color: #F7F3F0;
     width: 100%;
     left: 0;
 
@@ -57,16 +58,8 @@ header nav .main-navigation ul li{
     }
 }
 
-.sub-item-dropdown{
-
-    &:hover > .sub-menu {
-        display: block;
-        opacity: 1;
-      }
-}
-
 .sub-menu{
-    background-color: lightblue;
+    background-color: #C4D7D1;
 }
 
 a {
