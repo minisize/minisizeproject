@@ -35,16 +35,38 @@ header nav .main-navigation ul li{
 }*/
 
 .nav-item-dropdown {
-    // position: relative;
     
     &:hover > .dropdown-menu {
       display: block;
-      opacity: 1;
     }
 }
 
 .dropdown-menu{
     background-color: lightgoldenrodyellow;
+    width: 100%;
+    left: 0;
+
+    ul{
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            list-style: none;
+            display: inline;
+        }
+    }
+}
+
+.sub-item-dropdown{
+
+    &:hover > .sub-menu {
+        display: block;
+        opacity: 1;
+      }
+}
+
+.sub-menu{
+    background-color: lightblue;
 }
 
 a {
