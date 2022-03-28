@@ -48,10 +48,29 @@
             <li class="nav-item nav-item-dropdown"><a href="#">Shop</a>
                 <section class="dropdown-menu">
                     <ul>
-                        <li><a href="#">Bundles</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">By Key Ingredient</a></li>
-                        <li><a href="#">By Concern</a></li>
+                        <li class="sub-item"><a href="#">Bundles</a></li>
+                        <li class="sub-item sub-item-dropdown"><a href="#">Category</a></li>
+                            <section class="sub-menu">
+                                <ul>
+                                    <li><a href="#">Bundles</a></li>
+                                    <li><a href="#">Moisturizer</a></li>
+                                    <li><a href="#">Toner</a></li>
+                                    <li><a href="#">Serum Essence</a></li>
+                                    <li><a href="#">Masks</a></li>
+                                </ul>
+                            </section>
+                        <li class="sub-item sub-item-dropdow"><a href="#">By Key Ingredient</a></li>
+                            <section class="sub-menu">
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </section>
+                        <li class="sub-item sub-item-dropdow"><a href="#">By Concern</a></li>
+                            <section class="sub-menu">
+                                <ul>
+                                    <li></li>
+                                </ul>
+                            </section>
                     </ul>
                 </section>
             </li>
