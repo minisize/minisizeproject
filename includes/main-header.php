@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Minisize </title>
 
-    <!-- CSS Link -->
-
-    <link rel="stylesheet" href="../assets/styles/header_footer/header_n_footer.css">
-
     <!-- bootstrap link -->
-    <link rel="stylesheet" href="../assets/styles/main.css">
+    <link rel="stylesheet" href="assets/styles/main.css">
 
-    
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css?version=3">
+
 </head>
 
 <header>
-        <nav>
+    <!-- <nav>
             <div class="side-navigation side-nav-left"> 
                 settings icon
             </div>
@@ -34,9 +36,39 @@
                 <label for=""><button>Profile Icon</button></label>
                 <label for=""><button>Shopping Cart Icon</button></label>
             </div>
-        </nav>
+        </nav> -->
+
+    <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
+        <i class="d-flex align-items-center col-1 text-dark material-icons">
+            settings
+        </i>
+
+        <ul class="main-nav nav col-8 justify-content-around align-items-center">
+            <li class="nav-item" ><a href="index.php">Home</a></li>
+            <li class="nav-item nav-item-dropdown"><a href="#">Shop</a>
+                <section class="dropdown-menu">
+                    <ul>
+                        <li><a href="#">Bundles</a></li>
+                        <li><a href="#">Category</a></li>
+                        <li><a href="#">By Key Ingredient</a></li>
+                        <li><a href="#">By Concern</a></li>
+                    </ul>
+                </section>
+            </li>
+            <li class="nav-item"><a href="index.php"><img src="assets/images/website/logo/logo-placeholder.png" alt="Minisize Logo"
+                        width="75"></a></li>
+            <li class="nav-item"><a href="#">Blogs</a></li>
+            <li class="nav-item"><a href="#">About</a></li>
+        </ul>
+
+        <div class="col-1 d-flex justify-content-between">
+            <a href="#" class="material-icons">account_circle</a>
+            <a href="#" class="material-icons">shopping_cart</a>
+        </div>
+    </header>
+
 </header>
-    
+
 <!-- DO NOT REMOVE OR MODIFY PAST THIS -->
 
 <body>
