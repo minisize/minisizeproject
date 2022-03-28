@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- CSS Link -->
-    <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css?version=3">
+    <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css">
 
 </head>
 
@@ -44,29 +44,30 @@
         </i>
 
         <ul class="main-nav nav col-8 justify-content-around align-items-center">
-            <li class="nav-item" ><a href="index.php">Home</a></li>
-            <li class="nav-item nav-item-dropdown"><a href="#">Shop</a>
-                <section class="dropdown-menu">
+            <li class="nav-item py-4" ><a href="index.php">Home</a></li>
+            <li class="nav-item nav-item-dropdown py-4"><a href="#">Shop</a>
+                <section class="dropdown-menu mt-4">
                     <ul>
-                        <li class="sub-item"><a href="#">Bundles</a></li>
-                        <li class="sub-item sub-item-dropdown"><a href="#">Category</a></li>
-                            <section class="sub-menu">
+                        <li class="nav-item"><a href="#" class="dropdown-item py-4">Bundles</a></li>
+                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">Category</a>
+                            <section class="dropdown-menu sub-menu">
                                 <ul>
-                                    <li><a href="#">Bundles</a></li>
-                                    <li><a href="#">Moisturizer</a></li>
-                                    <li><a href="#">Toner</a></li>
-                                    <li><a href="#">Serum Essence</a></li>
-                                    <li><a href="#">Masks</a></li>
+                                    <li><a href="#" class="dropdown-item py-4">Bundles</a></li>
+                                    <li><a href="#" class="dropdown-item py-4">Moisturizer</a></li>
+                                    <li><a href="#" class="dropdown-item py-4">Toner</a></li>
+                                    <li><a href="#" class="dropdown-item py-4">Serum Essence</a></li>
+                                    <li><a href="#" class="dropdown-item py-4">Masks</a></li>
                                 </ul>
                             </section>
-                        <li class="sub-item sub-item-dropdow"><a href="#">By Key Ingredient</a></li>
-                            <section class="sub-menu">
+                        </li>
+                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Key Ingredient</a></li>
+                            <section class="dropdown-menu sub-menu">
                                 <ul>
                                     <li></li>
                                 </ul>
                             </section>
-                        <li class="sub-item sub-item-dropdow"><a href="#">By Concern</a></li>
-                            <section class="sub-menu">
+                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Concern</a></li>
+                            <section class="dropdown-menu sub-menu">
                                 <ul>
                                     <li></li>
                                 </ul>
