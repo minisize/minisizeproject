@@ -1,6 +1,6 @@
 //This Section is for the Header SCSS
 
-header nav{
+/*header nav{
     padding: 4vh 2vw;
     display: flex;
     flex-direction: row;
@@ -32,7 +32,27 @@ header nav .main-navigation ul{
 
 header nav .main-navigation ul li{
     list-style: none;
+}*/
+
+.nav-item-dropdown {
+    // position: relative;
+    
+    &:hover > .dropdown-menu {
+      display: block;
+      opacity: 1;
+    }
 }
+
+.dropdown-menu{
+    background-color: lightgoldenrodyellow;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
 
 //This Section is for the Footer SCSS
 
