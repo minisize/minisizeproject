@@ -144,7 +144,6 @@
                                 <div> image of 4 out of 5 star rating </div>
                             </div>
                             <div>
-                                <label> 3 reviews </label>
                                 <div>
                                     <div class="progress">
                                         <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
@@ -190,6 +189,9 @@
 
                     </div>
 
+                    <div>
+                        <label> 3 reviews </label>
+                    </div>
                     <!-- Reviews -->
                         <!-- Customer Review Box 1 -->
                         <div>
@@ -203,7 +205,7 @@
                                 <div><label for="">was this helpe?</label><button>heart1</button><button>heart2</button></div>
 
                             </div>
-                            
+
                             <div>
 
                                 <p>
