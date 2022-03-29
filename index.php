@@ -97,6 +97,5 @@
 
     <!-- Default Footer Paste -->
     <?php
-        // include_once '/wamp64/www/phpservers/minisizeproject/includes/main-footer.php';
         include("includes/main-footer.php");
     ?>
