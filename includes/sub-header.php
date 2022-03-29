@@ -8,7 +8,7 @@
     <title>Minisize</title>
 
     <!-- bootstrap link -->
-    <link rel="stylesheet" href="../assets/styles/main.css">
+    <link rel="stylesheet" href="../../assets/styles/main.css">
 
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,7 +19,7 @@
 
     <header class="d-flex flex-wrap align-items-center justify-content-between p-3 border-bottom">
         <a class="d-flex align-items-center">
-            <img src="../assets/images/website/logo/logo-placeholder.png"
+            <img src="../../assets/images/website/logo/logo-placeholder.png"
                         alt="Minisize Logo" width="75">
         </a>
 
