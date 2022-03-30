@@ -7,12 +7,12 @@
     <title>Account</title>
     
     <!-- bootstrap link -->
-    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="../../assets/styles/main.css">
 </head>
 <body>
     <div id="acc-header"></div>
-    <div id="acc-body">
-        <nav id="side-nav">
+    <div id="acc-body" class="row">
+        <nav id="side-nav" class="col-2">
             <ul>
                 <li><a href="account-profile.php">Profile</a></li>
                 <li><a href="account-orders.php">Orders</a></li>
@@ -20,7 +20,6 @@
                 <li><a href="account-address.php">Address</a></li>
                 <li><a href="account-payment.php">Payment</a></li>
                 <li><a href="account-points.php">Points</a></li>
-                <li>Log Out</li>
+                <li><button>Log Out</button></li>
             </ul>
         </nav>
-    </div>
