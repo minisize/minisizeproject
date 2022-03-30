@@ -31,10 +31,21 @@
 
     <div class="tab-content">
         <div class="tab-pane active" id="signUp">
-            sign up
+            <form action="registration.php"  method="POST" class="sign-up-form">
+                <input type="text" class="form-control mt-2" name="sign_up_fname" placeholder="First Name" required> 
+                <input type="text" class="form-control mt-2" name="sign_up_lname" placeholder="Last Name" required>
+                <input type="email" class="form-control mt-2" name="sign_up_email" placeholder="Email" required>
+                <input type="password" class="form-control mt-2" name="sign_up_pass" placeholder="Password" required>
+                <input type="password" class="form-control mt-2" name="sign_up_cpass" placeholder="Confirm Password" required>
+                <input type="submit" class="btn btn-primary form-control mt-2" name="sign_up_btn" value="Create an account">
+            </form>
         </div>
         <div class="tab-pane" id="logIn">
-            log in
+            <form action="registration.php"  method="POST" class="login-form">
+                <input type="email" class="form-control mt-2" name="login_email" placeholder="Email" required>
+                <input type="password" class="form-control mt-2" name="login_pass" placeholder="Password" required>
+                <input type="submit" class="btn btn-primary form-control mt-2" name="login_btn" value="Login">
+            </form>
         </div>
     </div>
 
