@@ -20,5 +20,7 @@
 
 <!-- DO NOT REMOVE OR MODIFY PAST THIS -->
 
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
 </body>
 </html>
