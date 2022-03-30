@@ -1,0 +1,93 @@
+//This Section is for the Header SCSS
+
+/*header nav{
+    padding: 4vh 2vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header nav button{
+    border-style: none;
+    background-color: rgba($color: #000000, $alpha: 0);
+}
+
+header nav .side-nav-right{
+    display: flex;
+    justify-content: end;
+}
+
+header nav .side-navigation{
+    flex: 1;
+}
+
+header nav .main-navigation{
+    flex: 5;
+}
+header nav .main-navigation ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+header nav .main-navigation ul li{
+    list-style: none;
+}*/
+
+.nav-item-dropdown {
+    
+    &:hover > .dropdown-menu {
+      display: block;
+    }
+}
+
+.dropdown-menu{
+    padding: 0;
+    background-color: #F7F3F0;
+    width: 100%;
+    left: 0;
+
+    ul{
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            list-style: none;
+            display: inline;
+        }
+    }
+}
+
+.sub-menu{
+    background-color: #C4D7D1;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+//This Section is for the Footer SCSS
+
+footer{
+    display: flex;
+    padding: 0vh 2vw;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer .footer-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+footer .footer_wrap button{
+    border-style: none;
+    background-color: rgba($color: #000000, $alpha: 0);
+}
+footer .footer-wrap h5, footer .footer-wrap h6, footer .footer-wrap label{
+    align-self: center;
+}

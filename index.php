@@ -1,53 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <!-- bootstrap link -->
-    <link rel="stylesheet" href="assets/styles/main.css">
+    <!-- Default Header Paste-->
+    <?php
+        include("includes/main-header.php");
+    ?>
     
-</head>
-<body>
-    <!-- Will be copy pasted under Includes Header-->
-    <header>
-        <nav>
-            <div> settings icon</div>
-                <div> 
-                    <ul>
-                        <li>Home</li>
-                        <li>Shop</li>
-                        <label> Website icon </label>
-                        <li>Blog</li>
-                        <li>About</li>
-                    </ul>
-                </div>
-            <div>
-                <label for=""><button>Profile Icon</button></label>
-                <label for=""><button>Shopping Cart Icon</button></label>
-            </div>
-        </nav>
-    </header>
+    <br><br><br><br><br>
+    
+    <!-- <header>
+        <div>
+            <h3> BEST SELLERS </h3>
 
-    <footer>
-        <div>
-            <h5> Follow Us </h5>
-            <div>
-                <label for=""><button>Airplane Icon</button></label>
-                <label for=""><button>Like</button></label>
-                <label for=""><button>Share</button></label>
+            <div class="product_wrapper">
+                <div class="product_item_1">
+                <img src="#">
+                <h6> Item </h6>   
+                </div>
+                <div class="product_item_1">
+                <img src="#">
+                <h6> Item </h6>   
+                </div>
+                <div class="product_item_1">
+                <img src="#">
+                <h6> Item </h6>   
+                </div>
+                <div class="product_item_1">
+                <img src="#">
+                <h6> Item </h6>   
+                </div>
+                <div class="product_item_1">
+                <img src="#">
+                <h6> Item </h6>   
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="main_content">
+            <div class="container1">
+                <img src="#">
+                <div class="container1_subcontent">
+                    <h5> Meet our Bundles! </h5>
+                    <p>Meet our bundle! We provide small set of skincare products for one time use for our customers.</p>
+                    <button> View all </button>
+                </div>
+            </div>
+            <div class="container2">
+                <div class="container2_subcontent">
+                    <h5>Full-size products!</h5>
+                    <p>Full Sized products are available too! make sure to get a subscription in order to get discounts for the produts!</p>
+                    <button> View all </button>
+                </div>
+                <img src="#">
             </div>
         </div>
-        <div>
-            <button> SUBSCRIBE FOR MORE REWARDS </button>
+        <div class="sub_content">
+            <h4> Find the right products for your skin type! </h4>
+            <div class="box1">
+                <button> 
+                    <h2> Oily </h2>
+                </button>
+                
+            </div>
+            <div class="box2">
+                <button> 
+                    <h2> Dry </h2>
+                </button>
+                
+            </div>
+            <div class="box3">
+                <button> 
+                    <h2> Sensitive </h2>
+                </button>
+                
+            </div>
+            <div class="box4">
+                <button> 
+                    <h2> Combination </h2>
+                </button>
+                
+            </div>
         </div>
-        <div>
-            <h5> CONTACT US </h5>
-            <h6> 050 777 7777notarealnumber </h6>
-            <h6>MiniSize@Gmail.com</h6>
-        </div>
-    </footer>
-</body>
-</html>
+    </main> -->
+
+    <!-- Default Footer Paste -->
+    <?php
+        include("includes/main-footer.php");
+    ?>
