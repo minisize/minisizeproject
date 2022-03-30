@@ -20,6 +20,8 @@
 
     <br><br><br><br><br>
     
+    <script src="assets/javascript/scroll-anim.js"></script>
+
     <?php
         include("includes/main-footer.php");
     ?>
