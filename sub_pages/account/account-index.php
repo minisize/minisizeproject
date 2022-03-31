@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../assets/styles/main.css">
 </head>
 <body>
+    <?php require"../../includes/sub-header.php";?>
     <div id="acc-header"></div>
     <div id="acc-body" class="row">
         <nav id="side-nav" class="col-2">
