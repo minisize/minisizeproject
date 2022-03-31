@@ -2,11 +2,12 @@
         include("includes/main-header.php");
     ?>
 
-    <link rel="stylesheet" href="assets/styles/about_us/about.scss">
+    <link rel="stylesheet" href="assets/styles/about_us/about.css">
 
     <div class="top-background">
         <h1> Minisize </h1>
         <h3> One stop shop for all your skincare needs </h3>
+        <div class="fade-bg"></div>
     </div>
     <div class="top-info">
         <h2> About Us </h2>

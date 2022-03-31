@@ -1,0 +1,14 @@
+$header-color: #F5D1C3;
+$fade: #F5D1C3;
+
+.top-background
+{
+    background-color: $header-color;
+}
+
+.fade-bg
+{
+    opacity: 0.10;
+    background-color: $fade;
+    padding: 10pt;
+}
