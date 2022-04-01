@@ -11,6 +11,7 @@
 
     <!-- bootstrap link -->
     <link rel="stylesheet" href="assets/styles/main.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,6 +20,8 @@
     <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css">
 
 </head>
+
+<body>
 
 <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
     <button type="button"
@@ -71,24 +74,3 @@
         <button type="button" data-bs-toggle="modal" data-bs-target="#registerModal"
             class="btn btn-link text-dark text-decoration-none material-icons">shopping_cart</button>
     </div>
-</header>
-
-<!-- Registration Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content" style="height:500px"">
-            <div class="modal-header">
-                <h3 class="modal-title" id="registerModalLabel">Hello! Welcome to Minisize</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <iframe src="sub_pages/popup/registration.php" id="register_iframe" frameborder="0"
-                    width="100%" height="100%"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- DO NOT REMOVE OR MODIFY PAST THIS -->
-
-<body>
