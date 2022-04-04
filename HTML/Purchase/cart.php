@@ -1,4 +1,3 @@
-
     <!-- Default Header Paste-->
     <?php
         include("../../includes/sub-header.php");
@@ -27,6 +26,9 @@
       <th> empty column </th>
     </tr>
   </thead>
+
+  <!-- Items List -->
+
   <tbody>
     <tr>
       <th scope="row"> <img src="#"> Summer bundle pack </th>
