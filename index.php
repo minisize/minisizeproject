@@ -1,11 +1,25 @@
     <!-- Default Header Paste-->
     <?php
+        // include_once '/wamp64/www/phpservers/minisizeproject/includes/main-header.php';
         include("includes/main-header.php");
     ?>
-    
-    <br><br><br><br><br>
-    
-    <!-- <header>
+
+
+    <!-- Enter Main Content Here-->
+
+    <main>
+        <div class="homepage_product_1">
+
+            <label for=""> Picture of Hand </label>
+            <div>
+                <h1> MiniSize </h1>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+            </div>
+
+        </div>
         <div>
             <h3> BEST SELLERS </h3>
 
@@ -79,7 +93,7 @@
                 
             </div>
         </div>
-    </main> -->
+    </main>
 
     <!-- Default Footer Paste -->
     <?php
