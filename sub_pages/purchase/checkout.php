@@ -106,9 +106,6 @@
                     <div>Total:</div>
                     <div>5$</div>
                 </div>
-                
-
-
             </div>
             <form action="">
                 <input type="text" class="form-control" placeholder="Enter Voucher Code">
