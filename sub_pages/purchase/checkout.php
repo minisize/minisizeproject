@@ -21,21 +21,38 @@
             <button>change</button></div>
 
         <form action="Checkout_Details.php" method="post">
-
+            Delivery Method
             <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
+                <option value="0" selected>Regular Delivery ( 3 - 5 Days )</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
             </select>
 
-            Delivery method <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
+            Address <input type="text">
+            Payment Method   <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Cash
+                                    </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Card
+                                    </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
+                                    <label class="form-check-label" for="flexRadioDefault3">
+                                        Paypal
+                                    </label>
+                            </div>
+            Name on Card <input type="text">
+            Card Number <input type="text">
             <div>
-                <input type="text">
-                <input type="text">   
+                Expiry<input type="text">
+                CVV<input type="text">   
             </div>
             
         
@@ -44,8 +61,59 @@
 
         <div>
             <h1>Order Summary</h1>
-            <div></div>
-            <form action=""><input type="text"><input type="text"></form>
+            <div>
+
+                <!-- List of Items -->
+                <div>
+                    <div>
+                        <div>Summer bundle pack</div>
+                        <div>95$</div>
+                        <div> x1 </div>
+                    </div>
+                    <div>
+                        <div>Summer bundle pack</div>
+                        <div>95$</div>
+                        <div> x1 </div>
+                    </div>
+                    <div>
+                        <div>Summer bundle pack</div>
+                        <div>95$</div>
+                        <div> x1 </div>
+                    </div>
+                    <div>
+                        <div>Summer bundle pack</div>
+                        <div>95$</div>
+                        <div> x1 </div>
+                    </div>
+                    <div>
+                        <div>Summer bundle pack</div>
+                        <div>95$</div>
+                        <div> x1 </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div>Delivery Fee</div>
+                        <div>10$</div>
+                    </div>
+                    <div>
+                        <div>Special Voucher Code</div>
+                        <div>-77.25$</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div>Total:</div>
+                    <div>5$</div>
+                </div>
+                
+
+
+            </div>
+            <form action="">
+                <input type="text" class="form-control" placeholder="Enter Voucher Code">
+                <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+            </form>
         </div>
     </div>
 
