@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,54 +22,59 @@
 
 <body>
 
-<header class="d-flex flex-wrap align-items-center justify-content-between p-3">
-    <button type="button"
-        class="btn btn-link d-flex align-items-center col-1 text-dark text-decoration-none material-icons">
-        settings</button>
+<header>
 
-    <ul class="main-nav nav col-8 justify-content-around align-items-center">
-        <li class="nav-item py-4"><a href="index.php">Home</a></li>
-        <li class="nav-item nav-item-dropdown py-4"><a href="#">Shop</a>
-            <section class="dropdown-menu mt-4">
-                <ul>
-                    <li class="nav-item"><a href="#" class="dropdown-item py-4">Bundles</a></li>
-                    <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">Category</a>
+    <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
+        <button type="button"
+            class="btn btn-link d-flex align-items-center col-1 text-dark text-decoration-none material-icons">
+            settings</button>
+            
+        <ul class="main-nav nav col-8 justify-content-around align-items-center">
+            <li class="nav-item py-4"><a href="index.php">Home</a></li>
+            <li class="nav-item nav-item-dropdown py-4"><a href="#">Shop</a>
+                <section class="dropdown-menu mt-4">
+                    <ul>
+                        <li class="nav-item"><a href="#" class="dropdown-item py-4">Bundles</a></li>
+                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">Category</a>
+                            <section class="dropdown-menu sub-menu">
+                                <ul>
+                                    <li><a href="#" class="dropdown-item py-4">Bundles</a></li>
+                                    <li><a href="#" class="dropdown-item py-4">Moisturizer</a></li>
+                                    <li><a href="#" class="dropdown-item py-4">Toner</a></li>
+                                    <li><a href="#" class="dropdown-item py-4">Serum Essence</a></li>
+                                    <li><a href="#" class="dropdown-item py-4">Masks</a></li>
+                                </ul>
+                            </section>
+                        </li>
+                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Key
+                                Ingredient</a></li>
                         <section class="dropdown-menu sub-menu">
                             <ul>
-                                <li><a href="#" class="dropdown-item py-4">Bundles</a></li>
-                                <li><a href="#" class="dropdown-item py-4">Moisturizer</a></li>
-                                <li><a href="#" class="dropdown-item py-4">Toner</a></li>
-                                <li><a href="#" class="dropdown-item py-4">Serum Essence</a></li>
-                                <li><a href="#" class="dropdown-item py-4">Masks</a></li>
+                                <li></li>
                             </ul>
                         </section>
-                    </li>
-                    <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Key
-                            Ingredient</a></li>
-                    <section class="dropdown-menu sub-menu">
-                        <ul>
-                            <li></li>
-                        </ul>
-                    </section>
-                    <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Concern</a>
-                    </li>
-                    <section class="dropdown-menu sub-menu">
-                        <ul>
-                            <li></li>
-                        </ul>
-                    </section>
-                </ul>
-            </section>
-        </li>
-        <li class="nav-item"><a href="index.php"><img src="assets/images/website/logo/logo-placeholder.png"
-                    alt="Minisize Logo" width="75"></a></li>
-        <li class="nav-item"><a href="#">Blogs</a></li>
-        <li class="nav-item"><a href="#">About</a></li>
-    </ul>
+                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Concern</a>
+                        </li>
+                        <section class="dropdown-menu sub-menu">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </section>
+                    </ul>
+                </section>
+            </li>
+            <li class="nav-item"><a href="index.php"><img src="assets/images/website/logo/logo-placeholder.png"
+                        alt="Minisize Logo" width="75"></a></li>
+            <li class="nav-item"><a href="#">Blogs</a></li>
+            <li class="nav-item"><a href="#">About</a></li>
+        </ul>
 
-    <div class="col-1 d-flex justify-content-between">
-        <button type="button" data-bs-toggle="modal" data-bs-target="#registerModal"
-            class="btn btn-link text-dark text-decoration-none material-icons">account_circle</button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#registerModal"
-            class="btn btn-link text-dark text-decoration-none material-icons">shopping_cart</button>
-    </div>
+        <div class="col-1 d-flex justify-content-between">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#registerModal"
+                class="btn btn-link text-dark text-decoration-none material-icons">account_circle</button>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#registerModal"
+                class="btn btn-link text-dark text-decoration-none material-icons">shopping_cart</button>
+        </div>
+    </header>
+
+<!-- ADD ENDING </header> TAG AFTER INCLUDING THIS FILE IN PAGE -->
