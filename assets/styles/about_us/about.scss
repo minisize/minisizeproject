@@ -1,5 +1,6 @@
 $header-color: #F5D1C3;
-$fade: #F5D1C3;
+$fade: #f5d1c3ab;
+$h-color: #345553;
 
 .top-background
 {
@@ -11,4 +12,9 @@ $fade: #F5D1C3;
     opacity: 0.10;
     background-color: $fade;
     padding: 10pt;
+}
+
+h1
+{
+    color: $h-color;
 }

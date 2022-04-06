@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="assets/styles/about_us/about.css">
 
     <div class="top-background">
-        <h1> Minisize </h1>
+        <h1 class="about-title"> Minisize </h1>
         <h3> One stop shop for all your skincare needs </h3>
         <div class="fade-bg"></div>
     </div>

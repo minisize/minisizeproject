@@ -4,7 +4,11 @@
 
 .fade-bg {
   opacity: 0.10;
-  background-color: #F5D1C3;
+  background-color: #f5d1c3ab;
   padding: 10pt;
+}
+
+h1 {
+  color: #345553;
 }
 /*# sourceMappingURL=about.css.map */
