@@ -5,18 +5,22 @@
     <link rel="stylesheet" href="assets/styles/about_us/about.css">
 
     <div class="top-background">
-        <h1 class="about-title"> Minisize </h1>
-        <h3> One stop shop for all your skincare needs </h3>
+        <h1 id="about-title"> Minisize </h1>
+        <h3 id="mini-quota"> One stop shop for all your skincare needs </h3>
         <div class="fade-bg"></div>
     </div>
+
+</header>
+
     <div class="top-info">
-        <h2> About Us </h2>
+        <h2  id="about-title"> About Us </h2>
         <div class="us">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius autem mollitia quod veritatis fugiat, unde omnis molestiae, ea quisquam adipisci itaque placeat qui perspiciatis in temporibus sit maxime illum commodi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod rem cupiditate numquam corrupti quam nostrum, minus sit voluptatibus fuga deserunt. Repellendus perferendis nemo sint possimus aliquam reiciendis blanditiis quibusdam aspernatur!
         </div>
     </div>
 
     <div class="team-mate">
+        <h3  id="about-title"> Meet the team </h3>
         <div class="team">
             <h4>Project Manager</h4>
             <ul> 

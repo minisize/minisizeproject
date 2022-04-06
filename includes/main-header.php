@@ -18,7 +18,9 @@
 
 </head>
 
-<header>
+<body>
+
+<header class="top-background">
     <!-- <nav>
             <div class="side-navigation side-nav-left"> 
                 settings icon
@@ -87,8 +89,3 @@
         </div>
     </header>
 
-</header>
-
-<!-- DO NOT REMOVE OR MODIFY PAST THIS -->
-
-<body>

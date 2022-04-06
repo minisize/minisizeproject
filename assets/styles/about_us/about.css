@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&display=swap");
 .top-background {
   background-color: #F5D1C3;
 }
@@ -8,7 +9,12 @@
   padding: 10pt;
 }
 
-h1 {
+#about-title, #mini-quota {
   color: #345553;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.us {
+  font-family: "Playfair Display", serif;
 }
 /*# sourceMappingURL=about.css.map */
