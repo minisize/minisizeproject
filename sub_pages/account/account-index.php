@@ -1,3 +1,6 @@
+<?php
+    include("../../includes/sub-header.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
