@@ -17,25 +17,9 @@
 
 </head>
 
+<body>
+
 <header>
-    <!-- <nav>
-            <div class="side-navigation side-nav-left"> 
-                settings icon
-            </div>
-            <div class="main-navigation"> 
-                <ul>
-                    <li> <button> Home </button> </li>
-                    <li><button> products </button></li>
-                    <label> Website icon </label>
-                    <li><button> Blog </button></li>
-                    <li><button> About </button></li>
-                </ul>
-            </div>
-            <div class="side-navigation side-nav-right">
-                <label for=""><button>Profile Icon</button></label>
-                <label for=""><button>Shopping Cart Icon</button></label>
-            </div>
-        </nav> -->
 
     <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
         <i class="d-flex align-items-center col-1 text-dark material-icons">
@@ -86,8 +70,5 @@
         </div>
     </header>
 
-</header>
+<!-- ADD ENDING </header> TAG AFTER INCLUDING THIS FILE IN PAGE -->
 
-<!-- DO NOT REMOVE OR MODIFY PAST THIS -->
-
-<body>
