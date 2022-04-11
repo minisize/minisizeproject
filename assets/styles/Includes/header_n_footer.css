@@ -1,27 +1,8 @@
-<<<<<<< HEAD:assets/styles/Includes/header_n_footer.css
-body {
-  background-color: burlywood;
-}
-
-header nav {
-  padding: 4vh 2vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-=======
 /*header nav{
     padding: 4vh 2vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
->>>>>>> main:assets/styles/header_footer/header_n_footer.css
 }
 
 header nav button{
