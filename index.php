@@ -10,8 +10,8 @@
 <main class="">
     <div class="container ">
         <div class="row w-100">
-            <div class="col-2 " > Picture of Hand blablabla </div>
-            <div class="col-10 ">
+            <div class="col-3 " > Picture of Hand blablabla </div>
+            <div class="col-9 ">
                 <h1 class="text-center text-capitalize"> MiniSize </h1>
                 <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -24,23 +24,23 @@
         <h3 class="row"> BEST SELLERS </h3>
 
         <div class="product_wrapper row">
-            <div class="product_item_1 col">
+            <div class="col">
             <img src="#">
             <h6> Item </h6>   
             </div>
-            <div class="product_item_1 col">
+            <div class="col">
             <img src="#">
             <h6> Item </h6>   
             </div>
-            <div class="product_item_1 col">
+            <div class="col">
             <img src="#">
             <h6> Item </h6>   
             </div>
-            <div class="product_item_1 col">
+            <div class="col">
             <img src="#">
             <h6> Item </h6>   
             </div>
-            <div class="product_item_1 col">
+            <div class="col">
             <img src="#">
             <h6> Item </h6>   
             </div>
