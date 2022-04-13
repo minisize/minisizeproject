@@ -6,6 +6,13 @@
 
 </header>
 <!-- Enter Main Content Here-->
+<?php
+include("includes/server.php");
+
+$sql = "SELECT id,name,images FROM `products`";
+$result = $connect->query($sql);
+
+?>
 
 <main class="">
     <div class="container ">
@@ -24,26 +31,46 @@
         <h3 class="row"> BEST SELLERS </h3>
 
         <div class="product_wrapper row">
-            <div class="col">
-            <img src="#">
-            <h6> Item </h6>   
+            <?php
+            if ($result-> num_rows > 0){
+                while ($row = $result-> fetch_assoc()){
+                    echo "
+                    <div class='col'>
+                        <img src='#'>
+                        <h6>" .$row["name"] . " </h6> 
+                    </div>";
+                }
+            }
+            ?>
+
+
+
+<!--
+    <div class="col">
+                <img src="#">
+                <h6> Item </h6>   
             </div>
+
             <div class="col">
-            <img src="#">
-            <h6> Item </h6>   
+                <img src="#">
+                <h6> Item </h6>   
             </div>
+
             <div class="col">
-            <img src="#">
-            <h6> Item </h6>   
+                <img src="#">
+                <h6> Item </h6>   
             </div>
+
             <div class="col">
-            <img src="#">
-            <h6> Item </h6>   
+                <img src="#">
+                <h6> Item </h6>   
             </div>
+
             <div class="col">
-            <img src="#">
-            <h6> Item </h6>   
+                <img src="#">
+                <h6> Item </h6>   
             </div>
+-->
             
         </div>
         
