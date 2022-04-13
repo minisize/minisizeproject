@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&display=swap');
 
 $header-color: #F5D1C3;
-$fade: #f5d1c3ab;
+$fade: #f5d1c380;
 $h-color: #345553;
 $font-title: 'Josefin Sans', sans-serif;
 $font-text: 'Playfair Display', serif;
@@ -18,7 +18,7 @@ $font-text: 'Playfair Display', serif;
     padding: 10pt;
 }
 
-#about-title, #mini-quota
+.about-title
 {
     color: $h-color;
     font-family: $font-title;

@@ -5,11 +5,11 @@
 
 .fade-bg {
   opacity: 0.10;
-  background-color: #f5d1c3ab;
+  background-color: #f5d1c380;
   padding: 10pt;
 }
 
-#about-title, #mini-quota {
+.about-title {
   color: #345553;
   font-family: "Josefin Sans", sans-serif;
 }
