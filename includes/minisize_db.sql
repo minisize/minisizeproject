@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 24, 2022 at 08:13 AM
+-- Generation Time: Apr 13, 2022 at 06:10 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -107,7 +107,19 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `short_description`, `description`, `image`) VALUES
+(1, 'Bundles', '', '', ''),
+(2, 'Cleanser', '', '', ''),
+(3, 'Toner', '', '', ''),
+(4, 'Serum & Essence', '', '', ''),
+(5, 'Moisturizer', '', '', ''),
+(6, 'Masks', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -122,7 +134,22 @@ CREATE TABLE IF NOT EXISTS `key_ingredient` (
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `key_ingredient`
+--
+
+INSERT INTO `key_ingredient` (`id`, `name`, `description`, `image`) VALUES
+(1, 'Hyaluronic Acid', '', ''),
+(2, 'Niacinamide', '', ''),
+(3, 'Vitamin E', '', ''),
+(4, 'Antioxidants', '', ''),
+(5, 'Salicylic Acid', '', ''),
+(6, 'Amino Acids', '', ''),
+(7, 'Butylene Glycol', '', ''),
+(8, 'Citric Acid', '', ''),
+(9, 'Glycerin', '', '');
 
 -- --------------------------------------------------------
 
@@ -197,7 +224,18 @@ CREATE TABLE IF NOT EXISTS `products` (
   KEY `category_product_fk` (`category_id`),
   KEY `key_ingredient_product_fk` (`key_ingredient_id`),
   KEY `skin_concern_product_fk` (`skin_concern_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `category_id`, `key_ingredient_id`, `skin_concern_id`, `name`, `cosdna_link`, `description`, `for_skin_type`, `for_skin_concern`, `category`, `brand`, `main_ingredient`, `in_cart`, `in_wishlist`, `base_price`, `price`, `images`, `num_ratings`, `sum_ratings`) VALUES
+(1, 2, 1, 1, 'Hydrating Facial Cleanser', 'http://www.cosdna.com/eng/cosmetic_3183346169.html', 'A cleanser can remove dirt, makeup and other debris, but a hydrating cleanser, like CeraVe Hydrating Facial Cleanser, can do all that without disrupting the skin’s natural protective barrier or stripping the skin of its natural moisture.', 'Normal, Dry', 'Hydration', 'Cleanser', 'CeraVe', '3 essential ceramides', 0, 0, '14', '0', '0', 0, 0),
+(2, 2, 2, 4, 'Brightening & Pore-caring Facial Cleanser', 'http://www.cosdna.com/eng/cosmetic_1488318714.html', 'Hydrating, white clay-infused cleansing foam that helps remove impurities from pores for clear, refreshed skin.', 'All', 'Dullness & Uneven Skin Tone', 'Cleanser', 'InnisFree', 'Jeju tangerine peel extract', 0, 0, '17', '0', '0', 0, 0),
+(6, 2, 3, 1, 'Gentle Milk Cleanser', 'http://www.cosdna.com/eng/cosmetic_c837457675.html', 'Gentle, no-rinse cleanser for dry skin removes make-up, dirt and oil while providing moisture and antioxidant protection. Skin is left smooth, soft and supple.', 'Dry', 'Hydration', 'Cleanser', 'Avene', 'Avene Thermal Spring Water', 0, 0, '20', '0', '0', 0, 0),
+(7, 2, 6, 6, 'Perfect Renew Youth Skin Refiner', 'http://www.cosdna.com/eng/cosmetic_f8c4539848.html', 'An anti-aging toner used as the first step after cleansing to nourish, hydrate, and soften skin, helping prep it to better absorb the rest of your skincare products.', 'All', 'Age Prevention', 'Cleanser', 'Laneige', 'Wild Butterfly Ginger', 0, 0, '39', '0', '0', 0, 0),
+(8, 2, 5, 2, 'Peach Slices Acne Clarifying Cleanser', 'http://www.cosdna.com/eng/cosmetic_140b567382.html', 'Clinically-proven cleanser helps clear & prevent acne rapidly, deep cleans, and soothes. Gentle yet effective clinically-proven cleanser easily removes stubborn impurities and oil for a deep clean that leaves skin visibly clear, smooth and calm.', 'Combination, Normal, Oily, Dry', 'Pore Solutions', 'Cleanser', 'Peach & Lily', 'Acerola', 0, 0, '11', '0', '0', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -233,7 +271,20 @@ CREATE TABLE IF NOT EXISTS `skin_concern` (
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `skin_concern`
+--
+
+INSERT INTO `skin_concern` (`id`, `name`, `description`, `image`) VALUES
+(1, 'Hydration', '', ''),
+(2, 'Pore Solutions', '', ''),
+(3, 'Troubled Skin', '', ''),
+(4, 'Dullness & Uneven Skin Tone', '', ''),
+(5, 'Sensitive Skin', '', ''),
+(6, 'Age Prevention', '', ''),
+(7, 'Lifting & Firming', '', '');
 
 -- --------------------------------------------------------
 
