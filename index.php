@@ -31,6 +31,8 @@ $result = $connect->query($sql);
         <h3 class="row"> BEST SELLERS </h3>
 
         <div class="product_wrapper row">
+
+            <!-- PHP CODE FOR LISTING -->
             <?php
             if ($result-> num_rows > 0){
                 while ($row = $result-> fetch_assoc()){
@@ -42,8 +44,6 @@ $result = $connect->query($sql);
                 }
             }
             ?>
-
-
 
 <!--
     <div class="col">
