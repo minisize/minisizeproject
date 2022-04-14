@@ -6,13 +6,6 @@
 
 </header>
 <!-- Enter Main Content Here-->
-<?php
-include("includes/server.php");
-
-$sql = "SELECT id,name,images FROM `products`";
-$result = $connect->query($sql);
-
-?>
 
 <main class="">
     <div class="container ">

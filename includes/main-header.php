@@ -1,3 +1,10 @@
+<?php
+    include("includes/server.php");
+
+    $sql = "SELECT id,name,images FROM `products`";
+    $result = $connect->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
