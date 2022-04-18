@@ -1,7 +1,7 @@
 <?php
     include("includes/server.php");
 
-    $sql = "SELECT id,name,images FROM `products`";
+    $sql = "SELECT * FROM `products`";
     $result = $connect->query($sql);
 ?>
 
