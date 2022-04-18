@@ -27,15 +27,35 @@
 
             <!-- PHP CODE FOR LISTING -->
             <?php
-            if ($result-> num_rows > 0){
-                while ($row = $result-> fetch_assoc()){
+
+
+            //Limit the items to display
+            $Item_Display_Limit=0;
+            if ($result -> num_rows > 0){
+
+                while (($row = $result -> fetch_assoc()) && ($Item_Display_Limit <= 0)){
+
+                    //set $jsonobj to the value of input of the array "images" from $row;
+                    $jsonobj = $row["images"];
+                    //set $obj to the value of a php object converted from the string of $jsonobj
+                    $obj = json_decode($jsonobj);
+                    // Set $img to the value of image1 from images by php object $obj
+                    $img = $obj->images->image1;
+
+                    //Creation of HTML
                     echo "
                     <div class='col'>
-                        <img src='#'>
+                        <img src='" . $img . "'>
                         <h6>" .$row["name"] . " </h6> 
                     </div>";
+
+                    $Item_Display_Limit += 1;
                 }
-            }
+            } else {
+                echo "0 results";
+              }
+
+            
             ?>
 
 <!--
