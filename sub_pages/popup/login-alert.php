@@ -12,11 +12,11 @@
                 <p class="text-center py-2">Before accessing this feature, you need to be logged in. Create one or use an existing account!</p>
 
                 <div class="buttons">
-                    <a href="products.php" class="btn btn-primary form-control">Log In</a> 
+                    <a href="login.php" class="btn btn-primary form-control">Log In</a> 
                     <br>
                     <a href="registration.php" class="btn form-control">Create an account</a>
                 </div>
-                
+
             </div>
         </div>
     </div>
