@@ -1,6 +1,9 @@
 <?php 
     require 'includes/server.php';
     include("sub_pages/popup/login-alert.php")
+
+    $sql = "SELECT * FROM `products`";
+    $result = $connect->query($sql);
 ?>
 
 <!DOCTYPE html>

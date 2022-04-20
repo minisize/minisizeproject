@@ -7,7 +7,7 @@
 
 </header>
 
-<!-- Enter Main Content Here-->
+    <main class="container">
 
 <main>
 
@@ -25,20 +25,35 @@
         </div>
         <div>
 
-            <div>
-                <div>
-                    <!-- Header Section of Item -->
+                <div class="">
                     <div>
-                        <h2>Dewy Glow</h2>
-                        <div>
-                            <h5>With Jeju cherry blossom</h5>
-                            <a href=""><img src="#" alt="">ingredient list</img></a>
+                        <!-- Header Section of Item -->
+                        <div class="container">
+                            <div class="row">
+                                <h2 class="col">Dewy Glow </h2>
+                                <img src="#" class="col">
+                            </div>
+                            
+                            <div class="row">
+                                <h5 class="col">With Jeju cherry blossom</h5>
+                                <a href="" class="col"><img src="#" >ingredient list</img></a>
+                            </div>
                         </div>
                     </div>
-                    <div><img src="#" alt=""></div>
-                </div>
-                    <!-- Main Section of Item -->
-                <div>
+                        <!-- Main Section of Item -->
+                    <div class="container">
+
+                        <p class="row">
+                        A hydrating toner with a lightweight watery texture that instantly recharges skin post cleansing with added radiance boosting benefits.
+                        </p>
+                        <div class="row">
+                            <button class="col" ><img src="#" alt="">10ml</button>
+                            <button class="col"><img src="#" alt="">15ml</button>
+                            <button class="col"><img src="#" alt="">20ml</button>
+                        </div>
+                        <div class="row">
+                            <label for="" class="col">14 AED</label><a href="" class="col">View full product</a><button class="col">Add to Cart</button>
+                        </div>
 
                     <p></p>
                     <div>
@@ -46,88 +61,94 @@
                         <button><img src="#" alt="">15ml</button>
                         <button><img src="#" alt="">20ml</button>
                     </div>
-                    <div>
-                        <label for="">14 AED</label><a href="">View full product</a><button>Add to Cart</button>
-                    </div>
+                        <!-- Footer Section of Item -->
+                    <div class="container">
+                        <div class="row"> PURCHASE AND EARN 5</div>
 
-                </div>
-                    <!-- Footer Section of Item -->
-                <div>
-                    <div> PURCHASE AND EARN 5</div>
-
-                    <!-- Bootstrap of Tabs from https://getbootstrap.com/docs/5.1/components/navs-tabs/#javascript-behavior -->
-                    <div>
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
-                        </li>
-                        </ul>
-                        <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Orders $50 and over always ship for free without an offer code For shipments totaling less than $50, there is a delivery charge of $7.95 for ground shipping. Please allow up to 4 business days processing time, depending on when you place your order.</div>
-                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-                            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+                        <!-- Bootstrap of Tabs from https://getbootstrap.com/docs/5.1/components/navs-tabs/#javascript-behavior -->
+                        <div class="row">
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+                            </li>
+                            </ul>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Orders $50 and over always ship for free without an offer code For shipments totaling less than $50, there is a delivery charge of $7.95 for ground shipping. Please allow up to 4 business days processing time, depending on when you place your order.</div>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Similar Products -->
-            <div>
-                <div>
+                <!-- Similar Products -->
+                <div class="container">
+                    <div class="row">
 
-                    <h1>
-                        Similar Products
-                    </h1>
+                        <h1 >
+                            Similar Products
+                        </h1>
 
-                    <h6>
-                        with the same key ingredients
-                    </h6>
-                    
-                </div>
-                <div>
-                    <div>
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
+                        <h6>
+                            with the same key ingredients
+                        </h6>
+                        
                     </div>
-                    <div><label for="">12 dhs</label></div>
+                    <div class="row">
+                        <div class="col">
+                            <img src="#" alt="">
+                            <h3>Item Name</h3>
+                            <p>contains</p>
+                            <img src="#">
+                            <div><label for="">12 dhs</label></div>
+                        </div>
 
-                    <div>
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
-                    </div>
-                    <div><label for="">12 dhs</label></div>
+                        <div class="col">
+                            <img src="#" alt="">
+                            <h3>Item Name</h3>
+                            <p>contains</p>
+                            <img src="#">
+                            <div><label for="">12 dhs</label></div>
+                        </div>
 
-                    <div>
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
-                    </div>
-                    <div><label for="">12 dhs</label></div>
+                        <div class="col">
+                            <img src="#" alt="">
+                            <h3>Item Name</h3>
+                            <p>contains</p>
+                            <img src="#">
+                            <div><label for="">12 dhs</label></div>
+                        </div>
 
-                    <div>
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
-                    </div>
-                    <div><label for="">12 dhs</label></div>
+                        <div class="col">
+                            <img src="#" alt="">
+                            <h3>Item Name</h3>
+                            <p>contains</p>
+                            <img src="#">
+                            <div><label for="">12 dhs</label></div>
+                        </div>
 
-                    <div>
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
+                        <div class="col">
+                            <img src="#" alt="">
+                            <h3>Item Name</h3>
+                            <p>contains</p>
+                            <img src="#">
+                            <div><label for="">12 dhs</label></div>
+                        </div>
+
+                        <div class="col">
+                            <img src="#" alt="">
+                            <h3>Item Name</h3>
+                            <p>contains</p>
+                            <img src="#">
+                            <div><label for="">12 dhs</label></div>
+                        </div>
                     </div>
                     <div><label for="">12 dhs</label></div>
                 </div>
