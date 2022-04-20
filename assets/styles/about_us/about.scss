@@ -18,10 +18,17 @@ $font-text: 'Playfair Display', serif;
     padding: 10pt;
 }
 
-.about-title
+#about-title
 {
     color: $h-color;
     font-family: $font-title;
+}
+
+li
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 #mini-quota

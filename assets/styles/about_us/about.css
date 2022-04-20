@@ -9,9 +9,15 @@
   padding: 10pt;
 }
 
-.about-title {
+#about-title {
   color: #345553;
   font-family: "Josefin Sans", sans-serif;
+}
+
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 #mini-quota {
