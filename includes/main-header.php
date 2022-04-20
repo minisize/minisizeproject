@@ -1,6 +1,6 @@
 <?php 
     require 'includes/server.php';
-    include("sub_pages/popup/registration.php")
+    include("sub_pages/popup/login-alert.php")
 ?>
 
 <!DOCTYPE html>
