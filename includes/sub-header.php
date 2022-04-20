@@ -1,5 +1,3 @@
-<?php require '../../includes/server.php';?>
-
 <!DOCTYPE html>
 <html lang="en">
 
