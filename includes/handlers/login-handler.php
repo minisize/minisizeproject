@@ -1,4 +1,6 @@
 <?php
+    $errorListLogin = array();
+
     if(isset($_POST['login_btn'])){
         $email = filter_var($_POST['login_email'], FILTER_SANITIZE_EMAIL); //verify email is in correct format
         $_SESSION['login_email'] = $email;
@@ -23,9 +25,11 @@
 
                 $userID = $row['id'];
                 $_SESSION['id'] = $userID;
-            }
-            else {
-                array_push($errorListLogin, "Email or password is incorrect.");
+
+                // redirect to index.php
+                header("Location: index.php");
+
+                exit();
             }
             
         }
