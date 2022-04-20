@@ -1,9 +1,27 @@
 <?php
 
     $errorListRegister = array();
-    $errorListLogin = array();
 
     if(isset($_POST['sign_up_btn'])){
+
+        // Survey results
+        $resultQueryOily = $_POST['survey_query_oil']; 
+        $resultQueryDry = $_POST['survey_query_dry'];
+        $resultQuerySensitive = $_POST['survey_query_sensitive'];
+        $resultQueryConcern = $_POST['survey_query_concern'];
+        $resultSkinType = "";
+
+        if($resultQueryOily == "No" && $resultQueryDry == "No" && $resultQuerySensitive == "No"){
+            $resultSkinType = "Normal";
+        } else if ($resultQueryOily == "Yes" && $resultQueryDry == "Yes" && $resultQuerySensitive == "No"){
+            $resultSkinType = "Combination";
+        } else if ($resultQueryOily == "No" && $resultQueryDry == "Yes" && $resultQuerySensitive == "No"){
+            $resultSkinType = "Dry";
+        } else if ($resultQueryOily == "Yes" && $resultQueryDry == "No" && $resultQuerySensitive == "No"){
+            $resultSkinType = "Oily";
+        } else if ($resultQuerySensitive == "Yes"){
+            $resultSkinType = "Sensitive";
+        }
 
         // Remove html tags from form values
         $firstName = strip_tags($_POST['sign_up_fname']);
@@ -32,8 +50,7 @@
                 array_push($errorListRegister, "Email already in use."); // store error message into array
             }
 
-        }
-        else {
+        } else {
             array_push($errorListRegister, "Invalid email format.");
         }
 
@@ -61,17 +78,27 @@
             $profilePic = "assets/images/profile_pics/default.png";
 
             // Send values into the database
-            $sql = "INSERT INTO users (username, encrypted_pass, first_name, last_name, email, skin_type, skin_concern, points, registered_on, profile_img) VALUES ('$username', '$hashedPass', '$firstName', '$lastName', '$email', 'None', 'None', '0', '$registeredDate', '$profilePic')";
-            if (mysqli_query($connect, $sql)) {
-                echo "New record created successfully";
+            $insertUser = "INSERT INTO users (username, encrypted_pass, first_name, last_name, email, skin_type, skin_concern, points, registered_on, profile_img) VALUES ('$username', '$hashedPass', '$firstName', '$lastName', '$email', '$resultSkinType', '$resultQueryConcern', '0', '$registeredDate', '$profilePic')";
+            if (mysqli_query($connect, $insertUser)) {
+                // check DB for user email
+                $checkUserEmail = mysqli_query($connect, "SELECT * FROM users WHERE email='$email'");
+                
+                // access results from query into $row
+                $row = mysqli_fetch_array($checkUserEmail);
+                $userID = $row['id'];
+
+                // send survey results into the databse
+                $resultsQuery = mysqli_query($connect, "INSERT INTO skin_survey_results (user_id, oily, dry, sensitivity, skin_concern) VALUES ('$userID', '$resultQueryOily', '$resultQueryDry', '$resultQuerySensitive', '$resultQueryConcern')");
 
                 // Clear session variables
                 $_SESSION['sign_up_fname'] = ""; 
                 $_SESSION['sign_up_lname'] = ""; 
                 $_SESSION['sign_up_email'] = ""; 
 
+                echo "New record created successfully";
+
             } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+                echo "Error: " . $insertUser . "<br>" . mysqli_error($connect);
             }
 
         } else {
