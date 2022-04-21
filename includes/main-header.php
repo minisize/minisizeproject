@@ -1,6 +1,26 @@
-<?php 
-    require 'includes/server.php';
-    include("sub_pages/popup/login-alert.php")
+<?php require 'includes/server.php';
+    
+    if (isset($_SESSION['id'])){
+        $userLoggedIn = $_SESSION['id'];
+        $userDetailsQuery = mysqli_query($connect, "SELECT * FROM users WHERE id='$userLoggedIn'");
+        $user = mysqli_fetch_array($userDetailsQuery);
+
+        ?>
+            <script>
+            function accountPage() {
+                window.location.href = "sub_pages/account/account-profile.php";
+            }
+
+            function cartPage() {
+                window.location.href = "sub_pages/purchase/cart.php";
+            }
+            </script>
+
+        <?php
+
+    } else {
+        include("sub_pages/popup/login-alert.php");
+    }
 
     $sql = "SELECT * FROM `products`";
     $result = $connect->query($sql);
@@ -75,9 +95,9 @@
         </ul>
 
         <div class="col-1 d-flex justify-content-between">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#registerModal"
+            <button type="button" onclick="accountPage()" data-bs-toggle="modal" data-bs-target="#registerModal"
                 class="btn btn-link text-dark text-decoration-none material-icons">account_circle</button>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#registerModal"
+            <button type="button" onclick="cartPage()" data-bs-toggle="modal" data-bs-target="#registerModal"
                 class="btn btn-link text-dark text-decoration-none material-icons">shopping_cart</button>
         </div>
     </header>
