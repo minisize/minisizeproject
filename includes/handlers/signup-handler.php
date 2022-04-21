@@ -60,7 +60,8 @@
         }
 
         if(empty($errorListRegister)){
-            $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
+            // encrypt password before adding into database
+            $hashedPass = md5($pass);
 
             // Generate username
             $username = strtolower($firstName . $lastName);

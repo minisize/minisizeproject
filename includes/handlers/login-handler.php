@@ -5,33 +5,30 @@
         $email = filter_var($_POST['login_email'], FILTER_SANITIZE_EMAIL); //verify email is in correct format
         $_SESSION['login_email'] = $email;
 
-        $password = $_POST['login_pass'];
+        $password = md5($_POST['login_pass']);
 
-        // check if email is in the database
-        $checkDB = mysqli_query($connect, "SELECT * FROM users WHERE email='$email'");
+        // check if email and password is in the database
+        $checkDB = mysqli_query($connect, "SELECT * FROM users WHERE email='$email' AND encrypted_pass='$password'");
         
-        $row = mysqli_fetch_array($checkDB);
-        $hashedPass = $row['encrypted_pass']; 
+        // return no. of results from checking database
+        $checkLogin = mysqli_num_rows($checkDB);
 
-        if(password_verify($password, $hashedPass)) {
+        if($checkLogin == 1){
 
-            // Return no. of results from checking database
-            $checkLogin = mysqli_num_rows($checkDB);
+            // access results from query into $row
+            $row = mysqli_fetch_array($checkDB);
 
-            if($checkLogin == 1){
+            $user_id = $row['id'];
+            $_SESSION['id'] = $user_id;
 
-                // access results from query into $row
-                $row = mysqli_fetch_array($checkDB);
-
-                $userID = $row['id'];
-                $_SESSION['id'] = $userID;
-
-                // redirect to index.php
-                header("Location: index.php");
-
-                exit();
-            }
+            // redirect to index.php
+            header("Location: index.php");
             
+            exit();
+        }
+        else {
+            // clear session variable
+            $_SESSION['login_email'] = "";
         }
 
     }
