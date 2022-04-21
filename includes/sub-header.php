@@ -26,8 +26,8 @@
         </a>
 
         <div class="col-1 d-flex justify-content-between">
-            <a href="../index.php" class="material-icons text-decoration-none link-dark">home</a>
-            <a href="#" class="material-icons text-decoration-none link-dark">shopping_cart</a>
+            <a href="../../index.php" class="material-icons text-decoration-none link-dark">home</a>
+            <a href="../purchase/cart.php" class="material-icons text-decoration-none link-dark">shopping_cart</a>
         </div>
     </header>
 
