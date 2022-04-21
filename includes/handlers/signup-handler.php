@@ -81,22 +81,14 @@
             // Send values into the database
             $insertUser = "INSERT INTO users (username, encrypted_pass, first_name, last_name, email, skin_type, skin_concern, points, registered_on, profile_img) VALUES ('$username', '$hashedPass', '$firstName', '$lastName', '$email', '$resultSkinType', '$resultQueryConcern', '0', '$registeredDate', '$profilePic')";
             if (mysqli_query($connect, $insertUser)) {
-                // check DB for user email
-                $checkUserEmail = mysqli_query($connect, "SELECT * FROM users WHERE email='$email'");
-                
-                // access results from query into $row
-                $row = mysqli_fetch_array($checkUserEmail);
-                $userID = $row['id'];
-
-                // send survey results into the databse
-                $resultsQuery = mysqli_query($connect, "INSERT INTO skin_survey_results (user_id, oily, dry, sensitivity, skin_concern) VALUES ('$userID', '$resultQueryOily', '$resultQueryDry', '$resultQuerySensitive', '$resultQueryConcern')");
-
+               
                 // Clear session variables
                 $_SESSION['sign_up_fname'] = ""; 
                 $_SESSION['sign_up_lname'] = ""; 
                 $_SESSION['sign_up_email'] = ""; 
 
-                echo "New record created successfully";
+                // redirect to index.php
+                header("Location: index.php");
 
             } else {
                 echo "Error: " . $insertUser . "<br>" . mysqli_error($connect);
