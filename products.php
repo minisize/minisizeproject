@@ -1,10 +1,11 @@
-    <!-- Default Header Paste-->
-    <?php
-        include_once '/wamp64/www/phpservers/minisizeproject/includes/main-header.php';
-    ?>
+<!-- Default Header Paste-->
+<?php
+    include("includes/main-header.php");
+?>
 
+<!--Add hero header in here-->
 
-    <!-- Enter Main Content Here-->
+</header>
 
     <main class="">
         <div class="container">
@@ -25,19 +26,41 @@
             <div class="maincontent-header container">
                 <div class="maincontent-filter1 row">
 
-                <label> Home > Cream </label>
+            <label> Home > Cream </label>
+            </div>
+            <div class="maincontent-filter2">
+                <div class="filter-section">
+                    <h6> Filter by </h6>
+
+                    <select name="skin-type" id="" >
+                        <option value="select1">Option 1</option>
+                        <option value="select2">Option 1</option>
+                        <option value="select3">Option 1</option>
+                        <option value="select4">Option 1</option>
+                        <option value="select5">Option 1</option>
+                    </select>
+
+                    <select name="ingredient" id="" >
+                        <option value="select1">Option 1</option>
+                        <option value="select2">Option 1</option>
+                        <option value="select3">Option 1</option>
+                        <option value="select4">Option 1</option>
+                        <option value="select5">Option 1</option>
+                    </select>
+
+                    <select name="benefit" id="" >
+                        <option value="select1">Option 1</option>
+                        <option value="select2">Option 1</option>
+                        <option value="select3">Option 1</option>
+                        <option value="select4">Option 1</option>
+                        <option value="select5">Option 1</option>
+                    </select>
                 </div>
                 <div class="maincontent-filter2 row">
                     <div class="filter-section col-9">
                         <h6> Filter by </h6>
 
-                        <select name="skin-type" id="" >
-                            <option value="select1">Option 1</option>
-                            <option value="select2">Option 1</option>
-                            <option value="select3">Option 1</option>
-                            <option value="select4">Option 1</option>
-                            <option value="select5">Option 1</option>
-                        </select>
+                <div class="sort-section">
 
                         <select name="ingredient" id="" >
                             <option value="select1">Option 1</option>
@@ -52,19 +75,77 @@
 
                     <h6> Sort by </h6>
 
-                       <select name="Featured" id="" >
-                            <option value="select1">Option 1</option>
-                            <option value="select2">Option 1</option>
-                            <option value="select3">Option 1</option>
-                            <option value="select4">Option 1</option>
-                            <option value="select5">Option 1</option>
-                        </select>
+            </div>
 
-                    </div>
-                    
+        </div>
+        <div class="maincontent-container2">
 
+            <div class="product-container">
+                <label for=""></label><img src="#" alt="">
+                <div class="product-display">
+                    <h6> Item Name </h6>
+                    <p>subcontent</p>
+                </div>
+                <div class="product-price">
+                    <label for=""> 15 AED </label>
+                    <a href=""> 25 reviews </a>
+                </div>
+            </div>
+            <div class="product-container">
+                <label for=""></label><img src="#" alt="">
+                <div class="product-display">
+                    <h6> Item Name </h6>
+                    <p>subcontent</p>
+                </div>
+                <div class="product-price">
+                    <label for=""> 15 AED </label>
+                    <a href=""> 25 reviews </a>
+                </div>
+            </div>
+            <div class="product-container">
+                <label for=""></label><img src="#" alt="">
+                <div class="product-display">
+                    <h6> Item Name </h6>
+                    <p>subcontent</p>
+                </div>
+                <div class="product-price">
+                    <label for=""> 15 AED </label>
+                    <a href=""> 25 reviews </a>
+                </div>
+            </div>
+            <div class="product-container">
+                <label for=""></label><img src="#" alt="">
+                <div class="product-display">
+                    <h6> Item Name </h6>
+                    <p>subcontent </p>
+                </div>
+                <div class="product-price">
+                    <label for=""> 15 AED </label>
+                    <a href=""> 25 reviews </a>
+                </div>
+            </div>
+            <div class="product-container">
+                <label for=""></label><img src="#" alt="">
+                <div class="product-display">
+                    <h6> Item Name </h6>
+                    <p> subcontent </p>
                 </div>
 
+                <div class="product-price">
+                    <label for=""> 15 AED </label>
+                    <a href=""> 25 reviews </a>
+                </div>
+                </div>
+            <div class="product-container">
+                <label for=""></label><img src="#" alt="">
+                <div class="product-display">
+                    <h6> Item Name </h6>
+                    <p>subcontent</p>
+                </div>
+                <div class="product-price">
+                    <label for=""> 15 AED </label>
+                    <a href=""> 25 reviews </a>
+                </div>
             </div>
             <div class="container">
                 <div class="maincontent-container2 row row-cols-5">
@@ -186,7 +267,7 @@
             
     </main>
 
-    <!-- Default Footer Paste -->
-    <?php
-        include_once '/wamp64/www/phpservers/minisizeproject/includes/main-footer.php';
-    ?>
+<!-- Default Footer Paste -->
+<?php
+    include("includes/main-footer.php");
+?>

@@ -1,7 +1,7 @@
-    <!-- Default Header Paste-->
-    <?php
-        include_once '/wamp64/www/phpservers/minisizeproject/includes/main-header.php';
-    ?>
+<!-- Default Header Paste-->
+<?php
+    include("includes/main-header.php");
+?>
 
     <main>
         <div class="container">
@@ -49,6 +49,7 @@
                     </div>
                     <div><label for="">12 dhs</label><a href="#">16 reviews</a></div>
                 </div>
+                <div><label for="">12 dhs</label><a href="#">16 reviews</a></div>
             </div>
             <div class="row">
                 <div class="col-2">
@@ -81,6 +82,7 @@
                     </div>
                     <div><label for="">12 dhs</label><a href="#">222 reviews</a></div>
                 </div>
+                <div><label for="">12 dhs</label><a href="#">160 reviews</a></div>
             </div>
             <div class="row">
                 <div class="col-2">
@@ -112,11 +114,13 @@
                     </div>
                     <div><label for="">12 dhs</label><a href="#">16 reviews</a></div>
                 </div>
+                <div><label for="">12 dhs</label><a href="#">16 reviews</a></div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-        <!-- Default Footer Paste -->
-        <?php
-        include_once '/wamp64/www/phpservers/minisizeproject/includes/main-footer.php';
-    ?>
+    <!-- Default Footer Paste -->
+<?php
+    include("includes/main-footer.php");
+?>

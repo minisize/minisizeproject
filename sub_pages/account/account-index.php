@@ -1,4 +1,4 @@
-<?php require"../../includes/sub-header.php";?>
+<?php require "../../includes/sub-header.php";?>
 
     <div id="acc-header"></div>
     <div id="acc-body" class="row">
@@ -10,6 +10,6 @@
                 <li><a href="account-address.php">Address</a></li>
                 <li><a href="account-payment.php">Payment</a></li>
                 <li><a href="account-points.php">Points</a></li>
-                <li><button>Log Out</button></li>
+                <li><a href="../../includes/handlers/logout-handler.php" class="btn">Log Out</a></li>
             </ul>
         </nav>
