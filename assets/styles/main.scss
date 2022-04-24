@@ -4,7 +4,7 @@ $theme-colors: (
     "secondary": #8F8F8F,
     "success": #33CA7F,
     "danger": #EF6461,
-    "warning" #FF8247,
+    "warning": #FF8247,
     "info": #62B6CB,
     "light": #F7F3F0,
     "dark": #353535
@@ -21,3 +21,14 @@ $color-palette:(
     "dark-green": #365A51,
     "dark": #353535
 );
+
+main{
+    background-color: map-get($color-palette, "light");
+}
+
+.display-item-dimension{
+    width: auto;
+    height: 25vh;
+    object-fit: fill;
+    
+}

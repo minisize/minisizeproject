@@ -23,17 +23,16 @@
     <div class="container p-3">
         <h3 class="row"> BEST SELLERS </h3>
 
-        <div class="product_wrapper row">
+        <div class="overflow-scroll row w-auto p-3 best-sellers-container">
 
             <!-- PHP CODE FOR LISTING -->
             <?php
-
 
             //Limit the items to display
             $Item_Display_Limit=0;
             if ($result -> num_rows > 0){
 
-                while (($row = $result -> fetch_assoc()) && ($Item_Display_Limit <= 0)){
+                while (($row = $result -> fetch_assoc()) && ($Item_Display_Limit <= 5)){
 
                     //set $jsonobj to the value of input of the array "images" from $row;
                     $jsonobj = $row["images"];
@@ -44,9 +43,13 @@
 
                     //Creation of HTML
                     echo "
-                    <div class='col'>
-                        <img src='" . $img . "'>
-                        <h6>" .$row["name"] . " </h6> 
+                    <div class='col w-auto'>
+                        <div class='thumbnail'>
+                            <img src='" .$img. "' class='img-fluid display-item-dimension'>
+                        </div>
+                        <div class='description'>
+                            <h6>" .$row["name"] . "</h6> 
+                        </div>
                     </div>";
 
                     $Item_Display_Limit += 1;
@@ -54,37 +57,7 @@
             } else {
                 echo "0 results";
               }
-
-            
             ?>
-
-<!--
-    <div class="col">
-                <img src="#">
-                <h6> Item </h6>   
-            </div>
-
-            <div class="col">
-                <img src="#">
-                <h6> Item </h6>   
-            </div>
-
-            <div class="col">
-                <img src="#">
-                <h6> Item </h6>   
-            </div>
-
-            <div class="col">
-                <img src="#">
-                <h6> Item </h6>   
-            </div>
-
-            <div class="col">
-                <img src="#">
-                <h6> Item </h6>   
-            </div>
--->
-            
         </div>
         
     </div>
