@@ -72,7 +72,7 @@
                                 </ul>
                             </section>
                         </li>
-                        <li class="nav-item nav-item-dropdown"><a href="category.php" class="dropdown-item py-4">By Key Ingredient</a>
+                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Key Ingredient</a>
                             <section class="dropdown-menu sub-menu">
                                 <ul>
                                     <li><a href="products.php?key_ingredient_id=1" class="dropdown-item py-4">Hyaluronic Acid</a></li>
