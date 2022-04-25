@@ -1,6 +1,15 @@
 <!-- Default Header Paste-->
 <?php
     include("includes/main-header.php");
+
+    // get id
+    if(isset($_GET['category_id'])){
+        $itemID = $_GET['category_id'];
+    } else if(isset($_GET['key_ingredient_id'])){
+        $itemID = $_GET['key_ingredient_id'];
+    } else if(isset($_GET['skin_concern_id'])){
+        $itemID = $_GET['skin_concern_id'];
+    }
 ?>
 
 <!--Add hero header in here-->
