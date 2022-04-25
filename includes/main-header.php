@@ -111,7 +111,7 @@
             </li>
             <li class="nav-item"><a href="index.php"><img src="assets/images/website/logo/logo-placeholder.png"
                         alt="Minisize Logo" width="75"></a></li>
-            <li class="nav-item"><a href="#">Blogs</a></li>
+            <li class="nav-item"><a href="blog-list.php">Blogs</a></li>
             <li class="nav-item"><a href="about-us.php">About</a></li>
         </ul>
 
