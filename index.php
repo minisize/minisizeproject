@@ -30,6 +30,8 @@
 
             //Limit the items to display
             $Item_Display_Limit=0;
+
+            //Gets data from minisize_db
             if ($result -> num_rows > 0){
 
                 while (($row = $result -> fetch_assoc()) && ($Item_Display_Limit <= 5)){
