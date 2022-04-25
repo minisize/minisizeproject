@@ -1,68 +1,49 @@
 <!-- Default Header Paste-->
 <?php
     include("includes/main-header.php");
-?>
 
-<!--Add hero header in here-->
+    // get id
+    if(isset($_GET['category_id'])){
+        $itemID = $_GET['category_id'];
+        $tab = "categories";
+    } else if(isset($_GET['key_ingredient_id'])){
+        $itemID = $_GET['key_ingredient_id'];
+        $tab = "key_ingredient";
+    } else if(isset($_GET['skin_concern_id'])){
+        $itemID = $_GET['skin_concern_id'];
+        $tab = "skin_concern";
+    }
+    
+    $product_obj->loadHeader($tab, $itemID);
+?>
 
 </header>
 
     <main class="">
-        <div class="container">
-            <div class="products-header row">
-
-                <div class="container1 col">
-                <h1> Moisturizer </h1>
-                <p>
-                Easy on the eyes. Hydrate and nourish with textures tailored for the area that ages fastest.
-                </p>
-                </div>
-                <div class="container2 col"> Picture Product </div>
-            </div>
-        </div>
-        
         <div class="products-maincontent">
 
             <div class="maincontent-header container">
                 <div class="maincontent-filter1 row">
-
-            <label> Home > Cream </label>
-            </div>
-            <div class="maincontent-filter2">
-                <div class="filter-section">
-                    <h6> Filter by </h6>
-
-                    <select name="skin-type" id="" >
-                        <option value="select1">Option 1</option>
-                        <option value="select2">Option 1</option>
-                        <option value="select3">Option 1</option>
-                        <option value="select4">Option 1</option>
-                        <option value="select5">Option 1</option>
-                    </select>
-
-                    <select name="ingredient" id="" >
-                        <option value="select1">Option 1</option>
-                        <option value="select2">Option 1</option>
-                        <option value="select3">Option 1</option>
-                        <option value="select4">Option 1</option>
-                        <option value="select5">Option 1</option>
-                    </select>
-
-                    <select name="benefit" id="" >
-                        <option value="select1">Option 1</option>
-                        <option value="select2">Option 1</option>
-                        <option value="select3">Option 1</option>
-                        <option value="select4">Option 1</option>
-                        <option value="select5">Option 1</option>
-                    </select>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $product_obj->getItemCategory($tab, $itemID);?></li>
+                        </ol>
+                    </nav>
                 </div>
-                <div class="maincontent-filter2 row">
-                    <div class="filter-section col-9">
+                
+                <div class="maincontent-filter2">
+                    <div class="filter-section">
                         <h6> Filter by </h6>
+                        <select name="skin-type" id="" >
+                            <option value="select1">Option 1</option>
+                            <option value="select2">Option 1</option>
+                            <option value="select3">Option 1</option>
+                            <option value="select4">Option 1</option>
+                            <option value="select5">Option 1</option>
+                        </select>
 
-                <div class="sort-section">
-
-                        <select name="ingredient" id="" >
+                        <select name="benefit" id="" >
                             <option value="select1">Option 1</option>
                             <option value="select2">Option 1</option>
                             <option value="select3">Option 1</option>
@@ -71,197 +52,23 @@
                         </select>
                     </div>
 
-                    <div class="sort-section col">
-
-                    <h6> Sort by </h6>
-
-            </div>
+                    <div class="sort-section">
+                        <h6> Sort by </h6>  
+                        <select name="ingredient" id="" >
+                            <option value="select1">Option 1</option>
+                            <option value="select2">Option 1</option>
+                            <option value="select3">Option 1</option>
+                            <option value="select4">Option 1</option>
+                            <option value="select5">Option 1</option>
+                        </select>
+                    </div>
+                </div>
 
         </div>
         <div class="maincontent-container2">
-
-            <div class="product-container">
-                <label for=""></label><img src="#" alt="">
-                <div class="product-display">
-                    <h6> Item Name </h6>
-                    <p>subcontent</p>
-                </div>
-                <div class="product-price">
-                    <label for=""> 15 AED </label>
-                    <a href=""> 25 reviews </a>
-                </div>
-            </div>
-            <div class="product-container">
-                <label for=""></label><img src="#" alt="">
-                <div class="product-display">
-                    <h6> Item Name </h6>
-                    <p>subcontent</p>
-                </div>
-                <div class="product-price">
-                    <label for=""> 15 AED </label>
-                    <a href=""> 25 reviews </a>
-                </div>
-            </div>
-            <div class="product-container">
-                <label for=""></label><img src="#" alt="">
-                <div class="product-display">
-                    <h6> Item Name </h6>
-                    <p>subcontent</p>
-                </div>
-                <div class="product-price">
-                    <label for=""> 15 AED </label>
-                    <a href=""> 25 reviews </a>
-                </div>
-            </div>
-            <div class="product-container">
-                <label for=""></label><img src="#" alt="">
-                <div class="product-display">
-                    <h6> Item Name </h6>
-                    <p>subcontent </p>
-                </div>
-                <div class="product-price">
-                    <label for=""> 15 AED </label>
-                    <a href=""> 25 reviews </a>
-                </div>
-            </div>
-            <div class="product-container">
-                <label for=""></label><img src="#" alt="">
-                <div class="product-display">
-                    <h6> Item Name </h6>
-                    <p> subcontent </p>
-                </div>
-
-                <div class="product-price">
-                    <label for=""> 15 AED </label>
-                    <a href=""> 25 reviews </a>
-                </div>
-                </div>
-            <div class="product-container">
-                <label for=""></label><img src="#" alt="">
-                <div class="product-display">
-                    <h6> Item Name </h6>
-                    <p>subcontent</p>
-                </div>
-                <div class="product-price">
-                    <label for=""> 15 AED </label>
-                    <a href=""> 25 reviews </a>
-                </div>
-            </div>
             <div class="container">
                 <div class="maincontent-container2 row row-cols-5">
-
-                    <div class="col">
-                        <label for=""></label><img src="#" alt="">
-                        <div class="product-display">
-                            <h6> Item Name </h6>
-                            <p>subcontent</p>
-                        </div>
-                        <div class="product-price">
-                            <label for=""> 15 AED </label>
-                            <a href=""> 25 reviews </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for=""></label><img src="#" alt="">
-                        <div class="product-display">
-                            <h6> Item Name </h6>
-                            <p>subcontent</p>
-                        </div>
-                        <div class="product-price">
-                            <label for=""> 15 AED </label>
-                            <a href=""> 25 reviews </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for=""></label><img src="#" alt="">
-                        <div class="product-display">
-                            <h6> Item Name </h6>
-                            <p>subcontent</p>
-                        </div>
-                        <div class="product-price">
-                            <label for=""> 15 AED </label>
-                            <a href=""> 25 reviews </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for=""></label><img src="#" alt="">
-                        <div class="product-display">
-                            <h6> Item Name </h6>
-                            <p>subcontent </p>
-                        </div>
-                        <div class="product-price">
-                            <label for=""> 15 AED </label>
-                            <a href=""> 25 reviews </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for=""></label><img src="#" alt="">
-                        <div class="product-display">
-                            <h6> Item Name </h6>
-                            <p> subcontent </p>
-                        </div>
-
-                        <div class="product-price">
-                            <label for=""> 15 AED </label>
-                            <a href=""> 25 reviews </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for=""></label><img src="#" alt="">
-                        <div class="product-display">
-                            <h6> Item Name </h6>
-                            <p>subcontent</p>
-                        </div>
-                        <div class="product-price">
-                            <label for=""> 15 AED </label>
-                            <a href=""> 25 reviews </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for=""></label><img src="#" alt="">
-                        <div class="product-display">
-                            <h6> Item Name </h6>
-                            <p>subcontent</p>
-                        </div>
-                        <div class="product-price">
-                            <label for=""> 15 AED </label>
-                            <a href=""> 25 reviews </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for=""></label><img src="#" alt="">
-                        <div class="product-display">
-                            <h6> Item Name </h6>
-                            <p>subcontent</p>
-                        </div>
-                        <div class="product-price">
-                            <label for=""> 15 AED </label>
-                            <a href=""> 25 reviews </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for=""></label><img src="#" alt="">
-                        <div class="product-display">
-                            <h6> Item Name </h6>
-                            <p>subcontent </p>
-                        </div>
-                        <div class="product-price">
-                            <label for=""> 15 AED </label>
-                            <a href=""> 25 reviews </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for=""></label><img src="#" alt="">
-                        <div class="product-display">
-                            <h6> Item Name </h6>
-                            <p> subcontent </p>
-                        </div>
-
-                        <div class="product-price">
-                            <label for=""> 15 AED </label>
-                            <a href=""> 25 reviews </a>
-                        </div>
-                    </div>
+                    <?php $product_obj->loadProducts($tab, $itemID);?>
                 </div>
             </div>
             
