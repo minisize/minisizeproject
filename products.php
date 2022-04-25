@@ -1,14 +1,19 @@
 <!-- Default Header Paste-->
 <?php
     include("includes/main-header.php");
+    include("includes/classes/User.php");
+    include("includes/classes/Product.php");
 
     // get id
     if(isset($_GET['category_id'])){
         $itemID = $_GET['category_id'];
+        $tab = 'category_id';
     } else if(isset($_GET['key_ingredient_id'])){
         $itemID = $_GET['key_ingredient_id'];
+        $tab = 'key_ingredient_id';
     } else if(isset($_GET['skin_concern_id'])){
         $itemID = $_GET['skin_concern_id'];
+        $tab = 'skin_concern_id';
     }
 ?>
 
@@ -20,6 +25,18 @@
         <div class="container">
             <div class="products-header row">
 
+            <?php
+            $productDataQuery = mysqli_query($connect, "SELECT * FROM products WHERE $tab='$itemID'");
+
+            while($row = mysqli_fetch_array($productDataQuery)){
+                $id = $row['id'];
+                $name = $row['name'];
+                $description = $row['description'];
+
+                echo "$id <br><br> $name <br><br> $description <br><br><br>";
+            }
+            ?>
+                <h1><?php echo $tab; ?></h1>
                 <div class="container1 col">
                 <h1> Moisturizer </h1>
                 <p>
