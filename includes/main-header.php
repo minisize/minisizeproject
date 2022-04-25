@@ -1,9 +1,13 @@
 <?php require 'includes/server.php';
+    include("includes/classes/User.php");
+    include("includes/classes/Product.php");
     
     if (isset($_SESSION['id'])){
         $userLoggedIn = $_SESSION['id'];
         $userDetailsQuery = mysqli_query($connect, "SELECT * FROM users WHERE id='$userLoggedIn'");
         $user = mysqli_fetch_array($userDetailsQuery);
+
+        $user_obj = new User($connect, $userLoggedIn);
 
         ?>
             <script>
@@ -24,6 +28,8 @@
 
     $sql = "SELECT * FROM `products`";
     $result = $connect->query($sql);
+
+    $product_obj = new Product($connect);
 ?>
 
 <!DOCTYPE html>
