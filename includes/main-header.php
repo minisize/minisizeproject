@@ -63,28 +63,43 @@
                         <li class="nav-item nav-item-dropdown"><a href="category.php" class="dropdown-item py-4">Category</a>
                             <section class="dropdown-menu sub-menu">
                                 <ul>
-                                    <li><a href="products.php" class="dropdown-item py-4">Bundles</a></li>
-                                    <li><a href="products.php" class="dropdown-item py-4">Moisturizer</a></li>
-                                    <li><a href="products.php" class="dropdown-item py-4">Toner</a></li>
-                                    <li><a href="products.php" class="dropdown-item py-4">Serum Essence</a></li>
-                                    <li><a href="products.php" class="dropdown-item py-4">Masks</a></li>
+                                    <li><a href="products.php?category_id=1" class="dropdown-item py-4">Bundles</a></li>
+                                    <li><a href="products.php?category_id=2" class="dropdown-item py-4">Cleanser</a></li>
+                                    <li><a href="products.php?category_id=3" class="dropdown-item py-4">Toner</a></li>
+                                    <li><a href="products.php?category_id=4" class="dropdown-item py-4">Serum & Essence</a></li>
+                                    <li><a href="products.php?category_id=5" class="dropdown-item py-4">Moisturizer</a></li>
+                                    <li><a href="products.php?category_id=6" class="dropdown-item py-4">Masks</a></li>
                                 </ul>
                             </section>
                         </li>
-                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Key
-                                Ingredient</a></li>
-                        <section class="dropdown-menu sub-menu">
-                            <ul>
-                                <li></li>
-                            </ul>
-                        </section>
-                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Concern</a>
+                        <li class="nav-item nav-item-dropdown"><a href="category.php" class="dropdown-item py-4">By Key Ingredient</a>
+                            <section class="dropdown-menu sub-menu">
+                                <ul>
+                                    <li><a href="products.php?key_ingredient_id=1" class="dropdown-item py-4">Hyaluronic Acid</a></li>
+                                    <li><a href="products.php?key_ingredient_id=2" class="dropdown-item py-4">Niacinamide</a></li>
+                                    <li><a href="products.php?key_ingredient_id=3" class="dropdown-item py-4">Vitamin E</a></li>
+                                    <li><a href="products.php?key_ingredient_id=4" class="dropdown-item py-4">Antioxidants</a></li>
+                                    <li><a href="products.php?key_ingredient_id=5" class="dropdown-item py-4">Salicylic Acid</a></li>
+                                    <li><a href="products.php?key_ingredient_id=6" class="dropdown-item py-4">Amino Acids</a></li>
+                                    <li><a href="products.php?key_ingredient_id=7" class="dropdown-item py-4">Butylene Glycol</a></li>
+                                    <li><a href="products.php?key_ingredient_id=8" class="dropdown-item py-4">Citric Acid</a></li>
+                                    <li><a href="products.php?key_ingredient_id=9" class="dropdown-item py-4">Glycerin</a></li>
+                                </ul>
+                            </section>
                         </li>
-                        <section class="dropdown-menu sub-menu">
-                            <ul>
-                                <li></li>
-                            </ul>
-                        </section>
+                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Concern</a>
+                            <section class="dropdown-menu sub-menu">
+                                <ul>
+                                    <li><a href="products.php?skin_concern_id=1" class="dropdown-item py-4">Hydration</a></li>
+                                    <li><a href="products.php?skin_concern_id=2" class="dropdown-item py-4">Pore Solutions</a></li>
+                                    <li><a href="products.php?skin_concern_id=3" class="dropdown-item py-4">Troubled Skin</a></li>
+                                    <li><a href="products.php?skin_concern_id=4" class="dropdown-item py-4">Dullness & Uneven Skin Tone</a></li>
+                                    <li><a href="products.php?skin_concern_id=5" class="dropdown-item py-4">Sensitive Skin</a></li>
+                                    <li><a href="products.php?skin_concern_id=6" class="dropdown-item py-4">Age Prevention</a></li>
+                                    <li><a href="products.php?skin_concern_id=7" class="dropdown-item py-4">Lifting & Firming</a></li>
+                                </ul>
+                            </section>
+                        </li>
                     </ul>
                 </section>
             </li>
