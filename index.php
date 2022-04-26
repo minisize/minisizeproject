@@ -1,10 +1,12 @@
 <!-- Default Header Paste-->
 <?php
-    // include_once '/wamp64/www/phpservers/minisizeproject/includes/main-header.php';
     include("includes/main-header.php");
 ?>
 
+<!--Add hero header in here-->
+
 </header>
+
 <!-- Enter Main Content Here-->
 
 <main class="">

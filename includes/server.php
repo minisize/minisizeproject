@@ -1,4 +1,6 @@
 <?php
+    ob_start(); // turn on output buffering
+    session_start(); // start session
 
     $servername = "localhost";
     $username = "root";
