@@ -6,5 +6,6 @@
             <div>You're wishlist will appear here.</div>
         </div>
     </div>
-</body>
-</html>
+<?php
+    require "../../includes/sub-footer.php";
+?>

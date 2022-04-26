@@ -1,7 +1,7 @@
 <?php
     require "account-index.php";
 ?>
-        <div id="account-page-content" class="col">
+        <div id="account-page-content" class="col p-5">
             <h2>User Profile</h2>
             <div class="row">
                 <div class="col-2">
@@ -70,5 +70,6 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+<?php
+    require "../../includes/sub-footer.php";
+?>

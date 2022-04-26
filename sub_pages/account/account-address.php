@@ -11,5 +11,6 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+<?php
+    require "../../includes/sub-footer.php";
+?>
