@@ -16,25 +16,44 @@
     <link rel="stylesheet" href="assets/styles/main.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
-    <!-- Google Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css">
-
     <style>
-    .carousel-indicators {
-        bottom: -50px;
-    }
 
-    .carousel-inner {
-        margin-bottom: 50px;
-    }
+        #bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background-color: #F7E6CA; 
+        }
+
+        .carousel-item {
+            height: 430px;
+        }
+
+        .carousel-indicators {
+            bottom: -50px;
+        }
+
+        .carousel .carousel-indicators li {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next{
+            display: flex;
+            align-items: end;
+            width:50px;
+        }
     </style>
 
 </head>
 
 <body>
+    
+    <div id="bg"></div>
 
     <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
         <div class="d-flex align-items-center">
@@ -43,13 +62,13 @@
         </div>
     </header>
 
-    <section class="m-5" style="width:50%; height:400px;">
+    <section class="mx-5 my-3" style="width:50%;">
         <div id="carousel" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel"
             data-bs-interval="false">
 
             <form action="registration.php" method="POST" class="sign-up-form">
                 <div class="carousel-inner w-100">
-                    <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="carousel-item active">
 
                         <h1>Let’s learn more about your skin!</h1>
 
@@ -107,14 +126,14 @@
                             </div>
                         </div>
 
-                        <!-- <button class="carousel-control-next" type="button" data-bs-target="#carousel"
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
-                        </button> -->
+                        </button>
                     </div>
 
-                    <div class="carousel-item" data-bs-interval="2000">
+                    <div class="carousel-item">
                         <h1>Let’s learn more about your skin!</h1>
 
                         <div class="fourth-question">
@@ -170,7 +189,7 @@
                             </div>
                         </div>
 
-                        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
@@ -179,49 +198,45 @@
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
-                        </button> -->
+                        </button>
                     </div>
 
                     <div class="carousel-item">
                         <h3>Lastly, set up your account and start your skincare journey here with Minisize!</h3>
 
-                        <div class="row">
-                            <div class="col">
-                                <label for="signUpFname" class="form-label">First Name</label>
-                                <input type="text" class="form-control" name="sign_up_fname" id="signUpFname"
-                                    placeholder="First Name" required>
+                        <section class="px-1">
+                            <div class="row mb-1">
+                                <div class="col">
+                                    <label for="signUpFname" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" name="sign_up_fname" id="signUpFname"
+                                        placeholder="First Name" required>
+                                </div>
+
+                                <div class="col">
+                                    <label for="signUpLname" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" name="sign_up_lname" id="signUpLname"
+                                        placeholder="Last Name" required>
+                                </div>
                             </div>
 
-                            <div class="col">
-                                <label for="signUpLname" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" name="sign_up_lname" id="signUpLname"
-                                    placeholder="Last Name" required>
-                            </div>
-                        </div>
+                            <label for="signUpEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control mb-1" name="sign_up_email" id="signUpEmail"
+                                placeholder="Email" required>
 
-                        <label for="signUpEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="sign_up_email" id="signUpEmail"
-                            placeholder="Email" required>
+                            <label for="signUpPass" class="form-label">Password</label>
+                            <input type="password" class="form-control mb-1" name="sign_up_pass" id="signUpPass"
+                                placeholder="Password" required>
 
-                        <label for="signUpPass" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="sign_up_pass" id="signUpPass"
-                            placeholder="Password" required>
+                            <label for="signUpCPass" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control mb-4" name="sign_up_cpass" id="signUpCPass"
+                                placeholder="Password" required>
 
-                        <label for="signUpCPass" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" name="sign_up_cpass" id="signUpCPass"
-                            placeholder="Password" required>
-
-                        <input type="submit" class="btn btn-primary form-control" name="sign_up_btn" value="Create an account">
-                        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button> -->
+                            <input type="submit" class="btn btn-primary form-control" name="sign_up_btn" value="Create an account">
+                        </section>
                     </div>
 
                 </div>
             </form>
-
 
             <ol class="carousel-indicators">
                 <li data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true"
@@ -229,7 +244,6 @@
                 <li data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></li>
                 <li data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></li>
             </ol>
-
 
         </div>
     </section>

@@ -17,14 +17,21 @@
     <link rel="stylesheet" href="assets/styles/main.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
-    <!-- Google Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css">
+    <style>
+        #bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background-color: #F5D1C3; 
+        }
+    </style>
 </head>
 
 <body>
+
+    <div id="bg"></div>
 
     <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
         <div class="d-flex align-items-center">
@@ -33,18 +40,18 @@
         </div>
     </header>
 
-    <section class="m-5" style="width:50%;">
+    <section class="mx-5 my-3" style="width:50%;">
         <h1>Hello! Welcome back to Minisize.</h1>   
-        <form action="login.php" method="POST" class="login-form">
+        <form action="login.php" method="POST" class="login-form px-1">
             <label for="loginEmail" class="form-label">Email</label>
-            <input type="email" class="form-control" name="login_email" id="loginEmail"
+            <input type="email" class="form-control mb-1" name="login_email" id="loginEmail"
                 placeholder="Email" value="<?php
                         if(isset($_SESSION['login_email'])){
                             echo $_SESSION['login_email'];
                         }?>" required>
 
             <label for="loginPass" class="form-label">Password</label>
-            <input type="password" class="form-control" name="login_pass" id="loginPass"
+            <input type="password" class="form-control mb-1" name="login_pass" id="loginPass"
                 placeholder="Password" required>
 
             <input type="submit" class="btn btn-primary form-control mt-2" name="login_btn" value="Login">
