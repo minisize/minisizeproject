@@ -1,10 +1,10 @@
 <?php
     require "account-index.php";
 ?>
-        <div id="account-page-content" class="col">
+        <div id="account-page-content" class="col p-5">
             <h2>Orders</h2>
-            <div>
-                <iframe src="account-order-details.php" frameborder="0"></iframe>
+            <div class="row mt-4">
+                <iframe class="ratio" src="account-order-history.php" frameborder="0"></iframe>
             </div>
         </div>
     </div>

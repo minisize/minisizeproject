@@ -25,8 +25,8 @@
                         Points</a></li>
                 </ul>
             </nav>
-            <button class="btn btn-link" type="button"> 
-                <span class="material-icons me-3">logout</span> 
+            <button class="btn btn-link text-decoration-none link-dark" type="button"> 
+                <span class="material-icons me-3">logout</span>
                 Log Out</button>
         </div>
         

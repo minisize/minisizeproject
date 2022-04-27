@@ -1,13 +1,11 @@
 <?php
     require "account-index.php";
 ?>
-        <div id="account-page-content" class="col">
+        <div id="account-page-content" class="col p-5">
             <h2>Payment Method</h2>
-            <div>Your payment details will be saved here</div>
-            <div>
-                <button>Add new payment information</button>
+            <div class="row mt-4">
+                <iframe class="ratio" src="account-payment-details.php" frameborder="0"></iframe>
             </div>
-
         </div>
     </div>
 <?php

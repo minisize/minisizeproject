@@ -6,7 +6,7 @@
             <div class="row mt-4">
                 <div class="col-2">
                     <img class="img-fluid" src="../../assets/images/website/placeholder/pp_placeholder.png" alt="profile picture">
-                    <button class="btn btn-outline-dark mt-4 w-100">Edit Image</button>
+                    <button class="btn btn-light btn-outline-dark mt-4 w-100">Edit Image</button>
                 </div>
                 <div class="col ms-4">
                     <form action="">    
