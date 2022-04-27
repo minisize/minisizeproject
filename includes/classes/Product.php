@@ -69,9 +69,94 @@
                                             <label for=''>$basePrice AED</label>
                                             <a href=''>$numReviews reviews </a>
                                         </div>
+                                        <a href='product-item.php?id=$id' class='btn btn-info'>View</a>
                                     </div>";
             }
 
+            echo $productString;
+        }
+
+        public function loadProductItem($itemID){
+            $productString = "";
+            $textLink = "";
+
+            $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
+
+            $row = mysqli_fetch_array($productDataQuery);
+            $id = $row['id'];
+            $name = $row['name'];
+            $description = $row['description'];
+            $mainIngredient = $row['main_ingredient'];
+            $cosdnaLink = $row['cosdna_link'];
+            $basePrice = $row['base_price'];
+
+            if($cosdnaLink == "#"){
+                $textLink = "";
+            } else {
+                $textLink = "Ingredient list";
+            }
+
+            $productString .= "<div class=''>
+                                <div>
+                                    <!-- Header Section of Item -->
+                                    <div class='container'>
+                                        <div class='row'>
+                                            <h2 class='col'>$name</h2>
+                                            <img src='#' class='col'>
+                                        </div>
+                                        
+                                        <div class='row'>
+                                            <h5 class='col'>With $mainIngredient </h5>
+                                            <a href='$cosdnaLink' class='col'>$textLink</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Main Section of Item -->
+                                <div class='container'>
+
+                                    <p class='row'>$description</p>
+                                    <div class='row'>
+                                        <button class='col'><img src='#' alt=''>10ml</button>
+                                        <button class='col'><img src='#' alt=''>15ml</button>
+                                        <button class='col'><img src='#' alt=''>20ml</button>
+                                    </div>
+                                    <div class='row'>
+                                        <label for='' class='col'>$basePrice AED</label>
+                                        <a href='' class='col'>View full product</a>
+                                        <button class='col'>Add to Cart</button>
+                                    </div>
+
+                                <p></p>
+
+                                <!-- Footer Section of Item -->
+                                <div class='container'>
+                                    <div class='row'> PURCHASE AND EARN 5</div>
+
+                                    <div class='row'>
+                                        <ul class='nav nav-pills mb-3' id='pills-tab' role='tablist'>
+                                        <li class='nav-item' role='presentation'>
+                                            <button class='nav-link active' id='pills-shipping-tab' data-bs-toggle='pill' data-bs-target='#pills-shipping' type='button' role='tab' aria-controls='pills-shipping' aria-selected='true'>Shipping</button>
+                                        </li>
+                                        <li class='nav-item' role='presentation'>
+                                            <button class='nav-link' id='pills-returns-tab' data-bs-toggle='pill' data-bs-target='#pills-returns' type='button' role='tab' aria-controls='pills-returns' aria-selected='false'>Returns</button>
+                                        </li>
+                                        <li class='nav-item' role='presentation'>
+                                            <button class='nav-link' id='pills-points-tab' data-bs-toggle='pill' data-bs-target='#pills-points' type='button' role='tab' aria-controls='pills-points' aria-selected='false'>Points</button>
+                                        </li>
+                                        </ul>
+                                        <div class='tab-content' id='pills-tabContent'>
+                                            <div class='tab-pane fade show active' id='pills-shipping' role='tabpanel' aria-labelledby='pills-shipping-tab'>
+                                                Orders $50 and over always ship for free without an offer code For shipments totaling less than $50, there is a delivery charge of $7.95 for ground shipping. Please allow up to 4 business days processing time, depending on when you place your order.
+                                            </div>
+                                            <div class='tab-pane fade' id='pills-returns' role='tabpanel' aria-labelledby='pills-returns-tab'>You cant return it, its literally 2 dhs</div>
+                                            <div class='tab-pane fade' id='pills-points' role='tabpanel' aria-labelledby='pills-points-tab'>...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>";
+        
+            
             echo $productString;
         }
     }
