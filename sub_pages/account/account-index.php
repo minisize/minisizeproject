@@ -1,8 +1,8 @@
 <?php require"../../includes/sub-header.php";?>
-    <div class="row px-5 mx-5" id="acc-body" >
-        <div class="col-3 p-5">
+    <div class="row" id="acc-body" style="padding-right: 6rem !important; padding-left: 6rem !important;" >
+        <div class="col-3 p-5" style="border-right: 1px solid #dee2e6 !important;">
             <h2>Account</h2>
-            <nav id="side-nav">
+            <nav class="mt-4" id="side-nav">
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a href="account-profile.php" class="nav-link text-decoration-none link-dark ">
@@ -26,5 +26,8 @@
                 </ul>
             
             </nav>
+            <button class="btn btn-link" type="button"> 
+                <span class="material-icons me-3">logout</span> 
+                Log Out</button>
         </div>
         

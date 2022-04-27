@@ -3,15 +3,15 @@
 ?>
         <div id="account-page-content" class="col p-5">
             <h2>User Profile</h2>
-            <div class="row">
+            <div class="row mt-4">
                 <div class="col-2">
-                    <img src="" alt="profile picture">
-                    <button>Edit Image</button>
+                    <img class="img-fluid" src="../../assets/images/website/placeholder/pp_placeholder.png" alt="profile picture">
+                    <button class="btn btn-outline-dark mt-4 w-100">Edit Image</button>
                 </div>
-                <div class="col">
-                    <form action="">
+                <div class="col ms-4">
+                    <form action="">    
                         <h3>General Information</h3>
-                        <div class="row">
+                        <div class="row mb-4">
                             <div class="col">
                                 <label for="first-name" class="form-label">First Name</label>
                                 <input type="text" id="first-name" class="form-control" placeholder="Marites">
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <h3>Skin Stuff</h3>
-                        <div class="row">
+                        <div class="row mb-4">
                             <div>
                                 <label for="skin-type" class="form-label">Skin Type</label>
                                 <select class="form-select" id="skin-type" aria-label="Default select example">
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <h3>Security</h3>
-                        <div class="row">
+                        <div class="row mb-4">
                             <div class="col">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" id="email" class="form-control" placeholder="maritesanochika@gmail.com">
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div>
-                            <button>Save Changes</button>
+                            <button class="btn btn-outline-dark mt-4 w-100">Save Changes</button>
                         </div>
                     </form>
                 </div>
