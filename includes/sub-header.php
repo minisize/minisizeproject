@@ -13,6 +13,12 @@
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <style>
+        *{
+            background-color: #F7F3F0;
+        }
+    </style>
+
 </head>
 
 <body>
