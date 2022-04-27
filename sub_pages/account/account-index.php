@@ -24,7 +24,6 @@
                         <span class="material-icons me-3">loyalty</span>
                         Points</a></li>
                 </ul>
-            
             </nav>
             <button class="btn btn-link" type="button"> 
                 <span class="material-icons me-3">logout</span> 
