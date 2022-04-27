@@ -22,7 +22,7 @@ $color-palette:(
     "dark": #353535
 );
 
-main{
+body {
     background-color: map-get($color-palette, "light");
 }
 
