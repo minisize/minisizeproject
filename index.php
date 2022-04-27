@@ -52,7 +52,7 @@
                             <img src='" .$img. "' class='img-fluid display-item-dimension'>
                         </div>
                         <div class='description'>
-                            <h6>" .$row["name"] . "</h6> 
+                            <p><strong>" .$row["name"] . "</strong></p> 
                         </div>
                     </div>";
 
