@@ -117,9 +117,9 @@
 
         <div class="col-1 d-flex justify-content-between">
             <button type="button" onclick="accountPage()" data-bs-toggle="modal" data-bs-target="#registerModal"
-                class="btn btn-link text-dark text-decoration-none material-icons">account_circle</button>
+                class="btn text-dark text-decoration-none material-icons">account_circle</button>
             <button type="button" onclick="cartPage()" data-bs-toggle="modal" data-bs-target="#registerModal"
-                class="btn btn-link text-dark text-decoration-none material-icons">shopping_cart</button>
+                class="btn text-dark text-decoration-none material-icons">shopping_cart</button>
         </div>
     </header>
 
