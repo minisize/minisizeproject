@@ -1,4 +1,4 @@
-<?php require"../../includes/sub-header.php";?>
+<?php require "../../includes/sub-header.php";?>
     <div class="row" id="acc-body" style="padding-right: 6rem !important; padding-left: 6rem !important;" >
         <div class="col-3 p-5" style="border-right: 1px solid #dee2e6 !important;">
             <h2>Account</h2>
@@ -25,7 +25,7 @@
                         Points</a></li>
                 </ul>
             </nav>
-            <button class="btn btn-link text-decoration-none link-dark" type="button"> 
+            <button onclick="window.location.href='../../includes/handlers/logout-handler.php';" class="btn btn-link text-decoration-none link-dark" type="button"> 
                 <span class="material-icons me-3">logout</span>
                 Log Out</button>
         </div>
