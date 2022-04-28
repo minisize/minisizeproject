@@ -57,11 +57,17 @@
                 $basePrice = $row['base_price'];
                 $numReviews = $row['num_reviews'];
 
+                //set $jsonobj to the value of input of the array "images" from $row;
+                $jsonobj = $row["images"];
+                //set $obj to the value of a php object converted from the string of $jsonobj
+                $obj = json_decode($jsonobj);
+                // Set $img to the value of image1 from images by php object $obj
+                $img = $obj->images->image1;
+
                 $productString .= "<div class='col product-display'>
-                                        <label for=''></label><img src='#' alt=''>
+                                        <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
                                         <div class='product-name'>
-                                            <p class='fw-bold'>$name</p>
-                                            <p>with $mainIngredient</p>
+                                            <p><strong>$name</strong> <br> with $mainIngredient</p>
                                         </div>
                                         <div class='product-price'>
                                             <label for=''>$basePrice AED</label>
