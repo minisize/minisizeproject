@@ -19,60 +19,68 @@
 
 </header>
 
-    <main class="">
-        <div class="products-maincontent">
+<main class="">
+    <div class="products-maincontent">
 
-            <div class="maincontent-header container">
-                <div class="maincontent-filter1 row">
-                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo $product_obj->getItemCategory($tab, $itemID);?></li>
-                        </ol>
-                    </nav>
-                </div>
-                
-                <div class="maincontent-filter2">
-                    <div class="filter-section">
-                        <h6> Filter by </h6>
-                        <select name="skin-type" id="" >
-                            <option value="select1">Option 1</option>
-                            <option value="select2">Option 1</option>
-                            <option value="select3">Option 1</option>
-                            <option value="select4">Option 1</option>
-                            <option value="select5">Option 1</option>
-                        </select>
+        <div class="maincontent-header container">
+            <div class="maincontent-filter1 row">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <?php echo $product_obj->getItemCategory($tab, $itemID);?></li>
+                    </ol>
+                </nav>
+            </div>
 
-                        <select name="benefit" id="" >
-                            <option value="select1">Option 1</option>
-                            <option value="select2">Option 1</option>
-                            <option value="select3">Option 1</option>
-                            <option value="select4">Option 1</option>
-                            <option value="select5">Option 1</option>
-                        </select>
+            <div class="maincontent-filter2">
+                    <div class="row d-flex flex-wrap justify-content-between">
+                        <div class="col-md-5 col-sm-8 d-flex align-items-center justify-content-between">
+                            <p class="fs-5 mt-3">Filter by</p>
+                            <select name="skin-type" id="" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
+                                <option selected>Skin Types</option>
+                                <option value="All">All</option>
+                                <option value="Normal">Normal</option>
+                                <option value="Combination">Combination</option>
+                                <option value="Oily">Oily</option>
+                                <option value="Dry">Dry</option>
+                                <option value="Sensitive">Sensitive</option>
+                            </select>
+
+                            <select name="benefit" id="" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
+                                <option selected>Benefits</option>
+                                <option value="All">All</option>
+                                <option value="Hydration">Hydration</option>
+                                <option value="Pores">Pores</option>
+                                <option value="Troubled">Troubled Skin</option>
+                                <option value="DullnessUneven">Dullness & Uneven</option>
+                                <option value="Sensitive">Sensitive</option>
+                                <option value="AgePrevention">Age Prevention</option>
+                                <option value="LiftFirm">Lifting & Firming</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3 col-sm-4 d-flex align-items-center justify-content-evenly">
+                            <p class="fs-5 mt-3">Sort by</p>
+                            <select name="ingredient" id="" class="btn-outline-pink form-select form-select-sm w-50 text-dark">
+                                <option value="Featured">Featured</option>
+                                <option value="PriceHigh">Price: High to Low</option>
+                                <option value="PriceLow">Price: Low to High</option>
+                                <option value="HighRated">Highest Rated</option>
+                            </select>
+                        </div>
                     </div>
-
-                    <div class="sort-section">
-                        <h6> Sort by </h6>  
-                        <select name="ingredient" id="" >
-                            <option value="select1">Option 1</option>
-                            <option value="select2">Option 1</option>
-                            <option value="select3">Option 1</option>
-                            <option value="select4">Option 1</option>
-                            <option value="select5">Option 1</option>
-                        </select>
-                    </div>
-                </div>
+            </div>
 
         </div>
         <div class="maincontent-container2">
             <div class="container">
-                <div class="maincontent-container2 row row-cols-5">
+                <div class="maincontent-container2 row row-cols-1 row-cols-sm-2 row-cols-md-4">
                     <?php $product_obj->loadProducts($tab, $itemID);?>
                 </div>
             </div>
-            
-    </main>
+
+</main>
 
 <!-- Default Footer Paste -->
 <?php
