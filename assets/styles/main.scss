@@ -42,7 +42,10 @@ p {
 }
 
 .display-item-dimension{
+    position: relative; 
     width: auto;
     height: 25vh;
     object-fit: fill;
+    left: 50%;
+    transform: translateX(-50%);
 }

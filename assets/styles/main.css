@@ -12362,9 +12362,13 @@ p {
 }
 
 .display-item-dimension {
+  position: relative;
   width: auto;
   height: 25vh;
   -o-object-fit: fill;
      object-fit: fill;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 /*# sourceMappingURL=main.css.map */
