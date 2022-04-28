@@ -33,7 +33,6 @@
                                     <h1> $name </h1>
                                     <p> $description </p>
                                     </div>
-                                    <div class='container2 col'> Picture Product </div>
                                 </div>
                             </div>";
 
@@ -58,18 +57,18 @@
                 $basePrice = $row['base_price'];
                 $numReviews = $row['num_reviews'];
 
-                // $productString .= "$id <br><br> $name <br><br> $description <br><br><br>";
-                $productString .= "<div class='col'>
+                $productString .= "<div class='col product-display'>
                                         <label for=''></label><img src='#' alt=''>
-                                        <div class='product-display'>
-                                            <h6>$name</h6>
+                                        <div class='product-name'>
+                                            <p class='fw-bold'>$name</p>
                                             <p>with $mainIngredient</p>
                                         </div>
                                         <div class='product-price'>
                                             <label for=''>$basePrice AED</label>
                                             <a href=''>$numReviews reviews </a>
                                         </div>
-                                        <a href='product-item.php?id=$id' class='btn btn-info'>View</a>
+                                        <div class='overlay-product'></div>
+                                        <a href='product-item.php?id=$id' class='product-view btn btn-outline-primary'>View</a>
                                     </div>";
             }
 

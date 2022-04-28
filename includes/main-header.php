@@ -49,6 +49,7 @@
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css">
+    <link rel="stylesheet" href="assets/styles/products/products-style.css">
 
 </head>
 
