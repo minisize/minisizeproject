@@ -39,6 +39,28 @@
             echo $headerString;
         }
 
+        public function getSkinTypeArray(){
+            
+            $productDataQuery = mysqli_query($connect, "SELECT * FROM products WHERE id='$itemID'");
+            $row = mysqli_fetch_array($productDataQuery);
+
+            $skinTypes = $row['for_skin_type'];
+
+            // print_r (explode(",",$skinTypes));
+
+            $skinTypeArray = explode(",",$skinTypes);
+
+            // $i = 0;
+            // $arrayLength = count($skinTypeArray);
+
+            // while($i < $arrayLength){
+            //     echo $skinTypeArray[$i] ."<br />";
+            //         $i++;
+            // }
+
+            return $skinTypeArray;
+        }
+
         public function loadProducts($tab, $itemID){
 
             if($tab == "categories"){
