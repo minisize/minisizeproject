@@ -7,6 +7,9 @@ $warning: #FF8247;
 $info: #62B6CB;
 $light: #F7F3F0;
 $dark: #353535;
+$pink: #F5D1C3;
+$beige: #F7E6CA;
+$green: #365A51;
 
 $theme-colors: (
     "primary": $primary,
@@ -16,24 +19,18 @@ $theme-colors: (
     "warning": $warning,
     "info": $info,
     "light": $light,
-    "dark": $dark
+    "dark": $dark,
+    "pink": $pink,
+    "beige": $beige,
+    "green": $green,
 );
 
 // include all of bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&family=Playfair+Display&display=swap');
 
-$color-palette:(
-    "light-pink": #F5D1C3,
-    "mustard-yellow": #F0BC68,
-    "light": #F7F3F0,
-    "beige": #F7E6CA,
-    "dark-green": #365A51,
-    "dark": #353535
-);
-
 body {
-    background-color: map-get($color-palette, "light");
+    background-color: $light;
 }
 
 h1,h2,h3,h4,h5,h6 {
