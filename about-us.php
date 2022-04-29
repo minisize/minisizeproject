@@ -62,7 +62,7 @@
             <p> Akilah Lapure</p>
         </div>
         <div class="looks">
-            <img src="#">
+            <img src="assets\images\website\team\Allelee.jpg">
             <p> Allelee Flores</p>
         </div>
         <div class="looks">
@@ -74,7 +74,7 @@
             <p> Kimberly Diaz </p>
         </div>
         <div class="looks">
-            <img src="#">
+            <img src="assets\images\website\team\Kyla.jpg">
             <p> Kyla Buarao </p>
         </div>
         <div class="looks">
