@@ -97,13 +97,32 @@
             echo $productString;
         }
 
+        public function loadSimilarProducts($itemID)
+        {
+            $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
+            $row = mysqli_fetch_array($productDataQuery);
+
+
+            $Similar_String ="
+                <div class='row'>
+                    <h1>Similar Products</h1>
+                    <h6>with the same key ingredients</h6>
+                </div>
+
+                <div class='row'>
+                    <h1>Similar Products</h1>
+                    <h6>with the same key ingredients</h6>
+                </div>
+                ";
+            echo $Similar_String;
+        }
+
         public function loadProductItem($itemID){
             $productString = "";
             $productsImage = "";
             $productsImageCarousel = "";
-            $image = "";
-            $image_total = 0;
             $textLink = "";
+            $num = false;
 
             $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
 
@@ -129,20 +148,29 @@
             }
 
             foreach($img as $key => $value) {
-            $productsImageCarousel .="
-            <div class='carousel-item'>
-                <img src='$value' class='d-block w-50' alt='$key'>
-            </div>
+            
+            if ($num === false) {
+                $productsImageCarousel .="
+                <div class='carousel-item active'>
+                    <img src='$value' class='d-block w-100' alt='$key'>
+                </div>
             ";
+            
+            $num = true;
+            } else {
+                $productsImageCarousel .="
+                <div class='carousel-item'>
+                    <img src='$value' class='d-block w-100' alt='$key'>
+                </div>
+            ";
+            }
               }
 
             $productsImage = "
             <!-- Main Image Display -->
-            <div id='carouselExampleControls' class='carousel slide vh-10' data-bs-ride='carousel'>
-                <div class='carousel-inner vh-10'>
-                    <div class='carousel-item active'>
+            <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
+                <div class='carousel-inner'>
                         $productsImageCarousel
-                    </div>
                 </div>
                 <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
                     <span class='carousel-control-prev-icon' aria-hidden='true'></span>
