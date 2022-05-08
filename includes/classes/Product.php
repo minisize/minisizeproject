@@ -40,6 +40,27 @@
             echo $headerString;
         }
 
+        public function ImageLoad($itemID)
+        {
+            $query = "SELECT * FROM products WHERE id='$itemID'";
+            $result = mysqli_query($this->connect, $query);
+
+            $row = mysqli_fetch_array($result);
+
+            //set $jsonobj to the value of input of the array "images" from $row;
+            $jsonobj = $row["images"];
+            //set $obj to the value of a php object converted from the string of $jsonobj
+            $obj = json_decode($jsonobj);
+            // Set $img to the value of image1 from images by php object $obj
+            $img = $obj->images->image1;
+
+            $produceImages = "
+            
+            ";
+
+            echo $produceImages;
+        }
+
         public function loadProducts($tab, $itemID){
 
             if($tab == "categories"){
@@ -78,6 +99,10 @@
 
         public function loadProductItem($itemID){
             $productString = "";
+            $productsImage = "";
+            $productsImageCarousel = "";
+            $image = "";
+            $image_total = 0;
             $textLink = "";
 
             $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
@@ -90,13 +115,48 @@
             $cosdnaLink = $row['cosdna_link'];
             $basePrice = $row['base_price'];
 
+            //set $jsonobj to the value of input of the array "images" from $row;
+            $jsonobj = $row["images"];
+            //set $obj to the value of a php object converted from the string of $jsonobj
+            $obj = json_decode($jsonobj);
+            // Set $img to the value of image1 from images by php object $obj
+            $img = $obj->images;
+
             if($cosdnaLink == "#"){
                 $textLink = "";
             } else {
                 $textLink = "Ingredient list";
             }
 
-            $productString .= "<div class=''>
+            foreach($img as $key => $value) {
+            $productsImageCarousel .="
+            <div class='carousel-item'>
+                <img src='$value' class='d-block w-50' alt='$key'>
+            </div>
+            ";
+              }
+
+            $productsImage = "
+            <!-- Main Image Display -->
+            <div id='carouselExampleControls' class='carousel slide vh-10' data-bs-ride='carousel'>
+                <div class='carousel-inner vh-10'>
+                    <div class='carousel-item active'>
+                        $productsImageCarousel
+                    </div>
+                </div>
+                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
+                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                    <span class='visually-hidden'>Previous</span>
+                </button>
+                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next'>
+                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                    <span class='visually-hidden'>Next</span>
+                </button>
+            </div>
+            ";
+
+            $productString .= "
+                            <div class=''>
                                 <div>
                                     <!-- Header Section of Item -->
                                     <div class='container'>
@@ -155,9 +215,16 @@
                                     </div>
                                 </div>
                             </div>";
-        
-            
-            echo $productString;
+            echo " 
+            <div class='container'>
+                <div class='row'> 
+                    <div class='col'>
+                    $productsImage
+                    </div>
+                    <div class='col'>
+                    $productString
+                    </div>
+                </div>
+            </div>";
         }
     }
-?>
