@@ -1,17 +1,27 @@
 // add variable overrides here
+$primary: #F0BC68;
+$secondary: #8F8F8F;
+$success: #33CA7F;
+$danger: #EF6461;
+$warning: #FF8247;
+$info: #62B6CB;
+$light: #F7F3F0;
+$dark: #353535;
+
 $theme-colors: (
-    "primary": #F0BC68,
-    "secondary": #8F8F8F,
-    "success": #33CA7F,
-    "danger": #EF6461,
-    "warning": #FF8247,
-    "info": #62B6CB,
-    "light": #F7F3F0,
-    "dark": #353535
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "danger": $danger,
+    "warning": $warning,
+    "info": $info,
+    "light": $light,
+    "dark": $dark
 );
 
 // include all of bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&family=Playfair+Display&display=swap');
 
 $color-palette:(
     "light-pink": #F5D1C3,
@@ -24,6 +34,14 @@ $color-palette:(
 
 body {
     background-color: map-get($color-palette, "light");
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+p {
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .display-item-dimension{
