@@ -39,28 +39,6 @@
             echo $headerString;
         }
 
-        public function getSkinTypeArray(){
-            
-            $productDataQuery = mysqli_query($connect, "SELECT * FROM products WHERE id='$itemID'");
-            $row = mysqli_fetch_array($productDataQuery);
-
-            $skinTypes = $row['for_skin_type'];
-
-            // print_r (explode(",",$skinTypes));
-
-            $skinTypeArray = explode(",",$skinTypes);
-
-            // $i = 0;
-            // $arrayLength = count($skinTypeArray);
-
-            // while($i < $arrayLength){
-            //     echo $skinTypeArray[$i] ."<br />";
-            //         $i++;
-            // }
-
-            return $skinTypeArray;
-        }
-
         public function loadProducts($tab, $itemID){
 
             if($tab == "categories"){
@@ -76,6 +54,7 @@
                 $id = $row['id'];
                 $name = $row['name'];
                 $mainIngredient = $row['main_ingredient'];
+                $skinTypes = $row['for_skin_type'];
                 $basePrice = $row['base_price'];
                 $numReviews = $row['num_reviews'];
 
@@ -85,6 +64,13 @@
                 $obj = json_decode($jsonobj);
                 // Set $img to the value of image1 from images by php object $obj
                 $img = $obj->images->image1;
+
+                $skinTypeArray = explode(",",$skinTypes);
+
+                // Filter products by skin type
+                if (!in_array("Normal", $skinTypeArray)) {
+                    continue;
+                }
 
                 $productString .= "<div class='col product-display'>
                                         <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
