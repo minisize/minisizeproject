@@ -62,7 +62,7 @@
 
                         <div class="col-md-3 col-sm-4 d-flex align-items-center justify-content-evenly">
                             <p class="fs-5 mt-3">Sort by</p>
-                            <select name="ingredient" id="" class="btn-outline-pink form-select form-select-sm w-50 text-dark">
+                            <select name="sort" id="sort" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm w-50 text-dark">
                                 <option value="Featured">Featured</option>
                                 <option value="PriceHigh">Price: High to Low</option>
                                 <option value="PriceLow">Price: Low to High</option>
@@ -81,9 +81,8 @@
                         $tabID = $tab . "_id";
 
                         $query = "SELECT * FROM products WHERE $tabID='$itemID'";
-                        $result = mysqli_query($connect, $query);
 
-                        echo $product_obj->loadProducts($result);
+                        echo $product_obj->loadProducts($query);
                     ?>
                 </div>
             </div>
@@ -94,6 +93,7 @@
     function selectFilter() {
         var skinType = document.getElementById("skinType").value;
         var benefit = document.getElementById("benefit").value;
+        var sort = document.getElementById("sort").value;
         var tab = '<?=$tab?>';
         var item = '<?=$itemID?>';
 
@@ -103,6 +103,7 @@
             data:{
                 skin : skinType,
                 benefit : benefit,
+                sort : sort,
                 tab : tab,
                 item : item
             },
