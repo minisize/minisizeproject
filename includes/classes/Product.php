@@ -39,22 +39,14 @@
             echo $headerString;
         }
 
-        public function loadProducts($tab, $itemID){
+        public function loadProducts($query){
 
-            if($tab == "categories"){
-                $tab = "category";
-            }
-
-            $tabID = $tab . "_id";
             $productString = "";
 
-            $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE $tabID='$itemID'");
-
-            while($row = mysqli_fetch_array($productDataQuery)){
+            while($row = mysqli_fetch_array($query)){
                 $id = $row['id'];
                 $name = $row['name'];
                 $mainIngredient = $row['main_ingredient'];
-                $skinTypes = $row['for_skin_type'];
                 $basePrice = $row['base_price'];
                 $numReviews = $row['num_reviews'];
 
@@ -64,13 +56,6 @@
                 $obj = json_decode($jsonobj);
                 // Set $img to the value of image1 from images by php object $obj
                 $img = $obj->images->image1;
-
-                $skinTypeArray = explode(",",$skinTypes);
-
-                // Filter products by skin type
-                if (!in_array("Normal", $skinTypeArray)) {
-                    continue;
-                }
 
                 $productString .= "<div class='col product-display'>
                                         <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
@@ -86,7 +71,7 @@
                                     </div>";
             }
 
-            echo $productString;
+            return $productString;
         }
 
         public function loadProductItem($itemID){
