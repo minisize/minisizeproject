@@ -43,7 +43,9 @@
 
             $productString = "";
 
-            while($row = mysqli_fetch_array($query)){
+            $result = mysqli_query($this->connect, $query);
+
+            while($row = mysqli_fetch_array($result)){
                 $id = $row['id'];
                 $name = $row['name'];
                 $mainIngredient = $row['main_ingredient'];
