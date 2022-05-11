@@ -37,8 +37,9 @@
                     <div class="row d-flex flex-wrap justify-content-between">
                         <div class="col-md-5 col-sm-8 d-flex align-items-center justify-content-between">
                             <p class="fs-5 mt-3">Filter by</p>
-                            <select name="skin-type" id="" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
-                                <option selected>Skin Types</option>
+
+                            <select name="skin-type" id="skinType" onchange="selectSkinType()" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
+                                <option selected disabled>Skin Types</option>
                                 <option value="All">All</option>
                                 <option value="Normal">Normal</option>
                                 <option value="Combination">Combination</option>
@@ -47,9 +48,8 @@
                                 <option value="Sensitive">Sensitive</option>
                             </select>
 
-                            <select name="benefit" id="" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
+                            <select name="benefit" id="benefit" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
                                 <option selected>Benefits</option>
-                                <option value="All">All</option>
                                 <option value="Hydration">Hydration</option>
                                 <option value="Pores">Pores</option>
                                 <option value="Troubled">Troubled Skin</option>
@@ -75,12 +75,33 @@
         </div>
         <div class="maincontent-container2">
             <div class="container">
-                <div class="maincontent-container2 row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                <div id="loadProducts" class="maincontent-container2 row row-cols-1 row-cols-sm-2 row-cols-md-4">
                     <?php $product_obj->loadProducts($tab, $itemID);?>
                 </div>
             </div>
 
 </main>
+
+<script>
+    function selectSkinType() {
+        var x = document.getElementById("skinType").value;
+        var tab = '<?=$tab?>';
+        var item = '<?=$itemID?>';
+
+        $.ajax({
+            url:"includes/handlers/filter-handler.php",
+            method: "POST",
+            data:{
+                id : x,
+                tab : tab,
+                item : item
+            },
+            success:function(data){
+                $("#loadProducts").html(data);
+            }
+        });
+    }
+</script>
 
 <!-- Default Footer Paste -->
 <?php
