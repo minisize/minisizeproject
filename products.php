@@ -38,7 +38,7 @@
                         <div class="col-md-5 col-sm-8 d-flex align-items-center justify-content-between">
                             <p class="fs-5 mt-3">Filter by</p>
 
-                            <select name="skin-type" id="skinType" onchange="selectSkinType()" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
+                            <select name="skin-type" id="skinType" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
                                 <option selected disabled>Skin Types</option>
                                 <option value="All">All</option>
                                 <option value="Normal">Normal</option>
@@ -48,15 +48,15 @@
                                 <option value="Sensitive">Sensitive</option>
                             </select>
 
-                            <select name="benefit" id="benefit" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
-                                <option selected>Benefits</option>
+                            <select name="benefit" id="benefit" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
+                                <option selected disabled>Benefits</option>
                                 <option value="Hydration">Hydration</option>
-                                <option value="Pores">Pores</option>
-                                <option value="Troubled">Troubled Skin</option>
-                                <option value="DullnessUneven">Dullness & Uneven</option>
-                                <option value="Sensitive">Sensitive</option>
-                                <option value="AgePrevention">Age Prevention</option>
-                                <option value="LiftFirm">Lifting & Firming</option>
+                                <option value="Pore Solutions">Pores</option>
+                                <option value="Troubled Skin">Troubled Skin</option>
+                                <option value="Dullness & Uneven Skin Tone">Dullness & Uneven</option>
+                                <option value="Sensitive Skin">Sensitive</option>
+                                <option value="Age Prevention">Age Prevention</option>
+                                <option value="Lifting & Firming">Lifting & Firming</option>
                             </select>
                         </div>
 
@@ -76,15 +76,24 @@
         <div class="maincontent-container2">
             <div class="container">
                 <div id="loadProducts" class="maincontent-container2 row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                    <?php $product_obj->loadProducts($tab, $itemID);?>
+                    <?php 
+                        if($tab == "categories"){ $tab = "category"; }
+                        $tabID = $tab . "_id";
+
+                        $query = "SELECT * FROM products WHERE $tabID='$itemID'";
+                        $result = mysqli_query($connect, $query);
+
+                        echo $product_obj->loadProducts($result);
+                    ?>
                 </div>
             </div>
 
 </main>
 
 <script>
-    function selectSkinType() {
-        var x = document.getElementById("skinType").value;
+    function selectFilter() {
+        var skinType = document.getElementById("skinType").value;
+        var benefit = document.getElementById("benefit").value;
         var tab = '<?=$tab?>';
         var item = '<?=$itemID?>';
 
@@ -92,7 +101,8 @@
             url:"includes/handlers/filter-handler.php",
             method: "POST",
             data:{
-                id : x,
+                skin : skinType,
+                benefit : benefit,
                 tab : tab,
                 item : item
             },
