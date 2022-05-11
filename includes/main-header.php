@@ -51,6 +51,9 @@
     <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css">
     <link rel="stylesheet" href="assets/styles/products/products-style.css">
 
+    <!-- AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 </head>
 
 <body>
