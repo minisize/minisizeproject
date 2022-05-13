@@ -33,68 +33,47 @@
                                     <h1> $name </h1>
                                     <p> $description </p>
                                     </div>
-                                    <div class='container2 col'> Picture Product </div>
                                 </div>
                             </div>";
 
             echo $headerString;
         }
 
-        public function ImageLoad($itemID)
-        {
-            $query = "SELECT * FROM products WHERE id='$itemID'";
-            $result = mysqli_query($this->connect, $query);
+        public function loadProducts($query){
 
-            $row = mysqli_fetch_array($result);
-
-            //set $jsonobj to the value of input of the array "images" from $row;
-            $jsonobj = $row["images"];
-            //set $obj to the value of a php object converted from the string of $jsonobj
-            $obj = json_decode($jsonobj);
-            // Set $img to the value of image1 from images by php object $obj
-            $img = $obj->images->image1;
-
-            $produceImages = "
-            
-            ";
-
-            echo $produceImages;
-        }
-
-        public function loadProducts($tab, $itemID){
-
-            if($tab == "categories"){
-                $tab = "category";
-            }
-
-            $tabID = $tab . "_id";
             $productString = "";
 
-            $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE $tabID='$itemID'");
+            $result = mysqli_query($this->connect, $query);
 
-            while($row = mysqli_fetch_array($productDataQuery)){
+            while($row = mysqli_fetch_array($result)){
                 $id = $row['id'];
                 $name = $row['name'];
                 $mainIngredient = $row['main_ingredient'];
                 $basePrice = $row['base_price'];
                 $numReviews = $row['num_reviews'];
 
-                // $productString .= "$id <br><br> $name <br><br> $description <br><br><br>";
-                $productString .= "<div class='col'>
-                                        <label for=''></label><img src='#' alt=''>
-                                        <div class='product-display'>
-                                            <h6>$name</h6>
-                                            <p>with $mainIngredient</p>
+                //set $jsonobj to the value of input of the array "images" from $row;
+                $jsonobj = $row["images"];
+                //set $obj to the value of a php object converted from the string of $jsonobj
+                $obj = json_decode($jsonobj);
+                // Set $img to the value of image1 from images by php object $obj
+                $img = $obj->images->image1;
+
+                $productString .= "<div class='col product-display'>
+                                        <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
+                                        <div class='product-name'>
+                                            <p><strong>$name</strong> <br> with $mainIngredient</p>
                                         </div>
                                         <div class='product-price'>
                                             <label for=''>$basePrice AED</label>
                                             <a href=''>$numReviews reviews </a>
                                         </div>
-                                        <a href='product-item.php?id=$id' class='btn btn-info'>View</a>
+                                        <div class='overlay-product'></div>
+                                        <a href='product-item.php?id=$id' class='product-view btn btn-outline-primary'>View</a>
                                     </div>";
             }
 
-            echo $productString;
+            return $productString;
         }
 
         public function loadSimilarProducts($itemID)
