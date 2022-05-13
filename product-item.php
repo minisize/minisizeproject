@@ -24,55 +24,7 @@ if (isset($_GET['id'])) {
 
             <!-- Similar Products -->
             <div class="container">
-                <div class="row">
-                    <h1>Similar Products</h1>
-                    <h6>with the same key ingredients</h6>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
-                        <div><label for="">12 dhs</label></div>
-                    </div>
-                    <div class="col">
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
-                        <div><label for="">12 dhs</label></div>
-                    </div>
-                    <div class="col">
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
-                        <div><label for="">12 dhs</label></div>
-                    </div>
-                    <div class="col">
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
-                        <div><label for="">12 dhs</label></div>
-                    </div>
-                    <div class="col">
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
-                        <div><label for="">12 dhs</label></div>
-                    </div>
-                    <div class="col">
-                        <img src="#" alt="">
-                        <h3>Item Name</h3>
-                        <p>contains</p>
-                        <img src="#">
-                        <div><label for="">12 dhs</label></div>
-                    </div>
-                </div>
-                <div><label for="">12 dhs</label></div>
+            <?php $product_obj->loadSimilarProducts($itemID); ?>
             </div>
         </div>
 

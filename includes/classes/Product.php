@@ -99,19 +99,53 @@
 
         public function loadSimilarProducts($itemID)
         {
-            $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
+            $Add="";
+
+            $GET_Data = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
+            $GET_Item = mysqli_fetch_array($GET_Data);
+            $Key_Ingredient = $GET_Item["main_ingredient"];
+            $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE main_ingredient = '$Key_Ingredient'");
             $row = mysqli_fetch_array($productDataQuery);
 
+            $Key_ingredient_ID=$row['key_ingredient_id'];
+
+
+
+            //Creates a foreach
+            while ($row = mysqli_fetch_array($productDataQuery)) {
+
+            //set $jsonobj to the value of input of the array "images" from $row;
+            $jsonobj = $row["images"];
+            //set $obj to the value of a php object converted from the string of $jsonobj
+            $obj = json_decode($jsonobj);
+            // Set $img to the value of image1 from images by php object $obj
+            $img = $obj->images->image1;
+
+            if ($row["id"] != $itemID) {
+                $Add.="
+                    <div class='col'>
+                            <img src='$img' alt='image of product'>
+                            <h3>".$row['name']."</h3>
+                            <p>contains</p>
+                            <img src='#' alt='image of ingredient'>
+                        <div>
+                            <label for=''>".$row['base_price']."</label>
+                        </div>
+                    </div>
+                ";
+            }
+
+                
+            }
 
             $Similar_String ="
                 <div class='row'>
-                    <h1>Similar Products</h1>
-                    <h6>with the same key ingredients</h6>
+                    <h1> Similar Products </h1>
+                    <h6> with the same key ingredients </h6>
                 </div>
 
                 <div class='row'>
-                    <h1>Similar Products</h1>
-                    <h6>with the same key ingredients</h6>
+                    $Add
                 </div>
                 ";
             echo $Similar_String;
