@@ -3,8 +3,8 @@
 ?>
         <div id="account-page-content" class="col p-5">
             <h2>Orders</h2>
-            <div class="row mt-4">
-                <iframe class="ratio" src="account-order-history.php" frameborder="0"></iframe>
+            <div class="col mt-4">
+                <?php $user_obj -> loadOrdersList()?>
             </div>
         </div>
     </div>

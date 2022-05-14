@@ -55,5 +55,46 @@
 
             echo $userString;
         }
+
+        public function loadOrdersList(){
+            $orderString = "";
+            $user = $this->user["id"];
+            $query = mysqli_query($this->connect, "SELECT * FROM orders WHERE user_id='$user'");
+
+            while($orderData = mysqli_fetch_array($query)){
+                $orderID = $orderData['id'];
+                $orderDate = $orderData['ordered_on'];
+                $shipDate = $orderData['shipped_on'];
+                $orderAmount = $orderData['num_orders'];
+                $status = $orderData['status'];
+
+                $orderString .= "
+                <div class='row mb-4'>
+                    <h3>Order #$orderID</h3>
+                    <div>$status</div>
+                    <div>$shipDate</div>
+                    <div>$orderDate</div>
+                    <div>$orderAmount</div>
+                </div>";
+            }
+
+            echo $orderString;
+        }
+
+        public function getOrderDetails(){
+
+        }
+
+        public function loadWishList(){
+
+        }
+
+        public function loadAddressList(){
+
+        }
+
+        public function loadPaymentList(){
+
+        }
     }
 ?>
