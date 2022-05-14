@@ -76,9 +76,97 @@
             return $productString;
         }
 
+        public function loadSimilarProducts($itemID)
+        {
+            $Add="";
+            $hascontent = false ;
+
+            $GET_Data = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
+            $GET_Item = mysqli_fetch_array($GET_Data);
+            $Key_Ingredient = $GET_Item["main_ingredient"];
+            $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE main_ingredient = '$Key_Ingredient'");
+            $row = mysqli_fetch_array($productDataQuery);
+
+            $Key_ingredient_ID=$row['key_ingredient_id'];
+
+
+
+            //Creates a foreach
+            while ( $row = mysqli_fetch_array($productDataQuery)) {
+            
+            
+
+            //set $jsonobj to the value of input of the array "images" from $row;
+            $jsonobj = $row["images"];
+            //set $obj to the value of a php object converted from the string of $jsonobj
+            $obj = json_decode($jsonobj);
+            // Set $img to the value of image1 from images by php object $obj
+            $img = $obj->images->image1;
+
+            if ($row["id"] != $itemID) {
+
+                //Sets $hascontent to true for appropriate response
+                $hascontent = true ;
+
+                $Add.="
+                    <div class='col product-display'>
+                        <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
+                        <div class='product-name'>
+                            <p><strong>".$row['name']."</strong></p>
+                        </div>
+                            <p>contains</p>
+                            <img src='#' alt='image of ingredient'>
+                        <div>
+                            <label for=''>".$row['base_price']."</label>
+                        </div>
+                    </div>
+                ";
+            }
+                
+            }
+
+            
+            // Sets String response of $Similar_String dependent if $hascontent is true or false
+            if ( $hascontent === true ) {
+                $Similar_String ="
+                <div class='row'>
+                    <h1> Similar Products </h1>
+                    <h6> with the same key ingredients </h6>
+                </div>
+
+                <div class='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
+                    $Add
+                </div>
+                ";
+            } else {
+                $Similar_String ="
+                <div class='row'>
+                    <h1> Oops Sorry! </h1>
+                    <h6> there are no products in our store with the same key ingredients </h6>
+                </div>";
+            };
+
+            // $Similar_String ="
+            //     <div class='row'>
+            //         <h1> Similar Products </h1>
+            //         <h6> with the same key ingredients </h6>
+            //     </div>
+
+            //     <div class='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
+            //         $Add
+            //     </div>
+            //     ";
+            echo $Similar_String;
+        }
+
         public function loadProductItem($itemID){
             $productString = "";
+            $productsImage = "";
+            $productsImageCarousel = "";
             $textLink = "";
+            $num = false;
+
+            $btn_class=" fw-normal bg-white border-0 col py-2 mx-4 rounded-3";
 
             $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
 
@@ -90,13 +178,57 @@
             $cosdnaLink = $row['cosdna_link'];
             $basePrice = $row['base_price'];
 
+            //set $jsonobj to the value of input of the array "images" from $row;
+            $jsonobj = $row["images"];
+            //set $obj to the value of a php object converted from the string of $jsonobj
+            $obj = json_decode($jsonobj);
+            // Set $img to the value of image1 from images by php object $obj
+            $img = $obj->images;
+
             if($cosdnaLink == "#"){
                 $textLink = "";
             } else {
                 $textLink = "Ingredient list";
             }
 
-            $productString .= "<div class=''>
+            foreach($img as $key => $value) {
+            
+            if ($num === false) {
+                $productsImageCarousel .="
+                <div class='carousel-item active'>
+                    <img src='$value' class='d-block w-100' alt='$key'>
+                </div>
+            ";
+            
+            $num = true;
+            } else {
+                $productsImageCarousel .="
+                <div class='carousel-item'>
+                    <img src='$value' class='d-block w-100' alt='$key'>
+                </div>
+            ";
+            }
+              }
+
+            $productsImage = "
+            <!-- Main Image Display -->
+            <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
+                <div class='carousel-inner'>
+                        $productsImageCarousel
+                </div>
+                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
+                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                    <span class='visually-hidden'>Previous</span>
+                </button>
+                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next'>
+                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                    <span class='visually-hidden'>Next</span>
+                </button>
+            </div>
+            ";
+
+            $productString .= "
+                            <div class=''>
                                 <div>
                                     <!-- Header Section of Item -->
                                     <div class='container'>
@@ -116,15 +248,15 @@
                                 <div class='container'>
 
                                     <p class='row'>$description</p>
-                                    <div class='row'>
-                                        <button class='col'><img src='#' alt=''>10ml</button>
-                                        <button class='col'><img src='#' alt=''>15ml</button>
-                                        <button class='col'><img src='#' alt=''>20ml</button>
+                                    <div class='row my-3'>
+                                        <button class='$btn_class'><img src='#' alt=''>10ml</button>
+                                        <button class='$btn_class'><img src='#' alt=''>15ml</button>
+                                        <button class='$btn_class'><img src='#' alt=''>20ml</button>
                                     </div>
                                     <div class='row'>
                                         <label for='' class='col'>$basePrice AED</label>
                                         <a href='' class='col'>View full product</a>
-                                        <button class='col'>Add to Cart</button>
+                                        <button class='col border-0 bg-primary rounded-3 fw-bold py-1 text-white'>Add to Cart</button>
                                     </div>
 
                                 <p></p>
@@ -155,9 +287,16 @@
                                     </div>
                                 </div>
                             </div>";
-        
-            
-            echo $productString;
+            echo " 
+            <div class='container'>
+                <div class='row'> 
+                    <div class='col'>
+                    $productsImage
+                    </div>
+                    <div class='col'>
+                    $productString
+                    </div>
+                </div>
+            </div>";
         }
     }
-?>
