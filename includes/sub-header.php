@@ -1,5 +1,10 @@
 <?php require '../../includes/server.php';
     include("../../includes/classes/User.php");
+    $userLoggedIn = $_SESSION['id'];
+    $userDetailsQuery = mysqli_query($connect, "SELECT * FROM users WHERE id='$userLoggedIn'");
+    $user = mysqli_fetch_array($userDetailsQuery); 
+
+    $user_obj = new User($connect, $userLoggedIn);
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +22,9 @@
 
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500;700&family=Montserrat:wght@400;600&family=Roboto&display=swap');        

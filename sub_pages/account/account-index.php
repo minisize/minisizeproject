@@ -1,7 +1,4 @@
 <?php require"../../includes/sub-header.php";
-    $userLoggedIn = $_SESSION['id'];
-    $userDetailsQuery = mysqli_query($connect, "SELECT * FROM users WHERE id='$userLoggedIn'");
-    $user = mysqli_fetch_array($userDetailsQuery);  
 ?>
 
     <div class="row" id="acc-body" style="padding-right: 6rem !important; padding-left: 6rem !important;" >
