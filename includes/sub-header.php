@@ -38,7 +38,7 @@
         </div>
     </header> -->
     
-    <header class="d-flex flex-wrap align-items-center justify-content-between p-5 border-bottom">
+    <header class="d-flex flex-wrap align-items-center justify-content-between p-3 border-bottom">
         <a class="">
             <img src="../../assets/images/website/logo/logo-placeholder.png"
                         alt="Minisize Logo" width="75">
