@@ -1,4 +1,6 @@
-<?php require '../../includes/server.php';?>
+<?php require '../../includes/server.php';
+    include("../../includes/classes/User.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,33 +13,36 @@
 
     <!-- bootstrap link -->
     <link rel="stylesheet" href="../../assets/styles/main.css">
+    
 
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500;700&family=Montserrat:wght@400;600&family=Roboto&display=swap');        
         *{
             background-color: #F7F3F0;
+            font-family: 'Josefin Sans', sans-serif;
         }
+        h3{
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 500;
+        }
+        h4,label{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        h5,input,select{
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+        }
+
     </style>
 
 </head>
 
 <body>
-    <!--  -->
-
-    <!-- <header class="d-flex flex-wrap align-items-center justify-content-between p-3 border-bottom">
-        <a class="d-flex align-items-center">
-            <img src="../../assets/images/website/logo/logo-placeholder.png"
-                        alt="Minisize Logo" width="75">
-        </a>
-
-        <div class="col-1 d-flex justify-content-between">
-            <a href="../../index.php" class="material-icons text-decoration-none link-dark">home</a>
-            <a href="../purchase/cart.php" class="material-icons text-decoration-none link-dark">shopping_cart</a>
-        </div>
-    </header> -->
-    
     <header class="d-flex flex-wrap align-items-center justify-content-between p-5 border-bottom">
         <a class="">
             <img src="../../assets/images/website/logo/logo-placeholder.png"
@@ -50,6 +55,4 @@
         </div>
     </header>
 
-<!-- </body>
-
-</html> -->
+<!-- End of file -->
