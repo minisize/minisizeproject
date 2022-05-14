@@ -102,9 +102,11 @@
 
             if ($row["id"] != $itemID) {
                 $Add.="
-                    <div class='col'>
-                            <img src='$img' alt='image of product'>
-                            <h3>".$row['name']."</h3>
+                    <div class='col product-display'>
+                        <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
+                        <div class='product-name'>
+                            <p><strong>".$row['name']."</strong></p>
+                        </div>
                             <p>contains</p>
                             <img src='#' alt='image of ingredient'>
                         <div>
@@ -116,6 +118,14 @@
 
                 
             }
+            
+            // if ($Add = "") {
+            //     $Similar_String ="
+            //     <div class='row'>
+            //         <h1> Oops Sorry! </h1>
+            //         <h6> there are no products in our store with the same key ingredients </h6>
+            //     </div>";
+            // } else {};
 
             $Similar_String ="
                 <div class='row'>
@@ -123,7 +133,7 @@
                     <h6> with the same key ingredients </h6>
                 </div>
 
-                <div class='row'>
+                <div class='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
                     $Add
                 </div>
                 ";
