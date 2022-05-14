@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&family=Playfair+Display&display=swap');
+
+.category-img {
+    position: relative;
+    display: flex;
+    justify-content: end;
+
+    img {
+        height: 70vh;
+        border-radius: 16px 0px 0px 16px;
+    }
+}
+
+.category-nav {
+    position: absolute;
+    top: 50;
+    left: 0;
+    z-index: 2;
+    padding: 4rem;
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.17);
+    border-radius: 0px 16px 16px 0px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.8px);
+    -webkit-backdrop-filter: blur(3.8px);
+
+    a {
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+}
