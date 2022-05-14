@@ -74,15 +74,21 @@ if (isset($_GET['id'])) {
                         </div>
                     </div>
 
-                    <div class="col-3">
-                        <button> Write a Review </button>
+                    <div class="col-3 container">
+                        <div class="row w-auto justify-content-center ">
+                            <button type="button" class="btn btn-primary w-50  align-self-center"> Write a Review </button>
+                        </div>
+                        <div class="row w-auto">
+                            <select class="form-select form-select-lg " aria-label=".form-select-lg example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>                            
+                        </div>
 
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+
+
                     </div>
 
                 </div>

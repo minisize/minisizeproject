@@ -79,6 +79,7 @@
         public function loadSimilarProducts($itemID)
         {
             $Add="";
+            $hascontent = false ;
 
             $GET_Data = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
             $GET_Item = mysqli_fetch_array($GET_Data);
@@ -91,7 +92,9 @@
 
 
             //Creates a foreach
-            while ($row = mysqli_fetch_array($productDataQuery)) {
+            while ( $row = mysqli_fetch_array($productDataQuery)) {
+            
+            
 
             //set $jsonobj to the value of input of the array "images" from $row;
             $jsonobj = $row["images"];
@@ -101,6 +104,10 @@
             $img = $obj->images->image1;
 
             if ($row["id"] != $itemID) {
+
+                //Sets $hascontent to true for appropriate response
+                $hascontent = true ;
+
                 $Add.="
                     <div class='col product-display'>
                         <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
@@ -115,19 +122,13 @@
                     </div>
                 ";
             }
-
                 
             }
-            
-            // if ($Add = "") {
-            //     $Similar_String ="
-            //     <div class='row'>
-            //         <h1> Oops Sorry! </h1>
-            //         <h6> there are no products in our store with the same key ingredients </h6>
-            //     </div>";
-            // } else {};
 
-            $Similar_String ="
+            
+            // Sets String response of $Similar_String dependent if $hascontent is true or false
+            if ( $hascontent === true ) {
+                $Similar_String ="
                 <div class='row'>
                     <h1> Similar Products </h1>
                     <h6> with the same key ingredients </h6>
@@ -137,6 +138,24 @@
                     $Add
                 </div>
                 ";
+            } else {
+                $Similar_String ="
+                <div class='row'>
+                    <h1> Oops Sorry! </h1>
+                    <h6> there are no products in our store with the same key ingredients </h6>
+                </div>";
+            };
+
+            // $Similar_String ="
+            //     <div class='row'>
+            //         <h1> Similar Products </h1>
+            //         <h6> with the same key ingredients </h6>
+            //     </div>
+
+            //     <div class='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
+            //         $Add
+            //     </div>
+            //     ";
             echo $Similar_String;
         }
 
@@ -146,6 +165,8 @@
             $productsImageCarousel = "";
             $textLink = "";
             $num = false;
+
+            $btn_class=" fw-normal bg-white border-0 col py-2 mx-4 rounded-3";
 
             $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
 
@@ -227,15 +248,15 @@
                                 <div class='container'>
 
                                     <p class='row'>$description</p>
-                                    <div class='row'>
-                                        <button class='col'><img src='#' alt=''>10ml</button>
-                                        <button class='col'><img src='#' alt=''>15ml</button>
-                                        <button class='col'><img src='#' alt=''>20ml</button>
+                                    <div class='row my-3'>
+                                        <button class='$btn_class'><img src='#' alt=''>10ml</button>
+                                        <button class='$btn_class'><img src='#' alt=''>15ml</button>
+                                        <button class='$btn_class'><img src='#' alt=''>20ml</button>
                                     </div>
                                     <div class='row'>
                                         <label for='' class='col'>$basePrice AED</label>
                                         <a href='' class='col'>View full product</a>
-                                        <button class='col'>Add to Cart</button>
+                                        <button class='col border-0 bg-primary rounded-3 fw-bold py-1 text-white'>Add to Cart</button>
                                     </div>
 
                                 <p></p>
