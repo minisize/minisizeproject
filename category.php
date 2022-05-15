@@ -15,7 +15,7 @@
                 <img src="assets/images/website/category-header.jpg">
             </div>
             <div class="category-nav">
-                <h1 class="row fw-bold">Category</h3>
+                <h1 class="row fw-bold text-darkgreen">Category</h3>
                     <a href="" class="row">Bundles</a>
                     <a href="" class="row">Moisterizer</a>
                     <a href="" class="row">Toners</a>
@@ -27,18 +27,18 @@
 
 
         <div class="container categories">
-            <div class="row py-5 border-bottom">
+            <div class="row py-5">
                 <?php
                     while($row = mysqli_fetch_array($categoriesData)){
                         $id = $row["id"];
                         $name = $row["name"];
                         $desc = $row["short_description"];
                         
-                        echo "<div class='container row'>
-                                <div class='col-3'>
-                                    <h3>$name</h3>
+                        echo "<div class='container row mt-4'>
+                                <div class='col-3 border-bottom'>
+                                    <h3 class='text-darkgreen'><strong>$name</strong></h3>
                                     <p>$desc</p>
-                                    <button>View All</button>
+                                    <a href='products.php?category_id=$id' class='btn btn-primary fw-bold text-light px-4'>View All</a>
                                 </div>";
 
                         $productsDataQuery = "SELECT * FROM products WHERE category_id = '$id' LIMIT 3";
@@ -55,17 +55,20 @@
                             $obj = json_decode($jsonobj);
                             $img = $obj->images->image1;
 
-                            echo "<div class='col'>
+                            echo "<div class='col d-flex flex-column justify-content-between border-bottom'>
+                                    
                                     <div>
-                                        <img src='$img' alt='' class='img-fluid display-item-dimension'>
-                                        <h5>$name</h5>
-                                        <p>By $brand</p>
+                                    <img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-2'>
+                                        <p><strong>$name</strong> <br>By $brand</p>
                                     </div>
-                                    <div class='d-flex justify-content-between'>$basePrice dhs<a href='#'>$numReviews reviews</a></div>
+                                    <div class='d-flex align-items-center justify-content-between'>
+                                        <p class='fs-5 text-darkgreen'>$basePrice dhs</p>
+                                        <p>$numReviews reviews</p>
+                                    </div>
                                 </div>";
 
                         }
-
+                        echo "</div>";
                     }
                 ?>
 

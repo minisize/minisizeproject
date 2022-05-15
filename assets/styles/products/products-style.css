@@ -3,6 +3,11 @@
   padding: 10px;
 }
 
+.product-img {
+  height: 25vh;
+  text-align: center;
+}
+
 .overlay-product {
   position: absolute;
   top: 0;
