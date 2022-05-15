@@ -63,10 +63,17 @@
 
             while($orderData = mysqli_fetch_array($query)){
                 $orderID = $orderData['id'];
+                $cartID = $orderData['cart_id'];
                 $orderDate = $orderData['ordered_on'];
                 $shipDate = $orderData['shipped_on'];
                 $orderAmount = $orderData['num_orders'];
                 $status = $orderData['status'];
+
+                
+                $cart_query = mysqli_query($this->connect, "SELECT * FROM cart WHERE id='$cartID'");
+                while($cartData = mysqli_fetch_array($cart_query)){
+
+                }
 
                 $orderString .= "
                 <div class='row mb-4'>
