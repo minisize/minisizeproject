@@ -30,7 +30,7 @@
             $headerString = "<div class='container'>
                                 <div class='products-header row'>
                                     <div class='container1 col'>
-                                    <h1> $name </h1>
+                                    <h1><strong>$name</strong></h1>
                                     <p> $description </p>
                                     </div>
                                 </div>
@@ -59,17 +59,17 @@
                 // Set $img to the value of image1 from images by php object $obj
                 $img = $obj->images->image1;
 
-                $productString .= "<div class='col product-display'>
-                                        <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
-                                        <div class='product-name'>
+                $productString .=   "<div class='col product-display position-relative p-4 d-flex flex-column justify-content-between'>
+                                        <div>
+                                            <img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-2'>
                                             <p><strong>$name</strong> <br> with $mainIngredient</p>
                                         </div>
-                                        <div class='product-price'>
-                                            <label for=''>$basePrice AED</label>
-                                            <a href=''>$numReviews reviews </a>
+                                        <div class='product-price d-flex align-items-center justify-content-between'>
+                                            <p class='fs-5 text-darkgreen'>$basePrice AED</p>
+                                            <p>$numReviews reviews</p>
                                         </div>
                                         <div class='overlay-product'></div>
-                                        <a href='product-item.php?id=$id' class='product-view btn btn-outline-primary'>View</a>
+                                        <a href='product-item.php?id=$id' class='product-view btn btn-outline-primary fw-bold px-5'>View</a>
                                     </div>";
             }
 

@@ -56,13 +56,12 @@
                             $img = $obj->images->image1;
 
                             echo "<div class='col d-flex flex-column justify-content-between border-bottom'>
-                                    
                                     <div>
-                                    <img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-2'>
+                                        <img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-2'>
                                         <p><strong>$name</strong> <br>By $brand</p>
                                     </div>
                                     <div class='d-flex align-items-center justify-content-between'>
-                                        <p class='fs-5 text-darkgreen'>$basePrice dhs</p>
+                                        <p class='fs-5 text-darkgreen'>$basePrice AED</p>
                                         <p>$numReviews reviews</p>
                                     </div>
                                 </div>";
