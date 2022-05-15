@@ -66,7 +66,7 @@
                 $cartID = $orderData['cart_id'];
                 $orderDate = $orderData['ordered_on'];
                 $shipDate = $orderData['shipped_on'];
-                $orderAmount = $orderData['num_orders'];
+                $orderNum = $orderData['num_orders'];
                 $status = $orderData['status'];
 
                 
@@ -76,12 +76,33 @@
                 }
 
                 $orderString .= "
-                <div class='row mb-4'>
-                    <h3>Order #$orderID</h3>
-                    <div>$status</div>
-                    <div>$shipDate</div>
-                    <div>$orderDate</div>
-                    <div>$orderAmount</div>
+                <div class='row d-flex mb-4 p-4 rounded-3' style='background-color: #FFFBF8;'>
+                    <div class='d-flex flex-row justify-content-between'> 
+                        <div>
+                            <div class='d-flex flex-row flex-grow-1'>
+                                <h3 class='m-0'>Order #$orderNum</h3>
+                                <div class='ms-3 d-flex flex-row align-items-center'>
+                                    <div class='rounded-circle me-3' style='width: 1rem; height: 1rem; background-color: green;'></div>
+                                    $status
+                                </div>  
+                            </div>
+                            <div>Address of delivery</div>
+                        </div>
+                        <div>
+                            <div>Delivered on: $shipDate</div>
+                            <div>Placed On: $orderDate</div>
+                        </div>
+                    </div>
+                    <div class='d-flex flex-row justify-content-between'>
+                        <div style='width: parent-height;'>img</div>
+                        <div>
+                            <div>Total Item(s): </div>
+                            <div>Subtotal: </div>
+                            <div>Shipping Fee: </div>
+                            <div>Order Total: </div>
+                        </div>
+                        <button class='ms-auto align-self-end btn btn-light btn-outline-dark mt-4'>View Order Details</button>
+                    </div>
                 </div>";
             }
 
