@@ -159,7 +159,7 @@
             echo $Similar_String;
         }
 
-        public function loadProductItem($itemID){
+        public function loadProductItem($itemID, $userID){
             $productString = "";
             $productsImage = "";
             $productsImageCarousel = "";
@@ -233,12 +233,9 @@
                                 <div class='container'>
                                     <div class='row d-flex align-items-baseline'>
                                         <h2 class='col fw-bold text-darkgreen'>$name</h2>
-                                        <form action='includes/handlers/wishlist-handler.php' method='POST' class='col-1 p-0'>
-                                            <button type='submit' class='border-0 bg-transparent' name='like_btn' value='Like'>
-                                                <i class='material-icons fs-3'>favorite_border</i>
-                                            </button>
-                                        </form>
-                                        <iframe class='col-1 p-0 like-frame' src='sub_pages/popup/add-to-wishlist.php?product-item.php?id=$id' scrolling='no'></iframe>
+                                        <div class='col-1'>
+                                            " . $this->addToWishlist($id, $userID) . "
+                                        </div>
                                     </div>
                                     
                                     <div class='row'>
@@ -306,5 +303,33 @@
                     </div>
                 </div>
             </div>";
+        }
+
+        public function addToWishlist($itemID, $userID){
+
+            $button = "";
+
+            if($userID == ""){ // if there is no user logged in
+                $button = "<button class='material-icons border-0 bg-transparent' name='like_btn' value='Like' data-bs-toggle='modal' data-bs-target='#registerModal'>
+                            <i class='material-icons mt-2'>favorite_border</i>
+                        </button>";
+            } else {
+
+                // check if product id with user id in wishlist table
+
+                    // if yes -> set button to unlike
+                        // remove from wishlist table
+                        // update num_wishlist in user table (decrement by 1)
+
+                    // if no -> set button to like
+
+                        // insert in wishlist table
+                        // update num_wishlist in user table (increment by 1)
+
+            }
+
+            return $button;
+
+            
         }
     }
