@@ -24,9 +24,9 @@
             </label>
         </div>
     </div>
-    <div class="footer-wrap main-footer">
+    <div class="footer-wrap main-footer w-auto d-flex justify-content-center flex-column">
         <button class="btn btn-outline-dark border border-1 border-dark rounded-0 px-5 py-2 fw-light "> SUBSCRIBE FOR MORE REWARDS </button>
-        <label> Website icon </label>
+        <img src="assets/images/website/logo/logo-placeholder.png" alt="Minisize Logo" width="75">
     </div>
     <div class="footer-wrap side-footer">
         <h5 class="fw-bold"> CONTACT US </h5>
