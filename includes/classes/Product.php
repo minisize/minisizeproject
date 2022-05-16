@@ -310,26 +310,31 @@
             $button = "";
 
             if($userID == ""){ // if there is no user logged in
-                $button = "<button class='material-icons border-0 bg-transparent' name='like_btn' value='Like' data-bs-toggle='modal' data-bs-target='#registerModal'>
-                            <i class='material-icons mt-2'>favorite_border</i>
-                        </button>";
+                $button = "<button class='border-0 bg-transparent' name='like_btn' value='Like' data-bs-toggle='modal' data-bs-target='#registerModal'>
+                                <i class='material-icons mt-2 fs-3'>favorite_border</i>
+                            </button>";
             } else {
 
                 // check if product id with user id in wishlist table
+                $checkWishlistQuery = mysqli_query($this->connect, "SELECT * FROM wishlist WHERE user_id='$userID' AND product_id='$itemID'");
+                $numRows = mysqli_num_rows($checkWishlistQuery);
 
-                    // if yes -> set button to unlike
-                        // remove from wishlist table
-                        // update num_wishlist in user table (decrement by 1)
+                if($numRows > 0){ // set button to unlike
+                    $button = "<form action='product-item.php?id=$itemID' class='form-like' method='POST'>
+                                    <button type='submit' class='border-0 bg-transparent' name='unlike_btn' value='Unlike'>
+                                        <i class='material-icons mt-2 fs-3'>favorite</i>
+                                    </button>
+                                </form>";
 
-                    // if no -> set button to like
-
-                        // insert in wishlist table
-                        // update num_wishlist in user table (increment by 1)
-
+                } else { // if no items -> set button to like
+                    $button = "<form action='product-item.php?id=$itemID' class='form-like' method='POST'>
+                                    <button type='submit' class='border-0 bg-transparent' name='like_btn' value='Like'>
+                                        <i class='material-icons mt-2 fs-3'>favorite_border</i>
+                                    </button>
+                                </form>";
+                }
             }
-
-            return $button;
-
             
+            return $button;
         }
     }

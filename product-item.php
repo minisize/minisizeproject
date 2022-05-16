@@ -1,11 +1,37 @@
 <!-- Default Header Paste-->
-<?php
-include("includes/main-header.php");
+<?php include("includes/main-header.php");
 
-// get id
-if (isset($_GET['id'])) {
-    $itemID = $_GET['id'];
-}
+    // get id
+    if (isset($_GET['id'])) {
+        $itemID = $_GET['id'];
+    }
+
+    // user query
+    $userQuery = mysqli_query($connect, "SELECT * FROM users WHERE id='$userLoggedIn'");
+    $row = mysqli_fetch_array($userQuery);
+    $numWishlistItems = $row['num_wishlist'];
+
+    // add to user wishlist
+    if (isset($_POST['like_btn'])){
+        // update num_wishlist in user table (increment by 1)
+        $numWishlistItems++;
+        $updateWishlistTotal = mysqli_query($connect, "UPDATE users SET num_wishlist='$numWishlistItems' WHERE id='$userLoggedIn'");
+
+        $addedOn = date("Y-m-d"); // Get current date
+
+        // insert in wishlist table
+        $insertWishlistQuery = mysqli_query($connect, "INSERT INTO wishlist (user_id, product_id, added_on) VALUES ('$userLoggedIn', '$itemID', '$addedOn')");
+    }
+
+    // remove from user wishlist
+    if (isset($_POST['unlike_btn'])){
+        // update num_wishlist in user table (decrement by 1)
+        $numWishlistItems--;
+        $updateWishlistTotal = mysqli_query($connect, "UPDATE users SET num_wishlist='$numWishlistItems' WHERE id='$userLoggedIn'");
+
+        // remove from wishlist table
+        $removeItem = mysqli_query($connect, "DELETE FROM wishlist WHERE user_id='$userLoggedIn' AND product_id='$itemID'");
+    }
 ?>
 
 <!--Add hero header in here-->
