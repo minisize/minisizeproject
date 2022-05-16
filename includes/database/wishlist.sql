@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 16, 2022 at 07:57 AM
+-- Generation Time: May 16, 2022 at 02:01 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -33,11 +33,17 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `added_on` date NOT NULL,
-  `num_products` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `product_wishlist_fk` (`product_id`),
   KEY `user_wishlist_fk` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
+(3, 1, 34, '2022-05-16');
 
 --
 -- Constraints for dumped tables
