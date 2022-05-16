@@ -229,19 +229,27 @@
 
             $productString .= "
                             <div class=''>
-                                <div>
-                                    <!-- Header Section of Item -->
-                                    <div class='container'>
-                                        <div class='row'>
-                                            <h2 class='col'>$name</h2>
-                                            <img src='#' class='col'>
-                                        </div>
-                                        
-                                        <div class='row'>
-                                            <h5 class='col'>With $mainIngredient </h5>
-                                            <a href='$cosdnaLink' class='col'>$textLink</a>
-                                        </div>
+                                <!-- Header Section of Item -->
+                                <div class='container'>
+                                    <div class='row d-flex align-items-baseline'>
+                                        <h2 class='col fw-bold text-darkgreen'>$name</h2>
+                                        <form action='includes/handlers/wishlist-handler.php' method='POST' class='col-1 p-0'>
+                                            <button type='submit' class='border-0 bg-transparent' name='like_btn' value='Like'>
+                                                <i class='material-icons fs-3'>favorite_border</i>
+                                            </button>
+                                        </form>
+                                        <iframe class='col-1 p-0 like-frame' src='sub_pages/popup/add-to-wishlist.php?product-item.php?id=$id' scrolling='no'></iframe>
                                     </div>
+                                    
+                                    <div class='row'>
+                                        <p class='fs-5'>with $mainIngredient
+                                            <a class='fs-6 d-inline-flex align-items-baseline text-secondary' href='$cosdnaLink'>
+                                                <i class='material-icons d-flex align-self-center'>link</i>
+                                                $textLink
+                                            </a>
+                                        </p>
+                                    </div>
+
                                 </div>
                                 
                                 <!-- Main Section of Item -->
