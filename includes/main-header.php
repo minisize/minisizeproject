@@ -23,6 +23,7 @@
         <?php
 
     } else {
+        $userLoggedIn = "";
         include("sub_pages/popup/login-alert.php");
     }
 
