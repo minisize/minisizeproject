@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 21, 2022 at 07:14 AM
+-- Generation Time: May 16, 2022 at 02:01 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `skin_type` varchar(50) NOT NULL,
   `skin_concern` varchar(50) NOT NULL,
   `points` int(11) NOT NULL,
+  `num_wishlist` int(11) NOT NULL,
   `registered_on` date NOT NULL,
   `profile_img` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
@@ -47,8 +48,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `encrypted_pass`, `first_name`, `last_name`, `email`, `skin_type`, `skin_concern`, `points`, `registered_on`, `profile_img`) VALUES
-(1, 'sjunseiawal', '96e79218965eb72c92a549dd5a330112', 'Sjunsei', 'Awal', 'sjunseiawal@email.com', 'Oily', 'Age Prevention', 0, '2022-04-21', 'assets/images/profile_pics/default.png');
+INSERT INTO `users` (`id`, `username`, `encrypted_pass`, `first_name`, `last_name`, `email`, `skin_type`, `skin_concern`, `points`, `num_wishlist`, `registered_on`, `profile_img`) VALUES
+(1, 'sjunseiawal', '96e79218965eb72c92a549dd5a330112', 'Sjunsei', 'Awal', 'sjunseiawal@email.com', 'Oily', 'Age Prevention', 0, 1, '2022-04-21', 'assets/images/profile_pics/default.png');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
