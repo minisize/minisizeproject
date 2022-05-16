@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
         <!-- Item Contents -->
         <div>
             <div>
-                <?php $product_obj->loadProductItem($itemID); ?>
+                <?php $product_obj->loadProductItem($itemID, $userLoggedIn); ?>
             </div>
 
             <!-- Similar Products -->
