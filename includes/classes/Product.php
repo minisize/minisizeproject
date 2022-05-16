@@ -159,7 +159,7 @@
             echo $Similar_String;
         }
 
-        public function loadProductItem($itemID){
+        public function loadProductItem($itemID, $userID){
             $productString = "";
             $productsImage = "";
             $productsImageCarousel = "";
@@ -229,19 +229,24 @@
 
             $productString .= "
                             <div class=''>
-                                <div>
-                                    <!-- Header Section of Item -->
-                                    <div class='container'>
-                                        <div class='row'>
-                                            <h2 class='col'>$name</h2>
-                                            <img src='#' class='col'>
-                                        </div>
-                                        
-                                        <div class='row'>
-                                            <h5 class='col'>With $mainIngredient </h5>
-                                            <a href='$cosdnaLink' class='col'>$textLink</a>
+                                <!-- Header Section of Item -->
+                                <div class='container'>
+                                    <div class='row d-flex align-items-baseline'>
+                                        <h2 class='col fw-bold text-darkgreen'>$name</h2>
+                                        <div class='col-1'>
+                                            " . $this->addToWishlist($id, $userID) . "
                                         </div>
                                     </div>
+                                    
+                                    <div class='row'>
+                                        <p class='fs-5'>with $mainIngredient
+                                            <a class='fs-6 d-inline-flex align-items-baseline text-secondary' href='$cosdnaLink'>
+                                                <i class='material-icons d-flex align-self-center'>link</i>
+                                                $textLink
+                                            </a>
+                                        </p>
+                                    </div>
+
                                 </div>
                                 
                                 <!-- Main Section of Item -->
@@ -298,5 +303,38 @@
                     </div>
                 </div>
             </div>";
+        }
+
+        public function addToWishlist($itemID, $userID){
+
+            $button = "";
+
+            if($userID == ""){ // if there is no user logged in
+                $button = "<button class='border-0 bg-transparent' name='like_btn' value='Like' data-bs-toggle='modal' data-bs-target='#registerModal'>
+                                <i class='material-icons mt-2 fs-3'>favorite_border</i>
+                            </button>";
+            } else {
+
+                // check if product id with user id in wishlist table
+                $checkWishlistQuery = mysqli_query($this->connect, "SELECT * FROM wishlist WHERE user_id='$userID' AND product_id='$itemID'");
+                $numRows = mysqli_num_rows($checkWishlistQuery);
+
+                if($numRows > 0){ // set button to unlike
+                    $button = "<form action='product-item.php?id=$itemID' class='form-like' method='POST'>
+                                    <button type='submit' class='border-0 bg-transparent' name='unlike_btn' value='Unlike'>
+                                        <i class='material-icons mt-2 fs-3'>favorite</i>
+                                    </button>
+                                </form>";
+
+                } else { // if no items -> set button to like
+                    $button = "<form action='product-item.php?id=$itemID' class='form-like' method='POST'>
+                                    <button type='submit' class='border-0 bg-transparent' name='like_btn' value='Like'>
+                                        <i class='material-icons mt-2 fs-3'>favorite_border</i>
+                                    </button>
+                                </form>";
+                }
+            }
+            
+            return $button;
         }
     }
