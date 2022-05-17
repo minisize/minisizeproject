@@ -58,31 +58,31 @@
 
     <div class="pics">
         <div class="looks">
-            <img src="#">
+            <img src="assets\images\website\team\Akilah.jpg">
             <p> Akilah Lapure</p>
         </div>
         <div class="looks">
-            <img src="#">
+            <img src="assets\images\website\team\Allelee.jpg">
             <p> Allelee Flores</p>
         </div>
         <div class="looks">
-            <img src="#">
+            <img  src="assets\images\website\team\shayne.jpg">
             <p> Shayne Fajardo </p>
         </div>
         <div class="looks">
-            <img src="#">
+            <img src="assets\images\website\team\Kim.jpg">
             <p> Kimberly Diaz </p>
         </div>
         <div class="looks">
-            <img src="#">
+            <img src="assets\images\website\team\Kyla.jpg">
             <p> Kyla Buarao </p>
         </div>
         <div class="looks">
-            <img src="#">
+            <img src="assets\images\website\team\David.jpg">
             <p> David Francisco  </p>
         </div>
         <div class="looks">
-            <img src="#">
+            <img src="assets\images\website\team\Sjunsei.jpg">
             <p> Sjunsei Awal </p>
         </div>
     </div>
