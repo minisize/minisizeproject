@@ -40,3 +40,17 @@
 .product-display:hover .product-view {
   opacity: 1;
 }
+
+.nav-pills .nav-link {
+  color: black;
+  background: none;
+  border: 0;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: black;
+  background: none;
+  border-bottom: 2px solid #F0BC68;
+  border-radius: 0;
+}
