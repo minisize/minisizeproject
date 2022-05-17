@@ -46,6 +46,10 @@
         width: 100%;
 
         .card {
+<<<<<<< HEAD
+=======
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+>>>>>>> 65ef7d4521f9b11f512ec8c6fc8dc496692a2de6
             height: 765px;
 
             img {
@@ -54,17 +58,24 @@
             }
 
             div {
+<<<<<<< HEAD
                 padding: 35px 40px 18px;
+=======
+                padding: 35px 45px 18px;
+>>>>>>> 65ef7d4521f9b11f512ec8c6fc8dc496692a2de6
             }
 
             button {
                 width: fit-content;
                 margin: 0 0 0 45px;
             }
+<<<<<<< HEAD
 
             &:hover {
                 box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
             }
+=======
+>>>>>>> 65ef7d4521f9b11f512ec8c6fc8dc496692a2de6
         }
     }
 }

@@ -48,6 +48,11 @@
 }
 
 .container .blog-card .card {
+<<<<<<< HEAD
+=======
+  -webkit-box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+>>>>>>> 65ef7d4521f9b11f512ec8c6fc8dc496692a2de6
   height: 765px;
 }
 
@@ -58,7 +63,11 @@
 }
 
 .container .blog-card .card div {
+<<<<<<< HEAD
   padding: 35px 40px 18px;
+=======
+  padding: 35px 45px 18px;
+>>>>>>> 65ef7d4521f9b11f512ec8c6fc8dc496692a2de6
 }
 
 .container .blog-card .card button {
@@ -67,9 +76,12 @@
   width: fit-content;
   margin: 0 0 0 45px;
 }
+<<<<<<< HEAD
 
 .container .blog-card .card:hover {
   -webkit-box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
           box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
 }
+=======
+>>>>>>> 65ef7d4521f9b11f512ec8c6fc8dc496692a2de6
 /*# sourceMappingURL=blog.css.map */
