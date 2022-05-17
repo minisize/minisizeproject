@@ -38,10 +38,6 @@
   color: white;
 }
 
-.container {
-  background-color: white;
-}
-
 .container .blog-card {
   display: -ms-grid;
   display: grid;
