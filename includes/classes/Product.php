@@ -195,6 +195,7 @@
             $obj = json_decode($jsonobj);
             // Set $img to the value of image1 from images by php object $obj
             $img = $obj->images;
+            $img1 = $obj->images->image1; // size button image
 
             if($cosdnaLink == "#"){
                 $textLink = "";
@@ -241,7 +242,7 @@
             $productString .= "
                             <div class=''>
                                 <!-- Header Section of Item -->
-                                <div class='container'>
+                                <div>
                                     <div class='row d-flex align-items-baseline'>
                                         <h2 class='col fw-bold text-darkgreen'>$name</h2>
                                         <div class='col-1'>
@@ -261,44 +262,73 @@
                                 </div>
                                 
                                 <!-- Main Section of Item -->
-                                <div class='container'>
-
-                                    <p class='row'>$description</p>
-                                    <div class='row my-3'>
-                                        <button class='$btn_class'><img src='#' alt=''>10ml</button>
-                                        <button class='$btn_class'><img src='#' alt=''>15ml</button>
-                                        <button class='$btn_class'><img src='#' alt=''>20ml</button>
+                                <div class='d-grid' style='row-gap:1rem;'>
+                                    <div>
+                                        <p class='row m-0 p-0'>$description</p>
                                     </div>
+                                    
                                     <div class='row'>
-                                        <label for='' class='col'>$basePrice AED</label>
-                                        <a href='' class='col'>View full product</a>
-                                        <button class='col border-0 bg-primary rounded-3 fw-bold py-1 text-white'>Add to Cart</button>
+                                        <div class='col'>
+                                            <button class='btn btn-white w-100 d-flex align-items-end'>
+                                                <img src='$img1' alt='' class='w-50'>
+                                                <p>10ml</p>
+                                            </button>
+                                        </div>
+                                        <div class='col'>
+                                            <button class='btn btn-white w-100 d-flex align-items-end'>
+                                                <img src='$img1' alt='' class='w-50'>
+                                                <p>15ml</p>
+                                            </button>
+                                        </div>
+                                        <div class='col'>
+                                            <button class='btn btn-white w-100 d-flex align-items-end'>
+                                                <img src='$img1' alt='' class='w-50'>
+                                                <p>20ml</p>
+                                            </button>
+                                        </div>
                                     </div>
 
-                                <p></p>
+                                    <div class='row'>
+                                        <div class='col d-flex justify-content-between align-items-center'>
+                                            <p class='fs-4 m-0'>$basePrice AED</p>
+                                            <div class='d-flex align-items-center gap-4'>
+                                                <p class='m-0'><a href=''>View full product</a></p>
+                                                <button class='btn btn-primary border-0 px-4'>
+                                                    <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Add to Cart</p>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <!-- Footer Section of Item -->
-                                <div class='container'>
-                                    <div class='row'> PURCHASE AND EARN 5</div>
+                                <div class='d-grid' style='row-gap:1rem;'>
+                                    <div class='border-top border-bottom border-dark mt-4'>
+                                        <p class='row my-1 p-0 text-center'>
+                                            <i>PURCHASE AND EARN 5</i>
+                                        </p>
+                                    </div>
 
                                     <div class='row'>
-                                        <ul class='nav nav-pills mb-3' id='pills-tab' role='tablist'>
-                                        <li class='nav-item' role='presentation'>
-                                            <button class='nav-link active' id='pills-shipping-tab' data-bs-toggle='pill' data-bs-target='#pills-shipping' type='button' role='tab' aria-controls='pills-shipping' aria-selected='true'>Shipping</button>
-                                        </li>
-                                        <li class='nav-item' role='presentation'>
-                                            <button class='nav-link' id='pills-returns-tab' data-bs-toggle='pill' data-bs-target='#pills-returns' type='button' role='tab' aria-controls='pills-returns' aria-selected='false'>Returns</button>
-                                        </li>
-                                        <li class='nav-item' role='presentation'>
-                                            <button class='nav-link' id='pills-points-tab' data-bs-toggle='pill' data-bs-target='#pills-points' type='button' role='tab' aria-controls='pills-points' aria-selected='false'>Points</button>
-                                        </li>
-                                        </ul>
-                                        <div class='tab-content' id='pills-tabContent'>
-                                            <div class='tab-pane fade show active' id='pills-shipping' role='tabpanel' aria-labelledby='pills-shipping-tab'>
-                                                Orders $50 and over always ship for free without an offer code For shipments totaling less than $50, there is a delivery charge of $7.95 for ground shipping. Please allow up to 4 business days processing time, depending on when you place your order.
+                                        <div>
+                                            <ul class='nav nav-pills mb-3' id='pills-tab' role='tablist'>
+                                            <li class='nav-item' role='presentation'>
+                                                <button class='nav-link active' id='pills-shipping-tab' data-bs-toggle='pill' data-bs-target='#pills-shipping' type='button' role='tab' aria-controls='pills-shipping' aria-selected='true'><p class='m-0 p-0'>Shipping</p></button>
+                                            </li>
+                                            <li class='nav-item' role='presentation'>
+                                                <button class='nav-link' id='pills-returns-tab' data-bs-toggle='pill' data-bs-target='#pills-returns' type='button' role='tab' aria-controls='pills-returns' aria-selected='false'><p class='m-0 p-0'>Returns</p></button>
+                                            </li>
+                                            <li class='nav-item' role='presentation'>
+                                                <button class='nav-link' id='pills-points-tab' data-bs-toggle='pill' data-bs-target='#pills-points' type='button' role='tab' aria-controls='pills-points' aria-selected='false'><p class='m-0 p-0'>Points</p></button>
+                                            </li>
+                                            </ul>
+                                            <div class='tab-content' id='pills-tabContent'>
+                                                <div class='tab-pane fade show active' id='pills-shipping' role='tabpanel' aria-labelledby='pills-shipping-tab'>
+                                                    <p>Orders $50 and over always ship for free without an offer code For shipments totaling less than $50, there is a delivery charge of $7.95 for ground shipping. Please allow up to 4 business days processing time, depending on when you place your order.</p>
+                                                </div>
+                                                <div class='tab-pane fade' id='pills-returns' role='tabpanel' aria-labelledby='pills-returns-tab'>You cant return it, its literally 2 dhs</div>
+                                                <div class='tab-pane fade' id='pills-points' role='tabpanel' aria-labelledby='pills-points-tab'>...</div>
                                             </div>
-                                            <div class='tab-pane fade' id='pills-returns' role='tabpanel' aria-labelledby='pills-returns-tab'>You cant return it, its literally 2 dhs</div>
-                                            <div class='tab-pane fade' id='pills-points' role='tabpanel' aria-labelledby='pills-points-tab'>...</div>
                                         </div>
                                     </div>
                                 </div>
