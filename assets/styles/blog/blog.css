@@ -1,0 +1,42 @@
+#top img {
+  width: 100%;
+  height: 460px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+}
+
+.box-info {
+  width: 468px;
+  padding: 43px 50px;
+  position: absolute;
+  bottom: 38px;
+  left: 72px;
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.box-info p {
+  font-size: 16px;
+}
+
+.box-info h4 {
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.box-info p:not(:first-child) {
+  margin-bottom: 20px;
+}
+
+.box-info button {
+  padding: 12px 28px;
+  background: #F0BC68;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  color: white;
+}
+/*# sourceMappingURL=blog.css.map */
