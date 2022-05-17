@@ -5,12 +5,12 @@
 </header>
 
 <div id="top">
-    <img src="#">
+    <img src="assets/images/others/blog-innisfree-1.jpg">
     <div class="box-info">
-        <p> Brand - Aug 12 2021 </p>
-        <h4> Get to Know InnisFree and their resources </h4>
+        <p> BRAND - Aug 12 2021 </p>
+        <h4 class="text-darkgreen"> Get to Know InnisFree and their resources </h4>
         <p> We offer innovative beauty solutions powered by the finest natural ingredients responsibly sourced from Korea’s pristine Jeju Island. Thanks to its volcanic origin... </p>
-        <button> Read more </button> 
+        <button class="btn btn-primary fw-bold text-light px-4"> Read more </button> 
     </div>
 </div>
 
