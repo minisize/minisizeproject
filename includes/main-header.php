@@ -90,8 +90,7 @@
             <li class="nav-item nav-item-dropdown py-4"><a href="#">Shop</a>
                 <section class="dropdown-menu mt-4">
                     <ul>
-                        <li class="nav-item"><a href="#" class="dropdown-item py-4">Bundles</a></li>
-                        <li class="nav-item nav-item-dropdown"><a href="category.php" class="dropdown-item py-4">Category</a>
+                        <li class="nav-item nav-item-dropdown"><a href="category.php" class="dropdown-item py-2">Category</a>
                             <section class="dropdown-menu sub-menu">
                                 <ul>
                                     <li><a href="products.php?category_id=1" class="dropdown-item py-4">Bundles</a></li>
@@ -103,7 +102,7 @@
                                 </ul>
                             </section>
                         </li>
-                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Key Ingredient</a>
+                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-2">By Key Ingredient</a>
                             <section class="dropdown-menu sub-menu">
                                 <ul>
                                     <li><a href="products.php?key_ingredient_id=1" class="dropdown-item py-4">Hyaluronic Acid</a></li>
@@ -118,7 +117,7 @@
                                 </ul>
                             </section>
                         </li>
-                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-4">By Concern</a>
+                        <li class="nav-item nav-item-dropdown"><a href="#" class="dropdown-item py-2">By Concern</a>
                             <section class="dropdown-menu sub-menu">
                                 <ul>
                                     <li><a href="products.php?skin_concern_id=1" class="dropdown-item py-4">Hydration</a></li>

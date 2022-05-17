@@ -27,11 +27,22 @@
             $description = $row['description'];
             $image = $row['image'];
 
-            $headerString = "<div class='container'>
-                                <div class='products-header row'>
-                                    <div class='container1 col'>
-                                    <h1><strong>$name</strong></h1>
-                                    <p> $description </p>
+            $position = "";
+
+            if ($tab == "categories"){
+                $position = "left: 25%;";
+            } else {
+                $position = "left: 15%;";
+            }
+
+            $headerString = "<div class='position-relative'>
+                                <img src='$image' alt='' class='img-fluid'>
+                                <div class='products-header' style='$position'>
+                                    <div>
+                                        <div class='container1'>
+                                        <h1><strong>$name</strong></h1>
+                                        <p class='col-8'> $description </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>";

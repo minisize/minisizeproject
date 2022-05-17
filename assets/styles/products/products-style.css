@@ -1,3 +1,9 @@
+.products-header{
+  position: absolute;
+  top: 50%;
+  transform: translate(-25%, -25%);
+}
+
 .product-img {
   height: 25vh;
 }
