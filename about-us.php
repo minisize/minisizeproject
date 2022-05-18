@@ -73,45 +73,47 @@
             </div>
         </div>
 
+        <br>
         <div class="pics">
             <div class="looks">
                 <img src="assets\images\website\teams\Akilah.jpg">
-                <h4> Akilah Lapure </h4>
+                <h6> Akilah Lapure </h6>
                 <!-- <p> Akilah Lapure</p> -->
             </div>
             <div class="looks">
                 <img src="assets\images\website\teams\Allelee.jpg">
-                <h4> Allelee Flores </h4>
+                <h6> Allelee Flores </h6>
                 <!-- <p> Allelee Flores</p> -->
             </div>
             <div class="looks">
                 <img  src="assets\images\website\teams\shayne.jpg">
-                <h4> Shayne Fajardo </h4>
+                <h6> Shayne Fajardo </h6>
                 <!-- <p> Shayne Fajardo </p> -->
             </div>
             <div class="looks">
                 <div class="big_img">
                     <img src="assets\images\website\teams\Kim.jpg">
                 </div>
-                <h4> Kimberly Diaz </h4>
+                <h6> Kimberly Diaz </h6>
                 <!-- <p> Kimberly Diaz </p> -->
             </div>
             <div class="looks">
                 <img src="assets\images\website\teams\Kyla.jpeg">
-                <h4> Kyla Buarao</h4>
+                <h6> Kyla Buarao</h6>
                 <!-- <p> Kyla Buarao </p> -->
             </div>
             <div class="looks">
                 <img src="assets\images\website\teams\David.jpg">
-                <h4> David Francisco </h4>
+                <h6> David Francisco </h6>
                 <!-- <p> David Francisco  </p> -->
             </div>
             <div class="looks">
                 <img class="KIM-SJUN" src="assets\images\website\teams\Sjunsei.jpg">
-                <h4> Sjunsei Awal </h4>
+                <h6> Sjunsei Awal </h6>
                 <!-- <p> Sjunsei Awal </p> -->
             </div>
         </div>
+        <br>
 
         <div class="quota">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam consequuntur, fugit dolores expedita officia pariatur veniam esse impedit qui dignissimos! Perspiciatis, nam corporis! Reiciendis quae eum at. Porro, voluptas corrupti!

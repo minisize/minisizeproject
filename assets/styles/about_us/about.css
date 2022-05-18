@@ -18,12 +18,10 @@
 }
 
 .looks img {
-  -webkit-clip-path: circle(30%);
-          clip-path: circle(30%);
+  -webkit-clip-path: circle(40%);
+          clip-path: circle(40%);
   margin: 0;
   padding: 0;
-  max-width: 100%;
-  max-height: 100%;
 }
 
 li {
@@ -48,21 +46,26 @@ li {
 }
 
 .pics {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .big_img img {
-  max-height: 100%;
-  max-width: 100%;
+  -o-object-position: 10% 5%;
+     object-position: 10% 5%;
+}
+
+.looks {
+  text-align: center;
 }
 
 .looks img {
+  width: 120px;
+  height: 120px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 50% 25%;
-     object-position: 50% 25%;
 }
 
 .team-proto {
