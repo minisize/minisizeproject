@@ -5,8 +5,8 @@
             <h2>Address</h2>
             <div class="row mt-4">
                 <?php $user_obj -> loadAddressList();?>
+                <button class="btn btn-outline-dark mt-4 w-100">Add New Address</button>    
             </div>
-            <button class="btn btn-outline-dark mt-4 w-100">Add New Address</button>
         </div>
     </div>
 <?php

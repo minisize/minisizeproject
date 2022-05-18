@@ -167,7 +167,7 @@
                             <div>Address:</div>
                             <div>$building, $street, $city, $country</div>
                         </div>
-                        <button>Edit</button>
+                        <button class='btn btn-outline-dark'>Edit</button>
                     </div>
                 </div>";
 
