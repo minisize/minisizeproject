@@ -2,7 +2,7 @@
         include("includes/main-header.php");
     ?>
 
-    <link rel="stylesheet" href="assets/styles/about_us/about.css">
+    <link rel="stylesheet" href="./assets/styles/about_us/about.css">
 
     <div class="container">
         <div class="top-background">
@@ -122,6 +122,8 @@
         <br><br><br><br><br>  
     <script src="assets/javascript/scroll-anim.js"></script>
 
+    </div>
+   
     <?php
         include("includes/main-footer.php");
     ?>
