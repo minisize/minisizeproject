@@ -76,7 +76,7 @@
                                             <p><strong>$name</strong> <br> with $mainIngredient</p>
                                         </div>
                                         <div class='product-price d-flex align-items-center justify-content-between'>
-                                            <p class='fs-5 text-darkgreen'>$basePrice AED</p>
+                                            <p class='fs-5 text-darkgreen'>$basePrice USD</p>
                                             <p>$numReviews reviews</p>
                                         </div>
                                         <div class='overlay-product'></div>
@@ -177,7 +177,7 @@
             $textLink = "";
             $num = false;
 
-            $btn_class=" fw-normal bg-white border-0 col py-2 mx-4 rounded-3";
+            // $btn_class=" fw-normal bg-white border-0 col py-2 mx-4 rounded-3";
 
             $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
 
@@ -221,25 +221,22 @@
             }
               }
 
-            $productsImage = "
-            <!-- Main Image Display -->
-            <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
-                <div class='carousel-inner'>
-                        $productsImageCarousel
-                </div>
-                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
-                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                    <span class='visually-hidden'>Previous</span>
-                </button>
-                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next'>
-                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                    <span class='visually-hidden'>Next</span>
-                </button>
-            </div>
-            ";
+            $productsImage = "<!-- Main Image Display -->
+                            <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
+                                <div class='carousel-inner'>
+                                        $productsImageCarousel
+                                </div>
+                                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
+                                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                                    <span class='visually-hidden'>Previous</span>
+                                </button>
+                                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next'>
+                                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                                    <span class='visually-hidden'>Next</span>
+                                </button>
+                            </div>";
 
-            $productString .= "
-                            <div class=''>
+            $productString .= "<div class=''>
                                 <!-- Header Section of Item -->
                                 <div class='container'>
                                     <div class='row d-flex align-items-baseline'>
