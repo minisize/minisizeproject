@@ -64,7 +64,7 @@
   padding: 35px 40px 18px;
 }
 
-.container .blog-card .card button {
+.container .blog-card .card a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -74,5 +74,20 @@
 .container .blog-card .card:hover {
   -webkit-box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
           box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.blog-cover {
+  width: 90%;
+  height: 30rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.blog-body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 5fr 2fr;
+      grid-template-columns: 1fr 5fr 2fr;
+  grid-gap: 5rem;
 }
 /*# sourceMappingURL=blog.css.map */

@@ -57,7 +57,7 @@
                 padding: 35px 40px 18px;
             }
 
-            button {
+            a {
                 width: fit-content;
                 margin: 0 0 0 45px;
             }
@@ -69,3 +69,14 @@
     }
 }
 
+.blog-cover {
+    width: 90%;
+    height: 30rem;
+    object-fit: cover;
+}
+
+.blog-body {
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+    grid-gap: 5rem;
+}
