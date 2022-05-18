@@ -1,0 +1,78 @@
+#top {
+  position: relative;
+}
+
+#top img {
+  width: 100%;
+  height: 460px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+}
+
+.box-info {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  padding: 2.5rem 3rem !important;
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.box-info p {
+  font-size: 16px;
+}
+
+.box-info h4 {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+.box-info p:not(:first-child) {
+  margin-bottom: 20px;
+}
+
+.box-info button {
+  padding: 12px 28px;
+  background: #F0BC68;
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+
+.container .blog-card {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
+  width: 100%;
+}
+
+.container .blog-card .card {
+  height: 765px;
+}
+
+.container .blog-card .card img {
+  height: 380px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.container .blog-card .card div {
+  padding: 35px 40px 18px;
+}
+
+.container .blog-card .card button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0 0 45px;
+}
+
+.container .blog-card .card:hover {
+  -webkit-box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+}
+/*# sourceMappingURL=blog.css.map */

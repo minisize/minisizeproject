@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css">
     <link rel="stylesheet" href="assets/styles/products/products-style.css">
     <link rel="stylesheet" href="assets/styles/category/category.css">
+    <link rel="stylesheet" href="assets/styles/blog/blog.css">
 
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -60,7 +61,25 @@
 
 <body>
 
-<header>
+<header class="top-background">
+    <!-- <nav>
+            <div class="side-navigation side-nav-left"> 
+                settings icon
+            </div>
+            <div class="main-navigation"> 
+                <ul>
+                    <li> <button> Home </button> </li>
+                    <li><button> products </button></li>
+                    <label> Website icon </label>
+                    <li><button> Blog </button></li>
+                    <li><button> About </button></li>
+                </ul>
+            </div>
+            <div class="side-navigation side-nav-right">
+                <label for=""><button>Profile Icon</button></label>
+                <label for=""><button>Shopping Cart Icon</button></label>
+            </div>
+        </nav> -->
 
     <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
         <i class="d-flex align-items-center col-1 material-icons">
@@ -128,4 +147,3 @@
         </div>
     </header>
 
-<!-- ADD ENDING </header> TAG AFTER INCLUDING THIS FILE IN PAGE -->

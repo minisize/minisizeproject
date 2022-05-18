@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&display=swap');
+
+$header-color: #F5D1C3;
+$fade: #f5d1c380;
+$h-color: #345553;
+$font-title: 'Josefin Sans', sans-serif;
+$font-text: 'Playfair Display', serif;
+
+.top-background
+{
+    background-color: $header-color;
+}
+
+.fade-bg
+{
+    opacity: 0.10;
+    background-color: $fade;
+    padding: 10pt;
+}
+
+#about-title
+{
+    color: $h-color;
+    font-family: $font-title;
+}
+
+#us p
+{
+    font-size: 50px;
+    font-weight: 500;
+    text-align: justify;
+    margin: 20px;
+}
+
+.team h4
+{
+    font-size: 32px;
+    font-weight: 300;
+}
+
+img
+{
+    border-radius: 100px;
+}
+
+li
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+#mini-quota
+{
+    color: $h-color;
+}
