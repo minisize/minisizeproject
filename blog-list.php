@@ -6,7 +6,7 @@
 
 <div id="top">
     <img src="assets/images/others/blog-innisfree-1.jpg">
-    <div class="box-info">
+    <div class="box-info col-5 p-4">
         <p><b>FEATURED</b> | BRAND • MAY 1 2021 </p>
         <h4 class="text-darkgreen fw-bold"> Get to Know InnisFree and their resources </h4>
         <p> We offer innovative beauty solutions powered by the finest natural ingredients responsibly sourced from Korea’s pristine Jeju Island. Thanks to its volcanic origin... </p>
