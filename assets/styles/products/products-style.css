@@ -41,6 +41,29 @@
   opacity: 1;
 }
 
+/* ************************ */
+.price-btn label {
+  background-color: #FFFFFF;
+  border-radius: 5px;
+}
+
+.price-btn label img {
+  width: 4rem;
+}
+
+.price-btn input[type="radio"] {
+  opacity: 0;
+  z-index: 100;
+}
+
+.price-btn input[type="radio"]:checked + label{
+  cursor: pointer;
+  background: #F5D1C3;
+  border-radius: 5px;
+}
+
+/* ************************ */
+
 .nav-pills .nav-link {
   color: black;
   background: none;
