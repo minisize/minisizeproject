@@ -21,10 +21,7 @@
                         Address</a></li>
                     <li class="nav-item"><a href="account-payment.php" class="nav-link text-decoration-none link-dark ">
                         <span class="material-icons me-3">payments</span>
-                        Payment</a></li>
-                    <li class="nav-item"><a href="account-points.php" class="nav-link text-decoration-none link-dark    ">
-                        <span class="material-icons me-3">loyalty</span>
-                        Points</a></li>
+                        Payment & Points</a></li>
                 </ul>
             </nav>
             <button class="btn btn-link text-decoration-none link-dark" type="button"> 

@@ -1,5 +1,5 @@
 <?php
-    require "account-index.php";
+    require "account-nav.php";
 ?>
 <script>
     function toggleForm(){

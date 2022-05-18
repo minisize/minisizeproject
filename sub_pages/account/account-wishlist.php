@@ -1,5 +1,5 @@
 <?php
-    require "account-index.php";
+    require "account-nav.php";
 ?>
         <div id="account-page-content" class="col p-5">
             <h2>Wishlist</h2>
