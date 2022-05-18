@@ -76,7 +76,7 @@
                                             <p><strong>$name</strong> <br> with $mainIngredient</p>
                                         </div>
                                         <div class='product-price d-flex align-items-center justify-content-between'>
-                                            <p class='fs-5 text-darkgreen'>$basePrice AED</p>
+                                            <p class='fs-5 text-darkgreen'>$basePrice USD</p>
                                             <p>$numReviews reviews</p>
                                         </div>
                                         <div class='overlay-product'></div>
@@ -177,7 +177,7 @@
             $textLink = "";
             $num = false;
 
-            $btn_class=" fw-normal bg-white border-0 col py-2 mx-4 rounded-3";
+            // $btn_class=" fw-normal bg-white border-0 col py-2 mx-4 rounded-3";
 
             $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
 
@@ -189,13 +189,19 @@
             $cosdnaLink = $row['cosdna_link'];
             $basePrice = $row['base_price'];
 
-            //set $jsonobj to the value of input of the array "images" from $row;
-            $jsonobj = $row["images"];
-            //set $obj to the value of a php object converted from the string of $jsonobj
-            $obj = json_decode($jsonobj);
-            // Set $img to the value of image1 from images by php object $obj
-            $img = $obj->images;
-            $img1 = $obj->images->image1; // size button image
+            
+            $jsonobjImg = $row["images"]; //set $jsonobj to the value of input of the array "images" from $row;
+            $objImg = json_decode($jsonobjImg); //set $obj to the value of a php object converted from the string of $jsonobj
+
+            $img = $objImg->images; // Set $img to the value of image1 from images by php object $obj
+            $img1 = $objImg->images->image1; // size button image
+
+            $jsonobjPrice = $row["price"]; 
+            $objPrice = json_decode($jsonobjPrice);
+
+            $price10ml = $objPrice->prices->price1;
+            $price15ml = $objPrice->prices->price2;
+            $price20ml = $objPrice->prices->price3;
 
             if($cosdnaLink == "#"){
                 $textLink = "";
@@ -222,25 +228,47 @@
             }
               }
 
-            $productsImage = "
-            <!-- Main Image Display -->
-            <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
-                <div class='carousel-inner'>
-                        $productsImageCarousel
-                </div>
-                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
-                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                    <span class='visually-hidden'>Previous</span>
-                </button>
-                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next'>
-                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                    <span class='visually-hidden'>Next</span>
-                </button>
-            </div>
-            ";
+              ?>
 
-            $productString .= "
-                            <div class=''>
+              <script>
+                    function changePrice() {
+                        let priceLabel10 = document.getElementById('price10ml');
+                        let priceLabel15 = document.getElementById('price15ml');
+                        let priceLabel20 = document.getElementById('price20ml');
+
+                        let priceSize = document.getElementById('priceSize');
+
+                        if(priceLabel15.checked) {
+                            priceSize.innerHTML = priceLabel15.value + " USD";
+
+                        } else if(priceLabel20.checked) {
+                            priceSize.innerHTML = priceLabel20.value + " USD";
+                            
+                        } else if(priceLabel10.checked) {
+                            priceSize.innerHTML = priceLabel10.value + " USD";
+                        }
+                        
+                    }
+                </script>
+
+              <?php
+
+            $productsImage = "<!-- Main Image Display -->
+                            <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
+                                <div class='carousel-inner'>
+                                        $productsImageCarousel
+                                </div>
+                                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
+                                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                                    <span class='visually-hidden'>Previous</span>
+                                </button>
+                                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next'>
+                                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                                    <span class='visually-hidden'>Next</span>
+                                </button>
+                            </div>";
+
+            $productString .= "<div class=''>
                                 <!-- Header Section of Item -->
                                 <div>
                                     <div class='row d-flex align-items-baseline'>
@@ -267,43 +295,51 @@
                                         <p class='row m-0 p-0'>$description</p>
                                     </div>
                                     
-                                    <div class='row'>
-                                        <div class='col'>
-                                            <button class='btn btn-white w-100 d-flex align-items-end'>
-                                                <img src='$img1' alt='' class='w-50'>
-                                                <p>10ml</p>
-                                            </button>
-                                        </div>
-                                        <div class='col'>
-                                            <button class='btn btn-white w-100 d-flex align-items-end'>
-                                                <img src='$img1' alt='' class='w-50'>
-                                                <p>15ml</p>
-                                            </button>
-                                        </div>
-                                        <div class='col'>
-                                            <button class='btn btn-white w-100 d-flex align-items-end'>
-                                                <img src='$img1' alt='' class='w-50'>
-                                                <p>20ml</p>
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <form action='' method='POST'>
+                                        <div class='row'>
+                                            <div class='col position-relative price-btn'>
+                                                <input type='radio' value='$price10ml' id='price10ml' onClick='changePrice()' name='price-selected' class='position-absolute' checked/>
+                                                <label class='w-100 d-flex align-items-center gap-2' for='price10ml'>
+                                                    <img src='$img1' alt=''>
+                                                    <p class='m-0 p-0'>10ml</p>
+                                                </label>
+                                            </div>
 
-                                    <div class='row'>
-                                        <div class='col d-flex justify-content-between align-items-center'>
-                                            <p class='fs-4 m-0'>$basePrice AED</p>
-                                            <div class='d-flex align-items-center gap-4'>
-                                                <p class='m-0'><a href=''>View full product</a></p>
-                                                <button class='btn btn-primary border-0 px-4'>
-                                                    <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Add to Cart</p>
-                                                </button>
+                                            <div class='col position-relative price-btn'>
+                                                <input type='radio' value='$price15ml' id='price15ml' onClick='changePrice()' name='price-selected' class='position-absolute' />
+                                                <label class='w-100 d-flex align-items-center gap-2' for='price15ml'>
+                                                    <img src='$img1' alt=''>
+                                                    <p class='m-0 p-0'>15ml</p>
+                                                </label>
+                                            </div>
+
+                                            <div class='col position-relative price-btn'>
+                                                <input type='radio' value='$price20ml' id='price20ml' onClick='changePrice()' name='price-selected' class='position-absolute' />
+                                                <label class='w-100 d-flex align-items-center gap-2' for='price20ml'>
+                                                    <img src='$img1' alt=''>
+                                                    <p class='m-0 p-0'>20ml</p>
+                                                </label>
                                             </div>
                                         </div>
-                                    </div>
+
+                                        <div class='row'>
+                                            <div class='col d-flex justify-content-between align-items-center mt-4'>
+                                                <p id='priceSize' class='fs-4 m-0 text-dark'>$price10ml USD</p>
+                                                <div class='d-flex align-items-center gap-4'>
+                                                    <p class='m-0'><a href=''>View full product</a></p>
+                                                    <button class='btn btn-primary border-0 px-4'>
+                                                        <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Add to Cart</p>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
                                 </div>
 
                                 <!-- Footer Section of Item -->
                                 <div class='d-grid' style='row-gap:1rem;'>
-                                    <div class='border-top border-bottom border-dark mt-4'>
+                                    <div class='border-top border-bottom border-dark mt-3'>
                                         <p class='row my-1 p-0 text-center'>
                                             <i>PURCHASE AND EARN 5</i>
                                         </p>
