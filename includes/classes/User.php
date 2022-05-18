@@ -114,11 +114,66 @@
         }
 
         public function loadWishList(){
+            $wishlistString = "";
+            $user = $this->user["id"];
+            $query = mysqli_query($this->connect, "SELECT * FROM wishlist WHERE user_id='$user'");
 
+            while($wishlistData = mysqli_fetch_array($query)){
+                $productID = $wishlistData['product_id'];
+                $product_query = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$productID'");
+                while($productData = mysqli_fetch_array($product_query)){
+                $product_img = $productData["images"];
+                $product_brand = $productData["brand"];
+                $product_name = $productData["name"];
+                $product_price = $productData["base_price"];
+
+                $wishlistString .= "
+                <div class='row d-flex mb-4 p-4 rounded-3' style='background-color: #FFFBF8;'>
+                    <div class='d-flex flex-row justify-content-between'>
+                        <div style='width: parent-height;'><img src='$product_img'></div>
+                        <div>
+                            <div>$product_brand (brand)</div>
+                            <div>$product_name</div>
+                        </div>
+                        <div>$product_price USD</div>
+                    </div>
+                </div>";
+                }
+
+            }
+
+            echo $wishlistString;
         }
 
         public function loadAddressList(){
+            $addressString = "";
+            $user = $this->user["id"];
+            $query = mysqli_query($this->connect, "SELECT * FROM addresses WHERE user_id='$user'");
 
+            while($addressData = mysqli_fetch_array($query)){
+                $building = $addressData['building'];
+                $street = $addressData['street'];
+                $city = $addressData['city'];
+                $country = $addressData['country'];
+
+                $addressString .= "
+                <div class='row d-flex mb-4 p-4 rounded-3' style='background-color: #FFFBF8;'>
+                    <div class='d-flex flex-row justify-content-between'>
+                        <div>
+                            <div>Name:</div>
+                            <div>userloggedin</div>
+                        </div>
+                        <div>
+                            <div>Address:</div>
+                            <div>$building, $street, $city, $country</div>
+                        </div>
+                        <button>Edit</button>
+                    </div>
+                </div>";
+
+            }
+
+            echo $addressString;
         }
 
         public function loadPaymentList(){
