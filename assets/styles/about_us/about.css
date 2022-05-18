@@ -1,17 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .top-background {
   background-color: #F5D1C3;
 }
 
+.about-title h1 {
+  color: #345553;
+}
+
 .fade-bg {
-  opacity: 0.10;
-  background-color: #f5d1c380;
+  background-color: #F5D1C3;
   padding: 10pt;
 }
 
-#about-title {
-  color: #345553;
-  font-family: "Josefin Sans", sans-serif;
+.looks img {
+  -webkit-clip-path: circle(30%);
+          clip-path: circle(30%);
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 li {
@@ -22,5 +34,71 @@ li {
 
 #mini-quota {
   color: #345553;
+}
+
+#us p {
+  font-size: 50px;
+  font-weight: 500;
+  text-align: justify;
+  margin: 20px;
+}
+
+.team p {
+  margin-bottom: 0;
+}
+
+.pics {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.big_img img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.looks img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 25%;
+     object-position: 50% 25%;
+}
+
+.team-proto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.team-proto .team {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team h4 {
+  font-weight: 200;
+}
+
+.us {
+  margin-top: 4vh;
+  margin-bottom: 5vh;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+#about-title {
+  color: #345553;
+  font-weight: 500;
+  margin-top: 2.5vh;
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=about.css.map */

@@ -1,27 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&display=swap');
 
 $header-color: #F5D1C3;
-$fade: #f5d1c380;
+$fade: #ffdbdb;
 $h-color: #345553;
 $font-title: 'Josefin Sans', sans-serif;
 $font-text: 'Playfair Display', serif;
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
 
 .top-background
 {
     background-color: $header-color;
 }
 
+.about-title
+{
+    h1
+    {
+        color: $h-color;
+    }
+}
+
 .fade-bg
 {
-    opacity: 0.10;
-    background-color: $fade;
+    
+    background-color: $header-color;
     padding: 10pt;
 }
 
-#about-title
+.looks
 {
-    color: $h-color;
-    font-family: $font-title;
+    img
+    {
+        clip-path: circle(30%);
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        max-height: 100%;
+
+        // height: 200px;
+        // width: 250px;
+    }
+    
 }
 
 li
@@ -34,4 +58,100 @@ li
 #mini-quota
 {
     color: $h-color;
+}
+
+
+#us 
+{
+    p
+    {
+        font-size: 50px;
+        font-weight: 500;
+        text-align: justify;
+        margin: 20px;
+    }
+}
+
+// .KIM-SJUN
+// {
+//     img
+//     {
+//         object-position: 50% 25%;
+//     }
+// }
+
+.team
+{
+    p
+    {
+        margin-bottom: 0;
+    }
+}
+
+.pics
+{
+    display: flex;
+}
+
+.big_img
+{
+    img
+    {
+        max-height: 100%;
+        max-width: 100%;
+
+        // height: 400px;
+        // width: 400px;
+        
+        // object-fit: cover;
+        // object-position: 50% 25%;
+    }
+}
+
+.looks
+{
+    img
+    {
+        // max-width: 100%;
+        // max-height: 100%;
+        object-fit: cover;
+        object-position: 50% 25%;
+    }
+}
+
+.team-proto
+{
+    display: flex;
+    .team
+    {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.team
+{
+    h4
+    {
+        font-weight: 200;
+    }
+}
+
+.us
+{
+    margin-top: 4vh;
+    margin-bottom: 5vh;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+#about-title
+{
+    color: $h-color;
+    font-weight: 500;
+    margin-top: 2.5vh;
+    margin-bottom: 0;
 }
