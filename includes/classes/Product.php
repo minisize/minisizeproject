@@ -189,28 +189,12 @@
             $cosdnaLink = $row['cosdna_link'];
             $basePrice = $row['base_price'];
 
-<<<<<<< Updated upstream
             //set $jsonobj to the value of input of the array "images" from $row;
             $jsonobj = $row["images"];
             //set $obj to the value of a php object converted from the string of $jsonobj
             $obj = json_decode($jsonobj);
             // Set $img to the value of image1 from images by php object $obj
             $img = $obj->images;
-=======
-            
-            $jsonobjImg = $row["images"]; //set $jsonobj to the value of input of the array "images" from $row;
-            $objImg = json_decode($jsonobjImg); //set $obj to the value of a php object converted from the string of $jsonobj
-
-            $img = $objImg->images; // Set $img to the value of image1 from images by php object $obj
-            $img1 = $objImg->images->image1; // size button image
-
-            $jsonobjPrice = $row["price"]; 
-            $objPrice = json_decode($jsonobjPrice);
-
-            $price10ml = $objPrice->prices->price1;
-            $price15ml = $objPrice->prices->price2;
-            $price20ml = $objPrice->prices->price3;
->>>>>>> Stashed changes
 
             if($cosdnaLink == "#"){
                 $textLink = "";
