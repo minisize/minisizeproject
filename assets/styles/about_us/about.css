@@ -9,13 +9,12 @@
 }
 
 .Title-AbUs {
-  font-size: 5rem;
   color: #345553;
 }
 
 .fade-bg {
   background-color: #F5D1C3;
-  padding: 10pt;
+  padding: 10px;
 }
 
 .looks img {
@@ -27,14 +26,12 @@
 }
 
 #us p {
-  font-size: 50px;
   font-weight: 500;
   text-align: justify;
   margin: 20px;
 }
 
 .team h4 {
-  font-size: 32px;
   font-weight: 300;
 }
 
@@ -53,7 +50,6 @@ li {
 }
 
 #us p {
-  font-size: 50px;
   font-weight: 500;
   text-align: justify;
   margin: 20px;
@@ -131,7 +127,6 @@ li {
   margin-top: 4vh;
   margin-bottom: 5vh;
   font-weight: 500;
-  font-size: 1.5rem;
 }
 
 #about-title {
@@ -139,12 +134,10 @@ li {
   font-weight: 600;
   margin-top: 2.5vh;
   margin-bottom: 2vh;
-  font-size: 2rem;
   font-family: "Playfair Display", serif;
 }
 
 .quota {
-  font-size: 1.5rem;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
