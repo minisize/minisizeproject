@@ -54,6 +54,7 @@
                                 <td>
                                     <form action="../../includes/handlers/cart-remove.php" method="POST">
                                         <button type="submit" name="remove" class="btn-sm btn-danger text-white">Remove</button>
+                                        <input type="hidden" name="item_name" value="<?php echo $value['item_name']; ?>">
                                     </form>
                                 </td>
                             </tr>
