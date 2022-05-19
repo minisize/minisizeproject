@@ -28,21 +28,22 @@
 
                 <?php
                     if(isset($_SESSION['cart'])){
+                        $total = 0;
                         foreach ($_SESSION['cart'] as $key => $value) {
-                            # code...
+                            $total = $total + $value['item_price'];
                         ?>
                             <tr>
                                 <td>
-                                    <p><?php echo $value['item_size'];?> - <?php echo $value['item_name'];?></p>
+                                    <p class="fw-light"><?php echo $value['item_size'];?> - <?php echo $value['item_name'];?></p>
                                 </td>
                                 <td>
                                     <p>$<?php echo $value['item_price']?></p>
                                 </td>
-                                <td class="d-flex">
+                                <td>
                                     <button class="btn-sm border-0">
                                         <i class="material-icons">remove</i>
                                     </button>
-                                    <input type="number" value="1" class="d-flex text-center" style="width:3rem;"/>
+                                    <input type="number" value="<?php echo $value['quantity'];?>" class="d-flex text-center" style="width:3rem;"/>
                                     <button class="btn-sm border-0">
                                         <i class="material-icons">add</i>
                                     </button>
@@ -51,7 +52,9 @@
                                     <p>$<?php echo $value['item_price']?></p>
                                 </td>
                                 <td>
-                                    <button class="btn-sm btn-danger text-white">Remove</button>
+                                    <form action="../../includes/handlers/cart-remove.php" method="POST">
+                                        <button type="submit" name="remove" class="btn-sm btn-danger text-white">Remove</button>
+                                    </form>
                                 </td>
                             </tr>
 
@@ -77,14 +80,14 @@
                     <div>
 
                         <h6>Cart Subtotal</h6>
-                        <label for="">3201</label>
+                        <p><?php if(isset($_SESSION['cart'])){ echo "$" . $total; } ?></p>
 
                     </div>
 
                     <div>
 
-                        <h6>Tax Value</h6>
-                        <label for="">6.38$</label>
+                        <h6>Shipping Fee</h6>
+                        <p>$0</p>
 
                     </div>
 
@@ -93,8 +96,8 @@
 
             <div>
                 <div>
-                    <label for="">estimated total</label>
-                    <h1>326.381</h1>
+                    <p class="fw-bold">Estimated total</p>
+                    <p class="fs-1 fw-bold"><?php if(isset($_SESSION['cart'])){ echo "$" . $total; } ?></p>
                 </div>
                 <div>
                     <button> View All </button>
