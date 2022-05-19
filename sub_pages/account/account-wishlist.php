@@ -1,10 +1,10 @@
 <?php
-    require "account-index.php";
+    require "account-nav.php";
 ?>
         <div id="account-page-content" class="col p-5">
             <h2>Wishlist</h2>
             <div class="row mt-4">
-                <p>Your wishlist will appear here.</p>
+                <?php $user_obj -> loadWishList();?>
             </div>
         </div>
     </div>

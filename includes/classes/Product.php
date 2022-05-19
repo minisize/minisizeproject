@@ -27,11 +27,22 @@
             $description = $row['description'];
             $image = $row['image'];
 
-            $headerString = "<div class='container'>
-                                <div class='products-header row'>
-                                    <div class='container1 col'>
-                                    <h1><strong>$name</strong></h1>
-                                    <p> $description </p>
+            $position = "";
+
+            if ($tab == "categories"){
+                $position = "left: 25%;";
+            } else {
+                $position = "left: 15%;";
+            }
+
+            $headerString = "<div class='position-relative'>
+                                <img src='$image' alt='' class='img-fluid'>
+                                <div class='products-header' style='$position'>
+                                    <div>
+                                        <div class='container1'>
+                                        <h1><strong>$name</strong></h1>
+                                        <p class='col-8'> $description </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>";
@@ -65,7 +76,7 @@
                                             <p><strong>$name</strong> <br> with $mainIngredient</p>
                                         </div>
                                         <div class='product-price d-flex align-items-center justify-content-between'>
-                                            <p class='fs-5 text-darkgreen'>$basePrice AED</p>
+                                            <p class='fs-5 text-darkgreen'>$basePrice USD</p>
                                             <p>$numReviews reviews</p>
                                         </div>
                                         <div class='overlay-product'></div>
@@ -159,14 +170,14 @@
             echo $Similar_String;
         }
 
-        public function loadProductItem($itemID){
+        public function loadProductItem($itemID, $userID){
             $productString = "";
             $productsImage = "";
             $productsImageCarousel = "";
             $textLink = "";
             $num = false;
 
-            $btn_class=" fw-normal bg-white border-0 col py-2 mx-4 rounded-3";
+            // $btn_class=" fw-normal bg-white border-0 col py-2 mx-4 rounded-3";
 
             $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
 
@@ -210,38 +221,40 @@
             }
               }
 
-            $productsImage = "
-            <!-- Main Image Display -->
-            <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
-                <div class='carousel-inner'>
-                        $productsImageCarousel
-                </div>
-                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
-                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                    <span class='visually-hidden'>Previous</span>
-                </button>
-                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next'>
-                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                    <span class='visually-hidden'>Next</span>
-                </button>
-            </div>
-            ";
+            $productsImage = "<!-- Main Image Display -->
+                            <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
+                                <div class='carousel-inner'>
+                                        $productsImageCarousel
+                                </div>
+                                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
+                                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                                    <span class='visually-hidden'>Previous</span>
+                                </button>
+                                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next'>
+                                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                                    <span class='visually-hidden'>Next</span>
+                                </button>
+                            </div>";
 
-            $productString .= "
-                            <div class=''>
-                                <div>
-                                    <!-- Header Section of Item -->
-                                    <div class='container'>
-                                        <div class='row'>
-                                            <h2 class='col'>$name</h2>
-                                            <img src='#' class='col'>
-                                        </div>
-                                        
-                                        <div class='row'>
-                                            <h5 class='col'>With $mainIngredient </h5>
-                                            <a href='$cosdnaLink' class='col'>$textLink</a>
+            $productString .= "<div class=''>
+                                <!-- Header Section of Item -->
+                                <div class='container'>
+                                    <div class='row d-flex align-items-baseline'>
+                                        <h2 class='col fw-bold text-darkgreen'>$name</h2>
+                                        <div class='col-1'>
+                                            " . $this->addToWishlist($id, $userID) . "
                                         </div>
                                     </div>
+                                    
+                                    <div class='row'>
+                                        <p class='fs-5'>with $mainIngredient
+                                            <a class='fs-6 d-inline-flex align-items-baseline text-secondary' href='$cosdnaLink'>
+                                                <i class='material-icons d-flex align-self-center'>link</i>
+                                                $textLink
+                                            </a>
+                                        </p>
+                                    </div>
+
                                 </div>
                                 
                                 <!-- Main Section of Item -->
@@ -298,5 +311,38 @@
                     </div>
                 </div>
             </div>";
+        }
+
+        public function addToWishlist($itemID, $userID){
+
+            $button = "";
+
+            if($userID == ""){ // if there is no user logged in
+                $button = "<button class='border-0 bg-transparent' name='like_btn' value='Like' data-bs-toggle='modal' data-bs-target='#registerModal'>
+                                <i class='material-icons mt-2 fs-3'>favorite_border</i>
+                            </button>";
+            } else {
+
+                // check if product id with user id in wishlist table
+                $checkWishlistQuery = mysqli_query($this->connect, "SELECT * FROM wishlist WHERE user_id='$userID' AND product_id='$itemID'");
+                $numRows = mysqli_num_rows($checkWishlistQuery);
+
+                if($numRows > 0){ // set button to unlike
+                    $button = "<form action='product-item.php?id=$itemID' class='form-like' method='POST'>
+                                    <button type='submit' class='border-0 bg-transparent' name='unlike_btn' value='Unlike'>
+                                        <i class='material-icons mt-2 fs-3'>favorite</i>
+                                    </button>
+                                </form>";
+
+                } else { // if no items -> set button to like
+                    $button = "<form action='product-item.php?id=$itemID' class='form-like' method='POST'>
+                                    <button type='submit' class='border-0 bg-transparent' name='like_btn' value='Like'>
+                                        <i class='material-icons mt-2 fs-3'>favorite_border</i>
+                                    </button>
+                                </form>";
+                }
+            }
+            
+            return $button;
         }
     }
