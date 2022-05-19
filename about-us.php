@@ -67,38 +67,38 @@
         <div class="pics">
             <div class="looks">
                 <img src="assets\images\website\teams\Akilah.jpg">
-                <p class="fw-bold"> Akilah Lapure </p>
+                <p class="fw-bold mt-2"> Akilah Lapure </p>
             </div>
             <div class="looks">
                 <img src="assets\images\website\teams\Allelee.jpg">
-                <p class="fw-bold"> Allelee Flores </p>
+                <p class="fw-bold mt-2"> Allelee Flores </p>
                 <!-- <p> Allelee Flores</p> -->
             </div>
             <div class="looks">
                 <img  src="assets\images\website\teams\shayne.jpg">
-                <p class="fw-bold"> Shayne Fajardo </p>
+                <p class="fw-bold mt-2"> Shayne Fajardo </p>
                 <!-- <p> Shayne Fajardo </p> -->
             </div>
             <div class="looks">
                 <div class="big_img">
                     <img src="assets\images\website\teams\Kim.JPG">
                 </div>
-                <p class="fw-bold"> Kimberly Diaz </p>
+                <p class="fw-bold mt-2"> Kimberly Diaz </p>
                 <!-- <p> Kimberly Diaz </p> -->
             </div>
             <div class="looks">
                 <img src="assets\images\website\teams\Kyla.jpeg">
-                <p class="fw-bold"> Kyla Buarao </p>
+                <p class="fw-bold mt-2"> Kyla Buarao </p>
                 <!-- <p> Kyla Buarao </p> -->
             </div>
             <div class="looks">
                 <img src="assets\images\website\teams\David.jpg">
-                <p class="fw-bold"> David Francisco </p>
+                <p class="fw-bold mt-2"> David Francisco </p>
                 <!-- <p> David Francisco  </p> -->
             </div>
             <div class="looks">
                 <img class="KIM-SJUN" src="assets\images\website\teams\Sjunsei.jpg">
-                <p class="fw-bold"> Sjunsei Awal </p>
+                <p class="fw-bold mt-2"> Sjunsei Awal </p>
                 <!-- <p> Sjunsei Awal </p> -->
             </div>
         </div>
