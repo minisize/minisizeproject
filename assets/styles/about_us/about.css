@@ -8,7 +8,8 @@
   background-color: #F5D1C3;
 }
 
-.about-title h1 {
+.Title-AbUs {
+  font-size: 5rem;
   color: #345553;
 }
 
@@ -20,6 +21,7 @@
 .looks img {
   -webkit-clip-path: circle(40%);
           clip-path: circle(40%);
+  border-radius: 50px;
   margin: 0;
   padding: 0;
 }
@@ -55,17 +57,26 @@ li {
   font-weight: 500;
   text-align: justify;
   margin: 20px;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-.team p {
+.team h4 {
   margin-bottom: 0;
 }
 
+.team-mate {
+  margin-bottom: 6vh;
+}
+
 .pics {
+  margin-top: 5vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-bottom: 6vh;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .big_img img {
@@ -78,10 +89,19 @@ li {
 }
 
 .looks img {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+
+.looks img:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  z-index: 2;
 }
 
 .team-proto {
@@ -116,12 +136,19 @@ li {
 
 #about-title {
   color: #345553;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 2.5vh;
-  margin-bottom: 0;
+  margin-bottom: 2vh;
+  font-size: 2rem;
+  font-family: "Playfair Display", serif;
 }
 
 .quota {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+  font-weight: 500;
 }
 /*# sourceMappingURL=about.css.map */

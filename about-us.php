@@ -2,11 +2,11 @@
         include("includes/main-header.php");
     ?>
 
-    <link rel="stylesheet" href="./assets/styles/about_us/about.css">
+    <link rel="stylesheet" href="assets/styles/about_us/about.css?ver=3">
 
     <div class="container">
         <div class="top-background">
-            <h1 class="about-title"> Minisize </h1>
+            <h1 class="Title-AbUs"> Minisize </h1>
             <h3 id="mini-quota"> One stop shop for all your skincare needs </h3>
         </div>
         <div class="fade-bg"></div>
@@ -65,6 +65,7 @@
                     <h3>Business Team </h3>
                     <h4> Allelee Flores </h4>
                     <h4> Shayne Fajardo </h4>
+                    <h4> Kimberly Diaz </h4>
                     <!-- <ul> 
                         <li> Allelee Flores </li>
                         <li> Shayne Fajardo </li>
@@ -92,7 +93,7 @@
             </div>
             <div class="looks">
                 <div class="big_img">
-                    <img src="assets\images\website\teams\Kim.jpg">
+                    <img src="assets\images\website\teams\Kim.JPG">
                 </div>
                 <h6> Kimberly Diaz </h6>
                 <!-- <p> Kimberly Diaz </p> -->
@@ -116,7 +117,9 @@
         <br>
 
         <div class="quota">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam consequuntur, fugit dolores expedita officia pariatur veniam esse impedit qui dignissimos! Perspiciatis, nam corporis! Reiciendis quae eum at. Porro, voluptas corrupti!
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+            Quam consequuntur, <br> fugit dolores expedita officia pariatur veniam esse impedit qui dignissimos! <br>   
+            Perspiciatis, nam corporis! Reiciendis quae eum at. Porro, voluptas corrupti!"
         </div>
     </div>
         <br><br><br><br><br>  
