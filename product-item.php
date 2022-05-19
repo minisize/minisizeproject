@@ -50,13 +50,13 @@
 
             } else {
                 $count = count($_SESSION['cart']);
-                $_SESSION['cart'][$count]=array('item_name'=>$itemName, 'item_size'=>$size, 'item_price'=>$price);
+                $_SESSION['cart'][$count]=array('item_name'=>$itemName, 'item_size'=>$size, 'item_price'=>$price, 'quantity'=>1);
 
                 echo "<script>alert('Product Added');</script>";
             }
             
         } else {
-            $_SESSION['cart'][0]=array('item_name'=>$itemName, 'item_size'=>$size, 'item_price'=>$price);
+            $_SESSION['cart'][0]=array('item_name'=>$itemName, 'item_size'=>$size, 'item_price'=>$price, 'quantity'=>1);
 
             echo "<script>alert('Product Added');</script>";
 
