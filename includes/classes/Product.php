@@ -377,8 +377,12 @@
                                                 <div class='tab-pane fade show active' id='pills-shipping' role='tabpanel' aria-labelledby='pills-shipping-tab'>
                                                     <p>Orders $50 and over always ship for free without an offer code For shipments totaling less than $50, there is a delivery charge of $7.95 for ground shipping. Please allow up to 4 business days processing time, depending on when you place your order.</p>
                                                 </div>
-                                                <div class='tab-pane fade' id='pills-returns' role='tabpanel' aria-labelledby='pills-returns-tab'>You cant return it, its literally 2 dhs</div>
-                                                <div class='tab-pane fade' id='pills-points' role='tabpanel' aria-labelledby='pills-points-tab'>...</div>
+                                                <div class='tab-pane fade' id='pills-returns' role='tabpanel' aria-labelledby='pills-returns-tab'>
+                                                    <p>All sales are final and non-refundable. Minisize reserves the right to refuse any returns on product that has been produced explicitly for the customer. Failure to use product(s) does not constitute a basis for refusing to pay any of the associated charges.</p>
+                                                </div>
+                                                <div class='tab-pane fade' id='pills-points' role='tabpanel' aria-labelledby='pills-points-tab'>
+                                                    <p>Every product purchased equals to two points earned. This does not include products included in a bundle. Earn 13 points to earn a free 10ml product, 15 points for a 15ml product, and 17 points for a 20ml product.</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
