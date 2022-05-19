@@ -1,117 +1,110 @@
-    <!-- Default Header Paste-->
-    <?php
-        include("../../includes/sub-header.php");
-    ?>
-        <!-- bootstrap link -->
-        <link rel="stylesheet" href="../../assets/styles/header_footer/header_n_footer.css">
+<!-- Default Header Paste-->
+<?php include("../../includes/sub-header.php"); ?>
 
-        <!-- bootstrap link -->
-        <link rel="stylesheet" href="../../assets/styles/main.css">
+<!-- Main Content Is here -->
 
-    <!-- Main Content Is here -->
+<main>
 
-    <main>
+    
+<div class="container">
+    <div class="row">
+        <!-- LEFT SEGMENT -->
+        <div class="col">
 
-    <!-- LEFT SEGMENT -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Subtotal</th>
+                        <th></th>
+                    </tr>
+                </thead>
 
-    <div>
+                <!-- Items List -->
 
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Item</th>
-      <th scope="col">Cost</th>
-      <th scope="col">Qty</th>
-      <th scope="col">Subtotal</th>
-      <th> empty column </th>
-    </tr>
-  </thead>
+                <tbody>
 
-  <!-- Items List -->
+                <?php
+                    if(isset($_SESSION['cart'])){
+                        foreach ($_SESSION['cart'] as $key => $value) {
+                            # code...
+                        ?>
+                            <tr>
+                                <td>
+                                    <p><?php echo $value['item_size'];?> - <?php echo $value['item_name'];?></p>
+                                </td>
+                                <td>
+                                    <p>$<?php echo $value['item_price']?></p>
+                                </td>
+                                <td class="d-flex">
+                                    <button class="btn-sm border-0">
+                                        <i class="material-icons">remove</i>
+                                    </button>
+                                    <input type="number" value="1" class="d-flex text-center" style="width:3rem;"/>
+                                    <button class="btn-sm border-0">
+                                        <i class="material-icons">add</i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <p>$<?php echo $value['item_price']?></p>
+                                </td>
+                                <td>
+                                    <button class="btn-sm btn-danger text-white">Remove</button>
+                                </td>
+                            </tr>
 
-  <tbody>
-    <tr>
-      <th scope="row"> <img src="#"> Summer bundle pack </th>
-      <td>95$</td>
-      <td><button>left</button><label for="">1</label><button>right</button></td>
-      <td>95$</td>
-      <td><button> button </button></td>
-    </tr>
-    <tr>
-      <th scope="row"> <img src="#"> Emulsion Lotion </th>
-      <td>35$</td>
-      <td><button>left</button><label for="">1</label><button>right</button></td>
-      <td>35$</td>
-      <td><button> button </button></td>
-    </tr>
-    <tr>
-      <th scope="row"> <img src="#"> Kylie skin pack </th>
-      <td>65$</td>
-      <td><button>left</button><label for="">2</label><button>right</button></td>
-      <td>130$</td>
-      <td><button> button </button></td>
-    </tr>
-    <tr>
-      <th scope="row"> <img src="#"> Honey Hair Tonic (minisized) </th>
-      <td>12$</td>
-      <td><button>left</button><label for="">1</label><button>right</button></td>
-      <td>12$</td>
-      <td><button> button </button></td>
-    </tr>
-    <tr>
-      <th scope="row"> <img src="#"> Minisize bundle pack </th>
-      <td>15$</td>
-      <td><button>left</button><label for="">1</label><button>right</button></td>
-      <td>15$</td>
-      <td><button> button </button></td>
-    </tr>
-  </tbody>
-</table>
+                        <?php
+                        }
+                    }
+                ?>
 
-    </div>
+                </tbody>
+            </table>
 
-    <!-- RIGHT SEGMENT -->
-    <div>
+        </div>
 
-        <div>
+        <!-- RIGHT SEGMENT -->
+        <div class="col-4">
+
             <div>
-                <h5>Order</h5>
+                <div>
+                    <h5>Order</h5>
+                </div>
+
+                <div>
+                    <div>
+
+                        <h6>Cart Subtotal</h6>
+                        <label for="">3201</label>
+
+                    </div>
+
+                    <div>
+
+                        <h6>Tax Value</h6>
+                        <label for="">6.38$</label>
+
+                    </div>
+
+                </div>
             </div>
 
             <div>
                 <div>
-
-                    <h6>Cart Subtotal</h6>
-                    <label for="">3201</label>
-
+                    <label for="">estimated total</label>
+                    <h1>326.381</h1>
                 </div>
-
                 <div>
-
-                    <h6>Tax Value</h6>
-                    <label for="">6.38$</label>
-
+                    <button> View All </button>
+                    <button> Proceed To Checkout</button>
                 </div>
-
             </div>
+
         </div>
-
-        <div>
-            <div>
-                <label for="">estimated total</label>
-                <h1>326.381</h1>
-            </div>
-            <div>
-                <button> View All </button>
-                <button> Proceed To Checkout</button>
-            </div>
-        </div>
-
     </div>
+</div>
+</main>
 
-    </main>
-
-    <!-- Default Footer Paste -->
-    <?php
-        include("../../includes/main-footer.php");
-    ?>
+<?php include("../../includes/sub-footer.php"); ?>
