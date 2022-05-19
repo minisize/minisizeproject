@@ -24,6 +24,22 @@
   padding: 0;
 }
 
+#us p {
+  font-size: 50px;
+  font-weight: 500;
+  text-align: justify;
+  margin: 20px;
+}
+
+.team h4 {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+img {
+  border-radius: 100px;
+}
+
 li {
   list-style-type: none;
   padding: 0;
@@ -103,5 +119,9 @@ li {
   font-weight: 500;
   margin-top: 2.5vh;
   margin-bottom: 0;
+}
+
+.quota {
+  font-size: 1rem;
 }
 /*# sourceMappingURL=about.css.map */
