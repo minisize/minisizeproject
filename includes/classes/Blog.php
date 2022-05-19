@@ -75,6 +75,16 @@
 
             return $this->row['time_posted'];
         }
+
+        public function getBlogHeadings($blogID){
+
+            $query = "SELECT * FROM blogs WHERE id='$blogID'";
+            $result = mysqli_query($this->connect, $query);
+
+            $this->row = mysqli_fetch_array($result);
+
+            return $this->row['headings'];
+        }
     }
 
 ?>
