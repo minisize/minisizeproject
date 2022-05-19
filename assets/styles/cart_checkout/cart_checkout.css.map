@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,WAAW,CAAA;EACP,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,IAAI;CACnB",
     "sources": [
         "cart_checkout.scss"
     ],
