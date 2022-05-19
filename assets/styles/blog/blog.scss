@@ -70,8 +70,8 @@
 }
 
 .blog-cover {
-    width: 90%;
-    height: 30rem;
+    width: 85%;
+    height: 25rem;
     object-fit: cover;
 }
 
@@ -79,4 +79,10 @@
     display: grid;
     grid-template-columns: 1fr 5fr 2fr;
     grid-gap: 5rem;
+
+    a {
+        font-family: 'Josefin Sans', sans-serif;
+        display: block;
+        padding-top: .5rem;
+    }
 }

@@ -77,8 +77,8 @@
 }
 
 .blog-cover {
-  width: 90%;
-  height: 30rem;
+  width: 85%;
+  height: 25rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -89,5 +89,11 @@
   -ms-grid-columns: 1fr 5fr 2fr;
       grid-template-columns: 1fr 5fr 2fr;
   grid-gap: 5rem;
+}
+
+.blog-body a {
+  font-family: 'Josefin Sans', sans-serif;
+  display: block;
+  padding-top: .5rem;
 }
 /*# sourceMappingURL=blog.css.map */
