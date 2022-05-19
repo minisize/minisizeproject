@@ -32,6 +32,39 @@
         // remove from wishlist table
         $removeItem = mysqli_query($connect, "DELETE FROM wishlist WHERE user_id='$userLoggedIn' AND product_id='$itemID'");
     }
+
+    // add to cart
+    if(isset($_POST['add_item'])){
+        $itemName = $_POST['item'];
+        $size = $_POST['size'];
+        $price = $_POST['price'];
+
+        // echo $itemName ."-". $size ."-". $price;
+
+        if(isset($_SESSION['cart'])){
+            $checkForItem = array_column($_SESSION['cart'], 'item_name');
+            $checkForSize = array_column($_SESSION['cart'], 'item_size');
+
+            if(in_array($itemName, $checkForItem) && in_array($size, $checkForSize)){
+                echo "<script>alert('Product is already in cart!')</script>";
+
+            } else {
+                $count = count($_SESSION['cart']);
+                $_SESSION['cart'][$count]=array('item_name'=>$itemName, 'item_size'=>$size, 'item_price'=>$price);
+
+                echo "<script>alert('Product Added');</script>";
+            }
+            
+        } else {
+            $_SESSION['cart'][0]=array('item_name'=>$itemName, 'item_size'=>$size, 'item_price'=>$price);
+
+            echo "<script>alert('Product Added');</script>";
+
+            // TODO: Add alert box design, it looks bad eheh
+        }
+
+        print_r($_SESSION['cart']);
+    }
 ?>
 
 <!--Add hero header in here-->
