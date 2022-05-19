@@ -118,8 +118,9 @@
 
         <div class="quota">
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Quam consequuntur, <br> fugit dolores expedita officia pariatur veniam esse impedit qui dignissimos! <br>   
-            Perspiciatis, nam corporis! Reiciendis quae eum at. Porro, voluptas corrupti!"
+            Quam consequuntur, fugit dolores expedita officia <br> pariatur veniam esse impedit qui dignissimos! 
+            Perspiciatis, nam corporis!
+            <br> Reiciendis quae eum at. Porro, voluptas corrupti!"
         </div>
     </div>
         <br><br><br><br><br>  
