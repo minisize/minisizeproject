@@ -15,6 +15,9 @@
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!--CSS Link-->
+    <link rel="stylesheet" href="../../assets/styles/cart_checkout/cart_checkout.css">
+
     <style>
         *{
             background-color: #F7F3F0;
