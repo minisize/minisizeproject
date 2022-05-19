@@ -232,20 +232,29 @@
 
               <script>
                     function changePrice() {
-                        let priceLabel10 = document.getElementById('price10ml');
-                        let priceLabel15 = document.getElementById('price15ml');
-                        let priceLabel20 = document.getElementById('price20ml');
+                        var inputPrice = document.getElementById("inputPrice");
+                        var inputSize = document.getElementById("inputSize");
 
-                        let priceSize = document.getElementById('priceSize');
+                        var priceLabel10 = document.getElementById('price10ml');
+                        var priceLabel15 = document.getElementById('price15ml');
+                        var priceLabel20 = document.getElementById('price20ml');
+
+                        var priceSize = document.getElementById('priceSize');
 
                         if(priceLabel15.checked) {
                             priceSize.innerHTML = priceLabel15.value + " USD";
+                            inputPrice.value = priceLabel15.value;
+                            inputSize.value = "15 mL";
 
                         } else if(priceLabel20.checked) {
                             priceSize.innerHTML = priceLabel20.value + " USD";
+                            inputPrice.value = priceLabel20.value;
+                            inputSize.value = "20 mL";
                             
                         } else if(priceLabel10.checked) {
                             priceSize.innerHTML = priceLabel10.value + " USD";
+                            inputPrice.value = priceLabel10.value;
+                            inputSize.value = "10 mL";
                         }
                         
                     }
@@ -295,7 +304,7 @@
                                         <p class='row m-0 p-0'>$description</p>
                                     </div>
                                     
-                                    <form action='' method='POST'>
+                                    <form action='product-item.php?id=$itemID' method='POST'>
                                         <div class='row'>
                                             <div class='col position-relative price-btn'>
                                                 <input type='radio' value='$price10ml' id='price10ml' onClick='changePrice()' name='price-selected' class='position-absolute' checked/>
@@ -324,12 +333,18 @@
 
                                         <div class='row'>
                                             <div class='col d-flex justify-content-between align-items-center mt-4'>
+                                                <input type='hidden' id='inputPrice' name='price' value=''/>
+                                                <input type='hidden' id='inputSize' name='size' value=''/>
+                                                <input type='hidden' name='item' value='$name'/>
                                                 <p id='priceSize' class='fs-4 m-0 text-dark'>$price10ml USD</p>
                                                 <div class='d-flex align-items-center gap-4'>
                                                     <p class='m-0'><a href=''>View full product</a></p>
-                                                    <button class='btn btn-primary border-0 px-4'>
-                                                        <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Add to Cart</p>
-                                                    </button>
+                                                    " . $this->addToCart($id, $userID) . "
+                                                    <!--<button type='button' name='add_item' class='border-0' onclick=".'"addItemToCart()"'." data-bs-toggle='modal' data-bs-target='#registerModal'>
+                                                            <a class='btn btn-primary px-4'>
+                                                                <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Add to Cart</p>
+                                                            </a>
+                                                    </button>-->
                                                 </div>
                                             </div>
                                         </div>
@@ -412,6 +427,24 @@
                 }
             }
             
+            return $button;
+        }
+
+        public function addToCart($itemID, $userID){
+            $button = "";
+
+            if ($userID == ""){
+                $button = "<button type='button' class='border-0' data-bs-toggle='modal' data-bs-target='#registerModal'>
+                                <a class='btn btn-primary px-4'>
+                                    <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Add to Cart</p>
+                                </a>
+                            </button>";
+            } else {
+                $button = "<button type='submit' name='add_item' class='btn btn-primary px-4 border-0'>
+                                <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Add to Cart</p>
+                            </button>";
+            }
+
             return $button;
         }
     }
