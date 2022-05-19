@@ -41,46 +41,14 @@ $font-text: 'Playfair Display', serif;
     
 }
 
-#us p
-{
-    font-weight: 500;
-    text-align: justify;
-    margin: 20px;
-}
-
-.team h4
-{
-    font-weight: 300;
-}
-
 img
 {
     border-radius: 100px;
 }
 
-li
-{
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-
 #mini-quota
 {
     color: $h-color;
-}
-
-
-#us 
-{
-    p
-    {
-        font-weight: 500;
-        text-align: justify;
-        margin: 20px;
-        font-family: $font-title;
-    }
 }
 
 .team
@@ -143,21 +111,13 @@ li
     }
 }
 
-.team
-{
-    h4
-    {
-        font-weight: 200;
-    }
-}
-
-.us
-{
-    margin-top: 4vh;
-    margin-bottom: 5vh;
-    font-weight: 500;
+// .us
+// {
+//     margin-top: 4vh;
+//     margin-bottom: 5vh;
+//     font-weight: 500;
     
-}
+// }
 
 #about-title
 {
@@ -166,11 +126,4 @@ li
     margin-top: 2.5vh;
     margin-bottom: 2vh;
     font-family: $font-text;
-}
-
-.quota
-{
-    align-self: center;
-    text-align: center;
-    font-weight: 500;
 }

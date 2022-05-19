@@ -25,35 +25,12 @@
   padding: 0;
 }
 
-#us p {
-  font-weight: 500;
-  text-align: justify;
-  margin: 20px;
-}
-
-.team h4 {
-  font-weight: 300;
-}
-
 img {
   border-radius: 100px;
 }
 
-li {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
 #mini-quota {
   color: #345553;
-}
-
-#us p {
-  font-weight: 500;
-  text-align: justify;
-  margin: 20px;
-  font-family: "Josefin Sans", sans-serif;
 }
 
 .team h4 {
@@ -123,25 +100,11 @@ li {
   font-weight: 200;
 }
 
-.us {
-  margin-top: 4vh;
-  margin-bottom: 5vh;
-  font-weight: 500;
-}
-
 #about-title {
   color: #345553;
   font-weight: 600;
   margin-top: 2.5vh;
   margin-bottom: 2vh;
   font-family: "Playfair Display", serif;
-}
-
-.quota {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  text-align: center;
-  font-weight: 500;
 }
 /*# sourceMappingURL=about.css.map */

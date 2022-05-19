@@ -16,8 +16,10 @@
     <div class="container">
         <div class="top-info">
             <h2  id="about-title"> About Us </h2>
-            <div class="us">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius autem mollitia quod veritatis fugiat, unde omnis molestiae, ea quisquam adipisci itaque placeat qui perspiciatis in temporibus sit maxime illum commodi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod rem cupiditate numquam corrupti quam nostrum, minus sit voluptatibus fuga deserunt. Repellendus perferendis nemo sint possimus aliquam reiciendis blanditiis quibusdam aspernatur!
+            <div>
+                <p class="text-justify fs-4 fw-bold">
+                    We are the Minisize team! A group of seven university students who worked together under a mission to introduce a new strategic model that presents an opportunity for new and existing customers to be more excited in learning more about their skin and their needs by taking advantage of the existing market while being budget friendly. Our future goal is to participate in being a partner to reduce overproduction in the beauty industry and advocate in achieving an eco-friendly business
+                </p>
             </div>
         </div>
 
@@ -25,51 +27,38 @@
             <h3  id="about-title"> Meet the team </h3>
             <div class="team-proto">
                 <div class="team">
-                    <h3>Project Manager</h3>
-                    <h4> Kyla Buarao </h4>
-                    <h4> Kimberly Diaz </h4>
-                    <h4> Allelee Flores </h4>
-                    <!-- <ul> 
-                        <li> Kyla Buarao </li>
-                        <li> Kimberly Diaz </li>
-                        <li> Allelee Flores </li>
-                    </ul> -->
+                    <p class="fw-bold fs-3">
+                        Project Manager
+                    </p>
+                    <p class="fs-4 mb-0"> Kyla Buarao </p>
+                    <p class="fs-4 mb-0"> Kimberly Diaz </p>
+                    <p class="fs-4 mb-0"> Allelee Flores </p>
                 </div>
                 <div class="team">
-                    <h3>Developer Team</h3>
-                    <h4> Akilah Lapure </h4>
-                    <h4> Sjunsei Awal </h4>
-                    <h4> David Francisco </h4>
-                    <h4> Kyla Buarao </h4>
-                    <!-- <ul> 
-                        <li> Akilah Lapure </li>
-                        <li> Sjunsei Awal </li>
-                        <li> David Francisco </li>
-                        <li> Kyla Buarao </li>
-                    </ul> -->
+                    <p class="fw-bold fs-3">
+                        Developer Team
+                    </p>
+                    <p class="fs-4 mb-0"> Akilah Lapure </p>
+                    <p class="fs-4 mb-0"> Sjunsei Awal </p>
+                    <p class="fs-4 mb-0"> David Francisco </p>
+                    <p class="fs-4 mb-0"> Kyla Buarao </p>
                 </div>
                 <div class="team">
-                    <h3>UX Team</h3>
-                    <h4> Shayne Fajardo </h4>
-                    <h4> Kimberly Diaz </h4>
-                    <h4> Akilah Lapure </h4>
-                    <h4> Sjunsei Awal </h4>
-                    <!-- <ul> 
-                        <li> Shayne Fajardo </li>
-                        <li> Kimberly Diaz </li>
-                        <li> Akilah Lapure </li>
-                        <li> Sjunsei Awal </li>
-                    </ul> -->
+                    <p class="fw-bold fs-3">
+                        UX Team
+                    </p>
+                    <p class="fs-4 mb-0"> Shayne Fajardo </p>
+                    <p class="fs-4 mb-0"> Kimberly Diaz </p>
+                    <p class="fs-4 mb-0"> Akilah Lapure </p>
+                    <p class="fs-4 mb-0"> Sjunsei Awal </p>
                 </div>
                 <div class="team">
-                    <h3>Business Team </h3>
-                    <h4> Allelee Flores </h4>
-                    <h4> Shayne Fajardo </h4>
-                    <h4> Kimberly Diaz </h4>
-                    <!-- <ul> 
-                        <li> Allelee Flores </li>
-                        <li> Shayne Fajardo </li>
-                    </ul> -->
+                    <p class="fw-bold fs-3">
+                        Business Team
+                    </p>
+                    <p class="fs-4 mb-0"> Allelee Flores </p>
+                    <p class="fs-4 mb-0"> Shayne Fajardo </p>
+                    <p class="fs-4 mb-0"> Kimberly Diaz </p>
                 </div>
             </div>
         </div>
@@ -78,50 +67,49 @@
         <div class="pics">
             <div class="looks">
                 <img src="assets\images\website\teams\Akilah.jpg">
-                <h6> Akilah Lapure </h6>
-                <!-- <p> Akilah Lapure</p> -->
+                <p class="fw-bold"> Akilah Lapure </p>
             </div>
             <div class="looks">
                 <img src="assets\images\website\teams\Allelee.jpg">
-                <h6> Allelee Flores </h6>
+                <p class="fw-bold"> Allelee Flores </p>
                 <!-- <p> Allelee Flores</p> -->
             </div>
             <div class="looks">
                 <img  src="assets\images\website\teams\shayne.jpg">
-                <h6> Shayne Fajardo </h6>
+                <p class="fw-bold"> Shayne Fajardo </p>
                 <!-- <p> Shayne Fajardo </p> -->
             </div>
             <div class="looks">
                 <div class="big_img">
                     <img src="assets\images\website\teams\Kim.JPG">
                 </div>
-                <h6> Kimberly Diaz </h6>
+                <p class="fw-bold"> Kimberly Diaz </p>
                 <!-- <p> Kimberly Diaz </p> -->
             </div>
             <div class="looks">
                 <img src="assets\images\website\teams\Kyla.jpeg">
-                <h6> Kyla Buarao</h6>
+                <p class="fw-bold"> Kyla Buarao </p>
                 <!-- <p> Kyla Buarao </p> -->
             </div>
             <div class="looks">
                 <img src="assets\images\website\teams\David.jpg">
-                <h6> David Francisco </h6>
+                <p class="fw-bold"> David Francisco </p>
                 <!-- <p> David Francisco  </p> -->
             </div>
             <div class="looks">
                 <img class="KIM-SJUN" src="assets\images\website\teams\Sjunsei.jpg">
-                <h6> Sjunsei Awal </h6>
+                <p class="fw-bold"> Sjunsei Awal </p>
                 <!-- <p> Sjunsei Awal </p> -->
             </div>
         </div>
         <br>
 
-        <div class="quota">
+        <!-- <p class="fw-bold fs-4">
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
             Quam consequuntur, fugit dolores expedita officia <br> pariatur veniam esse impedit qui dignissimos! 
             Perspiciatis, nam corporis!
-            <br> Reiciendis quae eum at. Porro, voluptas corrupti!"
-        </div>
+            Reiciendis quae eum at. Porro, voluptas corrupti!"
+        </p> -->
     </div>
         <br><br><br><br><br>  
     <script src="assets/javascript/scroll-anim.js"></script>
