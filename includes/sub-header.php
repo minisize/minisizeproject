@@ -18,6 +18,9 @@
     <!--CSS Link-->
     <link rel="stylesheet" href="../../assets/styles/cart_checkout/cart_checkout.css">
 
+    <!-- AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
     <style>
         *{
             background-color: #F7F3F0;
