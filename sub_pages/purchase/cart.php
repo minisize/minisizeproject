@@ -29,11 +29,14 @@
 
                 <?php
                     if(isset($_SESSION['cart'])){
+                        $cartSubtotal = 0;
                         $cartTotal = 0;
+                        $shippingFee = 7.95;
+
                         foreach ($_SESSION['cart'] as $key => $value) {
                             $name = $value['item_name'];
                             $itemTotal = $value['item_price'] * $value['quantity'];
-                            $cartTotal = $cartTotal + $itemTotal;
+                            $cartSubtotal = $cartSubtotal + $itemTotal;
 
                             $query = mysqli_query($connect, "SELECT images FROM products WHERE name='$name'");
                             $row = mysqli_fetch_array($query);
@@ -88,6 +91,13 @@
 
                         <?php
                         }
+
+                        if($cartSubtotal < 50){
+                            $cartTotal = $cartSubtotal + $shippingFee;
+                        } else {
+                            $shippingFee = 0;
+                            $cartTotal = $cartSubtotal + $shippingFee;
+                        }
                     }
                 ?>
 
@@ -107,12 +117,12 @@
                 <div>
                     <div>
                         <h6>Cart Subtotal</h6>
-                        <p><?php if(isset($_SESSION['cart'])){ echo "$" . $cartTotal; } ?></p>
+                        <p><?php if(isset($_SESSION['cart'])){ echo "$" . $cartSubtotal; } ?></p>
                     </div>
 
                     <div>
                         <h6>Shipping Fee</h6>
-                        <p>$0</p>
+                        <p><?php if(isset($_SESSION['cart'])){ echo "$" . $shippingFee; } ?></p>
                     </div>
 
                 </div>
