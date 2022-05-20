@@ -333,8 +333,8 @@
 
                                         <div class='row'>
                                             <div class='col d-flex justify-content-between align-items-center mt-4'>
-                                                <input type='hidden' id='inputPrice' name='price' value=''/>
-                                                <input type='hidden' id='inputSize' name='size' value=''/>
+                                                <input type='hidden' id='inputPrice' name='price' value='$price10ml'/>
+                                                <input type='hidden' id='inputSize' name='size' value='10 mL'/>
                                                 <input type='hidden' name='item' value='$name'/>
                                                 <p id='priceSize' class='fs-4 m-0 text-dark'>$price10ml USD</p>
                                                 <div class='d-flex align-items-center gap-4'>
