@@ -39,8 +39,6 @@
         $size = $_POST['size'];
         $price = $_POST['price'];
 
-        // echo $itemName ."-". $size ."-". $price;
-
         if(isset($_SESSION['cart'])){
             $checkForItem = array_column($_SESSION['cart'], 'item_name');
             $checkForSize = array_column($_SESSION['cart'], 'item_size');
@@ -62,8 +60,6 @@
 
             // TODO: Add alert box design, it looks bad eheh
         }
-
-        print_r($_SESSION['cart']);
     }
 ?>
 
