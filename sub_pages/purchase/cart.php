@@ -16,9 +16,9 @@
                     <tr>
                         <th scope="col"></th>
                         <th scope="col"><h6 class="fw-bold">Item</h6></th>
-                        <th scope="col"><h6 class="fw-bold">Cost</h6></th>
-                        <th scope="col"><h6 class="fw-bold">Qty</h6></th>
-                        <th scope="col"><h6 class="fw-bold">Subtotal</h6></th>
+                        <th scope="col"><h6 class="fw-bold text-center">Cost</h6></th>
+                        <th scope="col"><h6 class="fw-bold text-center">Qty</h6></th>
+                        <th scope="col"><h6 class="fw-bold text-center">Subtotal</h6></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -59,26 +59,24 @@
                                 </td>
 
                                 <td>
-                                    <form action="../../includes/handlers/cart-update.php" method="POST">
-                                        <div class="input-group mb-3">
-                                            <input type="button" name="update" value="-" class="button-minus btn btn-sm btn-outline-secondary" data-field="quantity" onclick="updateQuantity()">
-                                            <input type="text" id="itemQuantity" name="quantity" step="1" value="<?php echo $value['quantity'];?>" min="1" onchange="updateQuantity()" class="quantity-field w-25 border border-secondary d-flex text-center">
-                                            <input type="hidden" id="itemPrice" name="price" value="<?php echo $value['item_price']?>">
-                                            <input type="button" name="update" value="+" class="button-plus btn btn-sm btn-outline-secondary" data-field="quantity" onclick="updateQuantity()">
-                                        </div>
+                                    <div class="input-group mb-3 d-flex justify-content-center">
+                                        <input type="button" name="update-qty-<?php echo $key;?>" value="-" onClick="decrementQuantity(<?php echo $key; ?>)" class="btn btn-sm btn-outline-secondary">
+                                        <input type="text" id="input-quantity-<?php echo $key;?>" name="quantity" step="1" value="<?php echo $value['quantity'];?>" min="1" onchange="updateQuantity()" class="input-quantity w-25 border border-secondary d-flex text-center">
+                                        <input type="button" name="update-qty-<?php echo $key;?>" value="+" onClick="incrementQuantity(<?php echo $key; ?>)" class="btn btn-sm btn-outline-secondary">
+                                    </div>
                                 </td>
 
                                 <td>
-                                    <p class="m-0 p-0">$<?php echo $itemTotal?></p>
+                                    <p id="itemSubtotal" class="m-0 p-0">$<?php echo $itemTotal?></p>
                                 </td>
 
                                 <td>
                                     <!-- <form action="../../includes/handlers/cart-update.php" method="POST"> -->
-                                        <div>
+                                        <!-- <div>
                                             <button type="submit" name="update" class="btn btn-sm btn-outline-danger text-danger">Update</button>
                                             <input type="hidden" name="item_name" value="<?php echo $value['item_name']; ?>">
-                                        </div>
-                                    </form>
+                                        </div> -->
+                                    <!-- </form> -->
 
                                     <form action="../../includes/handlers/cart-remove.php" method="POST">
                                         <button type="submit" name="remove" class="btn btn-sm btn-danger text-white">Remove</button>
@@ -108,17 +106,13 @@
 
                 <div>
                     <div>
-
                         <h6>Cart Subtotal</h6>
                         <p><?php if(isset($_SESSION['cart'])){ echo "$" . $cartTotal; } ?></p>
-
                     </div>
 
                     <div>
-
                         <h6>Shipping Fee</h6>
                         <p>$0</p>
-
                     </div>
 
                 </div>
@@ -139,53 +133,40 @@
 </div>
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script>
-    function incrementValue(e) {
-        e.preventDefault();
-        var fieldName = $(e.target).data('field');
-        var parent = $(e.target).closest('div');
-        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
 
-        if (!isNaN(currentVal)) {
-            parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
-        } else {
-            parent.find('input[name=' + fieldName + ']').val(0);
+    function incrementQuantity(cartKey) {
+        var inputQuantityElement = $("#input-quantity-"+cartKey);
+        var newQuantity = parseInt($(inputQuantityElement).val())+1;
+        updateQuantity(cartKey, newQuantity);
+    }
+
+    function decrementQuantity(cartKey) {
+        var inputQuantityElement = $("#input-quantity-"+cartKey);
+        if($(inputQuantityElement).val() > 1) {
+            var newQuantity = parseInt($(inputQuantityElement).val()) - 1;
+            updateQuantity(cartKey, newQuantity);
         }
-        
-        updateQuantity();
     }
 
-    function decrementValue(e) {
-        e.preventDefault();
-        var fieldName = $(e.target).data('field');
-        var parent = $(e.target).closest('div');
-        var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+    function updateQuantity(cartKey, newQuantity) {
+        var inputQuantityElement = $("#input-quantity-"+cartKey);
 
-        if (!isNaN(currentVal) && currentVal > 1) {
-            parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
-        } else {
-            parent.find('input[name=' + fieldName + ']').val(1);
-        }
-
-        
-        updateQuantity();
+        $.ajax({
+            url : "../../includes/handlers/cart-update.php",
+            method: "POST",
+            data : {
+                index : cartKey,
+                qty : newQuantity
+            },
+            success : function(data) {
+                $(inputQuantityElement).val(newQuantity);
+                $("#itemSubtotal").html(data);
+            }
+        });
     }
 
-    $('.input-group').on('click', '.button-plus', function(e) {
-        incrementValue(e);
-    });
-
-    $('.input-group').on('click', '.button-minus', function(e) {
-        decrementValue(e);
-    });
-
-    function updateQuantity() {
-        var itemQuantity = document.getElementById("itemQuantity");
-        var itemNumber = document.getElementById('itemNumber');
-    }
-
-    
 </script>
 
 <?php include("../../includes/sub-footer.php"); ?>
