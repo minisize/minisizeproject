@@ -76,7 +76,7 @@
             }
 
             // Assign profile pic to the user
-            $profilePic = "assets/images/profile_pics/default.png";
+            $profilePic = "../../assets/images/website/placeholder/pp_placeholder.png";
 
             // Send values into the database
             $insertUser = "INSERT INTO users (username, encrypted_pass, first_name, last_name, email, skin_type, skin_concern, points, registered_on, profile_img) VALUES ('$username', '$hashedPass', '$firstName', '$lastName', '$email', '$resultSkinType', '$resultQueryConcern', '0', '$registeredDate', '$profilePic')";

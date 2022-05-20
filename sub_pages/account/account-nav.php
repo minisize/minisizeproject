@@ -1,4 +1,6 @@
-<?php require "../../includes/sub-header.php";?>
+<?php require "../../includes/sub-header.php";
+?>
+
     <div class="row" id="acc-body" style="padding-right: 6rem !important; padding-left: 6rem !important;" >
         <div class="col-3 p-5" style="border-right: 1px solid #dee2e6 !important;">
             <h2>Account</h2>
@@ -19,10 +21,7 @@
                         Address</a></li>
                     <li class="nav-item"><a href="account-payment.php" class="nav-link text-decoration-none link-dark ">
                         <span class="material-icons me-3">payments</span>
-                        Payment</a></li>
-                    <li class="nav-item"><a href="account-points.php" class="nav-link text-decoration-none link-dark    ">
-                        <span class="material-icons me-3">loyalty</span>
-                        Points</a></li>
+                        Payment & Points</a></li>
                 </ul>
             </nav>
             <button onclick="window.location.href='../../includes/handlers/logout-handler.php';" class="btn btn-link text-decoration-none link-dark" type="button"> 
