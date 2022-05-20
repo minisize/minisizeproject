@@ -1,6 +1,7 @@
 <?php require 'includes/server.php';
     include("includes/classes/User.php");
     include("includes/classes/Product.php");
+    include("includes/classes/Blog.php");
     
     if (isset($_SESSION['id'])){
         $userLoggedIn = $_SESSION['id'];
@@ -31,6 +32,7 @@
     $result = $connect->query($sql);
 
     $product_obj = new Product($connect);
+    $blog_obj = new Blog($connect);
 ?>
 
 <!DOCTYPE html>
