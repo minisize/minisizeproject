@@ -1,170 +1,212 @@
-    <!-- Default Header Paste-->
-    <?php
-    include("../../includes/sub-header.php");
-    ?>
-    <!-- bootstrap link -->
-    <link rel="stylesheet" href="../../assets/styles/header_footer/header_n_footer.css">
+<!-- Default Header Paste-->
+<?php require "../../includes/sub-header.php"; ?>
 
-    <!-- bootstrap link -->
-    <link rel="stylesheet" href="../../assets/styles/main.css">
+<!-- Main Content Is here -->
 
-    <!-- Main Content Is here -->
+<main class="container">
+    <div class="row">
+        <div class="col-7 py-5 border-end">
+            <div class="row mb-2">
+                <h2> Payment Details </h2>
+            </div>
 
-    <main class="container">
-        <div class="row mx-2">
-            <div class="container mx-2 py-5 col-6 border-end">
-                <div class="row mb-2">
-                    <h1> Payment Details </h1>
+            <form action="" method="POST" class="payment-form pe-2">
+                <div class="row border-bottom">
+                    <div class="col-4">
+                        <p class="m-0 p-0 fs-5"><?php echo $user_obj->getFullName();?></p>
+                        <!-- <p id="userPhone" class="m-0 mx-4 p-0 fs-5">+971 231-231-444</p> -->
+                    </div>
+                    <div class="col input-group mb-3">
+                        <input type="tel" class="form-control form-control-sm" placeholder="(000) 000-0000" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">TEL</span>
+                        </div>
+                    </div>
+                    <!-- <div class="col">
+                        <input type="tel" class="form-control form-control-sm" name="phone" id="userPhone">
+                    </div>
+                    <div class="col text-end pb-3">
+                        <button id="editBtn" class="btn btn-sm btn-primary">CHANGE</button>
+                    </div> -->
                 </div>
 
-                <div class="row border-bottom d-flex px-1 py-3 mx-2 ">
-                    <h5 class="col-4 fw-bold border border-1 text-end ">Shaine Fahardo</h5>
-                    <label class="col-5 fw-bold border border-1" for="">+971 231-231-444</label>
-                    <button class="col-2 bg-primary border-0 rounded ms-auto fw-light fs-6 p-2">CHANGE</button>
-                </div>
-
-                <form action="Checkout_Details.php" method="post" class="row container py-4">
-                    <div class="row">
-                        <label class="col-4 text-end border border-1"> Delivery Method </label>
-                        <select class="col form-select " aria-label="Default select example">
-                            <option value="0" selected>Regular Delivery ( 3 - 5 Days )</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
+                <div class="row mt-3">
+                    <div class="col-4 text-end">
+                        <h6>Delivery Method</h6>
+                    </div>
+                    <div class="col">
+                        <select class="form-select " aria-label="Default select example">
+                            <option value="0" selected>Standard Delivery ( 3 - 5 Days )</option>
+                            <option value="1">Fast Delivery</option>
+                            <option value="2">Same Day Delivery</option>
                             <option value="3">Three</option>
                         </select>
                     </div>
-
-                    <div class="row">
-                        <label class="col-4 text-end ">Address</label> <input class="col border border-1 border-dark" type="text">
-                    </div>
-
-                    <div class="row">
-                        <label class="text-end col-4">Payment Method</label>
-                        <div class="form-check col">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Cash
-                            </label>
-                        </div>
-
-                        <div class="form-check col">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Card
-                            </label>
-                        </div>
-
-                        <div class="form-check col">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                Paypal
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="row col-10">
-                        <label class="col-5 text-end">Name on Card</label>
-                        <input class="col border-1 border-dark" type="text">
-                    </div>
-
-
-                    <div class="row col-10">
-                        <label class="col-5 text-end">Card Number</label>
-                        <input class="col border-1 border-dark" type="text">
-                    </div>
-
-                    <div class="row row-cols-3">
-                        <div class="col-2"></div>
-                        <div class="col">
-                            <label class="text-end">Expiry</label>
-                            <input type="text border-1 border-dark">
-                        </div>
-
-                        <div class="col">
-                            <label class="text-end">CVV</label>
-                            <input type="text border-1 border-dark">
-                        </div>
-                    </div>
-
-                    <button class="row bg-success border-0 my-2 mx-1 w-25 float-end">CONFIRM PAYMENT: $5</button>
-                </form>
-
-            </div>
-
-            <div class="container p-5 col-5">
-                <h1 class="text-center mb-4">Order Summary</h1>
-                <div>
-
-                    <!-- List of Items -->
-                    <div class="container px-4 py-3 bg-beige">
-                        <div class="row bg-beige my-3">
-                            <div class="col-7 bg-beige">Summer bundle pack</div>
-                            <div class="col-2 bg-beige text-end">95$</div>
-                            <div class="col bg-beige border text-center"> x1 </div>
-                        </div>
-                        <div class="row bg-beige my-3">
-                            <div class="col-7 bg-beige">Summer bundle pack</div>
-                            <div class="col-2 bg-beige text-end">95$</div>
-                            <div class="col bg-beige border text-center"> x1 </div>
-                        </div>
-                        <div class="row bg-beige my-3">
-                            <div class="col-7 bg-beige">Summer bundle pack</div>
-                            <div class="col-2 bg-beige text-end">95$</div>
-                            <div class="col bg-beige border text-center"> x1 </div>
-                        </div>
-                        <div class="row bg-beige my-3">
-                            <div class="col-7 bg-beige">Summer bundle pack</div>
-                            <div class="col-2 bg-beige text-end">95$</div>
-                            <div class="col bg-beige border text-center"> x1 </div>
-                        </div>
-                        <div class="row bg-beige my-3">
-                            <div class="col-7 bg-beige">Summer bundle pack</div>
-                            <div class="col-2 bg-beige text-end">95$</div>
-                            <div class="col bg-beige border text-center"> x1 </div>
-                        </div>
-                </div>
-                <div class="container px-4 py-3 bg-beige ">
-                        <div class="row bg-beige pt-3 border-dark border-top">
-                            <div class="col-7 bg-beige">Delivery Fee</div>
-                            <div class="col-2 bg-beige">10$</div>
-                            <div class="col bg-beige text-center"></div>
-                        </div>
-                        <div class="row bg-beige border-dark border-bottom pb-3">
-                            <div class="col-7 bg-beige">Special Voucher Code</div>
-                            <div class="col-2 bg-beige">-77.25$</div>
-                            <div class="col bg-beige text-center"></div>
-                        </div>                    
-                </div>
-
-                <div class="container px-4 py-3 bg-beige">
-                        <div class="row bg-beige">
-                            <div class="col bg-beige">Total:</div>
-                            <div class="col bg-beige"></div>
-                            <div class="col bg-beige">5$</div>                              
-                        </div>                    
-                </div>
-
-                      
                     
+                </div>
 
+                <div class="row">
+                    <div class="col-4 text-end">
+                        <h6>Address</h6>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="" id="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 text-end">
+                        <h6>Payment Method</h6>
+                    </div>
+                    <div class="form-check col ms-3">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                            checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Card
+                        </label>
+                    </div>
+
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" disabled>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Paypal
+                        </label>
+                    </div>
+
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" disabled>
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Master Card
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 text-end">
+                        <h6>Name on Card</h6>
+                    </div>
+                    <div class="col">
+                        <input class="col form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 text-end">
+                        <h6>Card Number</h6>
+                    </div>
+                    <div class="col">
+                        <input class="col form-control" type="text">
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-4 text-end">
+                        <h6>Expiry</h6>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col text-end">
+                        <h6>CVV</h6>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col text-end">
+                        <button type="submit" class="btn btn-success">CONFIRM PAYMENT</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="col">
+            <h2 class="text-center mt-5 mb-4">Order Summary</h2>
+            <div>
+
+                <!-- List of Items -->
+                <div class="order-summary px-4 py-3 mx-2">
+
+                    <div class="items">
+                    <?php
+                        if(isset($_SESSION['cart'])){
+                            $cartSubtotal = 0;
+                            $cartTotal = 0;
+                            $shippingFee = 7.95;
+
+                            foreach ($_SESSION['cart'] as $key => $value) {
+                                $name = $value['item_name'];
+                                $size = $value['item_size'];
+                                $price = $value['item_price'];
+                                $qty = $value['quantity'];
+
+                                $item = $size." ".$name;
+
+                                $itemTotal = $price * $qty;
+                                $cartSubtotal = $cartSubtotal + $itemTotal;
+                    
+                            ?>
+                            <div class="row my-3">
+                                <div class="col-8"><p><?php echo $item;?></p></div>
+                                <div class="col"><p><?php echo "$".$price;?></p></div>
+                                <div class="col"><p><?php echo "x ".$qty?></p></div>
+                            </div>
+                            <?php
+                            }
+
+                            if($cartSubtotal < 50){
+                                $cartTotal = $cartSubtotal + $shippingFee;
+                            } else {
+                                $shippingFee = 0;
+                                $cartTotal = $cartSubtotal + $shippingFee;
+                            }
+                        }
+                    ?>
+                    </div>
+                    <div class="py-3">
+                        <div class="row">
+                            <div class="pb-3 border-top border-dark"></div>
+                            <div class="col-8"><p class="m-0 p-0">Delivery Fee</p></div>
+                            <div class="col text-end">
+                                <p class="m-0 p-0"><?php if(isset($_SESSION['cart'])){ echo "$" . $shippingFee; }?></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8"><p class="m-0 p-0">Special Voucher Code</p></div>
+                            <div class="col text-end">$0</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="pb-3 border-top border-dark"></div>
+                        <div class="col"><p class="m-0 p-0">Total</p></div>
+                        <div class="col text-end">
+                            <p class="m-0 p-0"><?php if(isset($_SESSION['cart'])){ echo "$" . $cartTotal; } ?></p>
+                        </div>
+                    </div>
 
                 </div>
+
                 <form action="">
                     <div class="container">
-                        <div class="row row-cols-2">
+                        <div class="row">
                             <input type="text" class="form-control col" placeholder="Enter Voucher Code">
                             <button type="submit" class="btn btn-primary col">APPLY</button>
                         </div>
                     </div>
-                    
                 </form>
+
             </div>
+            
+
         </div>
+    </div>
 
 
-    </main>
+</main>
 
-    <!-- Default Footer Paste -->
-    <?php
-    include("../../includes/main-footer.php");
-    ?>
+<!-- Default Footer Paste -->
+<?php include("../../includes/sub-footer.php"); ?>
