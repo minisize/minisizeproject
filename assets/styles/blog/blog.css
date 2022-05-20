@@ -77,8 +77,8 @@
 }
 
 .blog-cover {
-  width: 85%;
-  height: 25rem;
+  width: 90%;
+  height: 30rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -126,13 +126,17 @@
           filter: brightness(150%);
 }
 
-a {
-  font-family: 'Josefin Sans', sans-serif;
-  color: #353535;
-}
-
-a:hover {
+.blog-body #heading:hover {
   color: #F0BC68;
   border-left: #F0BC68 2px solid;
+}
+
+.text-blocks-pledge {
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
 }
 /*# sourceMappingURL=blog.css.map */
