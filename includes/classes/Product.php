@@ -451,4 +451,182 @@
 
             return $button;
         }
+
+        public function getReviewsData($itemID){
+            $result = "";
+            $query = mysqli_query($this->connect, "SELECT * FROM reviews WHERE product_id='$itemID'");
+            $num = mysqli_num_rows($query);
+            $rating = 0;
+            $rating_ave = 0;
+            $rating_five = 0; 
+            $rating_four = 0;
+            $rating_three = 0;
+            $rating_two = 0;
+            $rating_one = 0;
+
+            if($num != 0){
+                while($reviewData = mysqli_fetch_array($query)){
+                    $check_rating = $reviewData['rating'];
+                    if ($check_rating == 5) $rating_five++;
+                    if ($check_rating == 4) $rating_four++;
+                    if ($check_rating == 3) $rating_three++;
+                    if ($check_rating == 2) $rating_two++;
+                    if ($check_rating == 1) $rating_one++;
+                    $rating += $check_rating;
+                }
+
+                $rating = $rating / $num;
+                $rating_ave = number_format((float)$rating,2,'.','');
+                $rating_five = ($rating_five / $num) * 100; 
+                $rating_four = ($rating_four / $num) * 100;
+                $rating_three = ($rating_three / $num) * 100;
+                $rating_two = ($rating_two / $num) * 100;
+                $rating_one = ($rating_one / $num) * 100;
+
+                $result = "
+                <div class='col'>
+                    <h3>$rating_ave out of 5</h3>
+                    <div> image of 4 out of 5 star rating </div>
+                </div>
+                <div class='col-5'>
+                    <div class='row'>
+                        <p class='col-1'>5</p>
+                        <div class='progress col p-0'>
+                            <div class='progress-bar' style='width: $rating_five%;'></div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <p class='col-1'>4</p>
+                        <div class='progress col p-0'>
+                            <div class='progress-bar' style='width: $rating_four%;'></div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <p class='col-1'>3</p>
+                        <div class='progress col p-0'>
+                            <div class='progress-bar' style='width: $rating_three%;'></div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <p class='col-1'>2</p>
+                        <div class='progress col p-0'>
+                            <div class='progress-bar' style='width: $rating_two%;'></div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <p class='col-1'>1</p>
+                        <div class='progress col p-0'>
+                            <div class='progress-bar' style='width: $rating_one%;'></div>
+                        </div>
+                    </div>
+                </div>";
+            }else{
+                $result = "
+                <div class='col'>
+                    <h3>$rating_ave out of 5</h3>
+                    <div> image of 4 out of 5 star rating </div>
+                </div>
+                <div class='col-5'>
+                    <div class='row'>
+                        <p class='col-1'>5</p>
+                        <div class='progress col p-0'>
+                            <div class='progress-bar' style='width: $rating_five%;'></div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <p class='col-1'>4</p>
+                        <div class='progress col p-0'>
+                            <div class='progress-bar' style='width: $rating_four%;'></div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <p class='col-1'>3</p>
+                        <div class='progress col p-0'>
+                            <div class='progress-bar' style='width: $rating_three%;'></div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <p class='col-1'>2</p>
+                        <div class='progress col p-0'>
+                            <div class='progress-bar' style='width: $rating_two%;'></div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <p class='col-1'>1</p>
+                        <div class='progress col p-0'>
+                            <div class='progress-bar' style='width: $rating_one%;'></div>
+                        </div>
+                    </div>
+                </div>";
+            }
+
+            echo $result;
+        }
+        
+        public function loadReviews($itemID){
+            $reviewString= "";
+            $query = mysqli_query($this->connect, "SELECT * FROM reviews WHERE product_id='$itemID'");
+
+            while($reviewData = mysqli_fetch_array($query)){
+                $userID = $reviewData ['user_id'];
+                $time = $reviewData ['timestamp'];
+                $title = $reviewData ['title'];
+                $body = $reviewData ['body'];
+                $rating = $reviewData ['rating'];
+
+                $userquery = mysqli_query($this->connect, "SELECT * FROM users WHERE id='$userID'");
+                while($userData = mysqli_fetch_array($userquery)){
+                    $username = $userData['username'];
+                    $skin_concern = $userData['skin_concern'];
+                    $skin_type = $userData['skin_type'];
+                    // $age_range = $userData['age_range'];
+                    // $gender = $userData['gender'];
+
+                    $reviewString .= "<p>username: $username
+                    <div>title: $title</div>
+                    <div>body: $body
+                    <div>rating: $rating
+                    <div class='row'>
+
+                        <div class='col'>
+                            <h5>$title</h5>
+                            <p>$time</p>
+                            <div class='row'>
+                                <div class='col'>
+                                    <h6>Skin Concern:</h6>
+                                    <p>$skin_concern</p>
+                                </div> 
+                                <div class='col'>
+                                    <h6>Skin Type:</h6>
+                                    <p>$skin_type</p>
+                                </div>
+                                <div class='col'>
+                                    <h6>Age:</h6>
+                                    <p>31 - 35</p>
+                                </div>      
+                                <div class='col'>
+                                    <h6>Gender:</h6>
+                                    <p>Female</p>
+                                </div>                      
+                            </div>
+                            <div>
+                                <label for=''>was this helpful?</label>
+                                <button>heart1</button>
+                                <button>heart2</button>
+                            </div>
+                        </div>
+
+                        <div class='col container'>
+                            <p>$body</p>
+                        </div>
+
+                        <div class='col container'>
+                            <div>images go here</div
+                        </div>
+                    </div>";
+                }
+            }
+
+            echo $reviewString;
+        }
     }
