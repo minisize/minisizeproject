@@ -30,9 +30,9 @@
                     </div> -->
                 </div>
 
-                <div class="row mt-3">
-                    <div class="col-4 text-end">
-                        <h6>Delivery Method</h6>
+                <div class="row mt-2">
+                    <div class="col-4 d-flex align-self-center justify-content-end">
+                        <h6 class="mb-0">Delivery Method</h6>
                     </div>
                     <div class="col">
                         <select class="form-select " aria-label="Default select example">
@@ -46,17 +46,39 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-4 text-end">
-                        <h6>Address</h6>
+                    <div class="col-4 d-flex align-self-center justify-content-end">
+                        <h6 class="mb-0">Address</h6>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="" id="">
+                        <div class="input-group">
+                            <select class="custom-select form-select" id="inputGroupSelect04">
+                                <option selected disabled>Choose...</option>
+                                <?php
+                                    $query = mysqli_query($connect, "SELECT * FROM addresses WHERE user_id='$userLoggedIn'");
+                                    while($row = mysqli_fetch_array($query)){
+                                        $id = $row['id'];
+                                        $building = $row['building'];
+                                        $street = $row['street'];
+                                        $city = $row['city'];
+                                        $country = $row['country'];
+
+                                        ?>
+                                            <option value="<?php echo $id; ?>"><?php echo "$building, $street, $city, $country"?></option>
+                                        <?php
+                                    }
+                                ?>
+                            </select>
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#addressForm">+ Add</button>
+                            </div>
+                        </div>
+                        <!-- <input type="text" class="form-control" name="" id=""> -->
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-4 text-end">
-                        <h6>Payment Method</h6>
+                    <div class="col-4 d-flex align-self-center justify-content-end">
+                        <h6 class="mb-0">Payment Method</h6>
                     </div>
                     <div class="form-check col ms-3">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
@@ -82,8 +104,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-4 text-end">
-                        <h6>Name on Card</h6>
+                    <div class="col-4 d-flex align-self-center justify-content-end">
+                        <h6 class="mb-0">Name on Card</h6>
                     </div>
                     <div class="col">
                         <input class="col form-control" type="text">
@@ -91,8 +113,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-4 text-end">
-                        <h6>Card Number</h6>
+                    <div class="col-4 d-flex align-self-center justify-content-end">
+                        <h6 class="mb-0">Card Number</h6>
                     </div>
                     <div class="col">
                         <input class="col form-control" type="text">
@@ -101,14 +123,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-4 text-end">
-                        <h6>Expiry</h6>
+                    <div class="col-4 d-flex align-self-center justify-content-end">
+                        <h6 class="mb-0">Expiry</h6>
                     </div>
                     <div class="col-3">
                         <input type="text" class="form-control">
                     </div>
-                    <div class="col text-end">
-                        <h6>CVV</h6>
+                    <div class="col d-flex align-self-center justify-content-end">
+                        <h6 class="mb-0">CVV</h6>
                     </div>
                     <div class="col-3">
                         <input type="text" class="form-control">
@@ -169,6 +191,50 @@
             </div>
             
 
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addressForm" tabindex="-1" aria-labelledby="addressFormLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title w-100 text-center" id="addressFormLabel">Add a new address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="../../includes/handlers/address-handler.php" method="POST">
+                    <div class="modal-body">
+                        <section class="px-3">
+                            <div class="row pb-3">
+                                <p class="col m-0 p-0 fs-5"><?php echo $user_obj->getFullName();?></p>
+                                <p class="col m-0 p-0 fw-light text-end"><?php echo $user_obj->getEmail();?></p>
+                            </div>
+                            <div class="row pb-2">
+                                <div class="col ps-0">
+                                    <label for="addressBldg">Building</label>
+                                    <input type="text" name="address_bldg" id="addressBldg" class="form-control" required>
+                                </div>
+                                <div class="col pe-0">
+                                    <label for="addressStreet">Street</label>
+                                    <input type="text" name="address_street" id="addressStreet" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row pb-2">
+                                <label for="addressCity" class="px-0">City</label>
+                                <input type="text" name="address_city" id="addressCity" class="form-control" required>
+                            </div>
+                            <div class="row pb-2">
+                                <label for="addressCountry" class="px-0">Country</label>
+                                <input type="text" name="address_country" id="addressCountry" class="form-control" required>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" name="save_address" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
