@@ -16,6 +16,19 @@
             return $this->row['name'];
         }
 
+        public function getProductImage($itemID){
+            $productData = mysqli_query($this->connect, "SELECT images FROM products WHERE id='$itemID'");
+            $row = mysqli_fetch_array($productData);
+
+            $jsonobjImg = $row["images"]; 
+            $objImg = json_decode($jsonobjImg); 
+
+            $img1 = $objImg->images->image1;
+
+            return $img1;
+            
+        }
+
         public function loadHeader($tab, $itemID){
 
             $query = "SELECT * FROM $tab WHERE id='$itemID'";
@@ -290,7 +303,7 @@
                                     <div class='row'>
                                         <p class='fs-5'>with $mainIngredient
                                             <a class='fs-6 d-inline-flex align-items-baseline text-secondary' href='$cosdnaLink'>
-                                                <i class='material-icons d-flex align-self-center'>link</i>
+                                                <i class='bi bi-link d-flex align-self-center fs-5'></i>
                                                 $textLink
                                             </a>
                                         </p>
