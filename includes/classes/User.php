@@ -9,6 +9,19 @@
             $this->user = mysqli_fetch_array($userDetailsQuery);
         }
 
+        public function getFullName(){
+            $fullname = $this->user['first_name'] ." ". $this->user['last_name'];
+            return $fullname;
+        }
+
+        public function getEmail(){
+            return $this->user['email'];
+        }
+
+        public function getPoints(){
+            return $this->user['points'];
+        }
+
         public function getUserDetails(){
             $username = $this->user["username"];
             $query = mysqli_query($this->connect, "SELECT * FROM users WHERE username='$username'");

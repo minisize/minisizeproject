@@ -1,10 +1,13 @@
 <?php require '../../includes/server.php';
     include("../../includes/classes/User.php");
+    include("../../includes/classes/Cart.php");
+
     $userLoggedIn = $_SESSION['id'];
     $userDetailsQuery = mysqli_query($connect, "SELECT * FROM users WHERE id='$userLoggedIn'");
     $user = mysqli_fetch_array($userDetailsQuery); 
 
     $user_obj = new User($connect, $userLoggedIn);
+    $cart_obj = new Cart($connect);
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +22,7 @@
     <!-- bootstrap link -->
     <link rel="stylesheet" href="../../assets/styles/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!-- Google Material Icons -->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
