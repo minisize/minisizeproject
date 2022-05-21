@@ -1,6 +1,9 @@
 <!-- Default Header Paste-->
 <?php
     include("includes/main-header.php");
+    include("includes/classes/Homepage.php");
+
+    $Home_funct = new Home_functions($connect);
 ?>
 
 <!--Add hero header in here-->
@@ -28,61 +31,61 @@
         <div class="overflow-scroll row w-auto p-3 best-sellers-container">
 
             <!-- PHP CODE FOR LISTING -->
-            <?php
+            <?php $Home_funct->GenerateList($connect);
 
-            //Limit the items to display
-            $Item_Display_Limit=0;
+            // //Limit the items to display
+            // $Item_Display_Limit=0;
 
-            //Gets data from minisize_db
-            if ($result -> num_rows > 0){
+            // //Gets data from minisize_db
+            // if ($result -> num_rows > 0){
 
-                while (($row = $result -> fetch_assoc()) && ($Item_Display_Limit <= 5)){
+            //     while (($row = $result -> fetch_assoc()) && ($Item_Display_Limit <= 5)){
 
-                    //set $jsonobj to the value of input of the array "images" from $row;
-                    $jsonobj = $row["images"];
-                    //set $obj to the value of a php object converted from the string of $jsonobj
-                    $obj = json_decode($jsonobj);
-                    // Set $img to the value of image1 from images by php object $obj
-                    $img = $obj->images->image1;
+            //         //set $jsonobj to the value of input of the array "images" from $row;
+            //         $jsonobj = $row["images"];
+            //         //set $obj to the value of a php object converted from the string of $jsonobj
+            //         $obj = json_decode($jsonobj);
+            //         // Set $img to the value of image1 from images by php object $obj
+            //         $img = $obj->images->image1;
 
-                    //Creation of HTML
-                    echo "
-                    <div class='col w-auto'>
-                        <div class='thumbnail'>
-                            <img src='" .$img. "' class='img-fluid display-item-dimension'>
-                        </div>
-                        <div class='description'>
-                            <p><strong>" .$row["name"] . "</strong></p> 
-                        </div>
-                    </div>";
+            //         //Creation of HTML
+            //         echo "
+            //         <div class='col w-auto'>
+            //             <div class='thumbnail'>
+            //                 <img src='" .$img. "' class='img-fluid display-item-dimension'>
+            //             </div>
+            //             <div class='description'>
+            //                 <p><strong>" .$row["name"] . "</strong></p> 
+            //             </div>
+            //         </div>";
 
-                    $Item_Display_Limit += 1;
-                }
-            } else {
-                echo "0 results";
-              }
-            ?>
+            //         $Item_Display_Limit += 1;
+            //     }
+            // } else {
+            //     echo "0 results";
+            //   }
+            // ?>
         </div>
         
     </div>
 
 
     <div class="main_content container p-3">
-        <div class="row">
-            <img class="col" src="#">
+        <div class="row row-cols-2">
+            <img class="col" src="<?php $Home_funct->Generate_Random_img($connect,6) ?>">
             <div class="col container1_subcontent">
                 <h5> Meet our Bundles! </h5>
                 <p>Meet our bundle! We provide small set of skincare products for one time use for our customers.</p>
                 <button> View all </button>
             </div>
         </div>
-        <div class="row">
+        <div class="row row-cols-2">
             <div class="col container2_subcontent">
                 <h5>Full-size products!</h5>
                 <p>Full Sized products are available too! make sure to get a subscription in order to get discounts for the produts!</p>
                 <button> View all </button>
             </div>
-            <img class="col" src="#">
+            <img class="col-5" src="<?php $Home_funct->Generate_Random_img($connect,0) ?>">
         </div>
     </div>
     <div class="container p-3">
