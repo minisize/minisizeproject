@@ -10,16 +10,16 @@
                 <h2> Payment Details </h2>
             </div>
 
-            <form action="" method="POST" class="payment-form pe-2">
+            <form action="../../includes/handlers/order-handler.php" method="POST" class="payment-form pe-2" id="checkoutForm">
                 <div class="row border-bottom">
                     <div class="col-4">
                         <p class="m-0 p-0 fs-5"><?php echo $user_obj->getFullName();?></p>
                         <!-- <p id="userPhone" class="m-0 mx-4 p-0 fs-5">+971 231-231-444</p> -->
                     </div>
                     <div class="col input-group mb-3">
-                        <input type="tel" class="form-control form-control-sm" placeholder="(000) 000-0000" aria-describedby="basic-addon2">
+                        <input type="tel" class="form-control form-control-sm" name="user_tel"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="(000) 000-0000" aria-describedby="addon" required>
                         <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2">TEL</span>
+                            <span class="input-group-text" id="addon">TEL</span>
                         </div>
                     </div>
                     <!-- <div class="col">
@@ -35,11 +35,8 @@
                         <h6 class="mb-0">Delivery Method</h6>
                     </div>
                     <div class="col">
-                        <select class="form-select " aria-label="Default select example">
+                        <select class="form-select" name="delivery_method" form="checkoutForm" required>
                             <option value="0" selected>Standard Delivery ( 3 - 5 Days )</option>
-                            <option value="1">Fast Delivery</option>
-                            <option value="2">Same Day Delivery</option>
-                            <option value="3">Three</option>
                         </select>
                     </div>
                     
@@ -51,7 +48,7 @@
                     </div>
                     <div class="col">
                         <div class="input-group">
-                            <select class="custom-select form-select" id="inputGroupSelect04">
+                            <select class="custom-select form-select" name="user_address" form="checkoutForm" required>
                                 <option selected disabled>Choose...</option>
                                 <?php
                                     $query = mysqli_query($connect, "SELECT * FROM addresses WHERE user_id='$userLoggedIn'");
@@ -81,9 +78,9 @@
                         <h6 class="mb-0">Payment Method</h6>
                     </div>
                     <div class="form-check col ms-3">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                        <input class="form-check-input" type="radio" value="card" name="payment_method" id="cardMethod"
                             checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <label class="form-check-label" for="cardMethod">
                             Card
                         </label>
                     </div>
@@ -108,7 +105,7 @@
                         <h6 class="mb-0">Name on Card</h6>
                     </div>
                     <div class="col">
-                        <input class="col form-control" type="text">
+                        <input class="col form-control" type="text" name="payment_name" required>
                     </div>
                 </div>
 
@@ -117,7 +114,7 @@
                         <h6 class="mb-0">Card Number</h6>
                     </div>
                     <div class="col">
-                        <input class="col form-control" type="text">
+                        <input class="col form-control" type="text" name="payment_card_no" required>
                     </div>
                     
                 </div>
@@ -126,20 +123,52 @@
                     <div class="col-4 d-flex align-self-center justify-content-end">
                         <h6 class="mb-0">Expiry</h6>
                     </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control">
+                    <div class="col-4 d-flex">
+                        <select name="expiry_month" id="expiryMonth" class="form-select" form="checkoutForm" required>
+                            <option selected disabled>MM</option>
+                            <option value="01">January</option>
+                            <option value="02">February</option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select> 
+                        <select name="expiry_year" id="expiryYear" class="form-select" form="checkoutForm" required>
+                            <option selected disabled>YY</option>
+                            <option value="22">2022</option>
+                            <option value="23">2023</option>
+                            <option value="24">2024</option>
+                            <option value="25">2025</option>
+                            <option value="26">2026</option>
+                        </select> 
+                        <!-- <input type="text" class="form-control text-center" placeholder="MM/YY"> -->
                     </div>
-                    <div class="col d-flex align-self-center justify-content-end">
+                    <div class="col-2 d-flex align-self-center justify-content-end">
                         <h6 class="mb-0">CVV</h6>
                     </div>
-                    <div class="col-3">
-                        <input type="text" class="form-control">
+                    <div class="col-2">
+                        <input type="text" class="form-control text-center" name="cvv" placeholder="000" minlength="3" pattern="[0-9]+" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-check d-flex justify-content-end align-items-center">
+                        <input class="form-check-input my-0 mx-2" type="checkbox" name="save_card" value="Yes" id="saveCard" checked>
+                        <label class="form-check-label" for="saveCard">
+                            Save Card
+                        </label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col text-end">
-                        <button type="submit" class="btn btn-success">CONFIRM PAYMENT</button>
+                        <button type="submit" name="confirm_payment" class="btn btn-success">CONFIRM PAYMENT</button>
                     </div>
                 </div>
             </form>
@@ -161,7 +190,7 @@
                             <div class="pb-3 border-top border-dark"></div>
                             <div class="col-8"><p class="m-0 p-0">Delivery Fee</p></div>
                             <div class="col text-end">
-                                <p class="m-0 p-0"><?php echo $cart_obj->getShippingFee(); ?></p>
+                                <p class="m-0 p-0"><?php echo "$".$cart_obj->getShippingFee(); ?></p>
                             </div>
                         </div>
                         <div class="row">
@@ -173,7 +202,7 @@
                         <div class="pb-3 border-top border-dark"></div>
                         <div class="col"><p class="m-0 p-0">Total</p></div>
                         <div class="col text-end">
-                            <p class="m-0 p-0"><?php echo $cart_obj->getCartTotal(); ?></p>
+                            <p class="m-0 p-0"><?php echo "$".$cart_obj->getCartTotal(); ?></p>
                         </div>
                     </div>
 
@@ -194,7 +223,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Address Modal -->
     <div class="modal fade" id="addressForm" tabindex="-1" aria-labelledby="addressFormLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
