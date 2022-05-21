@@ -26,81 +26,7 @@
                 <!-- Items List -->
 
                 <tbody>
-
-                <?php
-                    if(isset($_SESSION['cart'])){
-                        $cartSubtotal = 0;
-                        $cartTotal = 0;
-                        $shippingFee = 7.95;
-
-                        foreach ($_SESSION['cart'] as $key => $value) {
-                            $name = $value['item_name'];
-                            $itemTotal = $value['item_price'] * $value['quantity'];
-                            $cartSubtotal = $cartSubtotal + $itemTotal;
-
-                            $query = mysqli_query($connect, "SELECT images FROM products WHERE name='$name'");
-                            $row = mysqli_fetch_array($query);
-
-                            $jsonobjImg = $row["images"];
-                            $objImg = json_decode($jsonobjImg);
-
-                            $img1 = $objImg->images->image1; 
-
-                            $img = "../../" . $img1;
-                        ?>
-                            <tr>
-                                <td scope="row">
-                                    <img src="<?php echo $img;?>" alt="" class="col img-fluid cart-image">
-                                </td>
-
-                                <td>
-                                    <p class="col m-0 p-0"><?php echo $value['item_size'];?> - <?php echo $value['item_name'];?></p>
-                                </td>
-
-                                <td>
-                                    <p class="m-0 p-0">$<?php echo $value['item_price']?></p>
-                                </td>
-
-                                <td>
-                                    <div class="input-group mb-3 d-flex justify-content-center">
-                                        <input type="button" name="update-qty-<?php echo $key;?>" value="-" onClick="decrementQuantity(<?php echo $key; ?>)" class="btn btn-sm btn-outline-secondary">
-                                        <input type="text" id="input-quantity-<?php echo $key;?>" name="quantity" step="1" value="<?php echo $value['quantity'];?>" min="1" onchange="updateQuantity()" class="input-quantity w-25 border border-secondary d-flex text-center">
-                                        <input type="button" name="update-qty-<?php echo $key;?>" value="+" onClick="incrementQuantity(<?php echo $key; ?>)" class="btn btn-sm btn-outline-secondary">
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <p id="itemSubtotal" class="m-0 p-0">$<?php echo $itemTotal?></p>
-                                </td>
-
-                                <td>
-                                    <!-- <form action="../../includes/handlers/cart-update.php" method="POST"> -->
-                                        <!-- <div>
-                                            <button type="submit" name="update" class="btn btn-sm btn-outline-danger text-danger">Update</button>
-                                            <input type="hidden" name="item_name" value="<?php echo $value['item_name']; ?>">
-                                        </div> -->
-                                    <!-- </form> -->
-
-                                    <form action="../../includes/handlers/cart-remove.php" method="POST">
-                                        <button type="submit" name="remove" class="btn btn-sm btn-danger text-white">Remove</button>
-                                        <input type="hidden" name="item_name" value="<?php echo $value['item_name']; ?>">
-                                    </form>
-                                </td>
-                                
-                            </tr>
-
-                        <?php
-                        }
-
-                        if($cartSubtotal < 50){
-                            $cartTotal = $cartSubtotal + $shippingFee;
-                        } else {
-                            $shippingFee = 0;
-                            $cartTotal = $cartSubtotal + $shippingFee;
-                        }
-                    }
-                ?>
-
+                    <?php $cart_obj->displayCartItems(); ?>
                 </tbody>
             </table>
 
@@ -117,12 +43,12 @@
                 <div>
                     <div>
                         <h6>Cart Subtotal</h6>
-                        <p><?php if(isset($_SESSION['cart'])){ echo "$" . $cartSubtotal; } ?></p>
+                        <p><?php echo $cart_obj->getCartSubtotal(); ?></p>
                     </div>
 
                     <div>
                         <h6>Shipping Fee</h6>
-                        <p><?php if(isset($_SESSION['cart'])){ echo "$" . $shippingFee; } ?></p>
+                        <p><?php echo $cart_obj->getShippingFee(); ?></p>
                     </div>
 
                 </div>
@@ -131,7 +57,7 @@
             <div>
                 <div>
                     <p class="fw-bold">Estimated total</p>
-                    <p class="fs-1 fw-bold"><?php if(isset($_SESSION['cart'])){ echo "$" . $cartTotal; } ?></p>
+                    <p class="fs-1 fw-bold"><?php echo $cart_obj->getCartTotal(); ?></p>
                 </div>
                 <div>
                     <a href="checkout.php" class="btn btn-primary text-white fw-bold">Proceed to Checkout</a>

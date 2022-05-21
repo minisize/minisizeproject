@@ -132,47 +132,14 @@
                 <div class="order-summary px-4 py-3 mx-2">
 
                     <div class="items">
-                    <?php
-                        if(isset($_SESSION['cart'])){
-                            $cartSubtotal = 0;
-                            $cartTotal = 0;
-                            $shippingFee = 7.95;
-
-                            foreach ($_SESSION['cart'] as $key => $value) {
-                                $name = $value['item_name'];
-                                $size = $value['item_size'];
-                                $price = $value['item_price'];
-                                $qty = $value['quantity'];
-
-                                $item = $size." ".$name;
-
-                                $itemTotal = $price * $qty;
-                                $cartSubtotal = $cartSubtotal + $itemTotal;
-                    
-                            ?>
-                            <div class="row my-3">
-                                <div class="col-8"><p><?php echo $item;?></p></div>
-                                <div class="col"><p><?php echo "$".$price;?></p></div>
-                                <div class="col"><p><?php echo "x ".$qty?></p></div>
-                            </div>
-                            <?php
-                            }
-
-                            if($cartSubtotal < 50){
-                                $cartTotal = $cartSubtotal + $shippingFee;
-                            } else {
-                                $shippingFee = 0;
-                                $cartTotal = $cartSubtotal + $shippingFee;
-                            }
-                        }
-                    ?>
+                        <?php $cart_obj->displayOrderSummary(); ?>
                     </div>
                     <div class="py-3">
                         <div class="row">
                             <div class="pb-3 border-top border-dark"></div>
                             <div class="col-8"><p class="m-0 p-0">Delivery Fee</p></div>
                             <div class="col text-end">
-                                <p class="m-0 p-0"><?php if(isset($_SESSION['cart'])){ echo "$" . $shippingFee; }?></p>
+                                <p class="m-0 p-0"><?php echo $cart_obj->getShippingFee(); ?></p>
                             </div>
                         </div>
                         <div class="row">
@@ -184,7 +151,7 @@
                         <div class="pb-3 border-top border-dark"></div>
                         <div class="col"><p class="m-0 p-0">Total</p></div>
                         <div class="col text-end">
-                            <p class="m-0 p-0"><?php if(isset($_SESSION['cart'])){ echo "$" . $cartTotal; } ?></p>
+                            <p class="m-0 p-0"><?php echo $cart_obj->getCartTotal(); ?></p>
                         </div>
                     </div>
 
