@@ -14,6 +14,10 @@
             return $fullname;
         }
 
+        public function getEmail(){
+            return $this->user['email'];
+        }
+
         public function getUserDetails(){
             $username = $this->user["username"];
             $query = mysqli_query($this->connect, "SELECT * FROM users WHERE username='$username'");
