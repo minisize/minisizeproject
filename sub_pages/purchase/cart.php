@@ -43,12 +43,12 @@
                 <div>
                     <div>
                         <h6>Cart Subtotal</h6>
-                        <p><?php echo $cart_obj->getCartSubtotal(); ?></p>
+                        <p><?php echo "$".$cart_obj->getCartSubtotal(); ?></p>
                     </div>
 
                     <div>
                         <h6>Shipping Fee</h6>
-                        <p><?php echo $cart_obj->getShippingFee(); ?></p>
+                        <p><?php echo "$".$cart_obj->getShippingFee(); ?></p>
                     </div>
 
                 </div>
@@ -57,7 +57,7 @@
             <div>
                 <div>
                     <p class="fw-bold">Estimated total</p>
-                    <p class="fs-1 fw-bold"><?php echo $cart_obj->getCartTotal(); ?></p>
+                    <p class="fs-1 fw-bold"><?php echo "$".$cart_obj->getCartTotal(); ?></p>
                 </div>
                 <div>
                     <a href="checkout.php" class="btn btn-primary text-white fw-bold">Proceed to Checkout</a>
