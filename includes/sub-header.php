@@ -18,10 +18,10 @@
 
     <!-- bootstrap link -->
     <link rel="stylesheet" href="../../assets/styles/main.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
 
     <!-- Google Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
     <!--CSS Link-->
     <link rel="stylesheet" href="../../assets/styles/cart_checkout/cart_checkout.css">
@@ -64,8 +64,8 @@
         </a>
 
         <div class="d-flex flex-wrap">
-            <a href="../../index.php" class="material-icons text-decoration-none link-dark pe-4">home</a>
-            <a href="#" class="material-icons text-decoration-none link-dark">shopping_cart</a>
+            <a href="../../index.php" class="text-decoration-none link-dark pe-4"><i class="bi bi-house-fill fs-5"></i></a>
+            <a href="../purchase/cart.php" class="text-decoration-none link-dark"><i class="bi bi-cart-fill fs-5"></i></a>
         </div>
     </header>
 
