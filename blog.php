@@ -30,9 +30,9 @@
 
     <div class="container blog-body">
         <div class="container">
-            <button id="share-btn" type="button" onclick="" data-bs-toggle="modal" data-bs-target="#" class="text-dark text-decoration-none material-icons">share</button>
-            <button id="share-btn" type="button" onclick="" data-bs-toggle="modal" data-bs-target="#" class="btn text-dark text-decoration-none material-icons">facebook</button>
-            <button id="share-btn" type="button" onclick="" data-bs-toggle="modal" data-bs-target="#" class="btn text-dark text-decoration-none material-icons">messenger</button>
+            <button id="share-btn" type="button" onclick="" data-bs-toggle="modal" data-bs-target="#" class="btn text-dark text-decoration-none py-3"><i class="bi bi-share-fill fs-2"></i></button>
+            <button id="share-btn" type="button" onclick="" data-bs-toggle="modal" data-bs-target="#" class="btn text-dark text-decoration-none py-3"><i class="bi bi-facebook fs-2"></i></button>
+            <button id="share-btn" type="button" onclick="" data-bs-toggle="modal" data-bs-target="#" class="btn text-dark text-decoration-none py-3"><i class="bi bi-instagram fs-2"></i></button>
         </div>
         <?php echo $blog_obj->getBlogBody($blogID); ?>
         <?php echo $blog_obj->getBlogHeadings($blogID); ?>
