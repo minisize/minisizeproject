@@ -64,7 +64,7 @@
   padding: 35px 40px 18px;
 }
 
-.container .blog-card .card button {
+.container .blog-card .card a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -74,5 +74,69 @@
 .container .blog-card .card:hover {
   -webkit-box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
           box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.blog-cover {
+  width: 90%;
+  height: 30rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.blog-body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 5fr 2fr;
+      grid-template-columns: 1fr 5fr 2fr;
+  grid-gap: 5rem;
+}
+
+.blog-body .container {
+  margin-left: 3rem;
+  top: 2rem;
+  display: block;
+  position: -webkit-sticky;
+  position: sticky;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+}
+
+.blog-body .headings {
+  top: 2rem;
+  display: block;
+  position: -webkit-sticky;
+  position: sticky;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+}
+
+.blog-body #share-btn {
+  font-size: 36px;
+  width: 65px;
+  height: 65px;
+  border: none;
+  background-color: transparent;
+}
+
+.blog-body #share-btn:hover {
+  cursor: pointer;
+  -webkit-filter: brightness(150%);
+          filter: brightness(150%);
+}
+
+.blog-body #heading:hover {
+  color: #F0BC68;
+  border-left: #F0BC68 2px solid;
+}
+
+.text-blocks-pledge {
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
 }
 /*# sourceMappingURL=blog.css.map */

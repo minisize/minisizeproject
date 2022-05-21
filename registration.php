@@ -46,6 +46,7 @@
             display: flex;
             align-items: end;
             width:50px;
+            top:100%;
         }
     </style>
 
@@ -66,7 +67,7 @@
         <div id="carousel" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel"
             data-bs-interval="false">
 
-            <form action="registration.php" method="POST" class="sign-up-form">
+            <form action="registration.php" method="POST" class="sign-up-form" id="signUpForm">
                 <div class="carousel-inner w-100">
                     <div class="carousel-item active">
 
@@ -207,31 +208,70 @@
                         <section class="px-1">
                             <div class="row mb-1">
                                 <div class="col">
-                                    <label for="signUpFname" class="form-label">First Name</label>
+                                    <label for="signUpFname" class="form-label mb-1">First Name</label>
                                     <input type="text" class="form-control" name="sign_up_fname" id="signUpFname"
                                         placeholder="First Name" required>
                                 </div>
 
                                 <div class="col">
-                                    <label for="signUpLname" class="form-label">Last Name</label>
+                                    <label for="signUpLname" class="form-label mb-1">Last Name</label>
                                     <input type="text" class="form-control" name="sign_up_lname" id="signUpLname"
                                         placeholder="Last Name" required>
                                 </div>
                             </div>
+                            <div class="row mb-1">
+                                <div class="col">
+                                    <label for="gender" class="form-label mb-1">Gender</label>
+                                    <!-- <input type="text" class="form-control form-control-sm" name="sign_up_fname" id="signUpFname"
+                                        placeholder="First Name" required> -->
+                                    <select id="gender" name="gender" form="signUpForm" class="form-control ">
+                                        <option selected disabled>Please select...</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="NA">Prefer not to say</option>
+                                    </select>
+                                </div>
 
-                            <label for="signUpEmail" class="form-label">Email</label>
+                                <div class="col">
+                                    <label for="ageRange" class="form-label mb-1">Age</label>
+                                    <!-- <input type="date" class="form-control form-control-sm" name="sign_up_lname" id="signUpLname"
+                                        placeholder="Last Name" required> -->
+                                    <select id="ageRange" name="age_range" form="signUpForm" class="form-control ">
+                                        <option selected disabled>Please select...</option>
+                                        <option value="13-17 years old">13-17 years old</option>
+                                        <option value="18-24 years old">18-24 years old</option>
+                                        <option value="25-34 years old">25-34 years old</option>
+                                        <option value="35-44 years old">35-44 years old</option>
+                                        <option value="45-54 years old">45-54 years old</option>
+                                        <option value="55-64 years old">55-64 years old</option>
+                                        <option value="65-74 years old">65-74 years old</option>
+                                        <option value="75 years or older">75 years or older</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <label for="signUpEmail" class="form-label mb-1">Email</label>
                             <input type="email" class="form-control mb-1" name="sign_up_email" id="signUpEmail"
                                 placeholder="Email" required>
 
-                            <label for="signUpPass" class="form-label">Password</label>
-                            <input type="password" class="form-control mb-1" name="sign_up_pass" id="signUpPass"
-                                placeholder="Password" required>
+                            <div class="row mb-1">
+                                <div class="col">
+                                    <label for="signUpPass" class="form-label mb-1">Password</label>
+                                    <input type="password" class="form-control mb-1" name="sign_up_pass" id="signUpPass"
+                                        placeholder="Password" required>
+                                </div>
 
-                            <label for="signUpCPass" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control mb-4" name="sign_up_cpass" id="signUpCPass"
-                                placeholder="Password" required>
+                                <div class="col">
+                                    <label for="signUpCPass" class="form-label mb-1">Confirm Password</label>
+                                    <input type="password" class="form-control mb-4" name="sign_up_cpass" id="signUpCPass"
+                                        placeholder="Password" required>
+                                </div>
+                            </div>
+                            
 
-                            <input type="submit" class="btn btn-primary form-control" name="sign_up_btn" value="Create an account">
+                            
+
+                            <input type="submit" class="btn btn-primary form-control form-control-sm" name="sign_up_btn" value="Create an account">
                         </section>
                     </div>
 
