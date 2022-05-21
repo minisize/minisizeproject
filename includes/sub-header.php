@@ -1,10 +1,13 @@
 <?php require '../../includes/server.php';
     include("../../includes/classes/User.php");
+    include("../../includes/classes/Cart.php");
+
     $userLoggedIn = $_SESSION['id'];
     $userDetailsQuery = mysqli_query($connect, "SELECT * FROM users WHERE id='$userLoggedIn'");
     $user = mysqli_fetch_array($userDetailsQuery); 
 
     $user_obj = new User($connect, $userLoggedIn);
+    $cart_obj = new Cart($connect);
 ?>
 
 <!DOCTYPE html>
