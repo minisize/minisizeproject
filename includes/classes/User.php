@@ -18,6 +18,10 @@
             return $this->user['email'];
         }
 
+        public function getPoints(){
+            return $this->user['points'];
+        }
+
         public function getUserDetails(){
             $username = $this->user["username"];
             $query = mysqli_query($this->connect, "SELECT * FROM users WHERE username='$username'");

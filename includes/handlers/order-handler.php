@@ -1,13 +1,19 @@
 <?php require '../../includes/server.php';
     include("../../includes/classes/Cart.php");
+    include("../../includes/classes/User.php");
+
+    $userLoggedIn = $_SESSION['id'];
+
+    $user_obj = new User($connect, $userLoggedIn);
     $cart_obj = new Cart($connect);
 
     if(isset($_POST['confirm_payment'])){
 
-        // User Contact Details
+        // User Details
         $userID = $_SESSION['id'];
         $userTel = $_POST['user_tel']; 
         $userAddress = $_POST['user_address']; // address id
+        $userPoints = $user_obj->getPoints();
 
         // Payment Details
         $paymentName = $_POST['payment_name'];
@@ -45,18 +51,22 @@
             $itemPrice = $value['item_price'];
             $itemSize = $value['item_size'];
             $itemQty = $value['quantity'];
-
             $itemTotal = $itemPrice * $itemQty;
 
             // Insert in order_items table
             $itemQuery = "INSERT INTO order_items (order_id, name, size, quantity, subtotal) VALUES ('$orderID', '$itemName', '$itemSize', '$itemQty', '$itemTotal')";
-
+            
             if(mysqli_query($connect, $itemQuery)){
                 unset($_SESSION['cart']); // destroy cart session
+
+                // Update User's Points
+                $userPoints = $userPoints + $numItems * 2;
+                $updatePoints = mysqli_query($connect, "UPDATE users SET points='$userPoints' WHERE id='$userID'");
 
                 echo "<script>alert('Successful Order!')
                     window.location.href='../../index.php';
                 </script>";
+
             } else {
                 echo "Error: " . $itemQuery . "<br>" . mysqli_error($connect);
             }
