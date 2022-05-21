@@ -486,6 +486,7 @@
                 $result = "
                 <div class='col'>
                     <h3>$rating_ave out of 5</h3>
+                    <p>$num reviews</p>
                     <div> image of 4 out of 5 star rating </div>
                 </div>
                 <div class='col-5'>
