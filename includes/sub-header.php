@@ -22,6 +22,7 @@
     <!-- bootstrap link -->
     <link rel="stylesheet" href="../../assets/styles/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!-- Google Material Icons -->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
