@@ -407,7 +407,7 @@
 
             if($userID == ""){ // if there is no user logged in
                 $button = "<button class='border-0 bg-transparent' name='like_btn' value='Like' data-bs-toggle='modal' data-bs-target='#registerModal'>
-                                <i class='material-icons mt-2 fs-3'>favorite_border</i>
+                                <i class='bi bi-heart mt-2 fs-3'></i>
                             </button>";
             } else {
 
@@ -418,14 +418,14 @@
                 if($numRows > 0){ // set button to unlike
                     $button = "<form action='product-item.php?id=$itemID' class='form-like' method='POST'>
                                     <button type='submit' class='border-0 bg-transparent' name='unlike_btn' value='Unlike'>
-                                        <i class='material-icons mt-2 fs-3'>favorite</i>
+                                        <i class='bi bi-heart-fill mt-2 fs-3'></i>
                                     </button>
                                 </form>";
 
                 } else { // if no items -> set button to like
                     $button = "<form action='product-item.php?id=$itemID' class='form-like' method='POST'>
                                     <button type='submit' class='border-0 bg-transparent' name='like_btn' value='Like'>
-                                        <i class='material-icons mt-2 fs-3'>favorite_border</i>
+                                        <i class='bi bi-heart mt-2 fs-3'></i>
                                     </button>
                                 </form>";
                 }
