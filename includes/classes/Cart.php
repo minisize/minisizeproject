@@ -53,6 +53,17 @@
 
         }
 
+        public function getNumItems(){
+            $i = 0;
+            if(isset($_SESSION['cart'])){
+                foreach ($_SESSION['cart'] as $key => $value) {
+                    $qty = $value['quantity'];
+                    $i = $i + $qty;
+                }
+            }
+            return $i;
+        }
+
         public function displayCartItems(){
             $cartString = "";
 
@@ -66,19 +77,12 @@
                     $size = $value['item_size'];
                     $price = $value['item_price'];
                     $qty = $value['quantity'];
+                    $image = $value['image'];
 
                     $itemTotal = $price * $qty;
                     $cartSubtotal = $cartSubtotal + $itemTotal;
 
-                    $query = mysqli_query($this->connect, "SELECT images FROM products WHERE name='$name'");
-                    $row = mysqli_fetch_array($query);
-
-                    $jsonobjImg = $row["images"];
-                    $objImg = json_decode($jsonobjImg);
-
-                    $img1 = $objImg->images->image1; 
-
-                    $img = "../../" . $img1;
+                    $img = "../../" . $image;
 
                     $cartString .= "<tr>
                                         <td scope='row'>
