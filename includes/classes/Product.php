@@ -125,34 +125,32 @@
             //Creates a foreach
             while ( $row = mysqli_fetch_array($productDataQuery)) {
             
-            
+                //set $jsonobj to the value of input of the array "images" from $row;
+                $jsonobj = $row["images"];
+                //set $obj to the value of a php object converted from the string of $jsonobj
+                $obj = json_decode($jsonobj);
+                // Set $img to the value of image1 from images by php object $obj
+                $img = $obj->images->image1;
 
-            //set $jsonobj to the value of input of the array "images" from $row;
-            $jsonobj = $row["images"];
-            //set $obj to the value of a php object converted from the string of $jsonobj
-            $obj = json_decode($jsonobj);
-            // Set $img to the value of image1 from images by php object $obj
-            $img = $obj->images->image1;
+                if ($row["id"] != $itemID) {
 
-            if ($row["id"] != $itemID) {
+                    //Sets $hascontent to true for appropriate response
+                    $hascontent = true ;
 
-                //Sets $hascontent to true for appropriate response
-                $hascontent = true ;
-
-                $Add.="
-                    <div class='col product-display'>
-                        <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
-                        <div class='product-name'>
-                            <p><strong>".$row['name']."</strong></p>
+                    $Add.="
+                        <div class='col product-display'>
+                            <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
+                            <div class='product-name'>
+                                <p><strong>".$row['name']."</strong></p>
+                            </div>
+                                <p>contains</p>
+                                <img src='#' alt='image of ingredient'>
+                            <div>
+                                <label for=''>".$row['base_price']."</label>
+                            </div>
                         </div>
-                            <p>contains</p>
-                            <img src='#' alt='image of ingredient'>
-                        <div>
-                            <label for=''>".$row['base_price']."</label>
-                        </div>
-                    </div>
-                ";
-            }
+                    ";
+                }
                 
             }
 
@@ -171,10 +169,10 @@
                 ";
             } else {
                 $Similar_String ="
-                <div class='row'>
+                <!--<div class='row'>
                     <h1> Oops Sorry! </h1>
                     <h6> there are no products in our store with the same key ingredients </h6>
-                </div>";
+                </div>-->";
             };
 
             // $Similar_String ="
@@ -196,6 +194,8 @@
             $productsImageCarousel = "";
             $textLink = "";
             $num = false;
+            $count = 0;
+            $productImageIndicator = "";
 
             $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
             $row = mysqli_fetch_array($productDataQuery);
@@ -228,17 +228,31 @@
                 if ($num === false) {
                     $productsImageCarousel .="
                     <div class='carousel-item active'>
-                        <img src='$value' class='d-block w-100' alt='$key'>
+                        <div class='container'>
+                            <img src='$value' class='d-block mw-100 mh-100 h-75 m-auto py-2' alt='$key'>
+                        </div>
                     </div>";
+
+                    $productImageIndicator .="
+                    <li data-bs-target='#carousel' data-bs-slide-to='$count' class='active' style='background-image:url($value);'>
+                    </li>";
                 
                     $num = true;
 
                 } else {
                     $productsImageCarousel .="
                     <div class='carousel-item'>
-                        <img src='$value' class='d-block w-100' alt='$key'>
+                        <div class='container'>
+                            <img src='$value' class='d-block mw-100 mh-100 h-75 m-auto py-3' alt='$key'>
+                        </div>
                     </div>";
+
+                    $productImageIndicator .="
+                    <li data-bs-target='#carousel' data-bs-slide-to='$count' style='background-image:url($value);'>
+                    </li>";
                 }
+
+                $count = $count + 1;
             }
 
             ?>
@@ -276,15 +290,20 @@
             <?php
 
             $productsImage = "<!-- Main Image Display -->
-                            <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
+                            <div id='carousel' class='product-carousel carousel carousel-dark slide bg-white' data-bs-ride='carousel' style='height: 37rem;'>
+                                <div class='carousel-controls'>    
+                                    <ol class='carousel-indicators'>
+                                        $productImageIndicator
+                                    </ol>
+                                </div>
                                 <div class='carousel-inner'>
                                         $productsImageCarousel
                                 </div>
-                                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
+                                <button class='carousel-control-prev previous' type='button' data-bs-target='#carousel' data-bs-slide='prev'>
                                     <span class='carousel-control-prev-icon' aria-hidden='true'></span>
                                     <span class='visually-hidden'>Previous</span>
                                 </button>
-                                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next'>
+                                <button class='carousel-control-next next' type='button' data-bs-target='#carousel' data-bs-slide='next'>
                                     <span class='carousel-control-next-icon' aria-hidden='true'></span>
                                     <span class='visually-hidden'>Next</span>
                                 </button>
@@ -425,10 +444,10 @@
                             
             echo "<div class='container'>
                     <div class='row'> 
-                        <div class='col'>
+                        <div class='col ps-0'>
                         $productsImage
                         </div>
-                        <div class='col'>
+                        <div class='col pe-0'>
                         $productString
                         </div>
                     </div>
