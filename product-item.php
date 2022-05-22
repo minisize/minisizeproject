@@ -61,6 +61,16 @@
             // TODO: Add alert box design, it looks bad eheh
         }
     }
+
+    // write review
+    // if(isset($_POST["submit_review".$itemID])){
+    //     $rating = $_POST["rating"];
+    //     $title = $_POST["title"];
+    //     // $current_date = date("Y-m-d- H:i:s");
+    //     $body = $_POST["body"];
+
+    //     $insertReview = mysqli_query($connect,"INSERT INTO reviews VALUES ('','$itemID', '$userLoggedIn', '', '$title','$body', '', '$rating', '','')");
+    // }
 ?>
 
 <!--Add hero header in here-->

@@ -463,6 +463,7 @@
             $rating_three = 0;
             $rating_two = 0;
             $rating_one = 0;
+            $rating_star_ave = 0;
 
             if($num != 0){
                 while($reviewData = mysqli_fetch_array($query)){
@@ -477,6 +478,7 @@
 
                 $rating = $rating / $num;
                 $rating_ave = number_format((float)$rating,2,'.','');
+                $rating_star_ave = ($rating_ave/ 5) *100;
                 $rating_five = ($rating_five / $num) * 100; 
                 $rating_four = ($rating_four / $num) * 100;
                 $rating_three = ($rating_three / $num) * 100;
@@ -487,7 +489,23 @@
                 <div class='col'>
                     <h3>$rating_ave out of 5</h3>
                     <p>$num reviews</p>
-                    <div> image of 4 out of 5 star rating </div>
+                    
+                    <span class='position-relative'>
+                        <span>
+                            <i class='bi bi-star fs-1'></i>
+                            <i class='bi bi-star fs-1'></i>
+                            <i class='bi bi-star fs-1'></i>
+                            <i class='bi bi-star fs-1'></i>
+                            <i class='bi bi-star fs-1'></i>
+                        </span>
+                        <span class='position-absolute start-0' style='width: $rating_star_ave%;overflow: hidden;white-space: nowrap;'>
+                            <i class='bi bi-star-fill fs-1'></i>
+                            <i class='bi bi-star-fill fs-1'></i>
+                            <i class='bi bi-star-fill fs-1'></i>
+                            <i class='bi bi-star-fill fs-1'></i>
+                            <i class='bi bi-star-fill fs-1'></i>
+                        </span>
+                    </span>
                 </div>
                 <div class='col-5'>
                     <div class='row'>
@@ -524,8 +542,25 @@
             }else{
                 $result = "
                 <div class='col'>
-                    <h3>$rating_ave out of 5</h3>
-                    <div> image of 4 out of 5 star rating </div>
+                    <h3>No Reviews Yet</h3>
+                    <p>$num reviews</p>
+                    
+                    <span class='position-relative'>
+                        <span>
+                            <i class='bi bi-star fs-1'></i>
+                            <i class='bi bi-star fs-1'></i>
+                            <i class='bi bi-star fs-1'></i>
+                            <i class='bi bi-star fs-1'></i>
+                            <i class='bi bi-star fs-1'></i>
+                        </span>
+                        <span class='position-absolute start-0' style='width: $rating_star_ave%;overflow: hidden;white-space: nowrap;'>
+                            <i class='bi bi-star-fill fs-1'></i>
+                            <i class='bi bi-star-fill fs-1'></i>
+                            <i class='bi bi-star-fill fs-1'></i>
+                            <i class='bi bi-star-fill fs-1'></i>
+                            <i class='bi bi-star-fill fs-1'></i>
+                        </span>
+                    </span>
                 </div>
                 <div class='col-5'>
                     <div class='row'>
