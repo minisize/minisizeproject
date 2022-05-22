@@ -12589,12 +12589,20 @@ body {
   background-color: #F7F3F0;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   font-family: 'Playfair Display', serif;
+}
+
+h5, .h5 {
+  font-family: 'Montserrat', sans-serif;
 }
 
 p {
   font-family: 'Josefin Sans', sans-serif;
+}
+
+.fs-7 {
+  font-size: 0.75rem;
 }
 
 .display-item-dimension {

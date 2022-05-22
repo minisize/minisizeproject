@@ -41,26 +41,26 @@
                 $skinConcern = $userData['skin_concern'];
 
                 $userString = "<div id='user-profile-info'>   
-                                    <h3>General Information</h3>
+                                    <p class='m-0 p-0 fs-3'>General Information</p>
                                     <div class='row mb-4'>
                                         <div class='col'>
-                                            <h4>First Name</h4>
-                                            <h5>$firstName</h5>
+                                            <h5 class='fs-7 fw-bold'>First Name</h5>
+                                            <h6 class='fw-normal'>$firstName</h6>
                                         </div>
                                         <div class='col'>
-                                            <h4>Last Name</h4>
-                                            <h5>$lastName</h5>
+                                            <h5 class='fs-7 fw-bold'>Last Name</h5>
+                                            <h6 class='fw-normal'>$lastName</h6>
                                         </div>
                                     </div>
-                                    <h3>Skin Stuff</h3>
+                                    <p class='m-0 p-0 fs-3'>Skin Information</p>
                                     <div class='row mb-4'>
                                         <div class='col'>
-                                            <h4>Skin Type</h4>
-                                            <h5>$skinType</h5>
+                                            <h5 class='fs-7 fw-bold'>Skin Type</h5>
+                                            <h6 class='fw-normal'>$skinType</h6>
                                         </div>
                                         <div class='col'>
-                                            <h4>Skin Concern</h4>
-                                            <h5>$skinConcern</h5>
+                                            <h5 class='fs-7 fw-bold'>Skin Concern</h5>
+                                            <h6 class='fw-normal'>$skinConcern</h6>
                                         </div>
                                     </div>
                                 </div>";    
@@ -135,20 +135,40 @@
                 $productID = $wishlistData['product_id'];
                 $product_query = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$productID'");
                 while($productData = mysqli_fetch_array($product_query)){
-                $product_img = $productData["images"];
+                $product_images = $productData["images"];
                 $product_brand = $productData["brand"];
                 $product_name = $productData["name"];
                 $product_price = $productData["base_price"];
 
+                $object_images = json_decode($product_images);
+                $img = $object_images->images->image1; 
+
+                $product_img = "../../" . $img;
+
                 $wishlistString .= "
-                <div class='row d-flex mb-4 p-4 rounded-3' style='background-color: #FFFBF8;'>
+                <div class='row d-flex mb-4 px-4 py-3 rounded-3' style='background-color: #FFFBF8;'>
                     <div class='d-flex flex-row justify-content-between'>
-                        <div style='width: parent-height;'><img src='$product_img'></div>
-                        <div>
-                            <div>$product_brand (brand)</div>
-                            <div>$product_name</div>
-                        </div>
-                        <div>$product_price USD</div>
+                        
+                            <img src='$product_img' class='col-1 img-fluid me-2' style='width: 20%;'>
+                            <div class='col d-flex flex-column justify-content-between'>
+                                <div class='row'>
+                                    <h5 class='fs-6 fw-light'>$product_brand (brand)</h5>
+                                
+                                    <h5 class='fs-6 fw-bold'>$product_name</h5>
+                                </div>
+                                <div class='row'>
+                                    <h5 class='col-4 fs-7 fw-light'>
+                                        <i class='bi bi-cart-fill'></i>
+                                        Add to Cart
+                                    </h5>
+                                    <h5 class='col fs-7 fw-light'>
+                                        <i class='bi bi-trash-fill'></i>
+                                        Remove
+                                    </h5>
+                                </div>
+                            </div>
+                        
+                        <h5 class='col-2 fs-4 fw-bold text-end text-darkgreen'>$product_price USD</h5>
                     </div>
                 </div>";
                 }
@@ -168,19 +188,20 @@
                 $street = $addressData['street'];
                 $city = $addressData['city'];
                 $country = $addressData['country'];
+                $fullname = $this->getFullName();
 
                 $addressString .= "
                 <div class='row d-flex mb-4 p-4 rounded-3' style='background-color: #FFFBF8;'>
                     <div class='d-flex flex-row justify-content-between'>
                         <div>
-                            <div>Name:</div>
-                            <div>userloggedin</div>
+                            <h5 class='fs-7 fw-bold'>Name:</h5>
+                            <h5 class='fs-7 fw-bold'>$fullname</h5>
                         </div>
                         <div>
-                            <div>Address:</div>
-                            <div>$building, $street, $city, $country</div>
+                            <h5 class='fs-7 fw-bold'>Address:</h5>
+                            <h5 class='fs-7 fw-bold'>$building, $street, $city, $country</h5>
                         </div>
-                        <button class='btn btn-outline-dark'>Edit</button>
+                        <button class='btn btn-outline-dark'><p class='m-0 p-0'>Edit</p></button>
                     </div>
                 </div>";
 
