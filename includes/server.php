@@ -2,6 +2,8 @@
     ob_start(); // turn on output buffering
     session_start(); // start session
 
+    $timezone = date_default_timezone_set("Asia/Dubai"); //time
+
     $servername = "localhost";
     $username = "root";
     $password = "";
