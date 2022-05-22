@@ -76,10 +76,11 @@
 .price-btn label {
   background-color: #ffffff;
   border-radius: 5px;
-}
 
-.price-btn label img {
-  width: 4rem;
+  img {
+    max-width: 4rem;
+    max-height: 4rem;
+  }
 }
 
 .price-btn input[type="radio"] {

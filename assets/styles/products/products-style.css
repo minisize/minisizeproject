@@ -85,7 +85,8 @@
 }
 
 .price-btn label img {
-  width: 4rem;
+  max-width: 4rem;
+  max-height: 4rem;
 }
 
 .price-btn input[type="radio"] {
