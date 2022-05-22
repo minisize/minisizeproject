@@ -1,8 +1,15 @@
+/********* Cart Page *********/
 .cart-image {
   max-width: 5rem;
   max-height: 5rem;
 }
 
+.cart-item-remove:hover i {
+  color: #EF6461;
+  text-shadow: 2px 1px 15px #ef706ec1;
+}
+
+/********* Checkout Page *********/
 .payment-form {
   display: -ms-grid;
   display: grid;
@@ -16,6 +23,6 @@
 .order-summary .items {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 12rem;
+  max-height: 16rem;
 }
 /*# sourceMappingURL=cart_checkout.css.map */

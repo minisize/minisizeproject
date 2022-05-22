@@ -94,11 +94,11 @@
                                         </td>
 
                                         <td>
-                                            <p class='m-0 p-0'>$$price</p>
+                                            <p class='m-0 py-0 px-2'>$$price</p>
                                         </td>
 
                                         <td>
-                                            <div class='input-group mb-3 d-flex justify-content-center'>
+                                            <div class='input-group d-flex justify-content-center'>
                                                 <input type='button' name='update-qty-$key' value='-' onClick='decrementQuantity($key)' class='btn btn-sm btn-outline-secondary'>
                                                 <input type='text' id='input-quantity-$key' name='quantity' step='1' value='$qty' min='1' onchange='updateQuantity()' class='input-quantity w-25 border border-secondary d-flex text-center'>
                                                 <input type='button' name='update-qty-$key' value='+' onClick='incrementQuantity($key)' class='btn btn-sm btn-outline-secondary'>
@@ -106,12 +106,14 @@
                                         </td>
 
                                         <td>
-                                            <p id='itemSubtotal' class='m-0 p-0'>$$itemTotal</p>
+                                            <p id='itemSubtotal' class='m-0 py-0 px-2'>$$itemTotal</p>
                                         </td>
 
                                         <td>
                                             <form action='../../includes/handlers/cart-remove.php' method='POST'>
-                                                <button type='submit' name='remove' class='btn btn-sm btn-danger text-white'>Remove</button>
+                                                <button type='submit' name='remove' class='btn btn-sm cart-item-remove border-0 bg-transparent'>
+                                                    <i class='bi bi-x-square-fill fs-5'></i>
+                                                </button>
                                                 <input type='hidden' name='item_name' value='$name'>
                                             </form>
                                         </td>

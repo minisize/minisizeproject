@@ -11,55 +11,59 @@
         <!-- LEFT SEGMENT -->
         <div class="col">
 
-            <table class="table">
+            <table class="mt-4">
                 <thead>
                     <tr>
                         <th scope="col"></th>
-                        <th scope="col"><h6 class="fw-bold">Item</h6></th>
-                        <th scope="col"><h6 class="fw-bold text-center">Cost</h6></th>
-                        <th scope="col"><h6 class="fw-bold text-center">Qty</h6></th>
-                        <th scope="col"><h6 class="fw-bold text-center">Subtotal</h6></th>
+                        <th scope="col"><h4 class="fs-6 fw-bold">Item</h4></th>
+                        <th scope="col"><h4 class="fs-6 fw-bold text-center">Cost</h4></th>
+                        <th scope="col"><h4 class="fs-6 fw-bold text-center">Qty</h4></th>
+                        <th scope="col"><h4 class="fs-6 fw-bold text-center">Subtotal</h4></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
 
                 <!-- Items List -->
 
-                <tbody>
-                    <?php $cart_obj->displayCartItems(); ?>
+                <tbody class="cart-table">
+                    <div class="items">
+                        <?php $cart_obj->displayCartItems(); ?>
+                    </div>
                 </tbody>
             </table>
 
         </div>
 
         <!-- RIGHT SEGMENT -->
-        <div class="col-4">
+        <div class="col-4 d-flex flex-column justify-content-between">
 
-            <div>
-                <div>
-                    <h5>Order</h5>
+            <div class="mt-4">
+                <div class="row">
+                    <h4 class="fs-6 fw-bold text-center">Order</h4>
                 </div>
 
-                <div>
-                    <div>
-                        <h6>Cart Subtotal</h6>
-                        <p><?php echo "$".$cart_obj->getCartSubtotal(); ?></p>
-                    </div>
+                <div class="container mt-4">
+                    <div class="">
+                        <div class="row">
+                            <p class="col fs-5 fw-light">Cart Subtotal</p>
+                            <p class="col fs-5 fw-light text-end"><?php echo "$".$cart_obj->getCartSubtotal(); ?></p>
+                        </div>
 
-                    <div>
-                        <h6>Shipping Fee</h6>
-                        <p><?php echo "$".$cart_obj->getShippingFee(); ?></p>
+                        <div class="row">
+                            <p class="col fs-5  fw-light">Shipping Fee</p>
+                            <p class="col fs-5 fw-light text-end"><?php echo "$".$cart_obj->getShippingFee(); ?></p>
+                        </div>
                     </div>
-
                 </div>
             </div>
 
-            <div>
-                <div>
+            <div class="container mb-4">
+                <div class="row">
                     <p class="fw-bold">Estimated total</p>
                     <p class="fs-1 fw-bold"><?php echo "$".$cart_obj->getCartTotal(); ?></p>
-                </div>
-                <div>
+                </div class="row">
+
+                <div class="row">
                     <a href="checkout.php" class="btn btn-primary text-white fw-bold">Proceed to Checkout</a>
                 </div>
             </div>

@@ -32,11 +32,11 @@
 
                 <div class="row mt-2">
                     <div class="col-4 d-flex align-self-center justify-content-end">
-                        <h6 class="mb-0">Delivery Method</h6>
+                        <h4 class="fs-6 mb-0">Delivery Method</h4>
                     </div>
                     <div class="col">
                         <select class="form-select" name="delivery_method" form="checkoutForm" required>
-                            <option value="0" selected>Standard Delivery ( 3 - 5 Days )</option>
+                            <option value="0" selected>Standard Delivery (2 weeks)</option>
                         </select>
                     </div>
                     
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-4 d-flex align-self-center justify-content-end">
-                        <h6 class="mb-0">Address</h6>
+                        <h4 class="fs-6 mb-0">Address</h4>
                     </div>
                     <div class="col">
                         <div class="input-group">
@@ -66,7 +66,7 @@
                                 ?>
                             </select>
                             <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#addressForm">+ Add</button>
+                                <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#addressForm"><p class="m-0 p-0">+ Add</p></button>
                             </div>
                         </div>
                         <!-- <input type="text" class="form-control" name="" id=""> -->
@@ -75,7 +75,7 @@
 
                 <div class="row">
                     <div class="col-4 d-flex align-self-center justify-content-end">
-                        <h6 class="mb-0">Payment Method</h6>
+                        <h4 class="fs-6 mb-0">Payment Method</h4>
                     </div>
                     <div class="form-check col ms-3">
                         <input class="form-check-input" type="radio" value="card" name="payment_method" id="cardMethod"
@@ -102,7 +102,7 @@
 
                 <div class="row">
                     <div class="col-4 d-flex align-self-center justify-content-end">
-                        <h6 class="mb-0">Name on Card</h6>
+                        <h4 class="fs-6 mb-0">Name on Card</h4>
                     </div>
                     <div class="col">
                         <input class="col form-control" type="text" name="payment_name" required>
@@ -111,7 +111,7 @@
 
                 <div class="row">
                     <div class="col-4 d-flex align-self-center justify-content-end">
-                        <h6 class="mb-0">Card Number</h6>
+                        <h4 class="fs-6 mb-0">Card Number</h4>
                     </div>
                     <div class="col">
                         <input class="col form-control" type="text" name="payment_card_no" required>
@@ -121,7 +121,7 @@
 
                 <div class="row">
                     <div class="col-4 d-flex align-self-center justify-content-end">
-                        <h6 class="mb-0">Expiry</h6>
+                        <h4 class="fs-6 mb-0">Expiry</h4>
                     </div>
                     <div class="col-4 d-flex">
                         <select name="expiry_month" id="expiryMonth" class="form-select" form="checkoutForm" required>
@@ -150,7 +150,7 @@
                         <!-- <input type="text" class="form-control text-center" placeholder="MM/YY"> -->
                     </div>
                     <div class="col-2 d-flex align-self-center justify-content-end">
-                        <h6 class="mb-0">CVV</h6>
+                        <h4 class="fs-6 mb-0">CVV</h4>
                     </div>
                     <div class="col-2">
                         <input type="text" class="form-control text-center" name="cvv" placeholder="000" minlength="3" pattern="[0-9]+" required>
@@ -168,17 +168,19 @@
 
                 <div class="row">
                     <div class="col text-end">
-                        <button type="submit" name="confirm_payment" class="btn btn-success">CONFIRM PAYMENT</button>
+                        <button type="submit" name="confirm_payment" class="btn btn-primary">
+                            <p class="m-0 px-4 py-2 fw-bold">CONFIRM PAYMENT</p>
+                        </button>
                     </div>
                 </div>
             </form>
 
         </div>
 
-        <div class="col">
-            <h2 class="text-center mt-5 mb-4">Order Summary</h2>
+        <div class="col d-flex flex-column justify-content-between">
+            
             <div>
-
+                <h2 class="text-center mt-5 mb-4">Order Summary</h2>
                 <!-- List of Items -->
                 <div class="order-summary px-4 py-3 mx-2">
 
@@ -207,18 +209,14 @@
                     </div>
 
                 </div>
-
-                <form action="">
-                    <div class="container">
-                        <div class="row">
-                            <input type="text" class="form-control col" placeholder="Enter Voucher Code">
-                            <button type="submit" class="btn btn-primary col">APPLY</button>
-                        </div>
-                    </div>
-                </form>
-
             </div>
             
+            <div class="container mb-5">
+                <div class="row">
+                    <input type="text" class="form-control col" placeholder="Enter Voucher Code">
+                    <button type="submit" class="btn btn-pink col-4"><p class="m-0 p-0">APPLY</p></button>
+                </div>
+            </div>
 
         </div>
     </div>
