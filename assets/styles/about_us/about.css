@@ -12,7 +12,6 @@
   color: #345553;
 }
 
-<<<<<<< HEAD
 .fade-bg {
   background-color: #F5D1C3;
   padding: 10px;
@@ -22,27 +21,6 @@
   -webkit-clip-path: circle(40%);
           clip-path: circle(40%);
   border-radius: 100%;
-=======
-#us p {
-  font-size: 50px;
-  font-weight: 500;
-  text-align: justify;
-  margin: 20px;
-}
-
-.team h4 {
-  font-size: 32px;
-  font-weight: 300;
-}
-
-img {
-  border-radius: 100px;
-}
-
-li {
-  list-style-type: none;
-  padding: 0;
->>>>>>> main
   margin: 0;
   padding: 0;
 }
