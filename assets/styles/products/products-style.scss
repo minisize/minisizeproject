@@ -1,7 +1,29 @@
+// @mixin to handle media queries
+@mixin breakpoint($minwidth, $maxwidth) {
+  @media screen and (min-width: $minwidth) and (max-width: $maxwidth) {
+    @content; // pass content
+  }
+}
+
 .products-header {
   position: absolute;
   top: 50%;
+  left: 25%;
   transform: translate(-25%, -25%);
+}
+
+.maincontent-filter2{
+	.filter, .sort{
+		justify-content: space-between;
+	}
+
+	.filter select {
+		width: 35%;
+	}
+
+	.sort select {
+		width: 50%;
+	}
 }
 
 .product-img {
@@ -42,34 +64,33 @@
 }
 
 .product-carousel {
+  .carousel-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    z-index: 10;
+    transform: translateX(-50%);
 
-    .carousel-controls {
-        position: absolute;
-        left:50%;
-        bottom:40px;
-        z-index:10;
-        transform: translateX(-50%);
+    .carousel-indicators {
+      position: relative;
+      margin: 0;
 
-        .carousel-indicators {
-            position: relative;
-            margin: 0;
-    
-            li {
-                height: 3rem;
-                width: 3rem;
-                margin: 0 5px;
-                background-position: center;
-                background-size: cover;
-            }
-        }
+      li {
+        height: 3rem;
+        width: 3rem;
+        margin: 0 5px;
+        background-position: center;
+        background-size: cover;
+      }
     }
-    
-    .carousel-control-prev, 
-    .carousel-control-next{
-        display: flex;
-        align-items: end;
-        padding-bottom: 3rem;
-    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: flex;
+    align-items: end;
+    padding-bottom: 3rem;
+  }
 }
 
 /* ************************ */
@@ -108,4 +129,53 @@
   background: none;
   border-bottom: 2px solid #f0bc68;
   border-radius: 0;
+}
+
+@include breakpoint(0px, 768px) {
+	.products-maincontent{
+		margin: 0 rem;
+
+		.maincontent-filter2{
+			.filter {
+				justify-content: flex-start;
+
+				select {
+					width: 50%;
+				}
+
+				p {
+					display: none;
+				}
+			}
+
+			.sort {
+				justify-content: flex-end;
+
+				select {
+					width: 75%;
+				}
+
+				p {
+					display: none;
+				}
+			}
+			
+		}
+	}
+}
+
+@include breakpoint(0px, 889px) {
+	.products-header {
+		left: 20%;
+		
+		p {
+			display: none;
+		}
+	}
+}
+
+@include breakpoint(0, 890px) {
+	.products-header {
+		top: 45%;
+	}
 }

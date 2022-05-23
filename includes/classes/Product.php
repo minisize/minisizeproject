@@ -43,9 +43,9 @@
             $position = "";
 
             if ($tab == "categories"){
-                $position = "left: 25%;";
+                $position = "";
             } else {
-                $position = "left: 15%;";
+                $position = "left: 20%;";
             }
 
             $headerString = "<div class='position-relative'>
