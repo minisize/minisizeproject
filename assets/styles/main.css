@@ -12588,7 +12588,6 @@ fieldset:disabled .btn {
 body {
   background-color: #F7F3F0;
   overflow-y: scroll;
-  overflow-x: hidden;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {

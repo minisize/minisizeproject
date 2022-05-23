@@ -17,7 +17,7 @@ class Home_functions
         //Gets data from minisize_db
         if ($result->num_rows > 0) {
 
-            while (($row = $result->fetch_assoc()) && ($Item_Display_Limit <= 5)) {
+            while (($row = $result->fetch_assoc()) && ($Item_Display_Limit <= 25)) {
 
                 //set $jsonobj to the value of input of the array "images" from $row;
                 $jsonobj = $row["images"];
@@ -28,7 +28,7 @@ class Home_functions
 
                 //Creation of HTML
                 echo "
-                            <div class='col w-auto'>
+                            <div class='col w-75 px-2 py-1 best-seller-containers'>
                                 <div class='thumbnail'>
                                     <img src='" . $img . "' class='img-fluid display-item-dimension'>
                                 </div>
