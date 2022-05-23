@@ -118,6 +118,7 @@ img
 .team-proto
 {
     display: flex;
+    flex-wrap: wrap;
     .team
     {
         flex-direction: row;
@@ -128,14 +129,6 @@ img
     }
 }
 
-// .us
-// {
-//     margin-top: 4vh;
-//     margin-bottom: 5vh;
-//     font-weight: 500;
-    
-// }
-
 #about-title
 {
     color: $h-color;
@@ -143,4 +136,12 @@ img
     margin-top: 2.5vh;
     margin-bottom: 2vh;
     font-family: $font-text;
+}
+
+
+@media screen and (max-width: 995px) {
+    .team-proto
+    {
+        flex-wrap: wrap;
+    }
 }
