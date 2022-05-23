@@ -97,8 +97,6 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .team-proto .team {
@@ -122,8 +120,15 @@ img {
   font-family: "Playfair Display", serif;
 }
 
-@media screen and (max-width: 995px) {
+@media screen and (max-width: 984px) {
   .team-proto {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .pics {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }

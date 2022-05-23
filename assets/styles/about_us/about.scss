@@ -118,7 +118,6 @@ img
 .team-proto
 {
     display: flex;
-    flex-wrap: wrap;
     .team
     {
         flex-direction: row;
@@ -138,10 +137,15 @@ img
     font-family: $font-text;
 }
 
-
-@media screen and (max-width: 995px) {
+@media screen and (max-width: 984px) {
     .team-proto
     {
+        flex-wrap: wrap;
+    }
+
+    .pics
+    {
+        display: flex;
         flex-wrap: wrap;
     }
 }
