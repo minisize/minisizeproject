@@ -11,6 +11,7 @@ $pink: #F5D1C3;
 $beige: #F7E6CA;
 $green: #365A51;
 $darkgreen : #345553;
+$white: #FFFFFF;
 
 $theme-colors: (
     "primary": $primary,
@@ -24,7 +25,8 @@ $theme-colors: (
     "pink": $pink,
     "beige": $beige,
     "green": $green,
-    "darkgreen": $darkgreen
+    "darkgreen": $darkgreen,
+    "white": $white
 );
 
 // include all of bootstrap
@@ -33,14 +35,24 @@ $theme-colors: (
 
 body {
     background-color: $light;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4 {
     font-family: 'Playfair Display', serif;
+}
+
+h5 {
+    font-family: 'Montserrat', sans-serif;
 }
 
 p {
     font-family: 'Josefin Sans', sans-serif;
+}
+
+.fs-7{
+    font-size: 0.75rem;
 }
 
 .display-item-dimension{
@@ -50,4 +62,27 @@ p {
     object-fit: fill;
     left: 50%;
     transform: translateX(-50%);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: transparent;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0); 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $dark; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: darken($color: $dark, $amount: 10%)
 }

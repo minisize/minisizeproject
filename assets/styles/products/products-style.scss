@@ -1,0 +1,111 @@
+.products-header {
+  position: absolute;
+  top: 50%;
+  transform: translate(-25%, -25%);
+}
+
+.product-img {
+  height: 25vh;
+}
+
+.overlay-product {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+}
+
+.product-display:hover .overlay-product {
+  display: block;
+  background: #f7e6ca46;
+  border: 2px solid #f0bc68;
+  border-radius: 5px;
+}
+
+.product-view {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid;
+  z-index: 1;
+}
+
+.product-display:hover .product-view {
+  opacity: 1;
+}
+
+.product-carousel {
+
+    .carousel-controls {
+        position: absolute;
+        left:50%;
+        bottom:40px;
+        z-index:10;
+        transform: translateX(-50%);
+
+        .carousel-indicators {
+            position: relative;
+            margin: 0;
+    
+            li {
+                height: 3rem;
+                width: 3rem;
+                margin: 0 5px;
+                background-position: center;
+                background-size: cover;
+            }
+        }
+    }
+    
+    .carousel-control-prev, 
+    .carousel-control-next{
+        display: flex;
+        align-items: end;
+        padding-bottom: 3rem;
+    }
+}
+
+/* ************************ */
+.price-btn label {
+  background-color: #ffffff;
+  border-radius: 5px;
+
+  img {
+    max-width: 4rem;
+    max-height: 4rem;
+  }
+}
+
+.price-btn input[type="radio"] {
+  opacity: 0;
+  z-index: 100;
+}
+
+.price-btn input[type="radio"]:checked + label {
+  cursor: pointer;
+  background: #f5d1c3;
+  border-radius: 5px;
+}
+
+/* ************************ */
+
+.nav-pills .nav-link {
+  color: black;
+  background: none;
+  border: 0;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: black;
+  background: none;
+  border-bottom: 2px solid #f0bc68;
+  border-radius: 0;
+}

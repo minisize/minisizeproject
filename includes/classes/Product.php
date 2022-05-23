@@ -16,6 +16,19 @@
             return $this->row['name'];
         }
 
+        public function getProductImage($itemID){
+            $productData = mysqli_query($this->connect, "SELECT images FROM products WHERE id='$itemID'");
+            $row = mysqli_fetch_array($productData);
+
+            $jsonobjImg = $row["images"]; 
+            $objImg = json_decode($jsonobjImg); 
+
+            $img1 = $objImg->images->image1;
+
+            return $img1;
+            
+        }
+
         public function loadHeader($tab, $itemID){
 
             $query = "SELECT * FROM $tab WHERE id='$itemID'";
@@ -59,21 +72,29 @@
             while($row = mysqli_fetch_array($result)){
                 $id = $row['id'];
                 $name = $row['name'];
+                $category = $row['category'];
                 $mainIngredient = $row['main_ingredient'];
+                $skinConcern = $row['for_skin_concern'];
                 $basePrice = $row['base_price'];
                 $numReviews = $row['num_reviews'];
 
-                //set $jsonobj to the value of input of the array "images" from $row;
                 $jsonobj = $row["images"];
-                //set $obj to the value of a php object converted from the string of $jsonobj
                 $obj = json_decode($jsonobj);
-                // Set $img to the value of image1 from images by php object $obj
                 $img = $obj->images->image1;
+
+                $head = "";
+
+                if($category == "Bundles"){
+                    $head = "<img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-2'>
+                            <p><strong>$name</strong> <br> for $skinConcern</p>";
+                } else {
+                    $head = "<img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-4'>
+                            <p><strong>$name</strong> <br> with $mainIngredient</p>";
+                }
 
                 $productString .=   "<div class='col product-display position-relative p-4 d-flex flex-column justify-content-between'>
                                         <div>
-                                            <img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-2'>
-                                            <p><strong>$name</strong> <br> with $mainIngredient</p>
+                                            $head
                                         </div>
                                         <div class='product-price d-flex align-items-center justify-content-between'>
                                             <p class='fs-5 text-darkgreen'>$basePrice USD</p>
@@ -87,8 +108,7 @@
             return $productString;
         }
 
-        public function loadSimilarProducts($itemID)
-        {
+        public function loadSimilarProducts($itemID){
             $Add="";
             $hascontent = false ;
 
@@ -105,34 +125,32 @@
             //Creates a foreach
             while ( $row = mysqli_fetch_array($productDataQuery)) {
             
-            
+                //set $jsonobj to the value of input of the array "images" from $row;
+                $jsonobj = $row["images"];
+                //set $obj to the value of a php object converted from the string of $jsonobj
+                $obj = json_decode($jsonobj);
+                // Set $img to the value of image1 from images by php object $obj
+                $img = $obj->images->image1;
 
-            //set $jsonobj to the value of input of the array "images" from $row;
-            $jsonobj = $row["images"];
-            //set $obj to the value of a php object converted from the string of $jsonobj
-            $obj = json_decode($jsonobj);
-            // Set $img to the value of image1 from images by php object $obj
-            $img = $obj->images->image1;
+                if ($row["id"] != $itemID) {
 
-            if ($row["id"] != $itemID) {
+                    //Sets $hascontent to true for appropriate response
+                    $hascontent = true ;
 
-                //Sets $hascontent to true for appropriate response
-                $hascontent = true ;
-
-                $Add.="
-                    <div class='col product-display'>
-                        <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
-                        <div class='product-name'>
-                            <p><strong>".$row['name']."</strong></p>
+                    $Add.="
+                        <div class='col product-display'>
+                            <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
+                            <div class='product-name'>
+                                <p><strong>".$row['name']."</strong></p>
+                            </div>
+                                <p>contains</p>
+                                <img src='#' alt='image of ingredient'>
+                            <div>
+                                <label for=''>".$row['base_price']."</label>
+                            </div>
                         </div>
-                            <p>contains</p>
-                            <img src='#' alt='image of ingredient'>
-                        <div>
-                            <label for=''>".$row['base_price']."</label>
-                        </div>
-                    </div>
-                ";
-            }
+                    ";
+                }
                 
             }
 
@@ -151,10 +169,10 @@
                 ";
             } else {
                 $Similar_String ="
-                <div class='row'>
+                <!--<div class='row'>
                     <h1> Oops Sorry! </h1>
                     <h6> there are no products in our store with the same key ingredients </h6>
-                </div>";
+                </div>-->";
             };
 
             // $Similar_String ="
@@ -176,141 +194,273 @@
             $productsImageCarousel = "";
             $textLink = "";
             $num = false;
-
-            // $btn_class=" fw-normal bg-white border-0 col py-2 mx-4 rounded-3";
+            $count = 0;
+            $productImageIndicator = "";
 
             $productDataQuery = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$itemID'");
-
             $row = mysqli_fetch_array($productDataQuery);
+
             $id = $row['id'];
             $name = $row['name'];
             $description = $row['description'];
+            $category = $row['category'];
             $mainIngredient = $row['main_ingredient'];
             $cosdnaLink = $row['cosdna_link'];
             $basePrice = $row['base_price'];
 
+<<<<<<< HEAD
             //set $jsonobj to the value of input of the array "images" from $row;
             $jsonobj = $row["images"];
             //set $obj to the value of a php object converted from the string of $jsonobj
             $obj = json_decode($jsonobj);
             // Set $img to the value of image1 from images by php object $obj
             $img = $obj->images;
+=======
+            $jsonobjImg = $row["images"]; //set $jsonobj to the value of input of the array "images" from $row;
+            $objImg = json_decode($jsonobjImg); //set $obj to the value of a php object converted from the string of $jsonobj
+
+            $img = $objImg->images; // Set $img to the value of image1 from images by php object $obj
+            $img1 = $objImg->images->image1; // size button image
+
+            $jsonobjPrice = $row["price"]; 
+            $objPrice = json_decode($jsonobjPrice);
+>>>>>>> main
 
             if($cosdnaLink == "#"){
                 $textLink = "";
             } else {
-                $textLink = "Ingredient list";
+                $textLink = "<i class='bi bi-link d-flex align-self-center fs-5'></i>Ingredient list";
             }
 
             foreach($img as $key => $value) {
             
-            if ($num === false) {
-                $productsImageCarousel .="
-                <div class='carousel-item active'>
-                    <img src='$value' class='d-block w-100' alt='$key'>
-                </div>
-            ";
-            
-            $num = true;
-            } else {
-                $productsImageCarousel .="
-                <div class='carousel-item'>
-                    <img src='$value' class='d-block w-100' alt='$key'>
-                </div>
-            ";
+                if ($num === false) {
+                    $productsImageCarousel .="
+                    <div class='carousel-item active'>
+                        <div class='container'>
+                            <img src='$value' class='d-block mw-100 mh-100 h-75 m-auto py-2' alt='$key'>
+                        </div>
+                    </div>";
+
+                    $productImageIndicator .="
+                    <li data-bs-target='#carousel' data-bs-slide-to='$count' class='active' style='background-image:url($value);'>
+                    </li>";
+                
+                    $num = true;
+
+                } else {
+                    $productsImageCarousel .="
+                    <div class='carousel-item'>
+                        <div class='container'>
+                            <img src='$value' class='d-block mw-100 mh-100 h-75 m-auto py-3' alt='$key'>
+                        </div>
+                    </div>";
+
+                    $productImageIndicator .="
+                    <li data-bs-target='#carousel' data-bs-slide-to='$count' style='background-image:url($value);'>
+                    </li>";
+                }
+
+                $count = $count + 1;
             }
-              }
+
+            ?>
+
+              <script>
+                    function changePrice() {
+                        var inputPrice = document.getElementById("inputPrice");
+                        var inputSize = document.getElementById("inputSize");
+
+                        var priceLabel10 = document.getElementById('price10ml');
+                        var priceLabel15 = document.getElementById('price15ml');
+                        var priceLabel20 = document.getElementById('price20ml');
+
+                        var priceSize = document.getElementById('priceSize');
+
+                        if(priceLabel15.checked) {
+                            priceSize.innerHTML = priceLabel15.value + " USD";
+                            inputPrice.value = priceLabel15.value;
+                            inputSize.value = "15 mL";
+
+                        } else if(priceLabel20.checked) {
+                            priceSize.innerHTML = priceLabel20.value + " USD";
+                            inputPrice.value = priceLabel20.value;
+                            inputSize.value = "20 mL";
+                            
+                        } else if(priceLabel10.checked) {
+                            priceSize.innerHTML = priceLabel10.value + " USD";
+                            inputPrice.value = priceLabel10.value;
+                            inputSize.value = "10 mL";
+                        }
+                        
+                    }
+                </script>
+
+            <?php
 
             $productsImage = "<!-- Main Image Display -->
-                            <div id='carouselExampleControls' class='carousel slide' data-bs-ride='carousel'>
+                            <div id='carousel' class='product-carousel carousel carousel-dark slide bg-white' data-bs-ride='carousel' style='height: 37rem;'>
+                                <div class='carousel-controls'>    
+                                    <ol class='carousel-indicators'>
+                                        $productImageIndicator
+                                    </ol>
+                                </div>
                                 <div class='carousel-inner'>
                                         $productsImageCarousel
                                 </div>
-                                <button class='carousel-control-prev' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev'>
+                                <button class='carousel-control-prev previous' type='button' data-bs-target='#carousel' data-bs-slide='prev'>
                                     <span class='carousel-control-prev-icon' aria-hidden='true'></span>
                                     <span class='visually-hidden'>Previous</span>
                                 </button>
-                                <button class='carousel-control-next' type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next'>
+                                <button class='carousel-control-next next' type='button' data-bs-target='#carousel' data-bs-slide='next'>
                                     <span class='carousel-control-next-icon' aria-hidden='true'></span>
                                     <span class='visually-hidden'>Next</span>
                                 </button>
                             </div>";
 
-            $productString .= "<div class=''>
-                                <!-- Header Section of Item -->
-                                <div class='container'>
-                                    <div class='row d-flex align-items-baseline'>
-                                        <h2 class='col fw-bold text-darkgreen'>$name</h2>
-                                        <div class='col-1'>
-                                            " . $this->addToWishlist($id, $userID) . "
+            $productName = "<h2 class='col fw-bold text-darkgreen'>$name</h2>
+                            <div class='col-1'>
+                                " . $this->addToWishlist($id, $userID) . "
+                            </div>";
+            $productIngredient = "<p class='fs-5'>with $mainIngredient
+                                        <a class='fs-6 d-inline-flex align-items-baseline text-secondary' href='$cosdnaLink'>
+                                            $textLink
+                                        </a>
+                                    </p>";
+           
+            
+            if($category == "Bundles"){
+                $productIngredient = "";
+                $productForm = "<form action='product-item.php?id=$itemID' method='POST'>
+                                    <div class='row'>
+                                        <div class='col d-flex justify-content-between align-items-center mt-4'>
+                                            <input type='hidden' id='inputPrice' name='price' value='$basePrice'/>
+                                            <input type='hidden' id='inputSize' name='size' value=''/>
+                                            <input type='hidden' name='item' value='$name'/>
+                                            <p id='priceSize' class='fs-4 m-0 text-dark'>$basePrice USD</p>
+                                            <div class='d-flex align-items-center gap-4'>
+                                                " . $this->addToCart($id, $userID) . "
+                                            </div>
                                         </div>
+                                    </div>
+                                </form>";
+            } else {
+
+                $price10ml = $objPrice->prices->price1;
+                $price15ml = $objPrice->prices->price2;
+                $price20ml = $objPrice->prices->price3;
+
+                $productForm = "<form action='product-item.php?id=$itemID' method='POST'>
+                                    <div class='row'>
+                                        <div class='col position-relative price-btn'>
+                                            <input type='radio' value='$price10ml' id='price10ml' onClick='changePrice()' name='price-selected' class='position-absolute' checked/>
+                                            <label class='w-100 d-flex align-items-center gap-2' for='price10ml'>
+                                                <img src='$img1' alt=''>
+                                                <p class='m-0 p-0'>10ml</p>
+                                            </label>
+                                        </div>
+
+                                        <div class='col position-relative price-btn'>
+                                            <input type='radio' value='$price15ml' id='price15ml' onClick='changePrice()' name='price-selected' class='position-absolute' />
+                                            <label class='w-100 d-flex align-items-center gap-2' for='price15ml'>
+                                                <img src='$img1' alt=''>
+                                                <p class='m-0 p-0'>15ml</p>
+                                            </label>
+                                        </div>
+
+                                        <div class='col position-relative price-btn'>
+                                            <input type='radio' value='$price20ml' id='price20ml' onClick='changePrice()' name='price-selected' class='position-absolute' />
+                                            <label class='w-100 d-flex align-items-center gap-2' for='price20ml'>
+                                                <img src='$img1' alt=''>
+                                                <p class='m-0 p-0'>20ml</p>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class='row'>
+                                        <div class='col d-flex justify-content-between align-items-center mt-4'>
+                                            <input type='hidden' id='inputPrice' name='price' value='$price10ml'/>
+                                            <input type='hidden' id='inputSize' name='size' value='10 mL'/>
+                                            <input type='hidden' name='item' value='$name'/>
+                                            <p id='priceSize' class='fs-4 m-0 text-dark'>$price10ml USD</p>
+                                            <div class='d-flex align-items-center gap-4'>
+                                                <p class='m-0'><a href=''>View full product</a></p>
+                                                " . $this->addToCart($id, $userID) . "
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>";
+            }
+
+            $productString .= "<!-- Header Section of Item -->
+                                <div>
+                                    <div class='row d-flex align-items-baseline'>
+                                        $productName
                                     </div>
                                     
                                     <div class='row'>
-                                        <p class='fs-5'>with $mainIngredient
-                                            <a class='fs-6 d-inline-flex align-items-baseline text-secondary' href='$cosdnaLink'>
-                                                <i class='material-icons d-flex align-self-center'>link</i>
-                                                $textLink
-                                            </a>
-                                        </p>
+                                        $productIngredient
                                     </div>
 
                                 </div>
                                 
                                 <!-- Main Section of Item -->
-                                <div class='container'>
-
-                                    <p class='row'>$description</p>
-                                    <div class='row my-3'>
-                                        <button class='$btn_class'><img src='#' alt=''>10ml</button>
-                                        <button class='$btn_class'><img src='#' alt=''>15ml</button>
-                                        <button class='$btn_class'><img src='#' alt=''>20ml</button>
+                                <div class='d-grid' style='row-gap:1rem;'>
+                                    <div>
+                                        <p class='row m-0 p-0'>$description</p>
                                     </div>
-                                    <div class='row'>
-                                        <label for='' class='col'>$basePrice AED</label>
-                                        <a href='' class='col'>View full product</a>
-                                        <button class='col border-0 bg-primary rounded-3 fw-bold py-1 text-white'>Add to Cart</button>
-                                    </div>
+                                    
+                                    $productForm
 
-                                <p></p>
+                                </div>
 
                                 <!-- Footer Section of Item -->
-                                <div class='container'>
-                                    <div class='row'> PURCHASE AND EARN 5</div>
+                                <div class='d-grid' style='row-gap:1rem;'>
+                                    <div class='border-top border-bottom border-dark mt-3'>
+                                        <p class='row my-1 p-0 text-center'>
+                                            <i>PURCHASE AND EARN 5</i>
+                                        </p>
+                                    </div>
 
                                     <div class='row'>
-                                        <ul class='nav nav-pills mb-3' id='pills-tab' role='tablist'>
-                                        <li class='nav-item' role='presentation'>
-                                            <button class='nav-link active' id='pills-shipping-tab' data-bs-toggle='pill' data-bs-target='#pills-shipping' type='button' role='tab' aria-controls='pills-shipping' aria-selected='true'>Shipping</button>
-                                        </li>
-                                        <li class='nav-item' role='presentation'>
-                                            <button class='nav-link' id='pills-returns-tab' data-bs-toggle='pill' data-bs-target='#pills-returns' type='button' role='tab' aria-controls='pills-returns' aria-selected='false'>Returns</button>
-                                        </li>
-                                        <li class='nav-item' role='presentation'>
-                                            <button class='nav-link' id='pills-points-tab' data-bs-toggle='pill' data-bs-target='#pills-points' type='button' role='tab' aria-controls='pills-points' aria-selected='false'>Points</button>
-                                        </li>
-                                        </ul>
-                                        <div class='tab-content' id='pills-tabContent'>
-                                            <div class='tab-pane fade show active' id='pills-shipping' role='tabpanel' aria-labelledby='pills-shipping-tab'>
-                                                Orders $50 and over always ship for free without an offer code For shipments totaling less than $50, there is a delivery charge of $7.95 for ground shipping. Please allow up to 4 business days processing time, depending on when you place your order.
+                                        <div>
+                                            <ul class='nav nav-pills mb-3' id='pills-tab' role='tablist'>
+                                            <li class='nav-item' role='presentation'>
+                                                <button class='nav-link active' id='pills-shipping-tab' data-bs-toggle='pill' data-bs-target='#pills-shipping' type='button' role='tab' aria-controls='pills-shipping' aria-selected='true'><p class='m-0 p-0'>Shipping</p></button>
+                                            </li>
+                                            <li class='nav-item' role='presentation'>
+                                                <button class='nav-link' id='pills-returns-tab' data-bs-toggle='pill' data-bs-target='#pills-returns' type='button' role='tab' aria-controls='pills-returns' aria-selected='false'><p class='m-0 p-0'>Returns</p></button>
+                                            </li>
+                                            <li class='nav-item' role='presentation'>
+                                                <button class='nav-link' id='pills-points-tab' data-bs-toggle='pill' data-bs-target='#pills-points' type='button' role='tab' aria-controls='pills-points' aria-selected='false'><p class='m-0 p-0'>Points</p></button>
+                                            </li>
+                                            </ul>
+                                            <div class='tab-content' id='pills-tabContent'>
+                                                <div class='tab-pane fade show active' id='pills-shipping' role='tabpanel' aria-labelledby='pills-shipping-tab'>
+                                                    <p>Orders $50 and over always ship for free without an offer code For shipments totaling less than $50, there is a delivery charge of $7.95 for ground shipping. Please allow up to 4 business days processing time, depending on when you place your order.</p>
+                                                </div>
+                                                <div class='tab-pane fade' id='pills-returns' role='tabpanel' aria-labelledby='pills-returns-tab'>
+                                                    <p>All sales are final and non-refundable. Minisize reserves the right to refuse any returns on product that has been produced explicitly for the customer. Failure to use product(s) does not constitute a basis for refusing to pay any of the associated charges.</p>
+                                                </div>
+                                                <div class='tab-pane fade' id='pills-points' role='tabpanel' aria-labelledby='pills-points-tab'>
+                                                    <p>Every product purchased equals to two points earned. This does not include products included in a bundle. Earn 13 points to earn a free 10ml product, 15 points for a 15ml product, and 17 points for a 20ml product.</p>
+                                                </div>
                                             </div>
-                                            <div class='tab-pane fade' id='pills-returns' role='tabpanel' aria-labelledby='pills-returns-tab'>You cant return it, its literally 2 dhs</div>
-                                            <div class='tab-pane fade' id='pills-points' role='tabpanel' aria-labelledby='pills-points-tab'>...</div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>";
-            echo " 
-            <div class='container'>
-                <div class='row'> 
-                    <div class='col'>
-                    $productsImage
+                                </div>";
+            
+                            
+            echo "<div class='container'>
+                    <div class='row'> 
+                        <div class='col ps-0'>
+                        $productsImage
+                        </div>
+                        <div class='col pe-0'>
+                        $productString
+                        </div>
                     </div>
-                    <div class='col'>
-                    $productString
-                    </div>
-                </div>
-            </div>";
+                </div>";
         }
 
         public function addToWishlist($itemID, $userID){
@@ -319,7 +469,7 @@
 
             if($userID == ""){ // if there is no user logged in
                 $button = "<button class='border-0 bg-transparent' name='like_btn' value='Like' data-bs-toggle='modal' data-bs-target='#registerModal'>
-                                <i class='material-icons mt-2 fs-3'>favorite_border</i>
+                                <i class='bi bi-heart mt-2 fs-3'></i>
                             </button>";
             } else {
 
@@ -330,19 +480,37 @@
                 if($numRows > 0){ // set button to unlike
                     $button = "<form action='product-item.php?id=$itemID' class='form-like' method='POST'>
                                     <button type='submit' class='border-0 bg-transparent' name='unlike_btn' value='Unlike'>
-                                        <i class='material-icons mt-2 fs-3'>favorite</i>
+                                        <i class='bi bi-heart-fill mt-2 fs-3'></i>
                                     </button>
                                 </form>";
 
                 } else { // if no items -> set button to like
                     $button = "<form action='product-item.php?id=$itemID' class='form-like' method='POST'>
                                     <button type='submit' class='border-0 bg-transparent' name='like_btn' value='Like'>
-                                        <i class='material-icons mt-2 fs-3'>favorite_border</i>
+                                        <i class='bi bi-heart mt-2 fs-3'></i>
                                     </button>
                                 </form>";
                 }
             }
             
+            return $button;
+        }
+
+        public function addToCart($itemID, $userID){
+            $button = "";
+
+            if ($userID == ""){
+                $button = "<button type='button' class='border-0' data-bs-toggle='modal' data-bs-target='#registerModal'>
+                                <a class='btn btn-primary px-4'>
+                                    <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Add to Cart</p>
+                                </a>
+                            </button>";
+            } else {
+                $button = "<button type='submit' name='add_item' class='btn btn-primary px-4 border-0'>
+                                <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Add to Cart</p>
+                            </button>";
+            }
+
             return $button;
         }
     }

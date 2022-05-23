@@ -1,6 +1,7 @@
 <?php require 'includes/server.php';
     include("includes/classes/User.php");
     include("includes/classes/Product.php");
+    include("includes/classes/Blog.php");
     
     if (isset($_SESSION['id'])){
         $userLoggedIn = $_SESSION['id'];
@@ -31,6 +32,7 @@
     $result = $connect->query($sql);
 
     $product_obj = new Product($connect);
+    $blog_obj = new Blog($connect);
 ?>
 
 <!DOCTYPE html>
@@ -43,10 +45,11 @@
 
     <!-- bootstrap link -->
     <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!-- Google Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css">
@@ -62,28 +65,9 @@
 <body>
 
 <header class="top-background">
-    <!-- <nav>
-            <div class="side-navigation side-nav-left"> 
-                settings icon
-            </div>
-            <div class="main-navigation"> 
-                <ul>
-                    <li> <button> Home </button> </li>
-                    <li><button> products </button></li>
-                    <label> Website icon </label>
-                    <li><button> Blog </button></li>
-                    <li><button> About </button></li>
-                </ul>
-            </div>
-            <div class="side-navigation side-nav-right">
-                <label for=""><button>Profile Icon</button></label>
-                <label for=""><button>Shopping Cart Icon</button></label>
-            </div>
-        </nav> -->
 
     <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
-        <i class="d-flex align-items-center col-1 material-icons">
-            settings</i>
+        <i class="bi bi-gear-fill fs-5 d-flex align-items-center col-1"></i>
             
         <ul class="main-nav nav col-8 justify-content-around align-items-center">
             <li class="nav-item py-4"><a href="index.php">Home</a></li>
@@ -141,9 +125,9 @@
 
         <div class="col-1 d-flex justify-content-between">
             <button type="button" onclick="accountPage()" data-bs-toggle="modal" data-bs-target="#registerModal"
-                class="btn text-dark text-decoration-none material-icons">account_circle</button>
+                class="btn text-dark text-decoration-none"><i class="bi bi-person-circle fs-5"></i></button>
             <button type="button" onclick="cartPage()" data-bs-toggle="modal" data-bs-target="#registerModal"
-                class="btn text-dark text-decoration-none material-icons">shopping_cart</button>
+                class="btn text-dark text-decoration-none"><i class="bi bi-cart-fill fs-5"></i></button>
         </div>
     </header>
 
