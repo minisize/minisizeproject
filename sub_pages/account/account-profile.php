@@ -50,15 +50,15 @@
             <div class="row mt-4">
                 <div class="col-2">
                     <img class="img-fluid" src="<?php echo $user["profile_img"]?>" alt="profile picture">
-                    <button class="btn btn-light btn-outline-dark mt-4 w-100">Change Image</button>
+                    <button class="btn btn-light btn-outline-dark mt-4 w-100"><p class="m-0 p-0">Change Image</p></button>
                 </div>
                 <div class="col ms-4" id = "data-field">
                     <div id="user-data">
                         <?php $user_obj -> loadUserDetails();?>
                     </div>
-                    <button class='col btn btn-outline-dark w-100' id="edit-btn" onclick='toggleForm()'>Edit Profile</button>
+                    <button class='col btn btn-outline-dark w-100' id="edit-btn" onclick='toggleForm()'><p class="m-0 p-0">Edit Profile</p></button>
                     <form id="user-profile-edit" style="display: none;">    
-                        <h3>General Information</h3>
+                        <p class="m-0 p-0 fs-3">General Information</p>
                         <div class="row mb-4" >
                             <div class="col">
                                 <label for="first-name" class="form-label">First Name</label>
@@ -69,7 +69,7 @@
                                 <input type="text" name="lastName" id="last-name" class="form-control" placeholder="<?php echo $user["last_name"]?>">
                             </div>
                         </div>
-                        <h3>Skin Stuff</h3>
+                        <p class="m-0 p-0 fs-3">Skin Information</p>
                         <div class="row mb-4">
                             <div>
                                 <label for="skin-type" class="form-label">Skin Type</label>
@@ -113,15 +113,15 @@
                         </div>
                     </div> -->
 
-                    <h3 class="mt-4">Security</h3>
+                    <p class="mt-4 mb-0 p-0 fs-3">Security</p>
                     <div class="row mb-4">
                         <div class="col">
-                            <h4>Email</h4>
-                            <h5><?php echo $user["email"]?></h5>
+                            <h5 class="fs-7 fw-bold">Email</h5>
+                            <h6 class="fw-normal"><?php echo $user["email"]?></h6>
                         </div>
                         <div class="col">
-                            <h4>Password</h4>
-                            <h5>*********</h5>
+                            <h5 class="fs-7 fw-bold">Password</h5>
+                            <h6 class="fw-normal">*********</h6>
                         </div>
                     </div>
                 </div>

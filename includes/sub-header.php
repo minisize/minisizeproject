@@ -1,10 +1,13 @@
 <?php require '../../includes/server.php';
     include("../../includes/classes/User.php");
+    include("../../includes/classes/Cart.php");
+
     $userLoggedIn = $_SESSION['id'];
     $userDetailsQuery = mysqli_query($connect, "SELECT * FROM users WHERE id='$userLoggedIn'");
     $user = mysqli_fetch_array($userDetailsQuery); 
 
     $user_obj = new User($connect, $userLoggedIn);
+    $cart_obj = new Cart($connect);
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +22,7 @@
     <!-- bootstrap link -->
     <link rel="stylesheet" href="../../assets/styles/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!-- Google Material Icons -->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
@@ -31,11 +35,8 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500;700&family=Montserrat:wght@400;600&family=Roboto&display=swap');        
-        body{
-            background-color: #F7F3F0;
-        }
         
-        *{
+        /* *{
             font-family: 'Josefin Sans', sans-serif;
         }
         h3{
@@ -50,7 +51,7 @@
         h5,input,select{
             font-family: 'Roboto', sans-serif;
             font-size: 1rem;
-        }
+        } */
 
     </style>
 
@@ -63,9 +64,9 @@
                         alt="Minisize Logo" width="75">
         </a>
 
-        <div class="d-flex flex-wrap">
-            <a href="../../index.php" class="text-decoration-none link-dark pe-4"><i class="bi bi-house-fill fs-5"></i></a>
-            <a href="../purchase/cart.php" class="text-decoration-none link-dark"><i class="bi bi-cart-fill fs-5"></i></a>
+        <div class="d-flex flex-wrap justify-content-between">
+            <a href="../../index.php" class="btn text-decoration-none link-dark pe-4"><i class="bi bi-house-fill fs-5"></i></a>
+            <a href="../purchase/cart.php" class="btn text-decoration-none link-dark"><i class="bi bi-cart-fill fs-5"></i></a>
         </div>
     </header>
 
