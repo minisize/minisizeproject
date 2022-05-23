@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&family=Playfair+Display&display=swap');
 
+// @mixin to handle media queries
+@mixin breakpoint($minwidth, $maxwidth) {
+    @media screen and (min-width:$minwidth) and (max-width:$maxwidth) {
+        @content; // pass content
+    }
+}
+
+// default styling for large screens ( > 1200px)
+
 .category-img {
     position: relative;
     display: flex;
@@ -33,4 +42,38 @@
 
 .categories a {
     font-family: 'Josefin Sans', sans-serif;
+}
+
+// Pass on min-width and max-width arguments to @mixin breakpoint
+@include breakpoint(0px, 576px){ // small screens 
+    .categories {
+        margin: 0 1rem;
+
+        .container {
+            padding: 0 2rem;
+        }
+
+        .products {
+            flex: auto;
+
+            .product-img {
+                height: 30vh;
+            }
+        }
+    }
+
+}
+
+@include breakpoint(0px, 768px){ // medium to small screens
+
+    .categories {
+        .type{
+            width: 100%;
+
+            h3 {
+                font-size: 2rem;
+            }
+        }
+    }
+
 }
