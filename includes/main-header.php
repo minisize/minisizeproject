@@ -1,4 +1,5 @@
-<?php require 'includes/server.php';
+<?php 
+    require 'includes/server.php';
     include("includes/classes/User.php");
     include("includes/classes/Product.php");
     include("includes/classes/Blog.php");
@@ -56,6 +57,7 @@
     <link rel="stylesheet" href="assets/styles/products/products-style.css">
     <link rel="stylesheet" href="assets/styles/category/category.css">
     <link rel="stylesheet" href="assets/styles/blog/blog.css">
+    <link rel="stylesheet" href="assets/styles/homepage/homepage.css">
 
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
