@@ -20,7 +20,7 @@
 </header>
 
 <main class="">
-    <div class="products-maincontent">
+    <div class="products-maincontent mt-5">
 
         <div class="maincontent-header container">
             <div class="maincontent-filter1 row">
@@ -35,10 +35,10 @@
 
             <div class="maincontent-filter2">
                     <div class="row d-flex flex-wrap justify-content-between">
-                        <div class="col-md-5 col-sm-8 d-flex align-items-center justify-content-between">
-                            <p class="fs-5 mt-3">Filter by</p>
+                        <div class="col-md-4 col-sm-8 d-flex align-items-center justify-content-between mt-4 mb-4">
+                            <p class="fs-5 m-0">Filter by</p>
 
-                            <select name="skin-type" id="skinType" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
+                            <select name="skin-type" id="skinType" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm text-dark" style="width: 8rem">
                                 <option selected disabled>Skin Types</option>
                                 <option value="All">All</option>
                                 <option value="Normal">Normal</option>
@@ -48,7 +48,7 @@
                                 <option value="Sensitive">Sensitive</option>
                             </select>
 
-                            <select name="benefit" id="benefit" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
+                            <select name="benefit" id="benefit" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm text-dark" style="width: 8rem">
                                 <option selected disabled>Benefits</option>
                                 <option value="Hydration">Hydration</option>
                                 <option value="Pore Solutions">Pores</option>
@@ -62,7 +62,7 @@
 
                         <div class="col-md-3 col-sm-4 d-flex align-items-center justify-content-evenly">
                             <p class="fs-5 mt-3">Sort by</p>
-                            <select name="sort" id="sort" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm w-50 text-dark">
+                            <select name="sort" id="sort" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm text-dark" style="width: 8rem">
                                 <option value="Featured">Featured</option>
                                 <option value="PriceHigh">Price: High to Low</option>
                                 <option value="PriceLow">Price: Low to High</option>
@@ -75,7 +75,7 @@
         </div>
         <div class="maincontent-container2">
             <div class="container">
-                <div id="loadProducts" class="maincontent-container2 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+                <div id="loadProducts" class="maincontent-container2 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" style="column-gap: 1rem; row-gap: 2rem; justify-content: space-between;">
                     <?php 
                         if($tab == "categories"){ $tab = "category"; }
                         $tabID = $tab . "_id";

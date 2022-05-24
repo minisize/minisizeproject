@@ -27,7 +27,7 @@
 
 
         <div class="container categories">
-            <div class="row py-5">
+            <div class="row">
                 <?php
                     while($row = mysqli_fetch_array($categoriesData)){
                         $id = $row["id"];
@@ -35,7 +35,7 @@
                         $desc = $row["short_description"];
                         
                         echo "<div class='container row mt-4'>
-                                <div class='col-3 border-bottom'>
+                                <div class='col-3 border-bottom pt-5'>
                                     <h3 class='text-darkgreen'><strong>$name</strong></h3>
                                     <p>$desc</p>
                                     <a href='products.php?category_id=$id' class='btn btn-primary fw-bold text-light px-4'>View All</a>
@@ -65,12 +65,12 @@
                                 $item = "<p><strong>$name</strong> <br>By $brand</p>";
                             }
 
-                            echo "<div class='col d-flex flex-column justify-content-between border-bottom'>
+                            echo "<div class='col d-flex flex-column justify-content-between border-bottom pb-5 pt-5'>
                                     <div>
-                                        <img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-2'>
+                                        <img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-4'>
                                         $item
                                     </div>
-                                    <div class='d-flex align-items-center justify-content-between'>
+                                    <div class='d-flex align-items-center justify-content-between mt-4'>
                                         <p class='fs-5 text-darkgreen'>$basePrice AED</p>
                                         <p>$numReviews reviews</p>
                                     </div>
