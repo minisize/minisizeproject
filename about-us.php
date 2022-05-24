@@ -4,30 +4,30 @@
 
     <link rel="stylesheet" href="assets/styles/about_us/about.css?ver=3">
 
-    <div class="container">
+    <div class="container pb-4">
         <div class="top-background">
-            <h1 class="Title-AbUs"> Minisize </h1>
-            <h3 id="mini-quota"> One stop shop for all your skincare needs </h3>
+            <h1 class="text-darkgreen title"> Minisize </h1>
+            <h3 class="text-darkgreen mb-0"> One stop shop for all your skincare needs </h3>
         </div>
-        <div class="fade-bg"></div>
     </div>
 </header>
+<div class="fade-bg p-3"></div>
 
-    <div class="container">
-        <div class="top-info">
-            <h2  id="about-title"> About Us </h2>
+    <div class="container mt-4">
+        <div class="top-info mb-5">
+            <h2 class="text-darkgreen"> About Us </h2>
             <div>
-                <p class="text-justify fs-4 fw-bold">
+                <p class="text-justify fs-5">
                     We are the Minisize team! A group of seven university students who worked together under a mission to introduce a new strategic model that presents an opportunity for new and existing customers to be more excited in learning more about their skin and their needs by taking advantage of the existing market while being budget friendly. Our future goal is to participate in being a partner to reduce overproduction in the beauty industry and advocate in achieving an eco-friendly business
                 </p>
             </div>
         </div>
 
         <div class="team-mate">
-            <h3  id="about-title"> Meet the team </h3>
+            <h3 class="text-darkgreen mt-4 mb-4"> Meet the team </h3>
             <div class="team-proto">
                 <div class="team">
-                    <p class="fw-bold fs-3">
+                    <p class="fw-bold fs-4">
                         Project Manager
                     </p>
                     <p class="fs-4 mb-0"> Kyla Buarao </p>
@@ -35,7 +35,7 @@
                     <p class="fs-4 mb-0"> Allelee Flores </p>
                 </div>
                 <div class="team">
-                    <p class="fw-bold fs-3">
+                    <p class="fw-bold fs-4">
                         Developer Team
                     </p>
                     <p class="fs-4 mb-0"> Akilah Lapure </p>
@@ -44,7 +44,7 @@
                     <p class="fs-4 mb-0"> Kyla Buarao </p>
                 </div>
                 <div class="team">
-                    <p class="fw-bold fs-3">
+                    <p class="fw-bold fs-4">
                         UX Team
                     </p>
                     <p class="fs-4 mb-0"> Shayne Fajardo </p>
@@ -53,7 +53,7 @@
                     <p class="fs-4 mb-0"> Sjunsei Awal </p>
                 </div>
                 <div class="team">
-                    <p class="fw-bold fs-3">
+                    <p class="fw-bold fs-4">
                         Business Team
                     </p>
                     <p class="fs-4 mb-0"> Allelee Flores </p>
@@ -111,7 +111,7 @@
             Reiciendis quae eum at. Porro, voluptas corrupti!"
         </p> -->
     </div>
-        <br><br><br><br><br>  
+        
     <script src="assets/javascript/scroll-anim.js"></script>
 
     </div>

@@ -1,38 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&display=swap');
 
 $header-color: #F5D1C3;
-$fade: #ffdbdb;
+$fade: #F6E3DA;
 $h-color: #345553;
-$font-title: 'Josefin Sans', sans-serif;
-$font-text: 'Playfair Display', serif;
 
-*
-{
+* {
     margin: 0;
     padding: 0;
 }
 
-.top-background
-{
+.top-background {
     background-color: $header-color;
 }
 
-.Title-AbUs
-{
-    color: $h-color;
+.title {
+    font-size: 4rem;
 }
 
-.fade-bg
-{
-    
-    background-color: $header-color;
-    padding: 10px;
+.fade-bg {
+    background-color: $fade;
 }
 
-.looks
-{
-    img
-    {
+.looks {
+    img {
         clip-path: circle(40%);
         border-radius: 100%;
         margin: 0;
@@ -41,31 +31,21 @@ $font-text: 'Playfair Display', serif;
     
 }
 
-img
-{
+img {
     border-radius: 100px;
 }
 
-#mini-quota
-{
-    color: $h-color;
-}
-
-.team
-{
-    h4
-    {
+.team {
+    h4 {
         margin-bottom: 0;
     }
 }
 
-.team-mate
-{
+.team-mate {
     margin-bottom: 6vh;
 }
 
-.pics
-{
+.pics {
     margin-top: 5vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -74,16 +54,13 @@ img
     margin-right: 0;
 }
 
-.big_img img
-{
+.big_img img {
     object-position: 10% 5%;
 }
 
-.looks
-{
+.looks {
     text-align: center;
-    img
-    {
+    img {
         width: 140px;
         height: 140px;
         object-fit: cover;
@@ -126,15 +103,6 @@ img
         margin-left: auto;
         margin-right: auto;
     }
-}
-
-#about-title
-{
-    color: $h-color;
-    font-weight: 600;
-    margin-top: 2.5vh;
-    margin-bottom: 2vh;
-    font-family: $font-text;
 }
 
 @media screen and (max-width: 984px) {

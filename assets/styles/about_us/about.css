@@ -8,13 +8,12 @@
   background-color: #F5D1C3;
 }
 
-.Title-AbUs {
-  color: #345553;
+.title {
+  font-size: 4rem;
 }
 
 .fade-bg {
-  background-color: #F5D1C3;
-  padding: 10px;
+  background-color: #F6E3DA;
 }
 
 .looks img {
@@ -27,10 +26,6 @@
 
 img {
   border-radius: 100px;
-}
-
-#mini-quota {
-  color: #345553;
 }
 
 .team h4 {
@@ -110,14 +105,6 @@ img {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-}
-
-#about-title {
-  color: #345553;
-  font-weight: 600;
-  margin-top: 2.5vh;
-  margin-bottom: 2vh;
-  font-family: "Playfair Display", serif;
 }
 
 @media screen and (max-width: 984px) {
