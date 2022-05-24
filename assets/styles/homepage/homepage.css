@@ -1,6 +1,6 @@
 .best-sellers-container {
   width: auto;
-  height: 35vh;
+  height: auto;
   overflow-x: scroll;
   overflow-y: hidden;
 }

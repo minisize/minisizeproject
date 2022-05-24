@@ -27,7 +27,7 @@ $Home_funct = new Home_functions($connect);
     </div>
     <div class="container p-3">
         <h3 class="row"> BEST SELLERS </h3>
-        <div class=" row  p-3 best-sellers-container row-cols-15">
+        <div class=" row  p-3 best-sellers-container row-cols-5">
             <!-- PHP CODE FOR LISTING -->
             <?php $Home_funct->GenerateList($connect); ?>
         </div>
