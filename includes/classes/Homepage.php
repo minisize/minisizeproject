@@ -9,7 +9,7 @@ class Home_functions
 
     public function GenerateList($connect)
     {
-        $sql = "SELECT * FROM `products`";
+        $sql = "SELECT * FROM `products` ORDER BY `sum_ratings` DESC";
         $result = $connect->query($sql);
 
         //Limit the items to display
@@ -17,7 +17,9 @@ class Home_functions
         //Gets data from minisize_db
         if ($result->num_rows > 0) {
 
-            while (($row = $result->fetch_assoc()) && ($Item_Display_Limit <= 25)) {
+            while (($row = $result->fetch_assoc()) && ($Item_Display_Limit <= 5)) {
+
+                $id = $row['id'];
 
                 //set $jsonobj to the value of input of the array "images" from $row;
                 $jsonobj = $row["images"];
@@ -28,13 +30,15 @@ class Home_functions
 
                 //Creation of HTML
                 echo "
-                            <div class=' px-2 py-1 display-item-container'>
+                            <div class=' px-2 py-1 position-relative display-item-container product-display'>
                                 <div class='thumbnail'>
                                     <img src='" . $img . "' class='display-item-dimension'>
                                 </div>
                                 <div class='description'>
                                     <p><strong>" . $row["name"] . "</strong></p> 
                                 </div>
+                                <div class='overlay-product'></div>
+                                <a href='product-item.php?id=$id' class='product-view btn btn-outline-primary fw-bold px-5'>View</a>
                             </div>";
 
                 $Item_Display_Limit += 1;
