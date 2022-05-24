@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 21, 2022 at 07:07 PM
+-- Generation Time: May 24, 2022 at 08:34 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `addresses` (
   `country` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_address_fk` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `addresses`
@@ -45,7 +45,8 @@ CREATE TABLE IF NOT EXISTS `addresses` (
 
 INSERT INTO `addresses` (`id`, `user_id`, `building`, `street`, `city`, `country`) VALUES
 (1, 2, 'BT Tower', '13S Street', 'Deira, Dubai', 'UAE'),
-(2, 2, 'S Building', '7B Street', 'Los Angeles', 'USA');
+(2, 2, 'S Building', '7B Street', 'Los Angeles', 'USA'),
+(3, 2, 'building 123', 'street 2', 'sharjah', 'UAE');
 
 -- --------------------------------------------------------
 
@@ -306,11 +307,11 @@ INSERT INTO `products` (`id`, `category_id`, `key_ingredient_id`, `skin_concern_
 (42, 6, 9, 2, 'UNBLEMISH Clarifying Mask', 'http://www.cosdna.com/eng/cosmetic_fa0c511828.html', 'Unmask clear skin. Our blemish-fighting mask instantly reduces excessive oil + shine and helps prevent new pimples from forming.', 'All', 'Pore Solutions', 'Masks', 'Rodan+Fields', 'Oat Bran extract', 0, 0, '60', '{\"prices\": {\"price1\": \"12.00\", \"price2\": \"18.00\", \"price3\": \"24.00\"}}', '{\"images\": {\"image1\": \"assets/images/products/masks/unblemish-rodan+fields-1.png\", \"image2\": \"assets/images/products/masks/unblemish-rodan+fields-2.jpg\", \"image3\": \"assets/images/products/masks/unblemish-rodan+fields-3.jpg\"}}', 0, 0, 0),
 (43, 6, 8, 1, 'Gentle Renewal Scrub with Sunflower Seed Oil & Kaolin', '#', 'This is a gentle and effective natural facial scrub containing natural exfoliants & oil-absorbing Kaolin clay to slough away dead skin, revealing a visibly fresh, smooth complexion.', 'Sensitive', 'Hydration', 'Masks', 'Herbal Essentials', 'Walnut Shell Powder', 0, 0, '12', '{\"prices\": {\"price1\": \"4.00\", \"price2\": \"6.00\", \"price3\": \"8.00\"}}', '{\"images\": {\"image1\": \"assets/images/products/masks/gentle-herbalessentials-1.png\", \"image2\": \"assets/images/products/masks/gentle-herbalessentials-2.jpg\", \"image3\": \"assets/images/products/masks/gentle-herbalessentials-3.jpg\", \"image4\": \"assets/images/products/masks/gentle-herbalessentials-4.jpg\"}}', 0, 0, 0),
 (44, 6, 5, 2, 'AC Clean Up Pink Powder Mask', 'https://www.cosdna.com/eng/cosmetic_3ce3557549.html', 'This smooth cream-type mud pack with Calamine removes sebum and help moisturizing the skin.', 'All', 'Pore Solutions', 'Masks', 'Etude', 'Tea Tree', 0, 0, '18', '{\"prices\": {\"price1\": \"1.56\", \"price2\": \"2.34\", \"price3\": \"3.12\"}}', '{\"images\": {\"image1\": \"assets/images/products/masks/ac-etude-1.png\", \"image2\": \"assets/images/products/masks/ac-etude-2.jpg\", \"image3\": \"assets/images/products/masks/ac-etude-3.jpg\", \"image4\": \"assets/images/products/masks/ac-etude-4.jpg\", \"image5\": \"assets/images/products/masks/ac-etude-5.jpg\"}}', 0, 0, 0),
-(45, 1, 5, 2, 'Oily Skin Bundle', '', 'Oily skin is one of the most common skin concerns. It presents some unique challenges, like a shiny complexion and acne breakouts. The good news? With the right skincare routine and products, these issues can be less of a problem.', 'Oily', 'Pore Solutions', 'Bundles', '', '', 0, 0, '25', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/oily-bundle.jpg\", \"image2\": \"assets/images/products/bundles/oily-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/oily-masks.jpg\", \"image4\": \"assets/images/products/bundles/oily-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/oily-serum.jpg\", \"image6\": \"assets/images/products/bundles/oily-toner.jpg\"}}', 0, 0, 0),
-(46, 1, 1, 1, 'Dry Skin Bundle', '', 'Dealing with dry, dehydrated skin? Don’t despair. There’s a skin care routine for that! Maybe your skin feels tight, scaly, flaky, or a combination of all three. We’ve got you covered with products that leave your skin happy, hydrated, and glowing.', 'Dry', 'Hydration', 'Bundles', '', '', 0, 0, '35', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/dry-bundle.jpg\", \"image2\": \"assets/images/products/bundles/dry-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/dry-masks.jpg\", \"image4\": \"assets/images/products/bundles/dry-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/dry-serum.jpg\", \"image6\": \"assets/images/products/bundles/dry-toner.jpg\"}}', 0, 0, 0),
-(50, 1, 8, 5, 'Sensitive Skin Bundle', '', 'Sensitive skin is tough. Finding products that won\'t cause breakouts, redness, or discomfort is tough and we know what it\'s like. When we\'re dealing with irritation or skin sensitivity, these are the products we rely on.', 'Sensitive', 'Sensitive Skin', 'Bundles', '', '', 0, 0, '30', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/sensitive-bundle.jpg\", \"image2\": \"assets/images/products/bundles/sensitive-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/sensitive-masks.jpg\", \"image4\": \"assets/images/products/bundles/sensitive-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/sensitive-serum.jpg\", \"image6\": \"assets/images/products/bundles/sensitive-toner.jpg\"}}', 0, 0, 0),
-(51, 1, 3, 1, 'Hydration Bundle', '', 'Dealing with hydration problems? Well moisturizing your skin once a day won\'t necessarily cut it. A solid skincare routine that provides your skin with the hydration it needs requires more than just a moisturizer. Check out these products for a fast solution!', 'Dry', 'Hydration', 'Bundles', '', '', 0, 0, '40', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/hydration-bundle.jpg\", \"image2\": \"assets/images/products/bundles/hydration-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/hydration-masks.jpg\", \"image4\": \"assets/images/products/bundles/hydration-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/hydration-serum.jpg\", \"image6\": \"assets/images/products/bundles/hydration-toner.jpg\"}}', 0, 0, 0),
-(52, 1, 9, 2, 'Acne-Prone Bundle', '', 'Caring for acne-prone skin is about more than just applying blemish-busting products. It can involve lifestyle changes, too — the first of which is often a new and improved skincare routine. Try out these products for the best acne solution!', 'All', 'Pore Solutions', 'Bundles', '', '', 0, 0, '30', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/acne-bundle.jpg\", \"image2\": \"assets/images/products/bundles/acne-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/acne-masks.jpg\", \"image4\": \"assets/images/products/bundles/acne-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/acne-serum.jpg\", \"image6\": \"assets/images/products/bundles/acne-toner.jpg\"}}', 0, 0, 0);
+(45, 1, 5, 2, 'Oily Skin Bundle', '', 'Oily skin is one of the most common skin concerns. It presents some unique challenges, like a shiny complexion and acne breakouts. The good news? With the right skincare routine and products, these issues can be less of a problem.', 'Oily', 'Pore Solutions', 'Bundles', '', '', 0, 0, '25', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/Bundles/oily-bundle.png\", \"image2\": \"assets/images/products/bundles/oily-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/oily-masks.jpg\", \"image4\": \"assets/images/products/bundles/oily-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/oily-serum.jpg\", \"image6\": \"assets/images/products/bundles/oily-toner.jpg\"}}', 0, 0, 0),
+(46, 1, 1, 1, 'Dry Skin Bundle', '', 'Dealing with dry, dehydrated skin? Don’t despair. There’s a skin care routine for that! Maybe your skin feels tight, scaly, flaky, or a combination of all three. We’ve got you covered with products that leave your skin happy, hydrated, and glowing.', 'Dry', 'Hydration', 'Bundles', '', '', 0, 0, '35', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/Bundles/dry-bundle.png\", \"image2\": \"assets/images/products/bundles/dry-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/dry-masks.jpg\", \"image4\": \"assets/images/products/bundles/dry-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/dry-serum.jpg\", \"image6\": \"assets/images/products/bundles/dry-toner.jpg\"}}', 0, 0, 0),
+(50, 1, 8, 5, 'Sensitive Skin Bundle', '', 'Sensitive skin is tough. Finding products that won\'t cause breakouts, redness, or discomfort is tough and we know what it\'s like. When we\'re dealing with irritation or skin sensitivity, these are the products we rely on.', 'Sensitive', 'Sensitive Skin', 'Bundles', '', '', 0, 0, '30', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/Bundles/sensitive-bundle.png\", \"image2\": \"assets/images/products/bundles/sensitive-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/sensitive-masks.jpg\", \"image4\": \"assets/images/products/bundles/sensitive-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/sensitive-serum.jpg\", \"image6\": \"assets/images/products/bundles/sensitive-toner.jpg\"}}', 0, 0, 0),
+(51, 1, 3, 1, 'Hydration Bundle', '', 'Dealing with hydration problems? Well moisturizing your skin once a day won\'t necessarily cut it. A solid skincare routine that provides your skin with the hydration it needs requires more than just a moisturizer. Check out these products for a fast solution!', 'Dry', 'Hydration', 'Bundles', '', '', 0, 0, '40', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/Bundles/hydration-bundle.png\", \"image2\": \"assets/images/products/bundles/hydration-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/hydration-masks.jpg\", \"image4\": \"assets/images/products/bundles/hydration-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/hydration-serum.jpg\", \"image6\": \"assets/images/products/bundles/hydration-toner.jpg\"}}', 0, 0, 0),
+(52, 1, 9, 2, 'Acne-Prone Bundle', '', 'Caring for acne-prone skin is about more than just applying blemish-busting products. It can involve lifestyle changes, too — the first of which is often a new and improved skincare routine. Try out these products for the best acne solution!', 'All', 'Pore Solutions', 'Bundles', '', '', 0, 0, '30', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/Bundles/acne-bundle.png\", \"image2\": \"assets/images/products/bundles/acne-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/acne-masks.jpg\", \"image4\": \"assets/images/products/bundles/acne-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/acne-serum.jpg\", \"image6\": \"assets/images/products/bundles/acne-toner.jpg\"}}', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -392,7 +393,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `encrypted_pass`, `first_name`, `last_name`, `gender`, `age_range`, `email`, `skin_type`, `skin_concern`, `points`, `num_wishlist`, `registered_on`, `profile_img`) VALUES
 (1, 'sjunseiawal', '96e79218965eb72c92a549dd5a330112', 'Sjunsei', 'Awal', '', '', 'sjunseiawal@email.com', 'Oily', 'Age Prevention', 0, 2, '2022-04-21', 'assets/images/profile_pics/default.png'),
-(2, 'akilahlapure', 'e10adc3949ba59abbe56e057f20f883e', 'Akilah', 'Lapure', 'Female', '18-24 years old', 'akilah.lapure@gmail.com', 'Combination', 'Hydration', 10, 2, '2022-05-20', '../../assets/images/website/placeholder/pp_placeholder.png'),
+(2, 'akilahlapure', 'e10adc3949ba59abbe56e057f20f883e', 'Akilah', 'Lapure', 'Female', '18-24 years old', 'akilah.lapure@gmail.com', 'Combination', 'Hydration', 10, 3, '2022-05-20', '../../assets/images/website/placeholder/pp_placeholder.png'),
 (3, 'waawee', 'b6c1c2ed7463f81431b8602eab8336ee', 'waa', 'wee', '', '', 'wii@email.com', 'Sensitive', 'Troubled Skin', 0, 0, '2022-05-20', '../../assets/images/website/placeholder/pp_placeholder.png');
 
 -- --------------------------------------------------------
@@ -410,7 +411,7 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
   PRIMARY KEY (`id`),
   KEY `product_wishlist_fk` (`product_id`),
   KEY `user_wishlist_fk` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `wishlist`
@@ -420,7 +421,8 @@ INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
 (3, 1, 34, '2022-05-16'),
 (5, 1, 11, '2022-05-17'),
 (7, 2, 32, '2022-05-20'),
-(8, 2, 24, '2022-05-20');
+(8, 2, 24, '2022-05-20'),
+(9, 2, 51, '2022-05-22');
 
 --
 -- Constraints for dumped tables
