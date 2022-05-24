@@ -44,7 +44,7 @@ $Home_funct = new Home_functions($connect);
                     <p class="fs-3">Meet our bundle! We provide small set of skincare products for one time use for our customers.</p>
                 </div>
                 <div class="d-flex justify-content-center">
-                <a href="products.php?category_id=1"><button class="bg-primary border-0 text-white homepage-button-format fs-4"> View all </button></a>
+                    <a href="products.php?category_id=1"><button class="bg-primary border-0 text-white homepage-button-format fs-4"> View all </button></a>
                 </div>
 
 
@@ -68,29 +68,29 @@ $Home_funct = new Home_functions($connect);
     <div class="container">
         <div class="row row-cols-2 my-5">
             <div class="col">
-            <a></a><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-cleanser.png); background-size: cover;">
-                    <h2> Oily </h2>
-                </button>
+                <a href="products.php?category_id=2"><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-cleanser.png); background-size: cover;">
+                        <h2> Oily </h2>
+                    </button></a>
             </div>
             <div class="col">
-            <a></a><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-moisturizer.png); background-size: cover;">
-                    <h2> Dry </h2>
-                </button>
+                <a href="products.php?skin_concern_id=1"><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-moisturizer.png); background-size: cover;">
+                        <h2> Dry </h2>
+                    </button></a>
             </div>
         </div>
         <div class="row row-cols-2 my-5">
             <div class="col">
-                <a></a><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-serum.png); background-size: cover;">
+                <a href="products.php?skin_concern_id=5"></a><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-serum.png); background-size: cover;">
                     <h2> Sensitive </h2>
                 </button>
             </div>
             <div class="col">
                 <a href="products.php?category_id=1">
-                   <button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-bundles.png); background-size: cover;">
-                    <h2> Combination </h2>
-                </button> 
+                    <button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-bundles.png); background-size: cover;">
+                        <h2> Combination </h2>
+                    </button>
                 </a>
-                
+
             </div>
         </div>
     </div>
