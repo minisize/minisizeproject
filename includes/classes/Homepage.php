@@ -28,9 +28,9 @@ class Home_functions
 
                 //Creation of HTML
                 echo "
-                            <div class='col w-75 px-2 py-1 best-seller-containers'>
+                            <div class=' px-2 py-1 display-item-container'>
                                 <div class='thumbnail'>
-                                    <img src='" . $img . "' class='img-fluid display-item-dimension'>
+                                    <img src='" . $img . "' class='display-item-dimension'>
                                 </div>
                                 <div class='description'>
                                     <p><strong>" . $row["name"] . "</strong></p> 

@@ -1,7 +1,48 @@
 .best-sellers-container {
-  width: 200px;
-  height: 200px;
+  width: auto;
+  height: 35vh;
   overflow-x: scroll;
   overflow-y: hidden;
+}
+
+.best-sellers-container .display-item-container {
+  margin: 0;
+  width: 200px;
+}
+
+.display-item-dimension {
+  position: relative;
+  width: auto;
+  height: 25vh;
+  -o-object-fit: fill;
+     object-fit: fill;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.homepage-button-format {
+  padding: 1.75vh 2.75vw;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.content p {
+  font-weight: 100;
+}
+
+.skin-type-product-buttons {
+  height: 100px;
+}
+
+.skin-type-product-buttons:hover {
+  background-color: rgba(41, 148, 167, 0.8);
+}
+
+.skin-type-product-buttons h2 {
+  margin: inherit;
+  padding: inherit;
+  font-size: 3rem;
+  font-weight: 700;
 }
 /*# sourceMappingURL=homepage.css.map */

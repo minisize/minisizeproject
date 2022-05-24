@@ -1,4 +1,5 @@
-<?php require 'includes/server.php';
+<?php 
+    require 'includes/server.php';
     include("includes/classes/User.php");
     include("includes/classes/Product.php");
     include("includes/classes/Blog.php");

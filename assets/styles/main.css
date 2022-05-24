@@ -12606,17 +12606,6 @@ p {
   font-size: 0.75rem;
 }
 
-.display-item-dimension {
-  position: relative;
-  width: auto;
-  height: 25vh;
-  -o-object-fit: fill;
-     object-fit: fill;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
 /* width */
 ::-webkit-scrollbar {
   width: 12px;

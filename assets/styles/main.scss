@@ -54,15 +54,6 @@ p {
     font-size: 0.75rem;
 }
 
-.display-item-dimension{
-    position: relative; 
-    width: auto;
-    height: 25vh;
-    object-fit: fill;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 /* width */
 ::-webkit-scrollbar {
     width: 12px;
