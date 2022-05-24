@@ -57,7 +57,7 @@ $Home_funct = new Home_functions($connect);
                     <p class="fs-3">Full Sized products are available too! make sure to get a subscription in order to get discounts for the produts!</p>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button class="bg-primary border-0 text-white homepage-button-format fs-4"> View all </button>
+                    <a href="category.php"><button class="bg-primary border-0 text-white homepage-button-format fs-4"> View all </button></a>
                 </div>
 
             </div>
