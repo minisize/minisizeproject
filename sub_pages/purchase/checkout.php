@@ -3,9 +3,9 @@
 
 <!-- Main Content Is here -->
 
-<main class="container">
-    <div class="row">
-        <div class="col-7 py-5 border-end">
+<main class="container-lg checkout-container">
+    <div class="row payment-order">
+        <div class="payment-details col-7 py-5 border-end">
             <div class="row mb-2">
                 <h2> Payment Details </h2>
             </div>
@@ -190,13 +190,13 @@
                     <div class="py-3">
                         <div class="row">
                             <div class="pb-3 border-top border-dark"></div>
-                            <div class="col-8"><p class="m-0 p-0">Delivery Fee</p></div>
+                            <div class="col-7"><p class="m-0 p-0">Delivery Fee</p></div>
                             <div class="col text-end">
                                 <p class="m-0 p-0"><?php echo "$".$cart_obj->getShippingFee(); ?></p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-8"><p class="m-0 p-0">Special Voucher Code</p></div>
+                            <div class="col-7"><p class="m-0 p-0">Special Voucher Code</p></div>
                             <div class="col text-end">$0</div>
                         </div>
                     </div>
@@ -211,7 +211,7 @@
                 </div>
             </div>
             
-            <div class="container mb-5">
+            <div class="container-lg mb-5">
                 <div class="row">
                     <input type="text" class="form-control col" placeholder="Enter Voucher Code">
                     <button type="submit" class="btn btn-pink col-4"><p class="m-0 p-0">APPLY</p></button>

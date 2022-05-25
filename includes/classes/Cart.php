@@ -98,7 +98,7 @@
                                         </td>
 
                                         <td>
-                                            <div class='input-group d-flex justify-content-center'>
+                                            <div class='input-group d-flex flex-row justify-content-center'>
                                                 <input type='button' name='update-qty-$key' value='-' onClick='decrementQuantity($key)' class='btn btn-sm btn-outline-secondary'>
                                                 <input type='text' id='input-quantity-$key' name='quantity' step='1' value='$qty' min='1' onchange='updateQuantity()' class='input-quantity w-25 border border-secondary d-flex text-center'>
                                                 <input type='button' name='update-qty-$key' value='+' onClick='incrementQuantity($key)' class='btn btn-sm btn-outline-secondary'>
@@ -149,7 +149,7 @@
                     $itemTotal = $price * $qty;
 
                     $orderSummary .= "<div class='row my-3'>
-                                        <div class='col-8'><p>$item</p></div>
+                                        <div class='col-7'><p>$item</p></div>
                                         <div class='col'><p>$$price</p></div>
                                         <div class='col'><p>x$qty</p></div>
                                     </div>";
