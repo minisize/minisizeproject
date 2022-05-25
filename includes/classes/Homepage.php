@@ -30,7 +30,7 @@ class Home_functions
 
                 //Creation of HTML
                 echo "
-                            <div class=' px-2 py-1 position-relative display-item-container product-display'>
+                            <div class='col px-2 py-1 position-relative display-item-container product-display'>
                                 <div class='thumbnail'>
                                     <img src='" . $img . "' class='display-item-dimension'>
                                 </div>

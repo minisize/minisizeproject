@@ -1,3 +1,30 @@
+//Imports
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Montserrat&family=Playfair+Display&display=swap');
+
+//Mixins
+
+@mixin content_h5_p($val1 ,$val2) {
+    .content{
+        font-family: 'Playfair Display', serif;
+    }
+
+    .content h5{
+        font-size: $val1;
+        font-family: 'Playfair Display', serif;
+    }
+    .content p{
+        font-size: $val2;
+        font-family: 'Playfair Display', serif;
+    }
+}
+
+@mixin homepage-head-description-size($size) {
+    .homepage-head-description{
+        font-size: $size;
+    }
+}
+//CSS
+
 .best-sellers-container{
     width: auto;
     height: auto;
@@ -30,16 +57,119 @@
 }
 
 .skin-type-product-buttons{
-    height: 100px;
-}
-
-.skin-type-product-buttons:hover{
-    background-color: rgba($color: #2994a7, $alpha: .8);
+    background-position: right center;
+    width: 100%;
+    height: 15vh;
 }
 
 .skin-type-product-buttons h2{
     margin: inherit;
     padding: inherit;
-    font-size: 3rem;
+    font-size: 4vw;
     font-weight: 700;
 }
+
+.product-buttons-effect{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease;
+}
+
+.skin-type-product-buttons h2{
+    font-size: 2vw;
+}
+
+.skin-type-product-buttons:hover .product-buttons-effect{
+    display: block;
+    background: #f7e6ca46;
+    border: 2px solid #f0bc68;
+    border-radius: 5px;
+}
+
+.minisize-head-img{
+    height: 50vh;
+    background-position: left bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.homepage-head{
+    display: block;
+}
+
+.homepage-bg-head2{ 
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 90%;
+    width: 100%;
+    background:#F7E6CA;
+    z-index: -1;
+}
+
+.homepage-head-description{
+    font-size: 1vw;
+}
+
+.homepage-bg-head{ 
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background:#F9EFDC;
+    z-index: -2;
+}
+
+.homepage-header-ctn{
+    text-align: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    @include content_h5_p(2.25rem, 1.75rem);
+    @include homepage-head-description-size(3.25vw);
+    .skin-type-product-buttons h2{
+        font-size: 5vw;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    @include content_h5_p(2.25rem, 1.75rem);
+    @include homepage-head-description-size(2vw);
+    .skin-type-product-buttons h2{
+        font-size: 3vw;
+    }
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .skin-type-product-buttons h2{
+        font-size: 4.5vw;
+    }
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    @include content_h5_p(2.25rem, 1.75rem);
+    @include homepage-head-description-size(1.75vw);
+    .skin-type-product-buttons h2{
+        font-size: 3.75vw;
+    }
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1440px) {
+    .skin-type-product-buttons{
+        height: 15vh;
+    }
+    .skin-type-product-buttons h2{
+        font-size: 2.5vw;
+    }
+    @include homepage-head-description-size(1vw);
+  }
