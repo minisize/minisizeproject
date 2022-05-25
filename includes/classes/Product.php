@@ -672,23 +672,23 @@
                     // $age_range = $userData['age_range'];
                     // $gender = $userData['gender'];
 
-                    $reviewString .= "<div class='row'>
+                    $reviewString .= "<div class='row m-2'>
                     <div class='col'>
                         <p>$time</p>
                         <span class='position-relative'>
                             <span>
-                                <i class='bi bi-star fs-1'></i>
-                                <i class='bi bi-star fs-1'></i>
-                                <i class='bi bi-star fs-1'></i>
-                                <i class='bi bi-star fs-1'></i>
-                                <i class='bi bi-star fs-1'></i>
+                                <i class='bi bi-star fs-3'></i>
+                                <i class='bi bi-star fs-3'></i>
+                                <i class='bi bi-star fs-3'></i>
+                                <i class='bi bi-star fs-3'></i>
+                                <i class='bi bi-star fs-3'></i>
                             </span>
                             <span class='position-absolute start-0' style='width: $rating%;overflow: hidden;white-space: nowrap;'>
-                                <i class='bi bi-star-fill fs-1'></i>
-                                <i class='bi bi-star-fill fs-1'></i>
-                                <i class='bi bi-star-fill fs-1'></i>
-                                <i class='bi bi-star-fill fs-1'></i>
-                                <i class='bi bi-star-fill fs-1'></i>
+                                <i class='bi bi-star-fill fs-3'></i>
+                                <i class='bi bi-star-fill fs-3'></i>
+                                <i class='bi bi-star-fill fs-3'></i>
+                                <i class='bi bi-star-fill fs-3'></i>
+                                <i class='bi bi-star-fill fs-3'></i>
                             </span>
                         </span>
                         <div class=row'><h4>$title</h4></div>
