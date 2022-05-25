@@ -11,6 +11,9 @@
 
 .category-img img {
   height: 70vh;
+  width: 90%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 16px 0px 0px 16px;
 }
 
@@ -19,18 +22,21 @@
   top: 50;
   left: 0;
   z-index: 2;
-  padding: 4rem;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.17);
-  border-radius: 0px 16px 16px 0px;
-  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.8px);
-  -webkit-backdrop-filter: blur(3.8px);
+  padding: 3.25rem 5rem 2rem;
+  background: linear-gradient(144.69deg, rgba(255, 255, 255, 0.6) 0%, rgba(249, 239, 220, 0.2) 100%);
+  -webkit-box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+  border-radius: 0px 22px 22px 0px;
+}
+
+.category-nav h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
 }
 
 .category-nav a {
   font-family: 'Josefin Sans', sans-serif;
+  margin-bottom: .3rem;
 }
 
 .categories a {

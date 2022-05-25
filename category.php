@@ -34,7 +34,7 @@
                         $name = $row["name"];
                         $desc = $row["short_description"];
                         
-                        echo "<div class='container row mt-4'>
+                        echo "<div class='container row mt-4' style='grid-gap: 2.5rem'>
                                 <div class='col-3 border-bottom pt-5'>
                                     <h3 class='text-darkgreen'><strong>$name</strong></h3>
                                     <p>$desc</p>
