@@ -48,7 +48,7 @@
                 }
             }
             $rev_img_json .= '}}'; //enclosing json string
-        }else if($total_img > 5){
+        }else if($total_img > 5){   
             $valid = 0;
             echo "too many images";
         }
@@ -60,12 +60,11 @@
                 echo "|| write-review successful! ";
             }else{
                 echo "|| write-review unsuccessful!";
+                echo mysqli_error($connect);
             }
         }else{
             echo "incorrect format";
         }
-
-        
     }
 ?>
 
