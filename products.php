@@ -20,8 +20,7 @@
 </header>
 
 <main class="">
-    <div class="products-maincontent container-md">
-
+    <div class="products-maincontent mt-5 container-md">
         <div class="maincontent-header">
             <div class="maincontent-filter1 row mt-4">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -76,8 +75,8 @@
 
         </div>
         <div class="maincontent-container2">
-            <div class="">
-                <div id="loadProducts" class="maincontent-container2 row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+            <div class="container">
+                <div id="loadProducts" class="maincontent-container2 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" style="column-gap: 1rem; row-gap: 2rem; justify-content: space-between;">
                     <?php 
                         if($tab == "categories"){ $tab = "category"; }
                         $tabID = $tab . "_id";

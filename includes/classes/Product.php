@@ -85,18 +85,18 @@
                 $head = "";
 
                 if($category == "Bundles"){
-                    $head = "<img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-2'>
-                            <p><strong>$name</strong> <br> for $skinConcern</p>";
+                    $head = "<img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-4'>
+                            <p class='pb-3'><strong>$name</strong> <br> for $skinConcern</p>";
                 } else {
                     $head = "<img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-4'>
                             <p><strong>$name</strong> <br> with $mainIngredient</p>";
                 }
 
-                $productString .=   "<div class='col product-display position-relative p-4 d-flex flex-column justify-content-between'>
+                $productString .=   "<div class='col product-display position-relative p-4 d-flex flex-column justify-content-between' style='width: 22%'>
                                         <div>
                                             $head
                                         </div>
-                                        <div class='product-price d-flex align-items-center justify-content-between'>
+                                        <div class='product-price d-flex align-items-center justify-content-between mt-1'>
                                             <p class='fs-5 text-darkgreen'>$basePrice USD</p>
                                             <p>$numReviews reviews</p>
                                         </div>

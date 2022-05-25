@@ -30,13 +30,13 @@ $theme-colors: (
 );
 
 // include all of bootstrap
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Montserrat&family=Playfair+Display&display=swap');
 
 body {
     background-color: $light;
     overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 h1,h2,h3,h4 {
@@ -53,15 +53,6 @@ p {
 
 .fs-7{
     font-size: 0.75rem;
-}
-
-.display-item-dimension{
-    position: relative; 
-    width: auto;
-    height: 25vh;
-    object-fit: fill;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 /* width */

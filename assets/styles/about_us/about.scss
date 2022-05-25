@@ -11,14 +11,17 @@ $h-color: #345553;
 
 .top-background {
     background-color: $header-color;
+    height: 22rem;
 }
 
 .title {
     font-size: 4rem;
+    margin-top: 4rem;
 }
 
 .fade-bg {
     background-color: $fade;
+    height: 4rem;
 }
 
 .looks {

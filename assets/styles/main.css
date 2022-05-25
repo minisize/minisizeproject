@@ -4,7 +4,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Montserrat&family=Playfair+Display&display=swap");
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -12588,7 +12588,6 @@ fieldset:disabled .btn {
 body {
   background-color: #F7F3F0;
   overflow-y: scroll;
-  overflow-x: hidden;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
@@ -12605,17 +12604,6 @@ p {
 
 .fs-7 {
   font-size: 0.75rem;
-}
-
-.display-item-dimension {
-  position: relative;
-  width: auto;
-  height: 25vh;
-  -o-object-fit: fill;
-     object-fit: fill;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
 }
 
 /* width */

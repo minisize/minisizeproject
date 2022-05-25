@@ -6,14 +6,17 @@
 
 .top-background {
   background-color: #F5D1C3;
+  height: 22rem;
 }
 
 .title {
   font-size: 4rem;
+  margin-top: 4rem;
 }
 
 .fade-bg {
   background-color: #F6E3DA;
+  height: 4rem;
 }
 
 .looks img {
