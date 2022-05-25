@@ -662,6 +662,7 @@
                 $title = $reviewData ['title'];
                 $body = $reviewData ['body'];
                 $rating = $reviewData ['rating'];
+                $rating = ($rating / 5) * 100;
 
                 $userquery = mysqli_query($this->connect, "SELECT * FROM users WHERE id='$userID'");
                 while($userData = mysqli_fetch_array($userquery)){
@@ -671,48 +672,60 @@
                     // $age_range = $userData['age_range'];
                     // $gender = $userData['gender'];
 
-                    $reviewString .= "<p>username: $username
-                    <div>title: $title</div>
-                    <div>body: $body
-                    <div>rating: $rating
-                    <div class='row'>
-
-                        <div class='col'>
-                            <h5>$title</h5>
-                            <p>$time</p>
-                            <div class='row'>
-                                <div class='col'>
-                                    <h6>Skin Concern:</h6>
-                                    <p>$skin_concern</p>
-                                </div> 
-                                <div class='col'>
-                                    <h6>Skin Type:</h6>
-                                    <p>$skin_type</p>
-                                </div>
-                                <div class='col'>
-                                    <h6>Age:</h6>
-                                    <p>31 - 35</p>
-                                </div>      
-                                <div class='col'>
-                                    <h6>Gender:</h6>
-                                    <p>Female</p>
-                                </div>                      
+                    $reviewString .= "<div class='row'>
+                    <div class='col'>
+                        <p>$time</p>
+                        <span class='position-relative'>
+                            <span>
+                                <i class='bi bi-star fs-1'></i>
+                                <i class='bi bi-star fs-1'></i>
+                                <i class='bi bi-star fs-1'></i>
+                                <i class='bi bi-star fs-1'></i>
+                                <i class='bi bi-star fs-1'></i>
+                            </span>
+                            <span class='position-absolute start-0' style='width: $rating%;overflow: hidden;white-space: nowrap;'>
+                                <i class='bi bi-star-fill fs-1'></i>
+                                <i class='bi bi-star-fill fs-1'></i>
+                                <i class='bi bi-star-fill fs-1'></i>
+                                <i class='bi bi-star-fill fs-1'></i>
+                                <i class='bi bi-star-fill fs-1'></i>
+                            </span>
+                        </span>
+                        <div class=row'><h4>$title</h4></div>
+                        <div>
+                            <label for=''>was this helpful?</label>
+                            <button>heart1</button>
+                            <button>heart2</button>
+                        </div>
+                    </div>
+                    <div class='col'>
+                        <p>$body</p>
+                    </div>
+                    <div class='col'>
+                        <div class='row container'>
+                            <div>images go here</div>
+                        </div>
+                        <div class='row'>
+                            <div class='col'>
+                                <h6>Skin Concern:</h6>
+                                <p>$skin_concern</p>
+                            </div> 
+                            <div class='col'>
+                                <h6>Skin Type:</h6>
+                                <p>$skin_type</p>
                             </div>
-                            <div>
-                                <label for=''>was this helpful?</label>
-                                <button>heart1</button>
-                                <button>heart2</button>
-                            </div>
+                            <div class='col'>
+                                <h6>Age:</h6>
+                                <p>31 - 35</p>
+                            </div>      
+                            <div class='col'>
+                                <h6>Gender:</h6>
+                                <p>Female</p>
+                            </div>                      
                         </div>
-
-                        <div class='col container'>
-                            <p>$body</p>
-                        </div>
-
-                        <div class='col container'>
-                            <div>images go here</div
-                        </div>
-                    </div>";
+                    </div>
+                <hr>
+                </div>";
                 }
             }
 
