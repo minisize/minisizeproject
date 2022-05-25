@@ -1,3 +1,15 @@
+//Mixins
+
+@mixin content_h5_p($val1 ,$val2) {
+    .content h5{
+        font-size: $val1;
+    }
+    .content p{
+        font-size: $val2;
+    }
+}
+//CSS
+
 .best-sellers-container{
     width: auto;
     height: auto;
@@ -30,7 +42,8 @@
 }
 
 .skin-type-product-buttons{
-    height: 100px;
+    background-position: right center;
+    height: 15vh;
 }
 
 .skin-type-product-buttons h2{
@@ -50,7 +63,7 @@
     transition: background 0.5s ease;
 }
 
-footer-category-btns:hover .product-buttons-effect{
+.skin-type-product-buttons:hover .product-buttons-effect{
     display: block;
     background: #f7e6ca46;
     border: 2px solid #f0bc68;
@@ -80,14 +93,19 @@ footer-category-btns:hover .product-buttons-effect{
   
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
+    @include content_h5_p(4rem, 3rem);
     .skin-type-product-buttons h2{
         font-size: 3.75vw;
     }
   } 
   
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1441px) {
+  @media only screen and (min-width: 1440px) {
+
+    .skin-type-product-buttons{
+        height: 15vh;
+    }
     .skin-type-product-buttons h2{
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
   }

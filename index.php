@@ -15,7 +15,7 @@ $Home_funct = new Home_functions($connect);
 <main class="">
     <div class="container ">
         <div class="row w-100">
-            <div class="col-3 "> Picture of Hand blablabla </div>
+            <div class="col-3 "> <img src="assets/images/others/index-bg-image.png"></div>
             <div class="col-9 ">
                 <h1 class="text-center text-capitalize"> MiniSize </h1>
                 <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -40,8 +40,8 @@ $Home_funct = new Home_functions($connect);
             <img class="col h-50 w-25" src="<?php $Home_funct->Generate_Random_img($connect, 6) ?>">
             <div class="col-9 container1_subcontent">
                 <div class="content">
-                    <h5 class="fs-1 fw-bold"> Meet our Bundles! </h5>
-                    <p class="fs-3">Meet our bundle! We provide small set of skincare products for one time use for our customers.</p>
+                    <h5 class=" fw-bold"> Meet our Bundles! </h5>
+                    <p class="">Meet our bundle! We provide small set of skincare products for one time use for our customers.</p>
                 </div>
                 <div class="d-flex justify-content-center">
                     <a href="products.php?category_id=1"><button class="bg-primary border-0 text-white homepage-button-format fs-4"> View all </button></a>
@@ -53,8 +53,8 @@ $Home_funct = new Home_functions($connect);
         <div class="row row-cols-2 my-3">
             <div class="col-9 container2_subcontent">
                 <div class="content">
-                    <h5 class="fs-1 fw-bold">Full-size products!</h5>
-                    <p class="fs-3">Full Sized products are available too! make sure to get a subscription in order to get discounts for the produts!</p>
+                    <h5 class="fw-bold">Full-size products!</h5>
+                    <p class="">Full Sized products are available too! make sure to get a subscription in order to get discounts for the produts!</p>
                 </div>
                 <div class="d-flex justify-content-center">
                     <a href="category.php"><button class="bg-primary border-0 text-white homepage-button-format fs-4"> View all </button></a>
@@ -65,7 +65,7 @@ $Home_funct = new Home_functions($connect);
         </div>
         <h4 class="row d-flex justify-content-center fs-1 mb-5"> Find the right products for your skin type! </h4>
     </div>
-    <div class="container">
+    <div class="container p-3 w-100">
         <div class="row row-cols-2 my-5">
             <div class="col position-relative footer-category-btns">
                 <a href="products.php?category_id=2"><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-cleanser.png); background-size: cover;">
@@ -86,7 +86,7 @@ $Home_funct = new Home_functions($connect);
             </div>
             <div class="col position-relative footer-category-btns">
                 <a href="products.php?category_id=1">
-                    <button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-bundles.png); background-size: cover;">
+                    <button class="btn-bg w-75 border-0 skin-type-product-buttons position-relative" style="background-image: url(assets/images/others/categories-bundles.png); background-size: cover; ">
                     <div class="product-buttons-effect"></div>     
                     <h2> Combination </h2>
                     </button>
