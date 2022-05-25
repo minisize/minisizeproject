@@ -27,7 +27,7 @@ $Home_funct = new Home_functions($connect);
     </div>
     <div class="container p-3">
         <h3 class="row"> BEST SELLERS </h3>
-        <div class=" row  p-3 best-sellers-container row-cols-5">
+        <div class=" row  p-3 best-sellers-container row-cols-auto">
             <!-- PHP CODE FOR LISTING -->
             <?php $Home_funct->GenerateList($connect); ?>
         </div>
@@ -67,30 +67,31 @@ $Home_funct = new Home_functions($connect);
     </div>
     <div class="container">
         <div class="row row-cols-2 my-5">
-            <div class="col">
+            <div class="col position-relative footer-category-btns">
                 <a href="products.php?category_id=2"><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-cleanser.png); background-size: cover;">
                         <h2> Oily </h2>
                     </button></a>
             </div>
-            <div class="col">
+            <div class="col position-relative footer-category-btns">
                 <a href="products.php?skin_concern_id=1"><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-moisturizer.png); background-size: cover;">
                         <h2> Dry </h2>
                     </button></a>
             </div>
         </div>
         <div class="row row-cols-2 my-5">
-            <div class="col">
-                <a href="products.php?skin_concern_id=5"></a><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-serum.png); background-size: cover;">
+            <div class="col position-relative footer-category-btns">
+                <a href="products.php?skin_concern_id=5"><button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-serum.png); background-size: cover;">
                     <h2> Sensitive </h2>
-                </button>
+                </button></a>
             </div>
-            <div class="col">
+            <div class="col position-relative footer-category-btns">
                 <a href="products.php?category_id=1">
                     <button class="btn-bg w-75 border-0 skin-type-product-buttons" style="background-image: url(assets/images/others/categories-bundles.png); background-size: cover;">
-                        <h2> Combination </h2>
+                    <div class="product-buttons-effect"></div>     
+                    <h2> Combination </h2>
                     </button>
+                   
                 </a>
-
             </div>
         </div>
     </div>
