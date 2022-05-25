@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="assets/styles/about_us/about.css?ver=3">
 
     <div class="container pb-4">
-        <div class="top-background">
+        <div>
             <h1 class="text-darkgreen title"> Minisize </h1>
             <h3 class="text-darkgreen mb-0"> One stop shop for all your skincare needs </h3>
         </div>
@@ -13,52 +13,52 @@
 </header>
 <div class="fade-bg p-3"></div>
 
-    <div class="container mt-4">
+    <div class="container mt-5">
         <div class="top-info mb-5">
             <h2 class="text-darkgreen"> About Us </h2>
             <div>
                 <p class="text-justify fs-5">
-                    We are the Minisize team! A group of seven university students who worked together under a mission to introduce a new strategic model that presents an opportunity for new and existing customers to be more excited in learning more about their skin and their needs by taking advantage of the existing market while being budget friendly. Our future goal is to participate in being a partner to reduce overproduction in the beauty industry and advocate in achieving an eco-friendly business
+                    We are the Minisize team! A group of seven university students who worked together under a mission to introduce a new strategic model that presents an opportunity for new and existing customers to be more excited in learning more about their skin and their needs by taking advantage of the existing market while being budget friendly. Our future goal is to participate in being a partner to reduce overproduction in the beauty industry and advocate in achieving an eco-friendly business.
                 </p>
             </div>
         </div>
 
         <div class="team-mate">
-            <h3 class="text-darkgreen mt-4 mb-4"> Meet the team </h3>
+            <h3 class="text-darkgreen mt-4 mb-5"> Meet the team </h3>
             <div class="team-proto">
                 <div class="team">
-                    <p class="fw-bold fs-4">
+                    <p class="fw-bold fs-5">
                         Project Manager
                     </p>
-                    <p class="fs-4 mb-0"> Kyla Buarao </p>
-                    <p class="fs-4 mb-0"> Kimberly Diaz </p>
-                    <p class="fs-4 mb-0"> Allelee Flores </p>
+                    <p class="fs-5 mb-0"> Kyla Buarao </p>
+                    <p class="fs-5 mb-0"> Kimberly Diaz </p>
+                    <p class="fs-5 mb-0"> Allelee Flores </p>
                 </div>
                 <div class="team">
-                    <p class="fw-bold fs-4">
+                    <p class="fw-bold fs-5">
                         Developer Team
                     </p>
-                    <p class="fs-4 mb-0"> Akilah Lapure </p>
-                    <p class="fs-4 mb-0"> Sjunsei Awal </p>
-                    <p class="fs-4 mb-0"> David Francisco </p>
-                    <p class="fs-4 mb-0"> Kyla Buarao </p>
+                    <p class="fs-5 mb-0"> Akilah Lapure </p>
+                    <p class="fs-5 mb-0"> Sjunsei Awal </p>
+                    <p class="fs-5 mb-0"> David Francisco </p>
+                    <p class="fs-5 mb-0"> Kyla Buarao </p>
                 </div>
                 <div class="team">
-                    <p class="fw-bold fs-4">
+                    <p class="fw-bold fs-5">
                         UX Team
                     </p>
-                    <p class="fs-4 mb-0"> Shayne Fajardo </p>
-                    <p class="fs-4 mb-0"> Kimberly Diaz </p>
-                    <p class="fs-4 mb-0"> Akilah Lapure </p>
-                    <p class="fs-4 mb-0"> Sjunsei Awal </p>
+                    <p class="fs-5 mb-0"> Shayne Fajardo </p>
+                    <p class="fs-5 mb-0"> Kimberly Diaz </p>
+                    <p class="fs-5 mb-0"> Akilah Lapure </p>
+                    <p class="fs-5 mb-0"> Sjunsei Awal </p>
                 </div>
                 <div class="team">
-                    <p class="fw-bold fs-4">
+                    <p class="fw-bold fs-5">
                         Business Team
                     </p>
-                    <p class="fs-4 mb-0"> Allelee Flores </p>
-                    <p class="fs-4 mb-0"> Shayne Fajardo </p>
-                    <p class="fs-4 mb-0"> Kimberly Diaz </p>
+                    <p class="fs-5 mb-0"> Allelee Flores </p>
+                    <p class="fs-5 mb-0"> Shayne Fajardo </p>
+                    <p class="fs-5 mb-0"> Kimberly Diaz </p>
                 </div>
             </div>
         </div>
