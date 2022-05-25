@@ -35,7 +35,7 @@
 
     <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
         <div class="d-flex align-items-center">
-            <img src="assets/images/website/logo/logo-placeholder.png" alt="Minisize Logo" width="50">
+            <img src="assets/images/website/logo/logo.png" alt="Minisize Logo" width="50">
             <h4 class="mx-2">Minisize</h4>
         </div>
     </header>

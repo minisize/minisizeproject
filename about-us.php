@@ -1,99 +1,117 @@
-    <?php
+<?php
         include("includes/main-header.php");
     ?>
 
-    <link rel="stylesheet" href="./assets/styles/about_us/about.css">
+    <link rel="stylesheet" href="assets/styles/about_us/about.css?ver=3">
 
-    <div class="top-background">
-        <h1 class="about-title"> Minisize </h1>
-        <h3 id="mini-quota"> One stop shop for all your skincare needs </h3>
+    <div class="container pb-4">
+        <div>
+            <h1 class="text-darkgreen title"> Minisize </h1>
+            <h3 class="text-darkgreen mb-0"> One stop shop for all your skincare needs </h3>
+        </div>
     </div>
-    <div class="fade-bg"></div>
-
 </header>
+<div class="fade-bg p-3"></div>
 
-    <div class="ENTIRE">
-        <div class="top-info">
-            <h2  id="about-title"> About Us </h2>
-            <div id="us">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius autem mollitia quod veritatis fugiat, unde omnis molestiae, ea quisquam adipisci itaque placeat qui perspiciatis in temporibus sit maxime illum commodi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod rem cupiditate numquam corrupti quam nostrum, minus sit voluptatibus fuga deserunt. Repellendus perferendis nemo sint possimus aliquam reiciendis blanditiis quibusdam aspernatur!
+    <div class="container mt-5">
+        <div class="top-info mb-5">
+            <h2 class="text-darkgreen"> About Us </h2>
+            <div>
+                <p class="text-justify fs-5">
+                    We are the Minisize team! A group of seven university students who worked together under a mission to introduce a new strategic model that presents an opportunity for new and existing customers to be more excited in learning more about their skin and their needs by taking advantage of the existing market while being budget friendly. Our future goal is to participate in being a partner to reduce overproduction in the beauty industry and advocate in achieving an eco-friendly business.
+                </p>
             </div>
         </div>
 
         <div class="team-mate">
-            <h3  id="about-title"> Meet the team </h3>
-            <div class="team">
-                <h4>Project Manager</h4>
-                <ul> 
-                    <li> Kyla Buarao </li>
-                    <li> Kimberly Diaz </li>
-                    <li> Allelee Flores </li>
-                </ul>
-            </div>
-            <div class="team">
-                <h4>Developer Team</h4>
-                <ul> 
-                    <li> Akilah Lapure </li>
-                    <li> Sjunsei Awal </li>
-                    <li> David Francisco </li>
-                    <li> Kyla Buarao </li>
-                </ul>
-            </div>
-            <div class="team">
-                <h4>UX Team</h4>
-                <ul> 
-                    <li> Shayne Fajardo </li>
-                    <li> Kimberly Diaz </li>
-                    <li> Akilah Lapure </li>
-                    <li> Sjunsei Awal </li>
-                </ul>
-            </div>
-            <div class="team">
-                <h4>QA Team</h4>
-                <ul> 
-                    <li> Allelee Flores </li>
-                    <li> Shayne Fajardo </li>
-                </ul>
+            <h3 class="text-darkgreen mt-4 mb-5"> Meet the team </h3>
+            <div class="team-proto">
+                <div class="team">
+                    <p class="fw-bold fs-5">
+                        Project Manager
+                    </p>
+                    <p class="fs-5 mb-0"> Kyla Buarao </p>
+                    <p class="fs-5 mb-0"> Kimberly Diaz </p>
+                    <p class="fs-5 mb-0"> Allelee Flores </p>
+                </div>
+                <div class="team">
+                    <p class="fw-bold fs-5">
+                        Developer Team
+                    </p>
+                    <p class="fs-5 mb-0"> Akilah Lapure </p>
+                    <p class="fs-5 mb-0"> Sjunsei Awal </p>
+                    <p class="fs-5 mb-0"> David Francisco </p>
+                    <p class="fs-5 mb-0"> Kyla Buarao </p>
+                </div>
+                <div class="team">
+                    <p class="fw-bold fs-5">
+                        UX Team
+                    </p>
+                    <p class="fs-5 mb-0"> Shayne Fajardo </p>
+                    <p class="fs-5 mb-0"> Kimberly Diaz </p>
+                    <p class="fs-5 mb-0"> Akilah Lapure </p>
+                    <p class="fs-5 mb-0"> Sjunsei Awal </p>
+                </div>
+                <div class="team">
+                    <p class="fw-bold fs-5">
+                        Business Team
+                    </p>
+                    <p class="fs-5 mb-0"> Allelee Flores </p>
+                    <p class="fs-5 mb-0"> Shayne Fajardo </p>
+                    <p class="fs-5 mb-0"> Kimberly Diaz </p>
+                </div>
             </div>
         </div>
 
+        <br>
         <div class="pics">
             <div class="looks">
-                <img src="assets\images\website\team\Akilah.jpg">
-                <p> Akilah Lapure</p>
+                <img src="assets\images\website\teams\Akilah.jpg">
+                <p class="fw-bold mt-2"> Akilah Lapure </p>
             </div>
             <div class="looks">
-                <img src="assets\images\website\team\Allelee.jpg">
-                <p> Allelee Flores</p>
+                <img src="assets\images\website\teams\Allelee.jpg">
+                <p class="fw-bold mt-2"> Allelee Flores </p>
+                <!-- <p> Allelee Flores</p> -->
             </div>
             <div class="looks">
-                <img  src="assets\images\website\team\shayne.jpg">
-                <p> Shayne Fajardo </p>
+                <img  src="assets\images\website\teams\shayne.jpg">
+                <p class="fw-bold mt-2"> Shayne Fajardo </p>
+                <!-- <p> Shayne Fajardo </p> -->
             </div>
             <div class="looks">
-                <img src="assets\images\website\team\Kim.jpg">
-                <p> Kimberly Diaz </p>
+                <div class="big_img">
+                    <img src="assets\images\website\teams\Kim.JPG">
+                </div>
+                <p class="fw-bold mt-2"> Kimberly Diaz </p>
+                <!-- <p> Kimberly Diaz </p> -->
             </div>
             <div class="looks">
-                <img src="assets\images\website\team\Kyla.jpg">
-                <p> Kyla Buarao </p>
+                <img src="assets\images\website\teams\Kyla.jpeg">
+                <p class="fw-bold mt-2"> Kyla Buarao </p>
+                <!-- <p> Kyla Buarao </p> -->
             </div>
             <div class="looks">
-                <img src="assets\images\website\team\David.jpg">
-                <p> David Francisco  </p>
+                <img src="assets\images\website\teams\David.jpg">
+                <p class="fw-bold mt-2"> David Francisco </p>
+                <!-- <p> David Francisco  </p> -->
             </div>
             <div class="looks">
-                <img src="assets\images\website\team\Sjunsei.jpg">
-                <p> Sjunsei Awal </p>
+                <img class="KIM-SJUN" src="assets\images\website\teams\Sjunsei.jpg">
+                <p class="fw-bold mt-2"> Sjunsei Awal </p>
+                <!-- <p> Sjunsei Awal </p> -->
             </div>
         </div>
+        <br>
 
-        <div class="quota">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam consequuntur, fugit dolores expedita officia pariatur veniam esse impedit qui dignissimos! Perspiciatis, nam corporis! Reiciendis quae eum at. Porro, voluptas corrupti!
-        </div>
-
-    <br><br><br><br><br>
-    
+        <!-- <p class="fw-bold fs-4">
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+            Quam consequuntur, fugit dolores expedita officia <br> pariatur veniam esse impedit qui dignissimos! 
+            Perspiciatis, nam corporis!
+            Reiciendis quae eum at. Porro, voluptas corrupti!"
+        </p> -->
+    </div>
+        
     <script src="assets/javascript/scroll-anim.js"></script>
 
     </div>

@@ -1,57 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&display=swap');
 
 $header-color: #F5D1C3;
-$fade: #f5d1c380;
+$fade: #F6E3DA;
 $h-color: #345553;
-$font-title: 'Josefin Sans', sans-serif;
-$font-text: 'Playfair Display', serif;
 
-.top-background
-{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.top-background {
     background-color: $header-color;
+    height: 22rem;
 }
 
-.fade-bg
-{
-    opacity: 0.10;
+.title {
+    font-size: 4rem;
+    margin-top: 4rem;
+}
+
+.fade-bg {
     background-color: $fade;
-    padding: 10pt;
+    height: 4rem;
 }
 
-#about-title
-{
-    color: $h-color;
-    font-family: $font-title;
+.looks {
+    img {
+        clip-path: circle(40%);
+        border-radius: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
 }
 
-#us p
-{
-    font-size: 50px;
-    font-weight: 500;
-    text-align: justify;
-    margin: 20px;
-}
-
-.team h4
-{
-    font-size: 32px;
-    font-weight: 300;
-}
-
-img
-{
+img {
     border-radius: 100px;
 }
 
-li
-{
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.team {
+    h4 {
+        margin-bottom: 0;
+    }
 }
 
+.team-mate {
+    margin-bottom: 6vh;
+}
 
-#mini-quota
+.pics {
+    margin-top: 5vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-bottom: 6vh;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.big_img img {
+    object-position: 10% 5%;
+}
+
+.looks {
+    text-align: center;
+    img {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        transition: 0.5s;
+        border: none;
+        border-radius: 360px;
+    }
+}
+
+.rounded-circle-sample
 {
-    color: $h-color;
+    width: 140px;
+    height: 140px;
+}
+
+.rounded-circle-sample:hover
+{
+    transform: scale(1.3);
+    z-index: 2;
+    border: none;
+    border-radius: 100%;
+}
+
+.looks img:hover
+{
+    transform: scale(1.3);
+    z-index: 2;
+    border: none;
+    border-radius: 100%;
+}
+
+.team-proto
+{
+    display: flex;
+    .team
+    {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 984px) {
+    .team-proto
+    {
+        flex-wrap: wrap;
+    }
+
+    .pics
+    {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }

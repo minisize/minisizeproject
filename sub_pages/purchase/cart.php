@@ -6,7 +6,7 @@
 <main>
 
     
-<div class="container">
+<div class="container-lg">
     <div class="row">
         <!-- LEFT SEGMENT -->
         <div class="col">
@@ -35,7 +35,7 @@
         </div>
 
         <!-- RIGHT SEGMENT -->
-        <div class="col-4 d-flex flex-column justify-content-between">
+        <div class="order-total col-4 d-flex flex-column justify-content-between">
 
             <div class="mt-4">
                 <div class="row">

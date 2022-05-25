@@ -1,8 +1,24 @@
+/******************* Products Page *******************/
 .products-header {
   position: absolute;
   top: 50%;
+  left: 25%;
   -webkit-transform: translate(-25%, -25%);
           transform: translate(-25%, -25%);
+}
+
+.maincontent-filter2 .filter, .maincontent-filter2 .sort {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.maincontent-filter2 .filter select {
+  width: 35%;
+}
+
+.maincontent-filter2 .sort select {
+  width: 50%;
 }
 
 .product-img {
@@ -45,6 +61,11 @@
   opacity: 1;
 }
 
+/******************* Product-item Page *******************/
+.product-item {
+  padding: 0 4rem;
+}
+
 .product-carousel .carousel-controls {
   position: absolute;
   left: 50%;
@@ -78,10 +99,10 @@
   padding-bottom: 3rem;
 }
 
-/* ************************ */
 .price-btn label {
   background-color: #ffffff;
   border-radius: 5px;
+  gap: 2;
 }
 
 .price-btn label img {
@@ -113,5 +134,58 @@
   background: none;
   border-bottom: 2px solid #f0bc68;
   border-radius: 0;
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .products-maincontent {
+    margin: 0;
+  }
+  .products-maincontent .maincontent-filter2 .filter {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .products-maincontent .maincontent-filter2 .filter select {
+    width: 50%;
+  }
+  .products-maincontent .maincontent-filter2 .filter p {
+    display: none;
+  }
+  .products-maincontent .maincontent-filter2 .sort {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .products-maincontent .maincontent-filter2 .sort select {
+    width: 75%;
+  }
+  .products-maincontent .maincontent-filter2 .sort p {
+    display: none;
+  }
+  .product-item {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 868px) {
+  .product-item-details {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse;
+            flex-flow: column-reverse;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 890px) {
+  .products-header {
+    top: 45%;
+    left: 20%;
+  }
+  .products-header p {
+    display: none;
+  }
+  .price-btn label {
+    gap: 0;
+  }
 }
 /*# sourceMappingURL=products-style.css.map */

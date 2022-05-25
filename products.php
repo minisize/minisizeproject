@@ -20,10 +20,9 @@
 </header>
 
 <main class="">
-    <div class="products-maincontent">
-
-        <div class="maincontent-header container">
-            <div class="maincontent-filter1 row">
+    <div class="products-maincontent mt-5 container-md">
+        <div class="maincontent-header">
+            <div class="maincontent-filter1 row mt-4">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -34,40 +33,42 @@
             </div>
 
             <div class="maincontent-filter2">
-                    <div class="row d-flex flex-wrap justify-content-between">
-                        <div class="col-md-5 col-sm-8 d-flex align-items-center justify-content-between">
-                            <p class="fs-5 mt-3">Filter by</p>
+                    <div class="row">
+                        <div class="col d-flex justify-content-between">
+                            <div class="filter d-flex align-items-center">
+                                <p class="fs-5 mt-3">Filter by</p>
 
-                            <select name="skin-type" id="skinType" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
-                                <option selected disabled>Skin Types</option>
-                                <option value="All">All</option>
-                                <option value="Normal">Normal</option>
-                                <option value="Combination">Combination</option>
-                                <option value="Oily">Oily</option>
-                                <option value="Dry">Dry</option>
-                                <option value="Sensitive">Sensitive</option>
-                            </select>
+                                <select name="skin-type" id="skinType" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm text-dark">
+                                    <option selected disabled>Skin Types</option>
+                                    <option value="All">All</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Combination">Combination</option>
+                                    <option value="Oily">Oily</option>
+                                    <option value="Dry">Dry</option>
+                                    <option value="Sensitive">Sensitive</option>
+                                </select>
 
-                            <select name="benefit" id="benefit" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm w-25 text-dark">
-                                <option selected disabled>Benefits</option>
-                                <option value="Hydration">Hydration</option>
-                                <option value="Pore Solutions">Pores</option>
-                                <option value="Troubled Skin">Troubled Skin</option>
-                                <option value="Dullness & Uneven Skin Tone">Dullness & Uneven</option>
-                                <option value="Sensitive Skin">Sensitive</option>
-                                <option value="Age Prevention">Age Prevention</option>
-                                <option value="Lifting & Firming">Lifting & Firming</option>
-                            </select>
-                        </div>
+                                <select name="benefit" id="benefit" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm text-dark">
+                                    <option selected disabled>Benefits</option>
+                                    <option value="Hydration">Hydration</option>
+                                    <option value="Pore Solutions">Pores</option>
+                                    <option value="Troubled Skin">Troubled Skin</option>
+                                    <option value="Dullness & Uneven Skin Tone">Dullness & Uneven</option>
+                                    <option value="Sensitive Skin">Sensitive</option>
+                                    <option value="Age Prevention">Age Prevention</option>
+                                    <option value="Lifting & Firming">Lifting & Firming</option>
+                                </select>
+                            </div>
 
-                        <div class="col-md-3 col-sm-4 d-flex align-items-center justify-content-evenly">
-                            <p class="fs-5 mt-3">Sort by</p>
-                            <select name="sort" id="sort" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm w-50 text-dark">
-                                <option value="Featured">Featured</option>
-                                <option value="PriceHigh">Price: High to Low</option>
-                                <option value="PriceLow">Price: Low to High</option>
-                                <option value="HighRated">Highest Rated</option>
-                            </select>
+                            <div class="sort d-flex align-items-center">
+                                <p class="fs-5 mt-3">Sort by</p>
+                                <select name="sort" id="sort" onchange="selectFilter()" class="btn-outline-pink form-select form-select-sm text-dark">
+                                    <option value="Featured">Featured</option>
+                                    <option value="PriceHigh">Price: High to Low</option>
+                                    <option value="PriceLow">Price: Low to High</option>
+                                    <option value="HighRated">Highest Rated</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -75,7 +76,7 @@
         </div>
         <div class="maincontent-container2">
             <div class="container">
-                <div id="loadProducts" class="maincontent-container2 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+                <div id="loadProducts" class="maincontent-container2 row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" style="column-gap: 1rem; row-gap: 2rem; justify-content: space-between;">
                     <?php 
                         if($tab == "categories"){ $tab = "category"; }
                         $tabID = $tab . "_id";

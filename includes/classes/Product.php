@@ -43,9 +43,9 @@
             $position = "";
 
             if ($tab == "categories"){
-                $position = "left: 25%;";
+                $position = "";
             } else {
-                $position = "left: 15%;";
+                $position = "left: 20%;";
             }
 
             $headerString = "<div class='position-relative'>
@@ -85,18 +85,18 @@
                 $head = "";
 
                 if($category == "Bundles"){
-                    $head = "<img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-2'>
-                            <p><strong>$name</strong> <br> for $skinConcern</p>";
+                    $head = "<img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-4'>
+                            <p class='pb-3'><strong>$name</strong> <br> for $skinConcern</p>";
                 } else {
                     $head = "<img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-4'>
                             <p><strong>$name</strong> <br> with $mainIngredient</p>";
                 }
 
-                $productString .=   "<div class='col product-display position-relative p-4 d-flex flex-column justify-content-between'>
+                $productString .=   "<div class='col product-display position-relative p-4 d-flex flex-column justify-content-between' style='width: 22%'>
                                         <div>
                                             $head
                                         </div>
-                                        <div class='product-price d-flex align-items-center justify-content-between'>
+                                        <div class='product-price d-flex align-items-center justify-content-between mt-1'>
                                             <p class='fs-5 text-darkgreen'>$basePrice USD</p>
                                             <p>$numReviews reviews</p>
                                         </div>
@@ -345,7 +345,7 @@
                                     <div class='row'>
                                         <div class='col position-relative price-btn'>
                                             <input type='radio' value='$price10ml' id='price10ml' onClick='changePrice()' name='price-selected' class='position-absolute' checked/>
-                                            <label class='w-100 d-flex align-items-center gap-2' for='price10ml'>
+                                            <label class='w-100 d-flex align-items-center' for='price10ml'>
                                                 <img src='$img1' alt=''>
                                                 <p class='m-0 p-0'>10ml</p>
                                             </label>
@@ -353,7 +353,7 @@
 
                                         <div class='col position-relative price-btn'>
                                             <input type='radio' value='$price15ml' id='price15ml' onClick='changePrice()' name='price-selected' class='position-absolute' />
-                                            <label class='w-100 d-flex align-items-center gap-2' for='price15ml'>
+                                            <label class='w-100 d-flex align-items-center' for='price15ml'>
                                                 <img src='$img1' alt=''>
                                                 <p class='m-0 p-0'>15ml</p>
                                             </label>
@@ -361,7 +361,7 @@
 
                                         <div class='col position-relative price-btn'>
                                             <input type='radio' value='$price20ml' id='price20ml' onClick='changePrice()' name='price-selected' class='position-absolute' />
-                                            <label class='w-100 d-flex align-items-center gap-2' for='price20ml'>
+                                            <label class='w-100 d-flex align-items-center' for='price20ml'>
                                                 <img src='$img1' alt=''>
                                                 <p class='m-0 p-0'>20ml</p>
                                             </label>
@@ -442,8 +442,8 @@
                                 </div>";
             
                             
-            echo "<div class='container'>
-                    <div class='row'> 
+            echo "<div>
+                    <div class='product-item-details row'> 
                         <div class='col ps-0'>
                         $productsImage
                         </div>
