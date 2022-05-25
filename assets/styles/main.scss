@@ -30,8 +30,9 @@ $theme-colors: (
 );
 
 // include all of bootstrap
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Montserrat&family=Playfair+Display&display=swap');
 
 body {
     background-color: $light;

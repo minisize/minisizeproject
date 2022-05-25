@@ -68,7 +68,7 @@ footer .footer-wrap {
           justify-content: center;
 }
 
-footer .footer_wrap button {
+footer .footer-wrap button {
   border-style: none;
   background-color: rgba(0, 0, 0, 0);
 }
@@ -77,5 +77,9 @@ footer .footer-wrap h5, footer .footer-wrap h6, footer .footer-wrap label {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+footer .footer-wrap h5 {
+  font-weight: 600;
 }
 /*# sourceMappingURL=header_n_footer.css.map */
