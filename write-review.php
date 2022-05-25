@@ -40,11 +40,11 @@
                 
                 if(move_uploaded_file($_FILES['rev_img']['tmp_name'][$i], $new_file_path)){
                     //post okay to upload
-                    echo "image uplaod to dir";
+                    // echo "image uplaod to dir";
                     
                 }else{
                     //post not uploadable
-                    echo "image not uplaod to dir";
+                    // echo "image not uplaod to dir";
                 }
             }
             $rev_img_json .= '}}'; //enclosing json string
@@ -55,9 +55,12 @@
 
         if($valid){
             $query = "INSERT INTO reviews (product_id, user_id, title, body, rating, timestamp, images) VALUES ('$itemID', '$userLoggedIn', '$title','$body','$rating','$current_date','$rev_img_json')";
-           
+            
             if(mysqli_query($connect,$query)){
-                echo "|| write-review successful! ";
+                mysqli_query($connect,"UPDATE products SET num_reviews = num_reviews + 1 WHERE id = $itemID");
+                // echo "|| write-review successful! ";
+                
+                header("Location: product-item.php?id=$itemID");
             }else{
                 echo "|| write-review unsuccessful!";
                 echo mysqli_error($connect);
