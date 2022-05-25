@@ -345,7 +345,7 @@
                                     <div class='row'>
                                         <div class='col position-relative price-btn'>
                                             <input type='radio' value='$price10ml' id='price10ml' onClick='changePrice()' name='price-selected' class='position-absolute' checked/>
-                                            <label class='w-100 d-flex align-items-center gap-2' for='price10ml'>
+                                            <label class='w-100 d-flex align-items-center' for='price10ml'>
                                                 <img src='$img1' alt=''>
                                                 <p class='m-0 p-0'>10ml</p>
                                             </label>
@@ -353,7 +353,7 @@
 
                                         <div class='col position-relative price-btn'>
                                             <input type='radio' value='$price15ml' id='price15ml' onClick='changePrice()' name='price-selected' class='position-absolute' />
-                                            <label class='w-100 d-flex align-items-center gap-2' for='price15ml'>
+                                            <label class='w-100 d-flex align-items-center' for='price15ml'>
                                                 <img src='$img1' alt=''>
                                                 <p class='m-0 p-0'>15ml</p>
                                             </label>
@@ -361,7 +361,7 @@
 
                                         <div class='col position-relative price-btn'>
                                             <input type='radio' value='$price20ml' id='price20ml' onClick='changePrice()' name='price-selected' class='position-absolute' />
-                                            <label class='w-100 d-flex align-items-center gap-2' for='price20ml'>
+                                            <label class='w-100 d-flex align-items-center' for='price20ml'>
                                                 <img src='$img1' alt=''>
                                                 <p class='m-0 p-0'>20ml</p>
                                             </label>
@@ -442,8 +442,8 @@
                                 </div>";
             
                             
-            echo "<div class='container'>
-                    <div class='row'> 
+            echo "<div>
+                    <div class='product-item-details row'> 
                         <div class='col ps-0'>
                         $productsImage
                         </div>

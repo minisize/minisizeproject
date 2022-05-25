@@ -1,3 +1,4 @@
+/******************* Products Page *******************/
 .products-header {
   position: absolute;
   top: 50%;
@@ -60,6 +61,11 @@
   opacity: 1;
 }
 
+/******************* Product-item Page *******************/
+.product-item {
+  padding: 0 4rem;
+}
+
 .product-carousel .carousel-controls {
   position: absolute;
   left: 50%;
@@ -93,10 +99,10 @@
   padding-bottom: 3rem;
 }
 
-/* ************************ */
 .price-btn label {
   background-color: #ffffff;
   border-radius: 5px;
+  gap: 2;
 }
 
 .price-btn label img {
@@ -132,7 +138,7 @@
 
 @media screen and (min-width: 0px) and (max-width: 768px) {
   .products-maincontent {
-    margin: 0 rem;
+    margin: 0;
   }
   .products-maincontent .maincontent-filter2 .filter {
     -webkit-box-pack: start;
@@ -156,20 +162,30 @@
   .products-maincontent .maincontent-filter2 .sort p {
     display: none;
   }
+  .product-item {
+    padding: 0 2rem;
+  }
 }
 
-@media screen and (min-width: 0px) and (max-width: 889px) {
-  .products-header {
-    left: 20%;
-  }
-  .products-header p {
-    display: none;
+@media screen and (min-width: 0px) and (max-width: 868px) {
+  .product-item-details {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse;
+            flex-flow: column-reverse;
   }
 }
 
 @media screen and (min-width: 0) and (max-width: 890px) {
   .products-header {
     top: 45%;
+    left: 20%;
+  }
+  .products-header p {
+    display: none;
+  }
+  .price-btn label {
+    gap: 0;
   }
 }
 /*# sourceMappingURL=products-style.css.map */
