@@ -1,4 +1,5 @@
-<?php require 'includes/server.php';
+<?php 
+    require 'includes/server.php';
     include("includes/classes/User.php");
     include("includes/classes/Product.php");
     include("includes/classes/Blog.php");
@@ -57,6 +58,7 @@
     <link rel="stylesheet" href="assets/styles/products/product_review-style.css">
     <link rel="stylesheet" href="assets/styles/category/category.css">
     <link rel="stylesheet" href="assets/styles/blog/blog.css">
+    <link rel="stylesheet" href="assets/styles/homepage/homepage.css">
 
     <!-- AJAX -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -66,24 +68,6 @@
 <body>
 
 <header class="top-background">
-    <!-- <nav>
-            <div class="side-navigation side-nav-left"> 
-                settings icon
-            </div>
-            <div class="main-navigation"> 
-                <ul>
-                    <li> <button> Home </button> </li>
-                    <li><button> products </button></li>
-                    <label> Website icon </label>
-                    <li><button> Blog </button></li>
-                    <li><button> About </button></li>
-                </ul>
-            </div>
-            <div class="side-navigation side-nav-right">
-                <label for=""><button>Profile Icon</button></label>
-                <label for=""><button>Shopping Cart Icon</button></label>
-            </div>
-        </nav> -->
 
     <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
         <i class="bi bi-gear-fill fs-5 d-flex align-items-center col-1"></i>
@@ -136,7 +120,7 @@
                     </ul>
                 </section>
             </li>
-            <li class="nav-item"><a href="index.php"><img src="assets/images/website/logo/logo-placeholder.png"
+            <li class="nav-item"><a href="index.php"><img src="assets/images/website/logo/logo.png"
                         alt="Minisize Logo" width="75"></a></li>
             <li class="nav-item"><a href="blog-list.php">Blogs</a></li>
             <li class="nav-item"><a href="about-us.php">About</a></li>

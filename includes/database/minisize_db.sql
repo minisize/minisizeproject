@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 21, 2022 at 08:53 AM
+-- Generation Time: May 24, 2022 at 08:34 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -37,7 +37,16 @@ CREATE TABLE IF NOT EXISTS `addresses` (
   `country` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_address_fk` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `addresses`
+--
+
+INSERT INTO `addresses` (`id`, `user_id`, `building`, `street`, `city`, `country`) VALUES
+(1, 2, 'BT Tower', '13S Street', 'Deira, Dubai', 'UAE'),
+(2, 2, 'S Building', '7B Street', 'Los Angeles', 'USA'),
+(3, 2, 'building 123', 'street 2', 'sharjah', 'UAE');
 
 -- --------------------------------------------------------
 
@@ -72,41 +81,6 @@ INSERT INTO `blogs` (`id`, `topic`, `cover_image`, `brand`, `title`, `descriptio
 (4, 'Product', 'assets/images/others/blog-rodan+fields-1.jpg', 'Rodan + Fields', 'Get Energized-Looking Skin with Total RF Serum', 'We offer innovative beauty solutions powered by the finest natural ingredients responsibly sourced from Korea’s pristine Jeju Island. Thanks to its volcanic origins...', '<div class=\"blogContainerGutterWidth\" style=\"box-sizing: border-box; width: calc(100% - 0px) !important\">\r\n            <div class=\"rf_blogSingleContentHeader\" id=\"\">\r\n                <h2 class=\"RFdisplayRegular rf_h textCenter fw-bold\">\r\n                Get Energized-Looking Skin with Total RF Serum\r\n                </h2>\r\n                <hr\r\n                class=\"clarityHR\"\r\n                style=\"margin-left: auto; margin-right: auto\"\r\n                /><br>\r\n                <h3 id=\"img\" class=\"rf_detailStandard uppercase textCenter text-darkgreen\">\r\n                Learn all there is to know about our Total RF Serum\r\n                </h3><br>\r\n            </div>\r\n            <div class=\"rf_blogSingleContentWrapper\">\r\n                <div class=\"rf_blogSingleFeaturedImageWrapper\">\r\n                    <img\r\n                        width=\"100%\"\r\n                        src=\"https://www.rodanandfields.com/en-us/blog/wp-content/uploads/2021/11/Blog_TRFS-Get-Energized-Looking-Skin-image.jpg\"\r\n                        alt=\"Total RF Serum with ingredients and benefits\"\r\n                    />\r\n                </div>\r\n                <article class=\"rf_paragraphStandard\"><br>\r\n                    <p>\r\n                    As the days get longer and temperatures rise, many of us are still\r\n                    feeling (and seeing) the negative effects this winter had on our\r\n                    skin: Think that dull, dry look that no one wants, but becomes\r\n                    more common as we get older.\r\n                    </p>\r\n                    <p>\r\n                    If you\'re hoping to say goodbye to dullness and hello to\r\n                    energized, healthy-looking skin this spring, Rodan + Fields has a\r\n                    handful of options that can help with that mission, from Regimens\r\n                    to our serums, body moisturizers, and more.\r\n                    </p>\r\n                    <p>\r\n                    As you begin to work to make sure your skin glows through the end\r\n                    of 2022 and beyond, one of the first products you should\r\n                    prioritize is Rodan + Fields\'\r\n                    <a\r\n                        href=\"https://www.rodanandfields.com/en-us/shop/total-rf-serum/p/ENFM030\"\r\n                        >Total RF Serum</a\r\n                    >. Here\'s everything you need to know about it.\r\n                    </p><br>\r\n                    <h3 id=\"what\" class=\"text-darkgreen\"><a></a>What R+F\'s Total RF Serum is</h3>\r\n                    <p><br>\r\n                    The Total RF Serum is Rodan + Fields\' most comprehensive\r\n                    anti-aging serum. It features RF Trienergy Complex and energizes\r\n                    millions of surface cells by 200%, addressing key signs of aging.\r\n                    </p>\r\n                    <p>\r\n                    The Total RF serum revitalizes the skin so you\'ll end up seeing\r\n                    stronger, healthier, more resilient skin at every level. While\r\n                    you\'ll see visible results when you use this serum on its own,\r\n                    those results can be enhanced when you combine it with other R+F\r\n                    products and regimens.\r\n                    </p>\r\n                    <p>\r\n                    The Total RF Serum was formulated for people over the age of 18 as\r\n                    a comprehensive solution for anyone who wants to either get ahead\r\n                    of visible signs of aging or treat them. We all see signs of aging\r\n                    at different points, but in general people over 25 can benefit\r\n                    from using the Total RF Serum either in combination with one of\r\n                    our Regimens or on its own.\r\n                    </p><br>\r\n                    <h3 id=\"diff\" class=\"text-darkgreen\">\r\n                    What makes <meta charset=\"utf-8\" />Rodan + Fields\' Total RF Serum\r\n                    different from other serums\r\n                    </h3><br>\r\n                    <p>\r\n                    A serum is an important part of any skincare routine, because as\r\n                    we age, our skin is compromised by both environmental factors and\r\n                    the general process of aging. The result is fine lines, wrinkles,\r\n                    dullness, and dryness, and loss of firmness. Adding a serum into\r\n                    your routine can help address and slow down key signs of aging.\r\n                    </p>\r\n                    <p>\r\n                    Here\'s what distinguishes the Total RF Serum from other serums: It\r\n                    features Rodan + Fields\' new proprietary patent-pending RF\r\n                    TriEnergy Complex. This technology energizes millions of surface\r\n                    cells to address all the key signs of visible aging like\r\n                    elasticity, firmness, fine lines, plumpness, texture, even skin\r\n                    tone, radiance, hydrations, softer skin, smaller pore, and\r\n                    glowing, revitalized skin.\r\n                    </p><br>\r\n                    <h3 id=\"ing\" class=\"text-darkgreen\">\r\n                    What ingredients does <meta charset=\"utf-8\" />Rodan + Fields\'\r\n                    Total RF Serum include?\r\n                    </h3><br>\r\n                    <p>\r\n                    The Total RF Serum includes a handful of key ingredients that help\r\n                    give skin that glowing, energized look. These include:\r\n                    </p>\r\n                    <p><strong>RF TriEnergy Complex</strong></p>\r\n                    <p>\r\n                    This technology combines Ayurvedic Sandalwood, Indian Kino Extract\r\n                    and Omega 6 Fatty Acid into a unique ratio that works together to\r\n                    deliver re-invigorated, younger-looking skin.\r\n                    </p>\r\n                    <p><strong>RF3 Antioxidant Complex</strong></p>\r\n                    <p>\r\n                    The RF3 antioxidant complex was developed and patented by Rodan +\r\n                    Fields scientists. It fortifies skin so it\'s more resilient, and\r\n                    it helps defend against environmental triggers so your skin is\r\n                    more even-looking.\r\n                    </p>\r\n                    <p><strong>Ceramides</strong></p>\r\n                    <p>\r\n                    You can think of ceramides as the glue that holds our skin cells\r\n                    together and keeps our skin healthy. Our skin makes ceramides\r\n                    naturally, but it makes less of it as we age. When this happens,\r\n                    it leads to dry, rough skin. The role of ceramides in the total RF\r\n                    serum exists to help fortify the skin\'s barrier and retain\r\n                    moisture. This results in smoother, firmer-looking skin with fewer\r\n                    fine lines.\r\n                    </p>\r\n                    <p><strong>Calcium</strong></p>\r\n                    <p>\r\n                    Calcium in a skincare product? Yes, it\'s a thing - and it plays an\r\n                    important role. Calcium helps with visible firmness to make skin\r\n                    feel tighter and more resilient. Most calcium in the skin is found\r\n                    in the outermost layer of the skin, also called the epidermis,\r\n                    where it has been shown to play a crucial role in barrier\r\n                    protection and skin homeostasis.\r\n                    </p><br>\r\n                    <h3 id=\"other\" class=\"text-darkgreen\"><a></a>Other products to consider</h3>\r\n                    <p><br>\r\n                    The Total RF Serum can be used on its own, and you\'ll see some\r\n                    great results from it.\r\n                    <a\r\n                        href=\"https://www.rodanandfields.com/en-us/featured/c/special-offers\"\r\n                        >But it was formulated to enhance any Rodan + Fields regimen</a\r\n                    >. This can include the\r\n                    <a\r\n                        href=\"https://www.rodanandfields.com/en-us/shop/redefine-regimen/p/HAAGR\"\r\n                        >Redefine Regimen</a\r\n                    >\r\n                    (an anti-aging favorite for <meta charset=\"utf-8\" />Rodan + Fields\r\n                    customers),\r\n                    <a\r\n                        href=\"https://www.rodanandfields.com/en-us/shop/reverse-regimen/p/HRVRGG01\"\r\n                        >Reverse Regimen </a\r\n                    >(revitalizes and brighten),\r\n                    <a href=\"https://www.rodanandfields.com/en-us/collection/c/soothe\"\r\n                        >Soothe Regimen</a\r\n                    >\r\n                    (revitalies and relieves skin),\r\n                    <a\r\n                        href=\"https://www.rodanandfields.com/en-us/collection/c/unblemish\"\r\n                        >Unblemish Regimen</a\r\n                    >\r\n                    (helps treat acne), and<a\r\n                        href=\"https://www.rodanandfields.com/en-us/shop/recharge-regimen/p/RCRG001\"\r\n                    >\r\n                        Recharge Regimen</a\r\n                    >\r\n                    (focused on revitalizing and protecting your skin).\r\n                    </p>\r\n                    <p>\r\n                    Whether you use the Total RF Serum on its own or in combination\r\n                    with other Rodan + Fields Regimens, you\'ll see some impressive\r\n                    results.\r\n                    </p>\r\n                    <p>\r\n                    As with any active product we recommend patch testing Total RF\r\n                    Serum before applying it full face. Please see instructions on our\r\n                    <a\r\n                        href=\"https://www.rodanandfields.com/en-us/shop/total-rf-serum/p/ENFM030\"\r\n                        data-type=\"URL\"\r\n                        data-id=\"https://www.rodanandfields.com/en-us/shop/total-rf-serum/p/ENFM030\"\r\n                        >website</a>.\r\n                    </p>\r\n                </article><br><br>\r\n            </div>\r\n        </div>', '2022-03-22', '5:45 pm', '<div class=\"headings\">             <a href=\"#img\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">Total RF Serum</a>             <a href=\"#what\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">What It Is</a>             <a href=\"#diff\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">What Makes <br> It Different</a>             <a href=\"#ing\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">Ingredients</a>             <a href=\"#other\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">Other Products</a>         </div>'),
 (5, 'Oily Skin', 'assets/images/others/blog-herbalessentials-1.jpg', 'Herbal Essentials', 'Oily Skin? Here\'s What You Need', 'The Peach & Lily Collection is all about achieving glass skin goals, which means your skin at its healthiest. Healthy skin radiates from within...', '<div class=\"section-header\">\r\n            <h3 id=\"intro\" class=\"text-darkgreen fw-bold\">Oily Skin? Here\'s What You Need</h3><br>\r\n            <p>\r\n                Having oily skin can be super challenging and is quite a\r\n                common skin concern. The extra glow is sometimes welcomed,\r\n                but the breakouts are definitely not. Knowing that you can\r\n                apply as much as makeup but it is all going to wear off\r\n                easily is not a nice feeling too. The enlarged pores have a\r\n                story of their own!\r\n            </p>\r\n            <p>\r\n                Personally, being someone who has struggled with oily skin\r\n                for a while now I relate to all the concerns that come with\r\n                this skin type. Let\'s just agree that trying ALL kinds of\r\n                face packs, skin and beauty hacks does not work. Been there\r\n                done that!\r\n            </p>\r\n            <p>\r\n                Fortunately, with the right skincare products, there are\r\n                ways to maintain oily skin.\r\n            </p><br>\r\n\r\n            <h4 id=\"step1\" class=\"text-darkgreen\"><strong>Step 1: Cleanse in the morning and evening</strong></h4><br>\r\n            <p>\r\n                This is the most important step in your skincare routine -\r\n                if you\'re not properly cleansing your skin everyday, then\r\n                there\'s almost no point to your skincare routine.\r\n            </p>\r\n            <p>\r\n                Even when you feel that your skin is still clean from the\r\n                evening before, you still need to deeply wash your face the\r\n                next morning. Even during the night, your skin is producing\r\n                oils which can contribute to more breakouts.\r\n            </p>\r\n            <p>\r\n                Our Purifying Face Wash is a good option for oily skin\r\n                types. Filled with power ingredients to balance sebum whilst\r\n                removing impurities. The product acts as a deep cleanser and\r\n                does not let the skin strip. Leaving your skin feeling fresh\r\n                and nourished.\r\n            </p>\r\n            <p>Shop <strong><u><a href=\"https://herbal-essentials.com/collections/oily-skin/products/purifying-face-wash\">here</a></u></strong>.</p><br>\r\n\r\n            <a href=\"https://herbal-essentials.com/collections/oily-skin/products/purifying-face-wash\" target=\"_blank\">\r\n                <img width=\"100%\" height=\"500rem\" style=\"object-fit:cover;\" src=\"https://ucarecdn.com/08b45d04-9359-473b-9685-8ff6e274fe0e/-/format/auto/-/preview/3000x3000/-/quality/lighter/Herbal Essentials Product Lifestyle-13.JPG\" alt=\"Purifying Face Wash\" />\r\n            </a><br><br>\r\n\r\n            <h4 id=\"step2\" class=\"text-darkgreen\"><strong>Step 2: Use a toner</strong></h4><br>\r\n            <p>\r\n                Once your skin has been properly cleansed, it\'s a good idea\r\n                to follow this step with a Toner. A toner helps to remove\r\n                any last traces of dirt and impurities that are still stuck\r\n                in your pores.\r\n            </p>\r\n            <p>\r\n                Our Purifying Toner helps to restore your skin\'s PH levels,\r\n                reduce pores and improve skin tone without stripping the\r\n                skin. Welcome radiant & hydrated skin.\r\n            </p>\r\n            <p>Shop <strong><u><a href=\"https://herbal-essentials.com/collections/oily-skin/products/purifying-toner\" class=\"\">here</a></u></strong>.</p><br>\r\n\r\n            <a href=\"https://herbal-essentials.com/collections/oily-skin/products/purifying-toner\" target=\"_blank\">\r\n                <img width=\"100%\" height=\"500rem\" style=\"object-fit:cover;\" src=\"https://ucarecdn.com/6addff97-d478-4ddd-9f37-53f4774d6872/-/format/auto/-/preview/3000x3000/-/quality/lighter/Herbal Essentials Product Lifestyle-11-2.JPG\" alt=\"Refreshing Toner\" />\r\n            </a><br><br>\r\n\r\n            <h4 id=\"step3\" class=\"text-darkgreen\"><strong>Step 3: Moisturise every morning and evening</strong></h4><br>\r\n            <p>\r\n                A lot of people think that if you have oily skin, you don\'t\r\n                need to moisturise. This couldn\'t be further from the truth.\r\n                The important thing to do is make sure that you are using\r\n                the right type of moisturiser for your skin type. We\r\n                recommend using a lightweight and oil-free cream in the\r\n                mornings and evenings.\r\n            </p>\r\n            <p>\r\n                Our Hydra Active Gel is perfect for boosting hydration and\r\n                calming the skin. It\'s a lightweight gel moisturiser that\r\n                quickly absorbs into the skin with clogging pores. Better\r\n                yet, in a recent study, 72% of women found that this\r\n                moisturiser improved the look of blemishes.\r\n            </p>\r\n            <p>Shop <strong><u><a href=\"https://herbal-essentials.com/collections/oily-skin/products/hydra-5-gel\" class=\"\">here</a></u></strong>.</p><br>\r\n\r\n            <a href=\"https://herbal-essentials.com/collections/oily-skin/products/hydra-5-gel\" target=\"_blank\"><img width=\"100%\" height=\"500rem\" style=\"object-fit:cover;\" src=\"https://ucarecdn.com/86631fb0-f89b-487f-9069-de1c0fc860ab/-/format/auto/-/preview/3000x3000/-/quality/lighter/Herbal Essentials Product Lifestyle-7.JPG\" alt=\"Rescue Revive Eye Mask\" /></a><br><br>\r\n\r\n            <p>\r\n                This trio is your one stop solutionto saying a due goodbye\r\n                to unmanageable oily skin. These three power were created to\r\n                support oily-prone complexions, this complete regimen of\r\n                cleanser, toner, and moisturiser will offer the ultimate\r\n                purifying routine.\r\n            </p>\r\n            <p>\r\n                At Herbal Essentials, all our products also include pure\r\n                Himalayan Spring Water so that you can enjoy the numerous\r\n                benefits of water for your skin. Our water is rich in\r\n                natural minerals and antioxidants, including Calcium,\r\n                Magnesium and Potassium, all of which help to support skin\r\n                cell renewal, calm the skin from redness and irritation and\r\n                strengthen the skin barrier.\r\n            </p>\r\n            <p>\r\n                Our clinical trials produced outstanding results and our\r\n                Himalayan water has been shown to increase hydration by up\r\n                to 184%. This, combined with powerful plant-based actives,\r\n                will help you maintain healthy, glowing and confident skin\r\n                all year round.\r\n            </p>\r\n            <p>Check out our full range of products<strong> <u><a href=\"https://herbal-essentials.com/collections/natural-clinically-proven-skincare\" class=\"\">here</a></u></strong>.</p><br><br><br>\r\n        </div>', '2022-02-21', '8:20 am', '<div class=\"headings\">             <a href=\"#intro\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">Introduction</a>             <a href=\"#step1\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">Step 1 - Cleanse</a>             <a href=\"#step2\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">Step 2 - Toner</a>             <a href=\"#step3\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">Step 3 - Moisturise</a>         </div>'),
 (6, 'Brand', 'assets/images/others/blog-innisfree-1.jpg', 'InnisFree', 'Get to know InnisFree and their resources', 'As the days get longer and temperatures rise, many of us are still feeling (and seeing) the negative effects this winter had on our skin: Think that dull, dry look...', '<div class=\"content-blocks\">\r\n            <div id=\"shopify-section-cms--text-brand-1\" class=\"shopify-section\">\r\n                <div class=\"text-blocks text-blocks--dark\">\r\n                    <div class=\"text-block\">\r\n                        <div class=\"text-block__title \">\r\n                            <h3 id=\"intro\" class=\"text-darkgreen fw-bold\"><strong>NATURAL BENEFITS FROM JEJU ISLAND</strong></h3><br>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div id=\"shopify-section-cms--image-brand-1\" class=\"shopify-section\">\r\n                <div class=\"image-blocks image-blocks--padded\">\r\n                    <div class=\"image-block\">\r\n                        <img loading=\"lazy\" width=\"100%\" height=\"500rem\" style=\"object-fit: cover;\" src=\"//cdn.shopify.com/s/files/1/0089/3367/1012/files/img_concept_01_1280x720_crop_center.jpg?v=1565356977\" alt=\"\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div id=\"shopify-section-cms--text-brand-2\" class=\"shopify-section\">\r\n                <div class=\"text-blocks text-blocks--dark\">\r\n                    <div class=\"text-block\">\r\n                        <div class=\"text-block__body\"><br>\r\n                            <p>We offer innovative beauty solutions powered by the finest natural ingredients <br>responsibly sourced from Korea\'s pristine Jeju Island. <br><br>Thanks to its volcanic origins, this fertile oasis has a unique ecosystem with unparalleled resources to nurture beautiful skin. <br><br>Our proprietary extraction methods preserve the purity and potency of these wholesome ingredients from plant to bottle, offering advanced formulas that safely address all skin concerns without the use of harmful chemicals and preservatives. <br><br>With the wonders of nature at the heart of innisfree, we take care to <br>preserve and protect the environment in all that we do</p>\r\n                        </div>\r\n                        <div class=\"text-block__cta\"></div>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n\r\n            <div id=\"shopify-section-cms--text-brand-3\" class=\"shopify-section\">\r\n                <div class=\"text-blocks text-blocks--dark\">\r\n                    <div class=\"text-block\">\r\n                        <div class=\"text-block__title \"><br>\r\n                            <h4 id=\"name\" class=\"fw-bold text-darkgreen\">OUR NAME</h4>\r\n                        </div><br>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n            <div id=\"shopify-section-cms--image-brand-2\" class=\"shopify-section\">\r\n\r\n                <div class=\"image-blocks image-blocks--padded\">\r\n                    <div class=\"image-block\">\r\n                        <img loading=\"lazy\" width=\"100%\" height=\"500rem\" style=\"object-fit: cover;\" src=\"//cdn.shopify.com/s/files/1/0089/3367/1012/files/img_concept_02_1280x720_crop_center.jpg?v=1565356979\" alt=\"\">\r\n                    </div>\r\n\r\n                </div>\r\n            </div>\r\n            <div id=\"shopify-section-cms--text-brand-4\" class=\"shopify-section\">\r\n                <div class=\"text-blocks text-blocks--dark\">\r\n                    <div class=\"text-block\">\r\n                        <div class=\"text-block__body\"><br>\r\n                            <p>Our name is inspired by \'William Butler Yeats\' <em>The Lake Isle of innisfree</em>, a lyrical poem that expresses a longing to leave behind urban life for a beautiful peaceful island, where you can enjoy the fruits of nature\'s abundance. Just like Jeju. <br><br>Jeju Island is a unique oasis that offers a sensorial escape from the fast-paced daily life and a rejuvenating moment to nurture healthy skin in perfect harmony with nature.</p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n\r\n            <div id=\"shopify-section-cms--text-brand-5\" class=\"shopify-section\">\r\n                <div class=\"text-blocks text-blocks--dark\">\r\n                    <div class=\"text-block\">\r\n                        <div class=\"text-block__title \"><br>\r\n                            <h4 id=\"pledges\" class=\"fw-bold text-darkgreen\">OUR PLEDGES</h4>\r\n                        </div><br>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n            <div id=\"shopify-section-cms--image-brand-3\" class=\"shopify-section\">\r\n\r\n                <div class=\"image-blocks image-blocks--padded\">\r\n                    <div class=\"image-block\">\r\n                        <img loading=\"lazy\" width=\"100%\" height=\"500rem\" style=\"object-fit: cover;\" src=\"//cdn.shopify.com/s/files/1/0089/3367/1012/files/img_concept_03_1280x720_crop_center.jpg?v=1565356977\" alt=\"\">\r\n                    </div><br>\r\n                </div>\r\n            </div>\r\n            <div id=\"shopify-section-cms--text-brand-6\" class=\"shopify-section\">\r\n                <div class=\"text-blocks-pledge\">\r\n                    <div class=\"text-block\">\r\n                        <div class=\"text-block__body\">\r\n                            <p>1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n                            <p>Promote healthy-looking skin with sustainably-sourced ingredients from Jeju Island</p>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"text-block\">\r\n                        <div class=\"text-block__body\">\r\n                            <p>2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n                            <p>Provide innovative and reasonably-priced skin care solutions for all skin types and concerns</p>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"text-block\">\r\n                        <div class=\"text-block__body\">\r\n                            <p>3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n                            <p>Offer a sensorial escape through the wonders of Jeju Island</p>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"text-block\">\r\n                        <div class=\"text-block__body\">\r\n                            <p>4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n                            <p>Preserve and protect nature\'s vitality through eco-conscious initiatives</p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div><br><br><br>\r\n        </div>', '2022-05-01', '7:15 am', '<div class=\"headings\">             <a href=\"#intro\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">Introduction</a>             <a href=\"#name\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">Our Name</a>             <a href=\"#pledges\" id=\"heading\" style=\"display: block !important; margin-top: .5rem; padding-left: 2rem;\">Our Pledges</a>         </div>');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cart`
---
-
-DROP TABLE IF EXISTS `cart`;
-CREATE TABLE IF NOT EXISTS `cart` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cart_items_id` int(11) NOT NULL,
-  `status` varchar(25) NOT NULL,
-  `added_on` date NOT NULL,
-  `expired_on` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `cart_items_fk` (`cart_items_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cart_items`
---
-
-DROP TABLE IF EXISTS `cart_items`;
-CREATE TABLE IF NOT EXISTS `cart_items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `discount` int(11) NOT NULL,
-  `total_cost` decimal(10,0) NOT NULL,
-  `added_on` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `product_cart_items_fk` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -176,15 +150,54 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `cart_id` int(11) NOT NULL,
+  `address_id` int(11) NOT NULL,
+  `payment_method` varchar(25) NOT NULL,
+  `shipping_fee` decimal(11,0) NOT NULL,
+  `total` decimal(11,0) NOT NULL,
+  `subtotal` decimal(10,0) NOT NULL,
+  `num_items` int(11) NOT NULL,
   `ordered_on` date NOT NULL,
-  `shipped_on` date NOT NULL,
-  `num_orders` int(11) NOT NULL,
-  `status` varchar(25) NOT NULL,
+  `order_status` varchar(25) NOT NULL,
+  `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_order_fk` (`user_id`),
-  KEY `cart_order_fk` (`cart_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `address_order_fk` (`address_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `address_id`, `payment_method`, `shipping_fee`, `total`, `subtotal`, `num_items`, `ordered_on`, `order_status`, `image`) VALUES
+(1, 2, 1, '6789', '0', '62', '62', 4, '2022-05-21', 'Confirmed', 'assets/images/products/cleanser/peach-peach_lily-1.png'),
+(2, 2, 1, '6789', '8', '45', '37', 1, '2022-05-21', 'Confirmed', 'assets/images/products/serum_essence/active-rodan+fields-1.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_items`
+--
+
+DROP TABLE IF EXISTS `order_items`;
+CREATE TABLE IF NOT EXISTS `order_items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `size` varchar(25) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `subtotal` decimal(10,0) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `name`, `size`, `quantity`, `subtotal`) VALUES
+(1, 1, 'Peach Slices Acne Clarifying Cleanser', '20 mL', 2, '4'),
+(2, 1, 'Active Hydration Serum', '10 mL', 1, '37'),
+(3, 1, '9 Solutions Serum', '15 mL', 1, '21'),
+(4, 2, 'Active Hydration Serum', '10 mL', 1, '37');
 
 -- --------------------------------------------------------
 
@@ -196,17 +209,20 @@ DROP TABLE IF EXISTS `payments`;
 CREATE TABLE IF NOT EXISTS `payments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `address_id` int(11) NOT NULL,
-  `created_at` date NOT NULL,
-  `amount` int(11) NOT NULL,
-  `currency` varchar(25) NOT NULL,
-  `verified_token` varchar(100) NOT NULL,
+  `name_on_card` varchar(255) NOT NULL,
+  `card_number` varchar(50) NOT NULL,
+  `added_at` date NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `user_payment_fk` (`user_id`),
-  KEY `order_payment_fk` (`order_id`),
-  KEY `address_order_fk` (`address_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `user_payment_fk` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `user_id`, `name_on_card`, `card_number`, `added_at`) VALUES
+(1, 2, 'awiwa lawuwe', '6789', '2022-05-21'),
+(2, 2, 'awiwa lawuwe', '6789', '2022-05-21');
 
 -- --------------------------------------------------------
 
@@ -291,11 +307,11 @@ INSERT INTO `products` (`id`, `category_id`, `key_ingredient_id`, `skin_concern_
 (42, 6, 9, 2, 'UNBLEMISH Clarifying Mask', 'http://www.cosdna.com/eng/cosmetic_fa0c511828.html', 'Unmask clear skin. Our blemish-fighting mask instantly reduces excessive oil + shine and helps prevent new pimples from forming.', 'All', 'Pore Solutions', 'Masks', 'Rodan+Fields', 'Oat Bran extract', 0, 0, '60', '{\"prices\": {\"price1\": \"12.00\", \"price2\": \"18.00\", \"price3\": \"24.00\"}}', '{\"images\": {\"image1\": \"assets/images/products/masks/unblemish-rodan+fields-1.png\", \"image2\": \"assets/images/products/masks/unblemish-rodan+fields-2.jpg\", \"image3\": \"assets/images/products/masks/unblemish-rodan+fields-3.jpg\"}}', 0, 0, 0),
 (43, 6, 8, 1, 'Gentle Renewal Scrub with Sunflower Seed Oil & Kaolin', '#', 'This is a gentle and effective natural facial scrub containing natural exfoliants & oil-absorbing Kaolin clay to slough away dead skin, revealing a visibly fresh, smooth complexion.', 'Sensitive', 'Hydration', 'Masks', 'Herbal Essentials', 'Walnut Shell Powder', 0, 0, '12', '{\"prices\": {\"price1\": \"4.00\", \"price2\": \"6.00\", \"price3\": \"8.00\"}}', '{\"images\": {\"image1\": \"assets/images/products/masks/gentle-herbalessentials-1.png\", \"image2\": \"assets/images/products/masks/gentle-herbalessentials-2.jpg\", \"image3\": \"assets/images/products/masks/gentle-herbalessentials-3.jpg\", \"image4\": \"assets/images/products/masks/gentle-herbalessentials-4.jpg\"}}', 0, 0, 0),
 (44, 6, 5, 2, 'AC Clean Up Pink Powder Mask', 'https://www.cosdna.com/eng/cosmetic_3ce3557549.html', 'This smooth cream-type mud pack with Calamine removes sebum and help moisturizing the skin.', 'All', 'Pore Solutions', 'Masks', 'Etude', 'Tea Tree', 0, 0, '18', '{\"prices\": {\"price1\": \"1.56\", \"price2\": \"2.34\", \"price3\": \"3.12\"}}', '{\"images\": {\"image1\": \"assets/images/products/masks/ac-etude-1.png\", \"image2\": \"assets/images/products/masks/ac-etude-2.jpg\", \"image3\": \"assets/images/products/masks/ac-etude-3.jpg\", \"image4\": \"assets/images/products/masks/ac-etude-4.jpg\", \"image5\": \"assets/images/products/masks/ac-etude-5.jpg\"}}', 0, 0, 0),
-(45, 1, 5, 2, 'Oily Skin Bundle', '', 'Oily skin is one of the most common skin concerns. It presents some unique challenges, like a shiny complexion and acne breakouts. The good news? With the right skincare routine and products, these issues can be less of a problem.', 'Oily', 'Pore Solutions', 'Bundles', '', '', 0, 0, '25', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/oily-bundle.jpg\", \"image2\": \"assets/images/products/bundles/oily-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/oily-masks.jpg\", \"image4\": \"assets/images/products/bundles/oily-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/oily-serum.jpg\", \"image6\": \"assets/images/products/bundles/oily-toner.jpg\"}}', 0, 0, 0),
-(46, 1, 1, 1, 'Dry Skin Bundle', '', 'Dealing with dry, dehydrated skin? Don’t despair. There’s a skin care routine for that! Maybe your skin feels tight, scaly, flaky, or a combination of all three. We’ve got you covered with products that leave your skin happy, hydrated, and glowing.', 'Dry', 'Hydration', 'Bundles', '', '', 0, 0, '35', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/dry-bundle.jpg\", \"image2\": \"assets/images/products/bundles/dry-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/dry-masks.jpg\", \"image4\": \"assets/images/products/bundles/dry-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/dry-serum.jpg\", \"image6\": \"assets/images/products/bundles/dry-toner.jpg\"}}', 0, 0, 0),
-(50, 1, 8, 5, 'Sensitive Skin Bundle', '', 'Sensitive skin is tough. Finding products that won\'t cause breakouts, redness, or discomfort is tough and we know what it\'s like. When we\'re dealing with irritation or skin sensitivity, these are the products we rely on.', 'Sensitive', 'Sensitive Skin', 'Bundles', '', '', 0, 0, '30', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/sensitive-bundle.jpg\", \"image2\": \"assets/images/products/bundles/sensitive-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/sensitive-masks.jpg\", \"image4\": \"assets/images/products/bundles/sensitive-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/sensitive-serum.jpg\", \"image6\": \"assets/images/products/bundles/sensitive-toner.jpg\"}}', 0, 0, 0),
-(51, 1, 3, 1, 'Hydration Bundle', '', 'Dealing with hydration problems? Well moisturizing your skin once a day won\'t necessarily cut it. A solid skincare routine that provides your skin with the hydration it needs requires more than just a moisturizer. Check out these products for a fast solution!', 'Dry', 'Hydration', 'Bundles', '', '', 0, 0, '40', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/hydration-bundle.jpg\", \"image2\": \"assets/images/products/bundles/hydration-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/hydration-masks.jpg\", \"image4\": \"assets/images/products/bundles/hydration-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/hydration-serum.jpg\", \"image6\": \"assets/images/products/bundles/hydration-toner.jpg\"}}', 0, 0, 0),
-(52, 1, 9, 2, 'Acne-Prone Bundle', '', 'Caring for acne-prone skin is about more than just applying blemish-busting products. It can involve lifestyle changes, too — the first of which is often a new and improved skincare routine. Try out these products for the best acne solution!', 'All', 'Pore Solutions', 'Bundles', '', '', 0, 0, '30', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/acne-bundle.jpg\", \"image2\": \"assets/images/products/bundles/acne-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/acne-masks.jpg\", \"image4\": \"assets/images/products/bundles/acne-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/acne-serum.jpg\", \"image6\": \"assets/images/products/bundles/acne-toner.jpg\"}}', 0, 0, 0);
+(45, 1, 5, 2, 'Oily Skin Bundle', '', 'Oily skin is one of the most common skin concerns. It presents some unique challenges, like a shiny complexion and acne breakouts. The good news? With the right skincare routine and products, these issues can be less of a problem.', 'Oily', 'Pore Solutions', 'Bundles', '', '', 0, 0, '25', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/Bundles/oily-bundle.png\", \"image2\": \"assets/images/products/bundles/oily-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/oily-masks.jpg\", \"image4\": \"assets/images/products/bundles/oily-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/oily-serum.jpg\", \"image6\": \"assets/images/products/bundles/oily-toner.jpg\"}}', 0, 0, 0),
+(46, 1, 1, 1, 'Dry Skin Bundle', '', 'Dealing with dry, dehydrated skin? Don’t despair. There’s a skin care routine for that! Maybe your skin feels tight, scaly, flaky, or a combination of all three. We’ve got you covered with products that leave your skin happy, hydrated, and glowing.', 'Dry', 'Hydration', 'Bundles', '', '', 0, 0, '35', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/Bundles/dry-bundle.png\", \"image2\": \"assets/images/products/bundles/dry-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/dry-masks.jpg\", \"image4\": \"assets/images/products/bundles/dry-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/dry-serum.jpg\", \"image6\": \"assets/images/products/bundles/dry-toner.jpg\"}}', 0, 0, 0),
+(50, 1, 8, 5, 'Sensitive Skin Bundle', '', 'Sensitive skin is tough. Finding products that won\'t cause breakouts, redness, or discomfort is tough and we know what it\'s like. When we\'re dealing with irritation or skin sensitivity, these are the products we rely on.', 'Sensitive', 'Sensitive Skin', 'Bundles', '', '', 0, 0, '30', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/Bundles/sensitive-bundle.png\", \"image2\": \"assets/images/products/bundles/sensitive-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/sensitive-masks.jpg\", \"image4\": \"assets/images/products/bundles/sensitive-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/sensitive-serum.jpg\", \"image6\": \"assets/images/products/bundles/sensitive-toner.jpg\"}}', 0, 0, 0),
+(51, 1, 3, 1, 'Hydration Bundle', '', 'Dealing with hydration problems? Well moisturizing your skin once a day won\'t necessarily cut it. A solid skincare routine that provides your skin with the hydration it needs requires more than just a moisturizer. Check out these products for a fast solution!', 'Dry', 'Hydration', 'Bundles', '', '', 0, 0, '40', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/Bundles/hydration-bundle.png\", \"image2\": \"assets/images/products/bundles/hydration-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/hydration-masks.jpg\", \"image4\": \"assets/images/products/bundles/hydration-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/hydration-serum.jpg\", \"image6\": \"assets/images/products/bundles/hydration-toner.jpg\"}}', 0, 0, 0),
+(52, 1, 9, 2, 'Acne-Prone Bundle', '', 'Caring for acne-prone skin is about more than just applying blemish-busting products. It can involve lifestyle changes, too — the first of which is often a new and improved skincare routine. Try out these products for the best acne solution!', 'All', 'Pore Solutions', 'Bundles', '', '', 0, 0, '30', '0', '{\"images\": {\"image1\": \"assets/images/products/bundles/Bundles/acne-bundle.png\", \"image2\": \"assets/images/products/bundles/acne-cleanser.jpg\", \"image3\": \"assets/images/products/bundles/acne-masks.jpg\", \"image4\": \"assets/images/products/bundles/acne-moisturizer.jpg\", \"image5\": \"assets/images/products/bundles/acne-serum.jpg\", \"image6\": \"assets/images/products/bundles/acne-toner.jpg\"}}', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -377,7 +393,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `encrypted_pass`, `first_name`, `last_name`, `gender`, `age_range`, `email`, `skin_type`, `skin_concern`, `points`, `num_wishlist`, `registered_on`, `profile_img`) VALUES
 (1, 'sjunseiawal', '96e79218965eb72c92a549dd5a330112', 'Sjunsei', 'Awal', '', '', 'sjunseiawal@email.com', 'Oily', 'Age Prevention', 0, 2, '2022-04-21', 'assets/images/profile_pics/default.png'),
-(2, 'akilahlapure', 'e10adc3949ba59abbe56e057f20f883e', 'Akilah', 'Lapure', 'Female', '18-24 years old', 'akilah.lapure@gmail.com', 'Combination', 'Hydration', 0, 2, '2022-05-20', '../../assets/images/website/placeholder/pp_placeholder.png'),
+(2, 'akilahlapure', 'e10adc3949ba59abbe56e057f20f883e', 'Akilah', 'Lapure', 'Female', '18-24 years old', 'akilah.lapure@gmail.com', 'Combination', 'Hydration', 10, 3, '2022-05-20', '../../assets/images/website/placeholder/pp_placeholder.png'),
 (3, 'waawee', 'b6c1c2ed7463f81431b8602eab8336ee', 'waa', 'wee', '', '', 'wii@email.com', 'Sensitive', 'Troubled Skin', 0, 0, '2022-05-20', '../../assets/images/website/placeholder/pp_placeholder.png');
 
 -- --------------------------------------------------------
@@ -395,7 +411,7 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
   PRIMARY KEY (`id`),
   KEY `product_wishlist_fk` (`product_id`),
   KEY `user_wishlist_fk` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `wishlist`
@@ -405,7 +421,8 @@ INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
 (3, 1, 34, '2022-05-16'),
 (5, 1, 11, '2022-05-17'),
 (7, 2, 32, '2022-05-20'),
-(8, 2, 24, '2022-05-20');
+(8, 2, 24, '2022-05-20'),
+(9, 2, 51, '2022-05-22');
 
 --
 -- Constraints for dumped tables
@@ -418,30 +435,16 @@ ALTER TABLE `addresses`
   ADD CONSTRAINT `user_address_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_items_fk` FOREIGN KEY (`cart_items_id`) REFERENCES `cart_items` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `cart_items`
---
-ALTER TABLE `cart_items`
-  ADD CONSTRAINT `product_cart_items_fk` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `cart_order_fk` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`),
+  ADD CONSTRAINT `address_order_fk` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_order_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `payments`
 --
 ALTER TABLE `payments`
-  ADD CONSTRAINT `address_order_fk` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `order_payment_fk` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_payment_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

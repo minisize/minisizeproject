@@ -1,7 +1,8 @@
-.products-header{
+.products-header {
   position: absolute;
-  top: 50%;
-  transform: translate(-25%, -25%);
+  top: 45%;
+  -webkit-transform: translate(-25%, -25%);
+          transform: translate(-25%, -25%);
 }
 
 .product-img {
@@ -15,6 +16,7 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0);
+  -webkit-transition: background 0.5s ease;
   transition: background 0.5s ease;
 }
 
@@ -30,8 +32,10 @@
   left: 50%;
   top: 50%;
   opacity: 0;
+  -webkit-transition: opacity 0.35s ease;
   transition: opacity 0.35s ease;
-  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   background-color: white;
   border: 2px solid;
   z-index: 1;
@@ -41,14 +45,48 @@
   opacity: 1;
 }
 
+.product-carousel .carousel-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  z-index: 10;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.product-carousel .carousel-controls .carousel-indicators {
+  position: relative;
+  margin: 0;
+}
+
+.product-carousel .carousel-controls .carousel-indicators li {
+  height: 3rem;
+  width: 3rem;
+  margin: 0 5px;
+  background-position: center;
+  background-size: cover;
+}
+
+.product-carousel .carousel-control-prev,
+.product-carousel .carousel-control-next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  padding-bottom: 3rem;
+}
+
 /* ************************ */
 .price-btn label {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 5px;
 }
 
 .price-btn label img {
-  width: 4rem;
+  max-width: 4rem;
+  max-height: 4rem;
 }
 
 .price-btn input[type="radio"] {
@@ -56,14 +94,13 @@
   z-index: 100;
 }
 
-.price-btn input[type="radio"]:checked + label{
+.price-btn input[type="radio"]:checked + label {
   cursor: pointer;
-  background: #F5D1C3;
+  background: #f5d1c3;
   border-radius: 5px;
 }
 
 /* ************************ */
-
 .nav-pills .nav-link {
   color: black;
   background: none;
@@ -74,6 +111,7 @@
 .nav-pills .show > .nav-link {
   color: black;
   background: none;
-  border-bottom: 2px solid #F0BC68;
+  border-bottom: 2px solid #f0bc68;
   border-radius: 0;
 }
+/*# sourceMappingURL=products-style.css.map */

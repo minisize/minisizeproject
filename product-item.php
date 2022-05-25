@@ -38,6 +38,7 @@
         $itemName = $_POST['item'];
         $size = $_POST['size'];
         $price = $_POST['price'];
+        $img = $product_obj->getProductImage($itemID);
 
         if(isset($_SESSION['cart'])){
             $checkForItem = array_column($_SESSION['cart'], 'item_name');
@@ -48,13 +49,13 @@
 
             } else {
                 $count = count($_SESSION['cart']);
-                $_SESSION['cart'][$count]=array('item_name'=>$itemName, 'item_size'=>$size, 'item_price'=>$price, 'quantity'=>1);
+                $_SESSION['cart'][$count]=array('item_name'=>$itemName, 'item_size'=>$size, 'item_price'=>$price, 'quantity'=>1, 'image'=>$img);
 
                 echo "<script>alert('Product Added');</script>";
             }
             
         } else {
-            $_SESSION['cart'][0]=array('item_name'=>$itemName, 'item_size'=>$size, 'item_price'=>$price, 'quantity'=>1);
+            $_SESSION['cart'][0]=array('item_name'=>$itemName, 'item_size'=>$size, 'item_price'=>$price, 'quantity'=>1, 'image'=>$img);
 
             echo "<script>alert('Product Added');</script>";
 

@@ -26,6 +26,16 @@
   background-color: #C4D7D1;
 }
 
+.top-background .nav-item {
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 1.5rem;
+}
+
+.top-background .dropdown-item {
+  font-family: 'Josefin Sans', sans-serif !important;
+  font-size: 1rem;
+}
+
 a {
   text-decoration: none;
   color: black;
