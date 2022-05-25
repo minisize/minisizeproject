@@ -16,12 +16,12 @@
             </div>
             <div class="category-nav">
                 <h1 class="row fw-bold text-darkgreen">Category</h3>
-                    <a href="" class="row">Bundles</a>
-                    <a href="" class="row">Moisterizer</a>
-                    <a href="" class="row">Toners</a>
-                    <a href="" class="row">Serum & Essence</a>
-                    <a href="" class="row">Cleanser</a>
-                    <a href="" class="row">Masks</a>
+                    <a href="#Bundles" class="row">Bundles</a>
+                    <a href="#Cleanser" class="row">Cleanser</a>
+                    <a href="#Toner" class="row">Toners</a>
+                    <a href="#Serum & Essence" class="row">Serum & Essence</a>
+                    <a href="#Moisturizer" class="row">Moisturizer</a>
+                    <a href="#Masks" class="row">Masks</a>
             </div>
         </div>
 
@@ -34,11 +34,11 @@
                         $name = $row["name"];
                         $desc = $row["short_description"];
                         
-                        echo "<div class='container row mt-4'>
-                                <div class='col-3 border-bottom'>
+                        echo "<div id='$name' class='container row mt-4 border-bottom'>
+                                <div class='type col-3'>
                                     <h3 class='text-darkgreen'><strong>$name</strong></h3>
                                     <p>$desc</p>
-                                    <a href='products.php?category_id=$id' class='btn btn-primary fw-bold text-light px-4'>View All</a>
+                                    <a href='products.php?category_id=$id' class='btn btn-primary fw-bold text-light px-4 mb-4'>View All</a>
                                 </div>";
 
                         $productsDataQuery = "SELECT * FROM products WHERE category_id = '$id' LIMIT 3";
@@ -65,7 +65,7 @@
                                 $item = "<p><strong>$name</strong> <br>By $brand</p>";
                             }
 
-                            echo "<div class='col d-flex flex-column justify-content-between border-bottom'>
+                            echo "<div class='products col d-flex flex-column justify-content-between'>
                                     <div>
                                         <img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-2'>
                                         $item

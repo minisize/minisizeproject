@@ -36,4 +36,30 @@
 .categories a {
   font-family: 'Josefin Sans', sans-serif;
 }
+
+@media screen and (min-width: 0px) and (max-width: 576px) {
+  .categories {
+    margin: 0 1rem;
+  }
+  .categories .container {
+    padding: 0 2rem;
+  }
+  .categories .products {
+    -webkit-box-flex: 1;
+        -ms-flex: auto;
+            flex: auto;
+  }
+  .categories .products .product-img {
+    height: 30vh;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .categories .type {
+    width: 100%;
+  }
+  .categories .type h3 {
+    font-size: 2rem;
+  }
+}
 /*# sourceMappingURL=category.css.map */
