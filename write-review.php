@@ -17,41 +17,49 @@
         $body = $_POST["body"];
 
         $rev_img = array_filter($_FILES['rev_img']['name']);
-        $total_img = count($_FILES["rev_img"]["name"]);
+        $total_img = count($_FILES["rev_img"]["name"]); 
         $rev_img_json = ""; //json string
 
-        if($total_img <= 5){
-            $rev_img_json = '{"images": {';
-            $comma_count = $total_img - 1;
-            for($i = 0; $i < $total_img ; $i++){
-                $dir = "assets/images/reviews/"; //new file path
-                $file_path = $_FILES['rev_img']['name'][$i]; //get current file path
-                $new_file_path = $dir . uniqid() . basename($file_path); //make unique file name
-
-                $rev_img_json .= '"image'.$i.'": "'.$new_file_path; //append to json string
-
-                if($i != $comma_count){
-                    $rev_img_json .= '",'; 
-                } else{
-                    $rev_img_json .= '"'; //format for last image in json
-                }
-                
-                // array_replace($_FILES['rev_img']['name'][$i],$new_file_path);
-                
-                if(move_uploaded_file($_FILES['rev_img']['tmp_name'][$i], $new_file_path)){
-                    //post okay to upload
-                    // echo "image uplaod to dir";
+        if(empty($rev_img)){ //when no images submitted
+            echo "img array empty";
+            $rev_img_json = "null";
+        }else{
+            if($total_img <= 5 && $total_img > 0){
+                echo "appending images to json";
+                $rev_img_json = '{"images": {';
+                $comma_count = $total_img - 1;
+                for($i = 0; $i < $total_img ; $i++){
                     
-                }else{
-                    //post not uploadable
-                    // echo "image not uplaod to dir";
+                    $dir = "assets/images/reviews/"; //new file path
+                    $file_path = $_FILES['rev_img']['name'][$i]; //get current file path
+                    $new_file_path = $dir . uniqid() . basename($file_path); //make unique file name
+
+                    $rev_img_json .= '"image'.$i.'": "'.$new_file_path; //append to json string
+
+                    if($i != $comma_count){
+                        $rev_img_json .= '",'; 
+                    } else{
+                        $rev_img_json .= '"'; //format for last image in json
+                    }
+                    
+                    // array_replace($_FILES['rev_img']['name'][$i],$new_file_path);
+                    
+                    if(move_uploaded_file($_FILES['rev_img']['tmp_name'][$i], $new_file_path)){
+                        //post okay to upload
+                        // echo "image uplaod to dir";
+                        
+                    }else{
+                        //post not uploadable
+                        // echo "image not uplaod to dir";
+                    }
                 }
+                $rev_img_json .= '}}'; //enclosing json string
+            }else if($total_img > 5){   
+                $valid = 0;
+                echo "too many images";
             }
-            $rev_img_json .= '}}'; //enclosing json string
-        }else if($total_img > 5){   
-            $valid = 0;
-            echo "too many images";
         }
+            
 
         if($valid){
             $query = "INSERT INTO reviews (product_id, user_id, title, body, rating, timestamp, images) VALUES ('$itemID', '$userLoggedIn', '$title','$body','$rating','$current_date','$rev_img_json')";
@@ -59,8 +67,7 @@
             if(mysqli_query($connect,$query)){
                 mysqli_query($connect,"UPDATE products SET num_reviews = num_reviews + 1 WHERE id = $itemID");
                 // echo "|| write-review successful! ";
-                
-                header("Location: product-item.php?id=$itemID");
+                // header("Location: product-item.php?id=$itemID");
             }else{
                 echo "|| write-review unsuccessful!";
                 echo mysqli_error($connect);
