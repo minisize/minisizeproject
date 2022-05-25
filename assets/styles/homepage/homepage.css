@@ -88,6 +88,10 @@
   z-index: -1;
 }
 
+.homepage-head-description {
+  font-size: 1vw;
+}
+
 .homepage-bg-head {
   position: absolute;
   left: 0;
@@ -104,6 +108,20 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .content {
+    font-family: 'Playfair Display', serif;
+  }
+  .content h5 {
+    font-size: 2.25rem;
+    font-family: 'Playfair Display', serif;
+  }
+  .content p {
+    font-size: 1.75rem;
+    font-family: 'Playfair Display', serif;
+  }
+  .homepage-head-description {
+    font-size: 3.25vw;
+  }
   .skin-type-product-buttons h2 {
     font-size: 5vw;
   }
@@ -111,6 +129,20 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .content {
+    font-family: 'Playfair Display', serif;
+  }
+  .content h5 {
+    font-size: 2.25rem;
+    font-family: 'Playfair Display', serif;
+  }
+  .content p {
+    font-size: 1.75rem;
+    font-family: 'Playfair Display', serif;
+  }
+  .homepage-head-description {
+    font-size: 2vw;
+  }
   .skin-type-product-buttons h2 {
     font-size: 3vw;
   }
@@ -136,6 +168,9 @@
     font-size: 1.75rem;
     font-family: 'Playfair Display', serif;
   }
+  .homepage-head-description {
+    font-size: 1.75vw;
+  }
   .skin-type-product-buttons h2 {
     font-size: 3.75vw;
   }
@@ -148,6 +183,9 @@
   }
   .skin-type-product-buttons h2 {
     font-size: 2.5vw;
+  }
+  .homepage-head-description {
+    font-size: 1vw;
   }
 }
 /*# sourceMappingURL=homepage.css.map */

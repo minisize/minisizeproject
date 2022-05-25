@@ -18,7 +18,7 @@ $Home_funct = new Home_functions($connect);
             <div class="col-3 minisize-head-img" style="background-image: url(assets/images/others/index-bg-image.png);"></div>
             <div class="col-9 ">
                 <h1 class="text-center text-capitalize"> MiniSize </h1>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <p class="homepage-head-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
@@ -93,7 +93,7 @@ $Home_funct = new Home_functions($connect);
             </div>
             <div class="col position-relative footer-category-btns">
                 <a href="products.php?category_id=1">
-                    <button class="btn-bg border-0 skin-type-product-buttons position-relative" style="background-image: url(assets/products/bundles/Bundles/acne-bundle.png); background-size: cover; ">
+                    <button class="btn-bg border-0 skin-type-product-buttons position-relative" style="background-image: url(assets/images/products/bundles/Bundles/acne-bundle.png); background-size: fill; ">
                         <div class="product-buttons-effect"></div>
                         <h2> Combination </h2>
                     </button>
