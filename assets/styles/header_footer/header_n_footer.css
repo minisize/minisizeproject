@@ -1,26 +1,15 @@
-.sub-nav-item-dropdown {
-  width: 30vw;
-}
-
-.nav-item-dropdown {
-  text-align: justify;
-  -ms-flex-line-pack: center;
-      align-content: center;
-}
-
 .nav-item-dropdown:hover > .dropdown-menu {
   display: block;
 }
 
-.main-nav-item {
-  width: 10vw;
-  text-align: center;
-}
-
 .dropdown-menu {
   padding: 0;
+<<<<<<< HEAD
   background-color: #f7f3f0;
   text-align: center;
+=======
+  background-color: #F7F3F0;
+>>>>>>> parent of 131e4d0 (update header.css)
   width: 100%;
   left: 0;
 }
@@ -35,26 +24,27 @@
   display: inline-block;
 }
 
+<<<<<<< HEAD
 .sub-dropdown-item {
   height: auto;
   width: 250px;
   word-wrap: break-word;
 }
 
+=======
+>>>>>>> parent of 131e4d0 (update header.css)
 .sub-menu {
-  background-color: #c4d7d1;
+  background-color: #C4D7D1;
 }
 
 .top-background .nav-item {
-  font-family: "Playfair Display", sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   font-size: 1.5rem;
 }
 
 .top-background .dropdown-item {
-  font-family: "Josefin Sans", sans-serif !important;
+  font-family: 'Josefin Sans', sans-serif !important;
   font-size: 1rem;
-  padding: 15vh 0vw;
-  text-align: center;
 }
 
 a {
@@ -94,9 +84,7 @@ footer .footer-wrap button {
   background-color: rgba(0, 0, 0, 0);
 }
 
-footer .footer-wrap h5,
-footer .footer-wrap h6,
-footer .footer-wrap label {
+footer .footer-wrap h5, footer .footer-wrap h6, footer .footer-wrap label {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;

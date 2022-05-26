@@ -1,8 +1,7 @@
 //This Section is for the Header SCSS
-.sub-nav-item-dropdown {
-  width: 30vw;
-}
+
 .nav-item-dropdown {
+<<<<<<< HEAD
   text-align: justify;
   align-content: center;
 
@@ -29,64 +28,85 @@
     li {
       list-style-type: none;
       display: inline-block;
+=======
+    
+    &:hover > .dropdown-menu {
+      display: block;
+>>>>>>> parent of 131e4d0 (update header.css)
     }
-  }
 }
 
+<<<<<<< HEAD
 
 .sub-dropdown-item {
   height: auto;
   width: 250px;
   word-wrap: break-word
+=======
+.dropdown-menu{
+    padding: 0;
+    background-color: #F7F3F0;
+    width: 100%;
+    left: 0;
+
+    ul{
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            list-style: none;
+            display: inline;
+        }
+    }
+>>>>>>> parent of 131e4d0 (update header.css)
 }
-.sub-menu {
-  background-color: #c4d7d1;
+
+.sub-menu{
+    background-color: #C4D7D1;
 }
 
 .top-background {
-  .nav-item {
-    font-family: "Playfair Display", sans-serif;
-    font-size: 1.5rem;
-  }
-  .dropdown-item {
-    font-family: "Josefin Sans", sans-serif !important;
-    font-size: 1rem;
-    padding: 15vh 0vw;
-    text-align: center;
-  }
+    .nav-item {
+        font-family: 'Playfair Display', sans-serif;
+        font-size: 1.5rem;
+    }
+    .dropdown-item {
+        font-family: 'Josefin Sans', sans-serif !important;
+        font-size: 1rem;
+    }
 }
 
 a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
+
+
 
 //This Section is for the Footer SCSS
 
-footer {
-  display: flex;
-  padding: 0vh 2vw;
-  flex-direction: row;
-  justify-content: space-between;
-
-  .footer-wrap {
+footer{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 0vh 2vw;
+    flex-direction: row;
+    justify-content: space-between;
 
-    button {
-      border-style: none;
-      background-color: rgba($color: #000000, $alpha: 0);
-    }
+    .footer-wrap{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-    h5,
-    h6,
-    label {
-      align-self: center;
-    }
+        button{
+            border-style: none;
+            background-color: rgba($color: #000000, $alpha: 0);
+        }
 
-    h5 {
-      font-weight: 600;
+        h5, h6, label {
+            align-self: center;
+        }
+
+        h5 {
+            font-weight: 600;
+        }
     }
-  }
 }
