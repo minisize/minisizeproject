@@ -43,6 +43,8 @@
         <div class="d-flex align-items-center">
             <img src="assets/images/website/logo/logo.png" alt="Minisize Logo" width="50">
             <h4 class="mx-2">Minisize</h4>
+            <!-- Error message for invalid login -->
+            <?php if (in_array("Email or password is incorrect.", $errorListLogin)) echo "<p class='alert alert-danger mb-0 mx-2 p-2' data-toggle='tooltip' data-placement='right'>Email or password is incorrect.</p>" ?>
         </div>
     </header>
 

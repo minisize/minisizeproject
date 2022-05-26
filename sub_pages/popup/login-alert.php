@@ -14,7 +14,7 @@
                 <div class="buttons w-100 text-center">
                     <a href="login.php" class="btn btn-primary form-control mb-2">Log In</a> 
                     <br>
-                    <a href="registration.php" class="link-primary">Create an account</a>
+                    <a href="signup.php" class="link-primary">Create an account</a>
                 </div>
 
             </div>

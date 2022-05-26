@@ -98,8 +98,6 @@
             }
 
         } else {
-            echo "fail";
-
             // Clear session variables
             $_SESSION['sign_up_fname'] = ""; 
             $_SESSION['sign_up_lname'] = ""; 

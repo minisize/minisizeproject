@@ -27,6 +27,8 @@
             exit();
         }
         else {
+            //Error message
+			array_push($errorListLogin, "Email or password is incorrect."); 
             // clear session variable
             $_SESSION['login_email'] = "";
         }
