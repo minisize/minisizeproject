@@ -75,13 +75,15 @@ require 'includes/handlers/signup-handler.php';
         <div class="d-flex align-items-center">
             <img src="assets/images/website/logo/logo.png" alt="Minisize Logo" width="50">
             <h4 class="mx-2">Minisize</h4>
+            <!-- Error message -->
+            <?php if (in_array("Email already in use.", $errorListRegister)) echo "<p class='alert alert-danger mb-0 mx-2 p-2' data-toggle='tooltip' data-placement='right'>Email already in use.</p>"; else if (in_array("Invalid email format.", $errorListRegister)) echo "<p class='alert alert-danger mb-0 mx-2 p-2' data-toggle='tooltip' data-placement='right'>Invalid email format.</p>"; else if (in_array("Passwords don't match.", $errorListRegister)) echo "<p class='alert alert-danger mb-0 mx-2 p-2' data-toggle='tooltip' data-placement='right'>Passwords don't match.</p>";  ?>
         </div>
     </header>
 
     <section class="mx-5 my-3" style="width:50%;">
         <div id="carousel" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel" data-bs-interval="false">
 
-            <form action="registration.php" method="POST" class="sign-up-form" id="signUpForm">
+            <form action="signup.php" method="POST" class="sign-up-form" id="signUpForm">
                 <div class="carousel-inner w-100">
                     <div class="carousel-item active">
 
@@ -202,6 +204,7 @@ require 'includes/handlers/signup-handler.php';
 
                     <div class="carousel-item">
                         <h3 class="mb-3">Lastly, set up your account and start your skincare journey here with Minisize!</h3>
+
 
                         <section class="px-1">
                             <div class="row mb-1">
