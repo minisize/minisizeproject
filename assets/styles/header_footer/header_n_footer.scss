@@ -17,15 +17,15 @@
 .dropdown-menu {
   padding: 0;
   background-color: #f7f3f0;
-  text-align: center; 
   width: 100%;
   left: 0;
 
   ul {
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
 
     li {
+<<<<<<< HEAD
       list-style-type: none;
       display: inline-block;
 =======
@@ -33,14 +33,33 @@
     &:hover > .dropdown-menu {
       display: block;
 >>>>>>> parent of 131e4d0 (update header.css)
+=======
+      list-style: none;
+      display: inline;
+>>>>>>> parent of 2e205eb (update header.php)
     }
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 .sub-dropdown-item {
+=======
+.sub-dropdown-item-1 {
+>>>>>>> parent of 2e205eb (update header.php)
   height: auto;
-  width: 250px;
+  width: 12vw;
+  word-wrap: break-word
+}
+
+.sub-dropdown-item-2 {
+  height: auto;
+  width: 8vw;
+  word-wrap: break-word
+}
+.sub-dropdown-item-3 {
+  height: auto;
+  width: 11vw;
   word-wrap: break-word
 =======
 .dropdown-menu{
