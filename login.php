@@ -26,12 +26,18 @@
             height: 100%;
             background-color: #F5D1C3; 
         }
+
+        #bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 
 <body>
 
-    <div id="bg"></div>
+    <div id="bg"><img src="assets/images/others/reg_signin-bg-image.png" alt=""></div>
 
     <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
         <div class="d-flex align-items-center">
@@ -41,20 +47,20 @@
     </header>
 
     <section class="mx-5 my-3" style="width:50%;">
-        <h1>Hello! Welcome back to Minisize.</h1>   
+        <h1 class="mb-4">Hello! Welcome back to Minisize.</h1>   
         <form action="login.php" method="POST" class="login-form px-1">
             <label for="loginEmail" class="form-label">Email</label>
-            <input type="email" class="form-control mb-1" name="login_email" id="loginEmail"
+            <input type="email" class="form-control mb-4" name="login_email" id="loginEmail"
                 placeholder="Email" value="<?php
                         if(isset($_SESSION['login_email'])){
                             echo $_SESSION['login_email'];
                         }?>" required>
 
             <label for="loginPass" class="form-label">Password</label>
-            <input type="password" class="form-control mb-1" name="login_pass" id="loginPass"
+            <input type="password" class="form-control mb-4" name="login_pass" id="loginPass"
                 placeholder="Password" required>
 
-            <input type="submit" class="btn btn-primary form-control mt-2" name="login_btn" value="Login">
+            <input type="submit" class="btn btn-primary form-control mt-2 p-3" name="login_btn" value="Log In">
         </form>
     </section>
 
