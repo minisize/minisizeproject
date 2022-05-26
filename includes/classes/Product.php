@@ -701,9 +701,9 @@
                         </div>";
                     }
 
-                    $reviewString .= "<div class='row m-2'>
+                    $reviewString .= "<div class='row p-2'>
                     <div class='col'>
-                        <p>$time</p>
+                        <p class='mb-0'>$time</p>
                         <span class='position-relative'>
                             <span>
                                 <i class='bi bi-star fs-3'></i>
@@ -720,14 +720,14 @@
                                 <i class='bi bi-star-fill fs-3'></i>
                             </span>
                         </span>
-                        <div class=row'><h4>$title</h4></div>
+                        <div class='row mb-5'><h4>$title</h4></div>
                         <div>
-                            <p>Was this helpful?</p>
+                            <p class='d-inline'>Was this helpful?</p>
                             <a class='btn feedback-btn' data-id='$review_id' data-action='like' data-product='product-item.php?id=$itemID'><span class='count'>$likes</span><i class='bi bi-hand-thumbs-up'></i></a>
                             <a class='btn feedback-btn' data-id='$review_id' data-action='dislike' data-product='product-item.php?id=$itemID'><span class='count'>$dislikes</span><i class='bi bi-hand-thumbs-down'></i></a>
                         </div>
                     </div>
-                    <div class='col'>
+                    <div class='col-5'>
                         <p>$body</p>
                     </div>
                     <div class='col'>

@@ -9,6 +9,10 @@
     $queryProductDetails = mysqli_query($connect, "SELECT * FROM products WHERE id = '$itemID'");
     $productDetails = mysqli_fetch_array($queryProductDetails);
     
+    $jsonobj = $productDetails["images"];
+    $obj = json_decode($jsonobj);
+    $img = $obj->images->image1;
+    
     if(isset($_POST["submit_review"])){
         $valid = 1; //check if submission is in correct format, 1 = yes, 0 = no
         $rating = $_POST["rating"];
@@ -21,11 +25,11 @@
         $rev_img_json = ""; //json string
 
         if(empty($rev_img)){ //when no images submitted
-            echo "img array empty";
+            // echo "img array empty";
             $rev_img_json = "null";
         }else{
             if($total_img <= 5 && $total_img > 0){
-                echo "appending images to json";
+                // echo "appending images to json";
                 $rev_img_json = '{"images": {';
                 $comma_count = $total_img - 1;
                 for($i = 0; $i < $total_img ; $i++){
@@ -56,7 +60,7 @@
                 $rev_img_json .= '}}'; //enclosing json string
             }else if($total_img > 5){   
                 $valid = 0;
-                echo "too many images";
+                // echo "too many images";
             }
         }
             
@@ -67,7 +71,7 @@
             if(mysqli_query($connect,$query)){
                 mysqli_query($connect,"UPDATE products SET num_reviews = num_reviews + 1 WHERE id = $itemID");
                 // echo "|| write-review successful! ";
-                // header("Location: product-item.php?id=$itemID");
+                header("Location: product-item.php?id=$itemID");
             }else{
                 echo "|| write-review unsuccessful!";
                 echo mysqli_error($connect);
@@ -78,18 +82,26 @@
     }
 ?>
 
-<div class="px-5">
+<div class="px-6">
 
-    <h2 class='col fw-bold text-darkgreen'>Create a Review</h2>
-    <p class='fs-5'><?php echo $productDetails['name']?> with <?php echo $productDetails['main_ingredient']?></p>
-    <p><?php echo $productDetails['brand']?></p>
+    <div class="d-flex flex-row">
+        <h2 class='fw-bold text-darkgreen pe-5'>Create a Review</h2>
+        <p class="fs-5 m-0 text-dark align-self-center"><i class="text-danger bi bi-asterisk"></i> Indicates it’s a required field</p>
+    </div>
+    <div class="d-flex flex-row">
+        <img src="<?php echo $img;?>" alt="" class="img-fluid product-img">
+        <div class="flex-grow-1 align-self-center">
+            <p class="fs-4 m-0"><?php echo $productDetails['name']?> with <?php echo $productDetails['main_ingredient']?></p>
+            <p class="fs-6 m-0 text-dark">Product from <?php echo $productDetails['brand']?></p>
+        </div>
+    </div>
 
     <hr>
 
     <form action="write-review.php?id=<?php echo $itemID;?>" method="POST" enctype="multipart/form-data">
-        <div>
-            <h5>Score</h5>
-            <div class="d-flex flex-row justify-content-between">
+        <div class="py-3">
+            <p class=" m-0 fw-bold">Score: <i class="text-danger bi bi-asterisk"></i></p>
+            <div class="d-flex flex-row justify-content-between" >
                 <div class="d-flex flex-row gap-3">
                     <div class="position-relative star-btn">
                         <input type="radio" name="rating" id="rating-1" value="1" class="position-absolute" onclick="updateRating(1)" checked>
@@ -112,30 +124,44 @@
                         <label for="rating-5"><i class="bi bi-star-fill fs-1 make-gray"></i></label>
                     </div>
                 </div>
-                <div id="rating-text">
-                    1/5
-                </div>
+
+                <p class='fs-1 mb-0' id="rating-text">1/5</p>
             </div>
             
         </div>
         <hr>
-        <div>
-            <label for="review-title" class="form-label">Review Title:</label>
+        <div class="py-3">
+            
+            <label for="review-title" class="form-label"><p class="m-0 fw-bold">Review Title: <i class="text-danger bi bi-asterisk"></i></p></label>
             <input type="text" class="form-control" name="title" required>
-            <hr>
-            <label for="review-body" class="form-label">Review:</label>
+            <p class="fs-7 mb-0 mt-2 text-dark"><i class="text-primary bi bi-info-circle-fill"></i> Your overall impression (150 characters or less)</p>
+             <hr>
+            <label for="review-body" class="form-label"><p class="m-0 fw-bold">Review: <i class="text-danger bi bi-asterisk"></i></p></label>
             <textarea id="" class="form-control h-25" name="body" required></textarea>
+            <p class="fs-7 mb-0 mt-2 text-dark"><i class="text-primary bi bi-info-circle-fill"></i> Make your review great: Describe what you liked, what you didn’t like, and other key things shoppers should know (minimum 5 characters)</p>
+           
         </div>
         <hr>
-        <div>
+        <div class="py-3">
             <div>
-                <label for="rev_img" class="form-label">Add Photos: (optional)</label>
-                <p>You can add up to 5 Photos</p>
-                <input type="file" name="rev_img[]" id="rev_img" class="form-label btn" multiple="multiple">
-            </div>
-            <div>
-                <button>Cancel</button>
-                <input class="btn btn-primary" type="submit" name="submit_review" value="Publish Review">
+                <label for="rev_img" class="form-label"><p class=" m-0 fw-bold">Photos: (optional)</p></label>
+                <p class="fs-7 m-0 text-dark"><i class="text-primary bi bi-info-circle-fill"></i> You can add up to 5 Photos</p>
+                <div class="d-flex flex-row mt-3">
+                        <label class="btn btn-outline-dark p-3 me-auto" for="rev-img">
+                            <input type="file" name="rev_img[]" id="rev-img" class="d-none" multiple="multiple">
+                            <p class="fs-4 mb-0 mx-3"><i class="bi bi-camera-fill pe-3"></i>Upload Photo</p>
+                        </label>
+                    <!-- <div>
+                        <label class="btn btn-outline-dark p-3 me-auto" for="rev-img" style="cursor: pointer;">
+                        <input type="file" name="rev_img[]" id="rev_img" style="opacity: 0;" multiple="multiple">
+                        <p class="fs-4 mb-0 mx-3"><i class="bi bi-camera-fill pe-3"></i>Upload Photo</p></label>
+                    </div> -->
+                    <button class="btn btn-light p-3"><p class="fs-4 m-0">Cancel</p></button>
+                    <label  class="btn btn-primary p-3 text-white" for="submit-review">
+                        <input class="d-none" type="submit" name="submit_review" id="submit-review" >
+                        <p class="fs-4 mb-0 mx-3">Publish Review</p>
+                    </label>
+                </div>
             </div>
         </div>
     </form>
