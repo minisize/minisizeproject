@@ -71,59 +71,152 @@
 
         public function loadOrdersList(){
             $orderString = "";
+            $orderModal = "";
             $user = $this->user["id"];
             $query = mysqli_query($this->connect, "SELECT * FROM orders WHERE user_id='$user'");
 
             while($orderData = mysqli_fetch_array($query)){
                 $orderID = $orderData['id'];
-                $cartID = $orderData['cart_id'];
+                $addressID = $orderData['address_id'];
+                $paymentMethod = $orderData['payment_method'];
                 $orderDate = $orderData['ordered_on'];
-                $shipDate = $orderData['shipped_on'];
-                $orderNum = $orderData['num_orders'];
-                $status = $orderData['status'];
 
+                $orderSubtotal = $orderData['subtotal'];
+                $shippingFee = $orderData['shipping_fee'];
+                $orderTotal = $orderData['total'];
                 
-                $cart_query = mysqli_query($this->connect, "SELECT * FROM cart WHERE id='$cartID'");
-                while($cartData = mysqli_fetch_array($cart_query)){
+                $orderNum = $orderData['num_items'];
+                $status = $orderData['order_status'];
+                $imgPath = $orderData['image'];
 
-                }
+                $img = "../../" . $imgPath;
 
-                $orderString .= "
-                <div class='row d-flex mb-4 p-4 rounded-3' style='background-color: #FFFBF8;'>
-                    <div class='d-flex flex-row justify-content-between'> 
-                        <div>
-                            <div class='d-flex flex-row flex-grow-1'>
-                                <h3 class='m-0'>Order #$orderNum</h3>
-                                <div class='ms-3 d-flex flex-row align-items-center'>
-                                    <div class='rounded-circle me-3' style='width: 1rem; height: 1rem; background-color: green;'></div>
-                                    $status
-                                </div>  
+                $address_query = mysqli_query($this->connect, "SELECT * FROM addresses WHERE id='$addressID'");
+                while($row = mysqli_fetch_array($address_query)){
+                    $building = $row['building'];
+                    $city = $row['city'];
+                    $street = $row['street'];
+                    $country = $row['country'];
+
+                    $address = $building . ", " . $street . ", " . $city . ", " . $country;
+
+                    // $loadOrderModal = $this->loadOrderModal($orderID, $orderDate, $paymentMethod, $address);
+                    $getOrderDetails = $this->getOrderDetails($orderID);
+
+                    $orderString .= "
+                    <div class='row d-flex mb-4 p-4 rounded-3' style='background-color: #FFFBF8;'>
+                        <div class='d-flex flex-row justify-content-between'> 
+                            <div>
+                                <div class='d-flex flex-row flex-grow-1'>
+                                    <h5 class='m-0 fw-bold'>Order #$orderID</h5>
+                                    <div class='ms-3 d-flex flex-row align-items-center'>
+                                        <div class='rounded-circle me-3' style='width: 1rem; height: 1rem; background-color: green;'></div>
+                                        <h5 class='fs-6 fw-light mb-0'>$status</h5>
+                                    </div>  
+                                </div>
+                                <div><h5 class='fs-7 fw-light'>$address</h5></div>
                             </div>
-                            <div>Address of delivery</div>
+                            <div>
+                                <h5 class='fs-6 fw-light'>Placed On: $orderDate</h5>
+                            </div>
                         </div>
-                        <div>
-                            <div>Delivered on: $shipDate</div>
-                            <div>Placed On: $orderDate</div>
+                        <div class='d-flex flex-row justify-content-between mt-2'>
+                            <div class='col d-flex'>
+                                <img src='$img' class='img-fluid w-25 bg-pink rounded'>
+                                <div class='d-flex flex-column justify-content-end ps-4'>
+                                    <h5 class='fs-7 fw-bold'>Total Item(s): $orderNum</h5>
+                                    <h5 class='fs-7 fw-bold'>Subtotal: $$orderSubtotal</h5>
+                                    <h5 class='fs-7 fw-bold'>Shipping Fee: $$shippingFee</h5>
+                                    <h5 class='fs-7 fw-bold'>Order Total: $$orderTotal </h5>
+                                </div>
+                            </div>
+                            <div class='col d-flex align-self-end justify-content-end'>
+                                <div>
+                                    <button type='button' class='btn btn-primary text-light fw-bold mt-4'  data-bs-toggle='modal' data-bs-target='#orderDetailsModal$orderID'>View Order Details</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class='d-flex flex-row justify-content-between'>
-                        <div style='width: parent-height;'>img</div>
-                        <div>
-                            <div>Total Item(s): </div>
-                            <div>Subtotal: </div>
-                            <div>Shipping Fee: </div>
-                            <div>Order Total: </div>
+                    </div>";
+
+                    $orderModal .= "
+                    <div class='modal fade' id='orderDetailsModal$orderID' tabindex='-1' aria-labelledby='orderDetailsModalLabel' aria-hidden='true'>
+                        <div class='modal-dialog'>
+                            <div class='modal-content'>
+                            <div class='modal-header'>
+                                <div class='d-flex flex-column align-items-center w-100'>
+                                    <h5 class='modal-title' id='orderDetailsModalLabel'>Order #$orderID</h5>
+                                    <h5 class='fs-7 fw-light'>Placed on: $orderDate</h5>
+                                </div>
+                                <button type='button' class='btn-close ms-0' data-bs-dismiss='modal' aria-label='Close'></button>
+                            </div>
+                            <div class='modal-body'>
+                                <div class='container bg-light py-3 mb-3'>
+                                    <h5 class='fs-6 fw-bold'>Shipping Address</h5>
+                                    <h5 class='fs-7 fw-bold mb-3'>$address</h5>
+                                    <h5 class='fs-6 fw-bold'>Payment Method</h5>
+                                    <h5 class='fs-7 fw-bold mb-0'>**** **** **** $paymentMethod</h5>
+                                </div>
+                                <div class='container'>
+                                    <h5 class='fs-6 fw-bold'>Items</h5>
+                                    $getOrderDetails
+                                    <h5 class='fs-6 fw-bold mt-4'>Order Summary</h5>
+                                    <div class='row'>
+                                        <h5 class='col fs-7 fw-bold'>Subtotal:</h5>
+                                        <h5 class='col fs-7 fw-bold text-end'>$$orderSubtotal</h5>
+                                    </div>
+                                    <div class='row'>
+                                        <h5 class='col fs-7 fw-bold'>Shipping fee:</h5>
+                                        <h5 class='col fs-7 fw-bold text-end'>$$shippingFee</h5>
+                                    </div>
+                                    <div class='row'>
+                                        <h5 class='col fs-7 fw-bold'>Order Total:</h5>
+                                        <h5 class='col fs-7 fw-bold text-end'>$$orderTotal</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='button' class='btn btn-outline-primary' data-bs-dismiss='modal'>Close</button>
+                            </div>
+                            </div>
                         </div>
-                        <button class='ms-auto align-self-end btn btn-light btn-outline-dark mt-4'>View Order Details</button>
-                    </div>
-                </div>";
+                    </div>";
+                }
             }
 
-            echo $orderString;
+            echo $orderString . $orderModal;
         }
 
-        public function getOrderDetails(){
+        public function getOrderDetails($orderID){
+            $detailString = "";
+            $query = mysqli_query($this->connect, "SELECT * FROM order_items WHERE order_id='$orderID'");
 
+            while($detailsData = mysqli_fetch_array($query)){
+                $id = $detailsData['id'];
+                $name = $detailsData['name'];
+                $size = $detailsData['size'];
+                $quantity = $detailsData['quantity'];
+                $subtotal = $detailsData['subtotal']; 
+
+                $item = "";
+                if($size != null){
+                    $item = $size ." ". $name;
+                } else {
+                    $item = $name;
+                }
+            
+                $detailString .="
+                <div class='row'>
+                    <div class='col'>
+                    <h5 class='fs-7 fw-bold'>$item ($quantity)</h5>
+                    </div>
+                    <div class='col-3'>
+                    <h5 class='fs-7 fw-bold text-end'>$$subtotal</h5>
+                    </div>
+                </div>";
+            
+            }
+
+            return $detailString;
         }
 
         public function loadWishList(){
