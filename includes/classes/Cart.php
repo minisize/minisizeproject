@@ -84,13 +84,20 @@
 
                     $img = "../../" . $image;
 
+                    $withSize = "";
+                    if ($size != null){ // If size has a value
+                        $withSize = $size . " - ";
+                    } else {
+                        $withSize = "";
+                    }
+
                     $cartString .= "<tr>
                                         <td scope='row'>
                                             <img src='$img' alt='' class='col img-fluid cart-image'>
                                         </td>
 
                                         <td>
-                                            <p class='col m-0 p-0'>$size - $name</p>
+                                            <p class='col m-0 p-0'>$withSize $name</p>
                                         </td>
 
                                         <td>
