@@ -505,6 +505,23 @@
             return $button;
         }
 
+        public function writeReview($itemID,$userID){
+
+            if ($userID == ""){ //if no user logged in , prompt log in modal
+                $button = "<button type='button' class='border-0' data-bs-toggle='modal' data-bs-target='#registerModal'>
+                                <a class='btn btn-primary px-4'>
+                                    <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Write a Review</p>
+                                </a>
+                            </button>";
+            } else { //else proceed to write review
+                $button = "<a href='write-review.php?id=$itemID' class='btn btn-primary w-100 align-self-center rounded'>
+                                <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Write a Review</p>  
+                            </a>";
+            }
+
+            echo $button;
+        }
+
         public function getReviewsData($itemID){
             $result = "";
             $query = mysqli_query($this->connect, "SELECT * FROM reviews WHERE product_id='$itemID'");
@@ -657,12 +674,18 @@
             $query = mysqli_query($this->connect, "SELECT * FROM reviews WHERE product_id='$itemID'");
 
             while($reviewData = mysqli_fetch_array($query)){
+                $review_id = $reviewData['id'];
                 $userID = $reviewData ['user_id'];
                 $time = $reviewData ['timestamp'];
                 $title = $reviewData ['title'];
                 $body = $reviewData ['body'];
+                $images = $reviewData['images'];
                 $rating = $reviewData ['rating'];
-                $rating = ($rating / 5) * 100;
+                $rating = ($rating / 5) * 100; //to set star style
+                $likes = $reviewData['likes'];
+                $dislikes = $reviewData['dislikes'];
+                $images_div = ""; // to set images col style
+
 
                 $userquery = mysqli_query($this->connect, "SELECT * FROM users WHERE id='$userID'");
                 while($userData = mysqli_fetch_array($userquery)){
@@ -671,6 +694,12 @@
                     $skin_type = $userData['skin_type'];
                     // $age_range = $userData['age_range'];
                     // $gender = $userData['gender'];
+                    if ($images != "null"){
+                        $images_div="
+                        <div class='row container'>
+                            <div>images go here</div>
+                        </div>";
+                    }
 
                     $reviewString .= "<div class='row m-2'>
                     <div class='col'>
@@ -693,18 +722,16 @@
                         </span>
                         <div class=row'><h4>$title</h4></div>
                         <div>
-                            <label for=''>was this helpful?</label>
-                            <button>heart1</button>
-                            <button>heart2</button>
+                            <p>Was this helpful?</p>
+                            <a class='btn feedback-btn' data-id='$review_id' data-action='like' data-product='product-item.php?id=$itemID'><span class='count'>$likes</span><i class='bi bi-hand-thumbs-up'></i></a>
+                            <a class='btn feedback-btn' data-id='$review_id' data-action='dislike' data-product='product-item.php?id=$itemID'><span class='count'>$dislikes</span><i class='bi bi-hand-thumbs-down'></i></a>
                         </div>
                     </div>
                     <div class='col'>
                         <p>$body</p>
                     </div>
                     <div class='col'>
-                        <div class='row container'>
-                            <div>images go here</div>
-                        </div>
+                        $images_div
                         <div class='row'>
                             <div class='col'>
                                 <h6>Skin Concern:</h6>
