@@ -1,5 +1,6 @@
 <!-- Default Header Paste-->
 <?php include("includes/main-header.php");
+    include("includes/handlers/reviewfeedback-handler.php");
 
     // get id
     if (isset($_GET['id'])) {
@@ -95,7 +96,7 @@
                 <div class="row">
                     <?php $product_obj->getReviewsData($itemID);?>
                     <div class="col">
-                        <a href="write-review.php?id=<?php echo $itemID?>" class="btn btn-primary w-100 align-self-center rounded"> Write a Review </a>
+                        <?php $product_obj->writeReview($itemID,$userLoggedIn);?>
                     </div>
                 </div>
             </div>
