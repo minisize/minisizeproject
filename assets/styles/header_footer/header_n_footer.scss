@@ -32,9 +32,20 @@
   }
 }
 
-.sub-dropdown-item {
-    height: auto;
+.sub-dropdown-item-1 {
+  height: auto;
   width: 12vw;
+  word-wrap: break-word
+}
+
+.sub-dropdown-item-2 {
+  height: auto;
+  width: 8vw;
+  word-wrap: break-word
+}
+.sub-dropdown-item-3 {
+  height: auto;
+  width: 11vw;
   word-wrap: break-word
 }
 .sub-menu {
