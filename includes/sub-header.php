@@ -35,23 +35,10 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;500;700&family=Montserrat:wght@400;600&family=Roboto&display=swap');        
-        
-        /* *{
-            font-family: 'Josefin Sans', sans-serif;
+
+        body {
+            overflow-x: hidden;
         }
-        h3{
-            font-family: 'Josefin Sans', sans-serif;
-            font-weight: 500;
-        }
-        h4,label{
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        h5,input,select{
-            font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-        } */
 
     </style>
 
