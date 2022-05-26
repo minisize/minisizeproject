@@ -20,38 +20,24 @@
 .dropdown-menu {
   padding: 0;
   background-color: #f7f3f0;
+  text-align: center;
   width: 100%;
   left: 0;
 }
 
 .dropdown-menu ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  display: inline-block;
+  text-align: center;
 }
 
 .dropdown-menu ul li {
-  list-style: none;
-  display: inline;
+  list-style-type: none;
+  display: inline-block;
 }
 
-.sub-dropdown-item-1 {
+.sub-dropdown-item {
   height: auto;
-  width: 12vw;
-  word-wrap: break-word;
-}
-
-.sub-dropdown-item-2 {
-  height: auto;
-  width: 8vw;
-  word-wrap: break-word;
-}
-
-.sub-dropdown-item-3 {
-  height: auto;
-  width: 11vw;
+  width: 250px;
   word-wrap: break-word;
 }
 
