@@ -679,13 +679,23 @@
                 $time = $reviewData ['timestamp'];
                 $title = $reviewData ['title'];
                 $body = $reviewData ['body'];
-                $images = $reviewData['images'];
                 $rating = $reviewData ['rating'];
                 $rating = ($rating / 5) * 100; //to set star style
                 $likes = $reviewData['likes'];
                 $dislikes = $reviewData['dislikes'];
-                $images_div = ""; // to set images col style
+                $reviewImagePreview = "";
 
+                $jsonobjImg = $reviewData['images']; //set $jsonobj to the value of input of the array "images" from $row;
+                if ($jsonobjImg != "null"){
+                    $objImg = json_decode($jsonobjImg); //set $obj to the value of a php object converted from the string of $jsonobj
+                    $img = $objImg->images; // Set $img to the value of image1 from images by php object $obj
+                    foreach($img as $key => $value) {
+                        $reviewImagePreview .= "
+                        <div class='col p-0' style='height: 6rem; overflow: hidden;'>
+                            <img src='$value' class='h-100' alt='$key'>
+                        </div>"; 
+                    }
+                }
 
                 $userquery = mysqli_query($this->connect, "SELECT * FROM users WHERE id='$userID'");
                 while($userData = mysqli_fetch_array($userquery)){
@@ -694,12 +704,6 @@
                     $skin_type = $userData['skin_type'];
                     // $age_range = $userData['age_range'];
                     // $gender = $userData['gender'];
-                    if ($images != "null"){
-                        $images_div="
-                        <div class='row container'>
-                            <div>images go here</div>
-                        </div>";
-                    }
 
                     $reviewString .= "<div class='row p-2'>
                     <div class='col'>
@@ -731,7 +735,7 @@
                         <p>$body</p>
                     </div>
                     <div class='col'>
-                        $images_div
+                        <a class='img-preview'  data-bs-toggle='modal' data-bs-target='#review-img-modal'><div class='row d-flex flex-row gap-1 m-0'>$reviewImagePreview</div></a>
                         <div class='row'>
                             <div class='col'>
                                 <h6>Skin Concern:</h6>
@@ -750,6 +754,7 @@
                                 <p>Female</p>
                             </div>                      
                         </div>
+                        <div class='row fs-2'>$username</div>
                     </div>
                 <hr>
                 </div>";
