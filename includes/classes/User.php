@@ -277,24 +277,72 @@
             $query = mysqli_query($this->connect, "SELECT * FROM addresses WHERE user_id='$user'");
 
             while($addressData = mysqli_fetch_array($query)){
+                $id = $addressData['id'];
                 $building = $addressData['building'];
                 $street = $addressData['street'];
                 $city = $addressData['city'];
                 $country = $addressData['country'];
                 $fullname = $this->getFullName();
 
+                ?>
+                <script>
+                    function toggleEdit<?php echo $id; ?>() {
+                        var form = document.getElementById("editAddressForm<?php echo $id; ?>");
+                        var button = document.getElementById("editBtn<?php echo $id; ?>");
+
+                        if (form.style.display == "none") {
+                            form.style.display = "block";
+                            button.innerHTML = "Cancel";
+                        } else {
+                            form.style.display = "none";
+                            button.innerHTML = "Edit";
+                        }
+                    }
+                </script>
+                <?php
+
                 $addressString .= "
                 <div class='row d-flex mb-4 p-4 rounded-3' style='background-color: #FFFBF8;'>
-                    <div class='d-flex flex-row justify-content-between'>
-                        <div>
+                    <div class='row'>
+                        <div class='col-3'>
                             <h5 class='fs-7 fw-bold'>Name:</h5>
                             <h5 class='fs-7 fw-bold'>$fullname</h5>
                         </div>
-                        <div>
+                        <div class='col'>
                             <h5 class='fs-7 fw-bold'>Address:</h5>
                             <h5 class='fs-7 fw-bold'>$building, $street, $city, $country</h5>
                         </div>
-                        <button class='btn btn-outline-dark'><p class='m-0 p-0'>Edit</p></button>
+                        <button class='col-2 btn btn-outline-dark edit-btn' onclick='toggleEdit$id()'><p id='editBtn$id' class='m-0 p-0'>Edit</p></button>
+                    </div>
+
+                    <div class='row' id='editAddressForm$id' style='display:none;'>
+                        <form action='../../includes/handlers/address-handler.php' method='POST'>
+                        <p class='m-0 mt-3 p-0 pt-2 fs-4 border-top'>Edit Details</p>
+                            <div class='row'>
+                                <div class='col'>
+                                    <label for='editBldg'><h5 class='fs-7 fw-bold'>Building:</h5></label>
+                                    <input type='text' name='building' for='editBldg' class='form-control form-control-sm' value='$building'>
+                                </div>
+                                <div class='col pe-0'>
+                                    <label for='editStreet'><h5 class='fs-7 fw-bold'>Street:</h5></label>
+                                    <input type='text' name='street' for='editStreet' class='form-control form-control-sm' value='$street'>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col'>
+                                    <label for='editCity'><h5 class='fs-7 fw-bold'>City:</h5></label>
+                                    <input type='text' name='city' for='editCity' class='form-control form-control-sm' value='$city'>
+                                </div>
+                                <div class='col pe-0'>
+                                    <label for='editCountry'><h5 class='fs-7 fw-bold'>Country:</h5></label>
+                                    <input type='text' name='country' for='editCountry' class='form-control form-control-sm' value='$country'>
+                                </div>
+                            </div>
+                            <input type='hidden' name='id' value='$id'>
+                            <button type='submit' name='update_address' class='col btn btn-sm btn-dark text-white mt-4'>
+                                <p class='m-0 p-0'>Save Changes</p>
+                            </button>
+                        </form>
                     </div>
                 </div>";
 
