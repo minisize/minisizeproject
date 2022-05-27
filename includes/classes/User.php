@@ -225,45 +225,58 @@
             $query = mysqli_query($this->connect, "SELECT * FROM wishlist WHERE user_id='$user'");
 
             while($wishlistData = mysqli_fetch_array($query)){
+                $id = $wishlistData['id'];
                 $productID = $wishlistData['product_id'];
                 $product_query = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$productID'");
+
                 while($productData = mysqli_fetch_array($product_query)){
-                $product_images = $productData["images"];
-                $product_brand = $productData["brand"];
-                $product_name = $productData["name"];
-                $product_price = $productData["base_price"];
+                    $product_images = $productData["images"];
+                    $product_brand = $productData["brand"];
+                    $product_name = $productData["name"];
+                    $product_price = $productData["base_price"];
 
-                $object_images = json_decode($product_images);
-                $img = $object_images->images->image1; 
+                    $object_images = json_decode($product_images);
+                    $img = $object_images->images->image1; 
 
-                $product_img = "../../" . $img;
+                    $product_img = "../../" . $img;
 
-                $wishlistString .= "
-                <div class='row d-flex mb-4 px-4 py-3 rounded-3' style='background-color: #FFFBF8;'>
-                    <div class='d-flex flex-row justify-content-between'>
-                        
-                            <img src='$product_img' class='col-1 img-fluid me-2' style='width: 20%;'>
-                            <div class='col d-flex flex-column justify-content-between'>
-                                <div class='row'>
-                                    <h5 class='fs-6 fw-light'>$product_brand (brand)</h5>
-                                
-                                    <h5 class='fs-6 fw-bold'>$product_name</h5>
+                    $wishlistString .= "
+                    <div class='row d-flex mb-4 px-4 py-3 rounded-3' style='background-color: #FFFBF8;'>
+                        <div class='d-flex flex-row justify-content-between ps-0'>
+                            
+                                <img src='$product_img' class='col-1 img-fluid me-2' style='width: 20%;'>
+                                <div class='col d-flex flex-column justify-content-between'>
+                                    <div class='row'>
+                                        <h5 class='fs-6 fw-light'>$product_brand</h5>
+                                        <h5 class='fs-6 fw-bold'>$product_name</h5>
+                                    </div>
+
+                                    <div class='row'>
+                                        <div class='col-4'>
+                                            <button class='btn p-0' onclick='window.location.href=".'"'."../../product-item.php?id=$productID".'"'."'>
+                                                <h5 class='fs-7 fw-light'>
+                                                    <i class='bi bi-cart-fill'></i>
+                                                    Add to Cart
+                                                </h5>
+                                            </button>
+                                        </div>
+                                        <div class='col-4'>
+                                            <form action='../../includes/handlers/wishlist-handler.php' method='POST'>
+                                                <button type='submit' name='remove' class='btn p-0'>
+                                                    <h5 class='fs-7 fw-light'>
+                                                        <i class='bi bi-trash-fill'></i>
+                                                        Remove
+                                                    </h5>
+                                                </button>
+                                                <input type='hidden' name='wishlist_id' value='$id'>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class='row'>
-                                    <h5 class='col-4 fs-7 fw-light'>
-                                        <i class='bi bi-cart-fill'></i>
-                                        Add to Cart
-                                    </h5>
-                                    <h5 class='col fs-7 fw-light'>
-                                        <i class='bi bi-trash-fill'></i>
-                                        Remove
-                                    </h5>
-                                </div>
-                            </div>
-                        
-                        <h5 class='col-2 fs-4 fw-bold text-end text-darkgreen'>$product_price USD</h5>
-                    </div>
-                </div>";
+                            
+                            <h5 class='col-2 fs-4 fw-bold text-end text-darkgreen'>$product_price USD</h5>
+                        </div>
+                    </div>";
                 }
 
             }
