@@ -1,3 +1,8 @@
+//Mixins
+@mixin sub-dropdown-item-settings($width) {
+  width: $width;
+}
+
 //This Section is for the Header SCSS
 .sub-nav-item-dropdown {
   width: 30vw;
@@ -20,33 +25,26 @@
   background-color: #f7f3f0;
   width: 100%;
   left: 0;
-
   ul {
     display: flex;
     justify-content: space-around;
-
     li {
       list-style: none;
-      display: inline;
+      display: block;
+      word-wrap: break-word
     }
   }
 }
 
 .sub-dropdown-item-1 {
-  height: auto;
-  width: 12vw;
-  word-wrap: break-word
+  @include sub-dropdown-item-settings (14vw);
 }
 
 .sub-dropdown-item-2 {
-  height: auto;
-  width: 8vw;
-  word-wrap: break-word
+  @include sub-dropdown-item-settings (100%);
 }
 .sub-dropdown-item-3 {
-  height: auto;
-  width: 11vw;
-  word-wrap: break-word
+  @include sub-dropdown-item-settings (100%);
 }
 .sub-menu {
   background-color: #c4d7d1;
@@ -70,6 +68,116 @@ a {
   color: black;
 }
 
+//This section Contain Mobile CSS
+
+.mobile-dropdown{
+  display: none !important;
+}
+
+.mobile-dropdown-menu{
+  display: none;
+}
+.desktop-fill{
+  display: none !important;
+}
+//This Section Contain Media Queries
+
+@media only screen and (max-width: 600px) {
+  //this is the dropdown container
+
+  .mobile-dropdown{
+    display: flex !important;
+    position: relative; 
+  }
+
+  .mobile-nav-item-dropdown {
+  z-index: 4;
+    &:hover > .mobile-dropdown-menu{
+      display: inline-block;
+    }
+
+    &:target > .stacked-mobile-dropdown-menu{
+      display: inline-block;
+    }
+  }
+
+  .mobile-dropdown-item{
+    font-family: "Playfair Display", sans-serif;
+    font-size: 1.5rem;
+  }
+
+  .mobile-nav-item{
+    font-family: "Josefin Sans", sans-serif !important;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .mobile-dropdown-menu, .stacked-mobile-dropdown-menu{
+    top: 5vh;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    
+    ul{
+      padding: 0vh 10vw;
+      width: 100%;
+      z-index: 4;
+      li{
+        position: relative;
+        padding: 2vh 0vw;
+        width: 90vw  ;
+        list-style: none;
+        background-color: #f7f3f0;
+        border-top: solid 1px #000000;
+        border-bottom: solid 1px #000000;
+        z-index: 5;
+
+        ul{
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 6;
+          li{
+            text-align: center;
+            z-index: 6;
+          }
+        }
+      }
+    }
+  }
+  .stacked-mobile-dropdown-menu{
+    top: 0vh;
+    position: relative;
+    ul{
+      background-color: #c4d7d1;
+      li{
+        a{
+          font-size: 1rem;
+        }
+      }
+    }
+    
+  }
+
+  //hides header items
+  .main-nav{
+    .main-nav-item{
+      display: none;
+    }
+    .nav-item-logo{
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width:600px) {
+  .desktop-fill{
+    display: flex !important;
+  }
+}
 //This Section is for the Footer SCSS
 
 footer {
