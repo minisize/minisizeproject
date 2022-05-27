@@ -14,8 +14,8 @@
 
         if (mysqli_query($connect, $insertAddress)) { // If successful
 
-            // redirect to checkout page.php
-            header("Location: ../../sub_pages/purchase/checkout.php");
+            // redirect to previous page
+            echo "<script>window.history.back();</script>";
 
         } else {
             echo "Error: " . $insertAddress . "<br>" . mysqli_error($connect);
