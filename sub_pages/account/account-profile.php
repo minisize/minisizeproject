@@ -62,11 +62,11 @@
                         <div class="row mb-4" >
                             <div class="col">
                                 <label for="first-name" class="form-label">First Name</label>
-                                <input type="text" name="firstName" id="first-name"class="form-control" placeholder="<?php echo $user["first_name"]?>">
+                                <input type="text" name="firstName" id="first-name"class="form-control" value="<?php echo $user["first_name"]?>">
                             </div>
                             <div class="col">
                                 <label for="last-name" class="form-label">Last Name</label>
-                                <input type="text" name="lastName" id="last-name" class="form-control" placeholder="<?php echo $user["last_name"]?>">
+                                <input type="text" name="lastName" id="last-name" class="form-control" value="<?php echo $user["last_name"]?>">
                             </div>
                         </div>
                         <p class="m-0 p-0 fs-3">Skin Information</p>
@@ -74,25 +74,43 @@
                             <div>
                                 <label for="skin-type" class="form-label">Skin Type</label>
                                 <select class="form-select" name="skinType" id="skin-type" aria-label="Default select example">
-                                    <option selected>Choose a skin type</option>
-                                    <option value="Normal">Normal</option>
-                                    <option value="Combination">Combination</option>
-                                    <option value="Dry">Dry</option>
-                                    <option value="Oily">Oily</option>
-                                    <option value="Oily">Oily</option>
+                                    <?php
+                                        $userSkinType = $user["skin_type"];
+                                        $skinTypes = array("Normal", "Combination", "Dry", "Sensitive", "Oily");
+                                        foreach ($skinTypes as $key => $value) {
+                                            ?>
+                                            <option value="<?php echo $value;?>"
+                                            <?php
+                                                if ($value == $userSkinType){
+                                                    echo 'selected';
+                                                } 
+                                            ?> >
+                                                <?php echo $value;?>
+                                            </option>
+                                            <?php
+                                        }
+                                    ?>
                                 </select>
                             </div>
                             <div>
                                 <label for="skin-concern" class="form-label">Skin Concern</label>
                                 <select class="form-select" name="skinConcern" id="skin-concern" aria-label="Default select example">
-                                    <option selected>Choose a skin concern</option>
-                                    <option value="Hydration">Hydration</option>
-                                    <option value="Pore Solutions">Pore Solutions</option>
-                                    <option value="Troubled Skin">Troubled Skin</option>
-                                    <option value="Dullness & Uneven Skin Tone">Dullness & Uneven Skin Tone</option>
-                                    <option value="Sensitive Skin">Sensitive Skin</option>
-                                    <option value="Age Prevention">Age Prevention</option>
-                                    <option value="Lifting & Firming">Lifting & Firming</option>
+                                    <?php
+                                        $userSkinConcern = $user["skin_type"];
+                                        $query = mysqli_query($connect, "SELECT name FROM skin_concern");
+                                        while($row = mysqli_fetch_array($query)){
+                                            ?>
+                                            <option value="<?php echo $row['name']?>"
+                                            <?php
+                                                if ($row['name'] == $userSkinType){
+                                                    echo 'selected';
+                                                } 
+                                            ?> >
+                                                <?php echo $row['name']?>
+                                            </option>
+                                            <?php
+                                        }
+                                    ?>
                                 </select>   
                             </div>
                         </div>
