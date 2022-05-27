@@ -65,7 +65,7 @@
                                 $item = "<p><strong>$name</strong> <br>By $brand</p>";
                             }
 
-                            echo "<div class='products col d-flex flex-column justify-content-between py-5'>
+                            echo "<div class='products col product-display position-relative d-flex flex-column justify-content-between py-4 mb-2'>
                                     <div>
                                         <img src='$img' alt='' class='img-fluid product-img d-flex mx-auto mb-4'>
                                         $item
@@ -74,6 +74,8 @@
                                         <p class='fs-5 text-darkgreen'>$basePrice AED</p>
                                         <p>$numReviews reviews</p>
                                     </div>
+                                    <div class='overlay-product'></div>
+                                    <a href='product-item.php?id=$id' class='product-view btn btn-outline-primary fw-bold px-5'>View</a>
                                 </div>";
 
                         }
