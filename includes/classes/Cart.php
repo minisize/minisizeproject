@@ -117,7 +117,7 @@
                                         </td>
 
                                         <td>
-                                            <form action='../../includes/handlers/cart-remove.php' method='POST'>
+                                            <form action='../../includes/handlers/cart-handler.php' method='POST'>
                                                 <button type='submit' name='remove' class='btn btn-sm cart-item-remove border-0 bg-transparent'>
                                                     <i class='bi bi-x-square-fill fs-5'></i>
                                                 </button>

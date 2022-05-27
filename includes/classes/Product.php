@@ -341,7 +341,7 @@
                 $price15ml = $objPrice->prices->price2;
                 $price20ml = $objPrice->prices->price3;
 
-                $productForm = "<form action='product-item.php?id=$itemID' method='POST'>
+                $productForm = "<form action='includes/handlers/cart-handler.php' method='POST'>
                                     <div class='row'>
                                         <div class='col position-relative price-btn'>
                                             <input type='radio' value='$price10ml' id='price10ml' onClick='changePrice()' name='price-selected' class='position-absolute' checked/>
@@ -373,6 +373,7 @@
                                             <input type='hidden' id='inputPrice' name='price' value='$price10ml'/>
                                             <input type='hidden' id='inputSize' name='size' value='10 mL'/>
                                             <input type='hidden' name='item' value='$name'/>
+                                            <input type='hidden' name='img' value='".$this->getProductImage($itemID)."'>
                                             <p id='priceSize' class='fs-4 m-0 text-dark'>$price10ml USD</p>
                                             <div class='d-flex align-items-center gap-4'>
                                                 <p class='m-0'><a href=''>View full product</a></p>
