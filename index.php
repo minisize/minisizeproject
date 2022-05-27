@@ -6,14 +6,14 @@ include("includes/classes/Homepage.php");
 $Home_funct = new Home_functions($connect);
 ?>
 
+<style>
+    .bg-home{
+        background-color: #F7E6CA;
+    }
+</style>
+
 <!--Add hero header in here-->
-
-</header>
-
-<!-- Enter Main Content Here-->
-
-<main class="">
-    <div class="container position-relative homepage-head pt-4">
+    <div class="position-relative homepage-head pt-4">
         <div class="row w-100 ">
             <div class="col-3 minisize-head-img" style="background-image: url(assets/images/others/index-bg-image.png);"></div>
             <div class="col-9 ">
@@ -24,9 +24,14 @@ $Home_funct = new Home_functions($connect);
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
             </div>
         </div>
-        <div class="homepage-bg-head"></div>
-        <div class="homepage-bg-head2"></div>
+        <div class="p-4" style="background-color: #F9EFDC;"></div>
     </div>
+
+</header>
+    
+<!-- Enter Main Content Here-->
+
+<main class="">
     <div class="container px-3 py-4 ">
         <div class="row d-flex justify-content-center">
             <h3 class="homepage-header-ctn"> BEST SELLERS </h3>

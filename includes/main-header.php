@@ -66,7 +66,7 @@
 
 <body>
 
-<header class="top-background">
+<header class="top-background bg-home">
 
     <header class="d-flex flex-wrap align-items-center justify-content-between p-3">
         <i class="bi bi-gear-fill fs-5 d-flex align-items-center col-1"></i>
