@@ -352,7 +352,33 @@
         }
 
         public function loadPaymentList(){
+            $paymentString = "";
+            $user = $this->user["id"];
+            $query = mysqli_query($this->connect, "SELECT * FROM payments WHERE user_id='$user'");
 
+            while($paymentData = mysqli_fetch_array($query)){
+                $id = $paymentData['id'];
+                $cardNumber = $paymentData['card_number'];
+                $expiryMM = $paymentData['expiry_month'];
+                $expiryYY = $paymentData['expiry_year'];
+
+                $month = sprintf("%02d", $expiryMM);
+
+                $paymentString .= "
+                <tr>
+                    <td><p class='m-0 p-0 fw-light'>Card ending in $cardNumber</p></td>
+                    <td><p class='m-0 p-0 fw-light'>$month / $expiryYY</p></td>
+                    <td>
+                        <form action='../../includes/handlers/payment-remove.php' method='POST'>
+                            <input type='hidden' name='payment_id' value='$id'>
+                            <button type='submit' name='delete' class='btn btn-outline-dark w-75'><p class='m-0 p-0'>Delete</p></button>
+                        </form>
+                    </td>
+                </tr>
+                ";
+            }
+
+            echo $paymentString;
         }
     }
 ?>

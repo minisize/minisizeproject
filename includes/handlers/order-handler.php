@@ -18,6 +18,8 @@
         // Payment Details
         $paymentName = $_POST['payment_name'];
         $paymentCard = substr($_POST['payment_card_no'], -4); // get only last 4 digits
+        $expiryMM = $_POST['expiry_month']; 
+        $expiryYY = $_POST['expiry_year']; 
 
         // Current Date
         $date = date("Y-m-d");
@@ -26,7 +28,7 @@
         if (isset($_POST['save_card'])) {
 
             // Insert in payments table
-            $paymentQuery = mysqli_query($connect, "INSERT INTO payments (user_id, name_on_card, card_number, added_at) VALUES ('$userID', '$paymentName', '$paymentCard', '$date')");
+            $paymentQuery = mysqli_query($connect, "INSERT INTO payments (user_id, name_on_card, card_number, expiry_month, expiry_year, added_at) VALUES ('$userID', '$paymentName', '$paymentCard', '$expiryMM', '$expiryYY', '$date')");
         }
 
         // Cart Order Details
