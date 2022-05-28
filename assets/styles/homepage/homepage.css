@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Montserrat&family=Playfair+Display&display=swap");
+.btn-header {
+  -webkit-box-shadow: 4px 4px 12px rgba(240, 188, 104, 0.25);
+          box-shadow: 4px 4px 12px rgba(240, 188, 104, 0.25);
+}
+
 .best-sellers-container {
   width: auto;
   height: auto;
