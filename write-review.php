@@ -13,6 +13,8 @@
     $obj = json_decode($jsonobj);
     $img = $obj->images->image1;
     
+    $error_msg = array();
+
     if(isset($_POST["submit_review"])){
         $valid = 1; //check if submission is in correct format, 1 = yes, 0 = no
         $rating = $_POST["rating"];
@@ -20,7 +22,7 @@
         $current_date = date("Y-m-d");
         $body = $_POST["body"];
 
-        $title = mysqli_real_escape_string($connect, $body); //remove quotes to avoid query failure
+        $title = mysqli_real_escape_string($connect, $title); //remove quotes to avoid query failure
         $body = mysqli_real_escape_string($connect, $body); 
 
         $rev_img = array_filter($_FILES['rev_img']['name']);
@@ -31,43 +33,50 @@
             // echo "img array empty";
             $rev_img_json = "null";
         }else{
-            if($total_img <= 5 && $total_img > 0){
-                // echo "appending images to json";
-                $rev_img_json = '{"images": {';
-                $comma_count = $total_img - 1;
-                for($i = 0; $i < $total_img ; $i++){
-                    
-                    $dir = "assets/images/reviews/"; //new file path
-                    $file_path = $_FILES['rev_img']['name'][$i]; //get current file path
-                    $new_file_path = $dir . uniqid() . basename($file_path); //make unique file name
+            // echo "appending images to json";
+            $rev_img_json = '{"images": {';
+            $comma_count = $total_img - 1;
+            for($i = 0; $i < $total_img ; $i++){
+                
+                $dir = "assets/images/reviews/"; //new file path
+                $file_path = $_FILES['rev_img']['name'][$i]; //get current file path
+                $new_file_path = $dir . uniqid() . basename($file_path); //make unique file name
+                $size = $_FILES["rev_img"]["size"][$i];
+                // echo $i. " image: " . $size . "<br>";
 
-                    $rev_img_json .= '"image'.$i.'": "'.$new_file_path; //append to json string
-
-                    if($i != $comma_count){
-                        $rev_img_json .= '",'; 
-                    } else{
-                        $rev_img_json .= '"'; //format for last image in json
-                    }
-                    
-                    // array_replace($_FILES['rev_img']['name'][$i],$new_file_path);
-                    
-                    if(move_uploaded_file($_FILES['rev_img']['tmp_name'][$i], $new_file_path)){
-                        //post okay to upload
-                        // echo "image uplaod to dir";
-                        
-                    }else{
-                        //post not uploadable
-                        // echo "image not uplaod to dir";
-                    }
+                if($size > 10000000 || $size == 0 ){ //check file size
+                    array_push($error_msg, "Image too big, must be less than 2MB each.");
+                    $valid = 0;
                 }
-                $rev_img_json .= '}}'; //enclosing json string
-            }else if($total_img > 5){   
-                $valid = 0;
-                // echo "too many images";
-            }
-        }
-            
+                
+                $img_file_type = pathinfo($new_file_path, PATHINFO_EXTENSION);
 
+                if (strtolower($img_file_type) != "jpeg" && strtolower($img_file_type) != "jpg" && strtolower($img_file_type) != "png"){
+                    $errormsg = "File type not allowed. Only upload jpeg, jpg and png. " . $img_file_type;
+                    $valid = 0;
+                }
+
+                $rev_img_json .= '"image'.$i.'": "'.$new_file_path; //append to json string
+
+                if($i != $comma_count){
+                    $rev_img_json .= '",'; 
+                } else{
+                    $rev_img_json .= '"'; //format for last image in json
+                }
+                
+                // array_replace($_FILES['rev_img']['name'][$i],$new_file_path);
+                
+                if(move_uploaded_file($_FILES['rev_img']['tmp_name'][$i], $new_file_path)){
+                    //post okay to upload
+                    // echo "image uplaod to dir";
+                    
+                }else{
+
+                }
+            } 
+            $rev_img_json .= '}}'; //enclosing json string
+        }
+        
         if($valid){
             $query = "INSERT INTO reviews (product_id, user_id, timestamp, title, body, images, rating, likes, dislikes) VALUES ('$itemID', '$userLoggedIn','$current_date','$title','$body','$rev_img_json','$rating',0,0)";
             
@@ -76,16 +85,26 @@
                 // echo "|| write-review successful! ";
                 header("Location: product-item.php?id=$itemID");
             }else{
-                echo "|| write-review unsuccessful!";
-                echo mysqli_error($connect);
+                array_push($error_msg, "Unsuccessful. Cannot Connect to Server.");
+                echo "cannot connnect to server";
             }
         }else{
+            array_push($error_msg, "Incorrect Format. Try Again.");
             echo "incorrect format";
         }
     }
 ?>
 
 <div class="px-6">
+
+    <?php 
+        if(in_array("Incorrect Format. Try Again.",$error_msg)){
+            echo "<div class='alert alert-danger'>Incorrect Format. Try Again.</div>";
+        }
+        if(in_array("Unsuccessful. Cannot Connect to Server.",$error_msg)){
+            echo "<div class='alert alert-danger'>Unsuccessful. Cannot Connect to Server.</div>";
+        }
+    ?>
 
     <div class="d-flex flex-row">
         <h2 class='fw-bold text-darkgreen pe-5'>Create a Review</h2>
@@ -149,17 +168,22 @@
             <div>
                 <label for="rev_img" class="form-label"><p class=" m-0 fw-bold">Photos: (optional)</p></label>
                 <p class="fs-7 m-0 text-dark"><i class="text-primary bi bi-info-circle-fill"></i> You can add up to 5 Photos</p>
+                <span id="img-warning"></span>
+                <?php 
+                    if(in_array("Too many images. 5 max.",$error_msg)){
+                        echo "<div class='alert alert-danger'>Too many images. 5 max.</div>";
+                    }
+                    if(in_array("Image too big, must be less than 2MB each.",$error_msg)){
+                        echo "<div class='alert alert-danger'>Image too big, must be less than 2MB each.</div>";
+                    }
+                ?>
                 <div class="d-flex flex-row mt-3">
-                        <label class="btn btn-outline-dark p-3 me-auto" for="rev-img">
-                            <input type="file" name="rev_img[]" id="rev-img" class="d-none" multiple="multiple">
-                            <p class="fs-4 mb-0 mx-3"><i class="bi bi-camera-fill pe-3"></i>Upload Photo</p>
-                        </label>
-                    <!-- <div>
-                        <label class="btn btn-outline-dark p-3 me-auto" for="rev-img" style="cursor: pointer;">
-                        <input type="file" name="rev_img[]" id="rev_img" style="opacity: 0;" multiple="multiple">
-                        <p class="fs-4 mb-0 mx-3"><i class="bi bi-camera-fill pe-3"></i>Upload Photo</p></label>
-                    </div> -->
-                    <button class="btn btn-light p-3"><p class="fs-4 m-0">Cancel</p></button>
+                    <label class="btn btn-outline-dark p-3" for="rev-img">
+                        <input type="file" name="rev_img[]" id="rev-img" class="d-none" multiple="multiple" accept="image/*">
+                        <p class="fs-4 mb-0 mx-3"><i class="bi bi-camera-fill pe-3"></i>Upload Photo</p>
+                    </label>
+                    <p class="align-self-center me-auto mb-0 px-3 fs-4" id="img-count">0 files selected</p>
+                    <button class="btn btn-light p-3" onclick="window.history.back()"><p class="fs-4 m-0">Cancel</p></button>
                     <label  class="btn btn-primary p-3 text-white" for="submit-review">
                         <input class="d-none" type="submit" name="submit_review" id="submit-review" >
                         <p class="fs-4 mb-0 mx-3">Publish Review</p>
@@ -171,6 +195,18 @@
 </div>
 
 <script>
+    $("#rev-img").on("change", function() {
+        if ($("#rev-img")[0].files.length > 5) {
+            imgwarning = ("<div class='alert alert-danger'>You can select only 5 images. Resetting selection.</div>");
+            $("#img-warning").append(imgwarning);
+            // alert("You can select only 5 images");
+            $("#rev-img").val("");
+        } else {
+            $("#img-warning").html("");
+        }
+        $("#img-count").html($("#rev-img")[0].files.length + " files selected");
+    });
+
     function updateRating(rate){
         var star_radios = document.getElementsByName('rating');
         for(var i=0; i < star_radios.length; i++){
