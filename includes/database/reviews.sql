@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 25, 2022 at 06:21 AM
+-- Generation Time: May 28, 2022 at 03:09 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -43,6 +43,16 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   KEY `product_review_fk` (`product_id`),
   KEY `user_review_fk` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Triggers `reviews`
+--
+DROP TRIGGER IF EXISTS `after_review_insert`;
+DELIMITER $$
+CREATE TRIGGER `after_review_insert` AFTER INSERT ON `reviews` FOR EACH ROW UPDATE products 
+    SET products.ave_rating = (SELECT AVG(rating) FROM reviews WHERE reviews.product_id = products.id)
+$$
+DELIMITER ;
 
 --
 -- Constraints for dumped tables
