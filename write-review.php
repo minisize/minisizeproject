@@ -20,6 +20,9 @@
         $current_date = date("Y-m-d");
         $body = $_POST["body"];
 
+        $title = mysqli_real_escape_string($connect, $body); //remove quotes to avoid query failure
+        $body = mysqli_real_escape_string($connect, $body); 
+
         $rev_img = array_filter($_FILES['rev_img']['name']);
         $total_img = count($_FILES["rev_img"]["name"]); 
         $rev_img_json = ""; //json string
