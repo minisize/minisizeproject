@@ -30,11 +30,11 @@ class Home_functions
 
                 //Creation of HTML
                 echo "
-                            <div class='col px-2 py-1 position-relative display-item-container product-display'>
+                            <div class='px-2 py-1 position-relative display-item-container product-display'>
                                 <div class='thumbnail'>
                                     <img src='" . $img . "' class='display-item-dimension'>
                                 </div>
-                                <div class='description'>
+                                <div class='description text-center'>
                                     <p><strong>" . $row["name"] . "</strong></p> 
                                 </div>
                                 <div class='overlay-product'></div>
@@ -102,11 +102,11 @@ class Home_functions
             $productConcernArray = explode(",", $productConcerns);
 
             $recommendationString = "
-            <div class='col px-2 py-1 position-relative display-item-container product-display'>
+            <div class='px-2 py-1 position-relative display-item-container product-display'>
                 <div class='thumbnail'>
                     <img src='$image' class='display-item-dimension'>
                 </div>
-                <div class='description'>
+                <div class='description text-center'>
                     <p><strong>$name</strong></p> 
                 </div>
                 <div class='overlay-product'></div>
