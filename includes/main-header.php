@@ -183,7 +183,7 @@ $blog_obj = new Blog($connect);
                 <li class="main-nav-item nav-item"><a href="about-us.php">About</a></li>
             </ul>
 
-            <div class="col-1 d-flex justify-content-between">
+            <div class="col-md-1 col-sm-2 d-flex justify-content-between">
                 <button type="button" onclick="accountPage()" data-bs-toggle="modal" data-bs-target="#registerModal" class="btn text-dark text-decoration-none"><i class="bi bi-person-circle fs-5"></i></button>
                 <button type="button" onclick="cartPage()" data-bs-toggle="modal" data-bs-target="#registerModal" class="btn text-dark text-decoration-none"><i class="bi bi-cart-fill fs-5"></i></button>
             </div>
