@@ -55,6 +55,7 @@
     <!-- CSS Link -->
     <link rel="stylesheet" href="assets/styles/header_footer/header_n_footer.css">
     <link rel="stylesheet" href="assets/styles/products/products-style.css">
+    <link rel="stylesheet" href="assets/styles/products/product_review-style.css">
     <link rel="stylesheet" href="assets/styles/category/category.css">
     <link rel="stylesheet" href="assets/styles/blog/blog.css">
     <link rel="stylesheet" href="assets/styles/homepage/homepage.css">
