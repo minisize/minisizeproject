@@ -69,6 +69,174 @@ a {
   text-decoration: none;
   color: black;
 }
+//MEDIA QUERIES
+.mobile-main-nav{
+display: none !important;
+z-index: 100;
+}
+
+nav{
+  display: none !important;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+nav .navbar{
+max-width: 1200px;
+margin: auto;
+align-items: center;
+justify-content: space-between;
+}
+
+nav .navbar .nav-links .links{
+margin: 0;
+padding-left: 5vw;
+}
+nav .navbar .nav-links .links li{
+  position: relative;
+  align-items: center;
+  list-style: none;
+}
+nav .navbar .nav-links .mobile-submenu{
+  display: none;
+  .mobile-submenu-Category,.mobile-submenu-BKI,
+  .mobile-submenu-BC{
+    display: none;
+  }
+}
+nav .navbar .nav-links .links li a{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  white-space: nowrap;
+}
+nav .navbar .nav-links .links li{
+
+}
+@media screen and (max-width: 600px) {
+
+  nav{
+    display: block !important;
+    position: relative;
+
+
+  }
+  .mobile-main-nav{
+    display: block !important;
+  }
+
+  .fill{
+    display: none !important;
+  }
+  nav .navbar .nav-links{
+    display: block;
+    position: fixed;
+    padding: 2vh 2vw;
+    top: 0;
+    left: -100%;
+    max-width: fit-content;
+    width: 100%;
+    background: #f7f3f0;
+    line-height: 35px;
+    transition: all 1s ease;
+  }
+
+  nav .navbar .nav-links .links li{
+    display: block;
+    border-bottom: none;
+  }
+
+  nav .navbar .nav-links .links li .arrow{
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+    line-height: 40px;
+    width: 22px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  nav .navbar .nav-links .links li:hover .mobile-menu-arrow-shop,
+  nav .navbar .nav-links .links li li:hover .mobile-menu-arrow-category,
+  nav .navbar .nav-links .links li li:hover .mobile-menu-arrow-BKI,
+  nav .navbar .nav-links .links li li:hover .mobile-menu-arrow-shop-BC{
+    display: block;
+    transform: rotate(90deg);
+  }
+
+  nav .navbar .nav-links .links li:hover .mobile-submenu{
+    display: block;
+  }
+
+  nav .navbar .nav-links .mobile-submenu{
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-left: 10px;
+
+    & li:hover > .mobile-submenu-Category,
+    & li:hover > .mobile-submenu-BKI,
+    & li:hover > .mobile-submenu-BC{
+      display: block;
+    }
+  }
+
+  nav .navbar .nav-links .mobile-submenu li{
+    border-bottom: none;
+  }
+
+  nav .navbar .nav-links .mobile-submenu li:hover .mobile-submenu-1{
+    border-bottom: none;
+  }
+
+  nav .navbar .nav-links .sidebar-logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav .navbar .nav-links .sidebar-logo .logo-name{
+    font-family: "Playfair Display", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  nav .navbar .nav-links .sidebar-logo span{
+    width: 100%;
+  }
+
+  .nav-links .sidebar-logo .bi-x, nav .bi-list{
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+  .mobile-menu-items{
+    font-family: "Playfair Display", sans-serif;
+    font-size: 1rem;
+  }
+  .mobile-submenu-items{
+    font-family: "Josefin Sans", sans-serif !important;
+    font-size: .5rem;
+  }
+
+  nav .navbar .nav-links .links{
+    display: block;
+  }
+
+  .main-nav{
+
+    .main-nav-item{
+      display: none;
+    }
+
+    .nav-logo{
+      display: block;
+    }
+  }
+}
+
 
 //This Section is for the Footer SCSS
 
