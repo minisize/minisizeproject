@@ -28,13 +28,19 @@ $Home_funct = new Home_functions($connect);
 <!-- Enter Main Content Here-->
 
 <main class="">
-    <div class="container px-3 py-4 ">
-        <div class="row">
-            <h3 class="text-center fw-bold">RECOMMENDATIONS</h3>
-        </div>
-        <div class="row py-2 best-sellers-container row-cols-auto d-flex justify-content-center">
-            <?php $Home_funct->recommendedProducts($userLoggedIn); ?>
-        </div>
+    <div class="container px-3 py-4">
+        <?php 
+            if($userLoggedIn != ""){
+            ?>
+                <div class="row">
+                    <h3 class="text-center fw-bold">RECOMMENDATIONS</h3>
+                </div>
+                <div class="row py-2 best-sellers-container d-flex justify-content-center">
+                    <?php $Home_funct->recommendedProducts($userLoggedIn); ?>
+                </div>
+            <?php
+            }
+        ?>
     </div>
 
     <div class="container px-3 py-4 ">
