@@ -67,45 +67,6 @@
   border-radius: 5px;
 }
 
-.minisize-head-img {
-  height: 50vh;
-  background-position: left bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.homepage-head {
-  display: block;
-}
-
-.homepage-bg-head2 {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 90%;
-  width: 100%;
-  background: #F7E6CA;
-  z-index: -1;
-}
-
-.homepage-head-description {
-  font-size: 1vw;
-}
-
-.homepage-bg-head {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background: #F9EFDC;
-  z-index: -2;
-}
-
-.homepage-header-ctn {
-  text-align: center;
-}
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .content {
