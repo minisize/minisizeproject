@@ -94,10 +94,7 @@
 
             <div class="container">
                 <div class="row">
-                    <?php $product_obj->getReviewsData($itemID);?>
-                    <div class="col">
-                        <?php $product_obj->writeReview($itemID,$userLoggedIn);?>
-                    </div>
+                    <?php $product_obj->getReviewsData($itemID, $userLoggedIn);?>
                 </div>
             </div>
 
