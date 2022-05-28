@@ -37,11 +37,6 @@ $theme-colors: (
 body {
     background-color: $light;
     overflow-y: scroll;
-
-    animation: fadeInAnimation ease 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-
 }
 
 h1,h2,h3,h4 {
@@ -56,6 +51,13 @@ p {
     font-family: 'Josefin Sans', sans-serif;
 }
 
+.transition
+{
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
 @keyframes fadeInAnimation 
 {
     0% {
@@ -65,6 +67,7 @@ p {
         opacity: 1;
     }
 }
+
 
 .fs-7{
     font-size: 0.75rem;

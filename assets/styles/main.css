@@ -12588,12 +12588,6 @@ fieldset:disabled .btn {
 body {
   background-color: #F7F3F0;
   overflow-y: scroll;
-  -webkit-animation: fadeInAnimation ease 3s;
-          animation: fadeInAnimation ease 3s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
@@ -12606,6 +12600,15 @@ h5, .h5 {
 
 p {
   font-family: 'Josefin Sans', sans-serif;
+}
+
+.transition {
+  -webkit-animation: fadeInAnimation ease 2s;
+          animation: fadeInAnimation ease 2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes fadeInAnimation {
