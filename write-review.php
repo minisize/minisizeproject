@@ -66,7 +66,7 @@
             
 
         if($valid){
-            $query = "INSERT INTO reviews (product_id, user_id, title, body, rating, timestamp, images) VALUES ('$itemID', '$userLoggedIn', '$title','$body','$rating','$current_date','$rev_img_json')";
+            $query = "INSERT INTO reviews (product_id, user_id, timestamp, title, body, images, rating, likes, dislikes) VALUES ('$itemID', '$userLoggedIn','$current_date','$title','$body','$rev_img_json','$rating',0,0)";
             
             if(mysqli_query($connect,$query)){
                 mysqli_query($connect,"UPDATE products SET num_reviews = num_reviews + 1 WHERE id = $itemID");
