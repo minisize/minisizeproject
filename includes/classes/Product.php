@@ -519,10 +519,10 @@
                             </a>";
             }
 
-            echo $button;
+            return $button;
         }
 
-        public function getReviewsData($itemID){
+        public function getReviewsData($itemID, $userID){
             $result = "";
             $query = mysqli_query($this->connect, "SELECT * FROM reviews WHERE product_id='$itemID'");
             $num = mysqli_num_rows($query);
@@ -534,7 +534,7 @@
             $rating_two = 0;
             $rating_one = 0;
             $rating_star_ave = 0;
-
+            $review_count = "";
             if($num != 0){
                 while($reviewData = mysqli_fetch_array($query)){
                     $check_rating = $reviewData['rating'];
@@ -555,117 +555,68 @@
                 $rating_two = ($rating_two / $num) * 100;
                 $rating_one = ($rating_one / $num) * 100;
 
-                $result = "
-                <div class='col'>
-                    <h3>$rating_ave out of 5</h3>
-                    <p>$num reviews</p>
-                    
-                    <span class='position-relative'>
-                        <span>
-                            <i class='bi bi-star fs-1'></i>
-                            <i class='bi bi-star fs-1'></i>
-                            <i class='bi bi-star fs-1'></i>
-                            <i class='bi bi-star fs-1'></i>
-                            <i class='bi bi-star fs-1'></i>
-                        </span>
-                        <span class='position-absolute start-0' style='width: $rating_star_ave%;overflow: hidden;white-space: nowrap;'>
-                            <i class='bi bi-star-fill fs-1'></i>
-                            <i class='bi bi-star-fill fs-1'></i>
-                            <i class='bi bi-star-fill fs-1'></i>
-                            <i class='bi bi-star-fill fs-1'></i>
-                            <i class='bi bi-star-fill fs-1'></i>
-                        </span>
-                    </span>
-                </div>
-                <div class='col-5'>
-                    <div class='row'>
-                        <p class='col-1'>5</p>
-                        <div class='progress col p-0'>
-                            <div class='progress-bar' style='width: $rating_five%;'></div>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <p class='col-1'>4</p>
-                        <div class='progress col p-0'>
-                            <div class='progress-bar' style='width: $rating_four%;'></div>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <p class='col-1'>3</p>
-                        <div class='progress col p-0'>
-                            <div class='progress-bar' style='width: $rating_three%;'></div>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <p class='col-1'>2</p>
-                        <div class='progress col p-0'>
-                            <div class='progress-bar' style='width: $rating_two%;'></div>
-                        </div>
-                    </div>
-                    <div class='row'>
-                        <p class='col-1'>1</p>
-                        <div class='progress col p-0'>
-                            <div class='progress-bar' style='width: $rating_one%;'></div>
-                        </div>
-                    </div>
-                </div>";
+                $review_count = $rating_ave . " out of 5";
             }else{
-                $result = "
-                <div class='col'>
-                    <h3>No Reviews Yet</h3>
-                    <p>$num reviews</p>
-                    
+                $review_count = "No Reviews Yet";
+            }
+            $result = "
+            <div class='col'>
+                <p class='fs-1 mb-0'>$review_count</p>
+                <div class= 'py-1'>
                     <span class='position-relative'>
                         <span>
-                            <i class='bi bi-star fs-1'></i>
-                            <i class='bi bi-star fs-1'></i>
-                            <i class='bi bi-star fs-1'></i>
-                            <i class='bi bi-star fs-1'></i>
-                            <i class='bi bi-star fs-1'></i>
+                            <i class='bi bi-star-fill fs-1 make-gray'></i>
+                            <i class='bi bi-star-fill fs-1 make-gray'></i>
+                            <i class='bi bi-star-fill fs-1 make-gray'></i>
+                            <i class='bi bi-star-fill fs-1 make-gray'></i>
+                            <i class='bi bi-star-fill fs-1 make-gray'></i>
                         </span>
                         <span class='position-absolute start-0' style='width: $rating_star_ave%;overflow: hidden;white-space: nowrap;'>
-                            <i class='bi bi-star-fill fs-1'></i>
-                            <i class='bi bi-star-fill fs-1'></i>
-                            <i class='bi bi-star-fill fs-1'></i>
-                            <i class='bi bi-star-fill fs-1'></i>
-                            <i class='bi bi-star-fill fs-1'></i>
+                            <i class='bi bi-star-fill fs-1 make-yellow'></i>
+                            <i class='bi bi-star-fill fs-1 make-yellow'></i>
+                            <i class='bi bi-star-fill fs-1 make-yellow'></i>
+                            <i class='bi bi-star-fill fs-1 make-yellow'></i>
+                            <i class='bi bi-star-fill fs-1 make-yellow'></i>
                         </span>
                     </span>
+                    
+                    <p class='mb-0 d-inline'>$num reviews</p>
                 </div>
-                <div class='col-5'>
-                    <div class='row'>
-                        <p class='col-1'>5</p>
-                        <div class='progress col p-0'>
-                            <div class='progress-bar' style='width: $rating_five%;'></div>
-                        </div>
+                ". $this->writeReview($itemID, $userID) ."
+            </div>
+            <div class='col-8'>
+                <div class='row'>
+                    <p class='col-1'>5</p>
+                    <div class='progress col p-0'>
+                        <div class='progress-bar' style='width: $rating_five%;'></div>
                     </div>
-                    <div class='row'>
-                        <p class='col-1'>4</p>
-                        <div class='progress col p-0'>
-                            <div class='progress-bar' style='width: $rating_four%;'></div>
-                        </div>
+                </div>
+                <div class='row'>
+                    <p class='col-1'>4</p>
+                    <div class='progress col p-0'>
+                        <div class='progress-bar' style='width: $rating_four%;'></div>
                     </div>
-                    <div class='row'>
-                        <p class='col-1'>3</p>
-                        <div class='progress col p-0'>
-                            <div class='progress-bar' style='width: $rating_three%;'></div>
-                        </div>
+                </div>
+                <div class='row'>
+                    <p class='col-1'>3</p>
+                    <div class='progress col p-0'>
+                        <div class='progress-bar' style='width: $rating_three%;'></div>
                     </div>
-                    <div class='row'>
-                        <p class='col-1'>2</p>
-                        <div class='progress col p-0'>
-                            <div class='progress-bar' style='width: $rating_two%;'></div>
-                        </div>
+                </div>
+                <div class='row'>
+                    <p class='col-1'>2</p>
+                    <div class='progress col p-0'>
+                        <div class='progress-bar' style='width: $rating_two%;'></div>
                     </div>
-                    <div class='row'>
-                        <p class='col-1'>1</p>
-                        <div class='progress col p-0'>
-                            <div class='progress-bar' style='width: $rating_one%;'></div>
-                        </div>
+                </div>
+                <div class='row'>
+                    <p class='col-1'>1</p>
+                    <div class='progress col p-0'>
+                        <div class='progress-bar' style='width: $rating_one%;'></div>
                     </div>
-                </div>";
-            }
-
+                </div>
+            </div>";
+            
             echo $result;
         }
         
@@ -684,6 +635,8 @@
                 $likes = $reviewData['likes'];
                 $dislikes = $reviewData['dislikes'];
                 $reviewImagePreview = "";
+                $imageGroup = "";
+                $timeString = "";
 
                 $jsonobjImg = $reviewData['images']; //set $jsonobj to the value of input of the array "images" from $row;
                 if ($jsonobjImg != "null"){
@@ -697,6 +650,43 @@
                     }
                 }
 
+                if($reviewImagePreview != ""){
+                    $imageGroup = "<a class='img-preview'  data-bs-toggle='modal' data-bs-target='#review-img-modal'><div class='row d-flex flex-row gap-1 m-0'>$reviewImagePreview</div></a>";
+                }
+
+                
+                $timeString = new DateTime($time);
+                $month = $timeString->format("m");
+                $day = $timeString->format("d");
+                $year = $timeString->format("Y");
+                if($month == "1"){
+                    $timeString = "January";
+                }else if ($month == "2"){
+                    $timeString = "February";
+                }else if ($month == "3"){
+                    $timeString = "March";
+                }else if ($month== "4"){
+                    $timeString = "April";
+                }else if ($month == "5"){
+                    $timeString = "May";
+                }else if ($month == "6"){
+                    $timeString = "June";
+                }else if ($month == "7"){
+                    $timeString = "July";
+                }else if ($month == "8"){
+                    $timeString = "August";
+                }else if ($month == "9"){
+                    $timeString = "September";
+                }else if ($month == "10"){
+                    $timeString = "October";
+                }else if ($month == "11"){
+                    $timeString = "November";
+                }else if ($month == "12"){
+                    $timeString = "December";
+                }
+
+                $timeString .= " ". $day . " " . $year;
+
                 $userquery = mysqli_query($this->connect, "SELECT * FROM users WHERE id='$userID'");
                 while($userData = mysqli_fetch_array($userquery)){
                     $username = $userData['username'];
@@ -705,58 +695,60 @@
                     // $age_range = $userData['age_range'];
                     // $gender = $userData['gender'];
 
-                    $reviewString .= "<div class='row p-2'>
-                    <div class='col'>
-                        <p class='mb-0'>$time</p>
-                        <span class='position-relative'>
-                            <span>
-                                <i class='bi bi-star fs-3'></i>
-                                <i class='bi bi-star fs-3'></i>
-                                <i class='bi bi-star fs-3'></i>
-                                <i class='bi bi-star fs-3'></i>
-                                <i class='bi bi-star fs-3'></i>
-                            </span>
-                            <span class='position-absolute start-0' style='width: $rating%;overflow: hidden;white-space: nowrap;'>
-                                <i class='bi bi-star-fill fs-3'></i>
-                                <i class='bi bi-star-fill fs-3'></i>
-                                <i class='bi bi-star-fill fs-3'></i>
-                                <i class='bi bi-star-fill fs-3'></i>
-                                <i class='bi bi-star-fill fs-3'></i>
-                            </span>
-                        </span>
-                        <div class='row mb-5'><h4>$title</h4></div>
+                    $reviewString .= "
+                    <hr>
+                    <div class='row p-2'>
+                    <div class='col d-flex flex-column gap-1'>
+                        <p class='mb-0'>$timeString</p>
                         <div>
-                            <p class='d-inline'>Was this helpful?</p>
+                            <span class='position-relative'>
+                                <span>
+                                    <i class='bi bi-star-fill fs-3 make-gray'></i>
+                                    <i class='bi bi-star-fill fs-3 make-gray'></i>
+                                    <i class='bi bi-star-fill fs-3 make-gray'></i>
+                                    <i class='bi bi-star-fill fs-3 make-gray'></i>
+                                    <i class='bi bi-star-fill fs-3 make-gray'></i>
+                                </span>
+                                <span class='position-absolute start-0' style='width: $rating%;overflow: hidden;white-space: nowrap;'>
+                                    <i class='bi bi-star-fill fs-3 make-yellow'></i>
+                                    <i class='bi bi-star-fill fs-3 make-yellow'></i>
+                                    <i class='bi bi-star-fill fs-3 make-yellow'></i>
+                                    <i class='bi bi-star-fill fs-3 make-yellow'></i>
+                                    <i class='bi bi-star-fill fs-3 make-yellow'></i>
+                                </span>
+                            </span>
+                        </div>
+                        <h4>$title</h4>
+                        <p class='d-inline mt-auto mb-0'>Was this helpful?
                             <a class='btn feedback-btn' data-id='$review_id' data-action='like' data-product='product-item.php?id=$itemID'><span class='count'>$likes</span><i class='bi bi-hand-thumbs-up'></i></a>
                             <a class='btn feedback-btn' data-id='$review_id' data-action='dislike' data-product='product-item.php?id=$itemID'><span class='count'>$dislikes</span><i class='bi bi-hand-thumbs-down'></i></a>
-                        </div>
+                        </p>
                     </div>
                     <div class='col-5'>
                         <p>$body</p>
                     </div>
-                    <div class='col'>
-                        <a class='img-preview'  data-bs-toggle='modal' data-bs-target='#review-img-modal'><div class='row d-flex flex-row gap-1 m-0'>$reviewImagePreview</div></a>
-                        <div class='row'>
-                            <div class='col'>
-                                <h6>Skin Concern:</h6>
-                                <p>$skin_concern</p>
+                    <div class='col d-flex flex-column justify-content-between gap-3'>
+                        $imageGroup
+                        <div class='d-flex flex-row justify-content-between'>
+                            <div>
+                                <p class='text-dark mb-0 fs-7'>Skin Concern:</p>
+                                <p class='text-dark mb-0 fs-7'>$skin_concern</p>
                             </div> 
-                            <div class='col'>
-                                <h6>Skin Type:</h6>
-                                <p>$skin_type</p>
+                            <div>
+                                <p class='text-dark mb-0 fs-7'>Skin Type:</p>
+                                <p class='text-dark mb-0 fs-7'>$skin_type</p>
                             </div>
-                            <div class='col'>
-                                <h6>Age:</h6>
-                                <p>31 - 35</p>
+                            <div>
+                                <p class='text-dark mb-0 fs-7'>Age:</p>
+                                <p class='text-dark mb-0 fs-7'>31 - 35</p>
                             </div>      
-                            <div class='col'>
-                                <h6>Gender:</h6>
-                                <p>Female</p>
+                            <div>
+                                <p class='text-dark mb-0 fs-7'>Gender:</p>
+                                <p class='text-dark mb-0 fs-7'>Female</p>
                             </div>                      
                         </div>
-                        <div class='row fs-2'>$username</div>
+                        <p class='fs-2 mb-0 align-self-end'>$username</p>
                     </div>
-                <hr>
                 </div>";
                 }
             }
