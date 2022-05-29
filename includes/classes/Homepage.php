@@ -9,7 +9,7 @@ class Home_functions
 
     public function GenerateList($connect)
     {
-        $sql = "SELECT * FROM `products` ORDER BY `sum_ratings` DESC";
+        $sql = "SELECT * FROM `products` ORDER BY num_reviews DESC";
         $result = $connect->query($sql);
 
         //Limit the items to display
@@ -30,11 +30,11 @@ class Home_functions
 
                 //Creation of HTML
                 echo "
-                            <div class='col px-2 py-1 position-relative display-item-container product-display'>
+                            <div class='px-2 py-1 position-relative display-item-container product-display'>
                                 <div class='thumbnail'>
                                     <img src='" . $img . "' class='display-item-dimension'>
                                 </div>
-                                <div class='description'>
+                                <div class='description text-center'>
                                     <p><strong>" . $row["name"] . "</strong></p> 
                                 </div>
                                 <div class='overlay-product'></div>
@@ -71,6 +71,52 @@ class Home_functions
             echo "$img";
         } else {
             echo "Error";
+        }
+    }
+
+    public function recommendedProducts($userID){
+        $recommendationString = "";
+        $counter = 0;
+        $max = 6;
+
+        // product query
+        $query = "SELECT id, name, for_skin_concern, images FROM products";
+        $result = mysqli_query($this->connect, $query);
+
+        // user query
+        $userConcernQuery = "SELECT skin_concern FROM users WHERE id='$userID'";
+        $array = mysqli_query($this->connect, $userConcernQuery);
+        $concernData = mysqli_fetch_array($array);
+        
+        $userConcern = $concernData['skin_concern'];
+
+        while(($row = mysqli_fetch_array($result)) AND ($counter < $max)){
+            $id = $row['id'];
+            $name = $row['name'];
+            $jsonobjImg = $row["images"]; 
+
+            $objImg = json_decode($jsonobjImg); 
+            $image = $objImg->images->image1;
+    
+            $productConcerns = $row['for_skin_concern'];
+            $productConcernArray = explode(",", $productConcerns);
+
+            $recommendationString = "
+            <div class='px-2 py-1 position-relative display-item-container product-display'>
+                <div class='thumbnail'>
+                    <img src='$image' class='display-item-dimension'>
+                </div>
+                <div class='description text-center'>
+                    <p><strong>$name</strong></p> 
+                </div>
+                <div class='overlay-product'></div>
+                <a href='product-item.php?id=$id' class='product-view btn btn-outline-primary fw-bold px-5'>View</a>
+            </div>";
+
+            if(in_array($userConcern, $productConcernArray)){ // if user's concern is in the list of concerns in product
+                echo $recommendationString;
+                $counter++;
+            }
         }
     }
 }

@@ -12657,3 +12657,8 @@ p {
   background: #1c1c1c;
 }
 /*# sourceMappingURL=main.css.map */
+
+.px-6{
+  padding-right: 6rem;
+  padding-left: 6rem;
+}

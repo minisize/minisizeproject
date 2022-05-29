@@ -13,12 +13,26 @@
         $insertAddress = "INSERT INTO addresses (user_id, building, street, city, country) VALUES ('$userID', '$building', '$street', '$city', '$country')";
 
         if (mysqli_query($connect, $insertAddress)) { // If successful
-
             // redirect to previous page
             echo "<script>window.history.back();</script>";
 
         } else {
             echo "Error: " . $insertAddress . "<br>" . mysqli_error($connect);
+        }
+    }
+
+    if(isset($_POST['update_address'])){
+        $id = $_POST['id'];
+        $building = $_POST["building"];
+        $street = $_POST["street"];
+        $city = $_POST["city"];
+        $country = $_POST["country"];
+
+        $addressEditQuery = "UPDATE addresses SET building='$building', street='$street', city='$city', country='$country' WHERE id='$id'";
+
+        if (mysqli_query($connect, $addressEditQuery)) { 
+            // redirect to previous page
+            echo "<script>window.history.back();</script>";
         }
     }
 ?>

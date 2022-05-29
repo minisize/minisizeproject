@@ -45,8 +45,8 @@
         })
     })
 </script>
-<div class="transition">
-        <div id="account-page-content" class="col p-5">
+<div class="transition col p-5">
+        <div id="account-page-content" class="">
             <h2>User Profile</h2>
             <div class="row mt-4">
                 <div class="col-2">
@@ -146,7 +146,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 </div>
 <?php
     require "../../includes/sub-footer.php";

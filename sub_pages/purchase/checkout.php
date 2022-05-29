@@ -141,11 +141,11 @@
                         </select> 
                         <select name="expiry_year" id="expiryYear" class="form-select" form="checkoutForm" required>
                             <option selected disabled>YY</option>
-                            <option value="22">2022</option>
-                            <option value="23">2023</option>
-                            <option value="24">2024</option>
-                            <option value="25">2025</option>
-                            <option value="26">2026</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
                         </select> 
                         <!-- <input type="text" class="form-control text-center" placeholder="MM/YY"> -->
                     </div>

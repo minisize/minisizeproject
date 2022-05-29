@@ -225,45 +225,58 @@
             $query = mysqli_query($this->connect, "SELECT * FROM wishlist WHERE user_id='$user'");
 
             while($wishlistData = mysqli_fetch_array($query)){
+                $id = $wishlistData['id'];
                 $productID = $wishlistData['product_id'];
                 $product_query = mysqli_query($this->connect, "SELECT * FROM products WHERE id='$productID'");
+
                 while($productData = mysqli_fetch_array($product_query)){
-                $product_images = $productData["images"];
-                $product_brand = $productData["brand"];
-                $product_name = $productData["name"];
-                $product_price = $productData["base_price"];
+                    $product_images = $productData["images"];
+                    $product_brand = $productData["brand"];
+                    $product_name = $productData["name"];
+                    $product_price = $productData["base_price"];
 
-                $object_images = json_decode($product_images);
-                $img = $object_images->images->image1; 
+                    $object_images = json_decode($product_images);
+                    $img = $object_images->images->image1; 
 
-                $product_img = "../../" . $img;
+                    $product_img = "../../" . $img;
 
-                $wishlistString .= "
-                <div class='row d-flex mb-4 px-4 py-3 rounded-3' style='background-color: #FFFBF8;'>
-                    <div class='d-flex flex-row justify-content-between'>
-                        
-                            <img src='$product_img' class='col-1 img-fluid me-2' style='width: 20%;'>
-                            <div class='col d-flex flex-column justify-content-between'>
-                                <div class='row'>
-                                    <h5 class='fs-6 fw-light'>$product_brand (brand)</h5>
-                                
-                                    <h5 class='fs-6 fw-bold'>$product_name</h5>
+                    $wishlistString .= "
+                    <div class='row d-flex mb-4 px-4 py-3 rounded-3' style='background-color: #FFFBF8;'>
+                        <div class='d-flex flex-row justify-content-between ps-0'>
+                            
+                                <img src='$product_img' class='col-1 img-fluid me-2' style='width: 20%;'>
+                                <div class='col d-flex flex-column justify-content-between'>
+                                    <div class='row'>
+                                        <h5 class='fs-6 fw-light'>$product_brand</h5>
+                                        <h5 class='fs-6 fw-bold'>$product_name</h5>
+                                    </div>
+
+                                    <div class='row'>
+                                        <div class='col-4'>
+                                            <button class='btn p-0' onclick='window.location.href=".'"'."../../product-item.php?id=$productID".'"'."'>
+                                                <h5 class='fs-7 fw-light'>
+                                                    <i class='bi bi-cart-fill'></i>
+                                                    Add to Cart
+                                                </h5>
+                                            </button>
+                                        </div>
+                                        <div class='col-4'>
+                                            <form action='../../includes/handlers/wishlist-handler.php' method='POST'>
+                                                <button type='submit' name='remove' class='btn p-0'>
+                                                    <h5 class='fs-7 fw-light'>
+                                                        <i class='bi bi-trash-fill'></i>
+                                                        Remove
+                                                    </h5>
+                                                </button>
+                                                <input type='hidden' name='wishlist_id' value='$id'>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class='row'>
-                                    <h5 class='col-4 fs-7 fw-light'>
-                                        <i class='bi bi-cart-fill'></i>
-                                        Add to Cart
-                                    </h5>
-                                    <h5 class='col fs-7 fw-light'>
-                                        <i class='bi bi-trash-fill'></i>
-                                        Remove
-                                    </h5>
-                                </div>
-                            </div>
-                        
-                        <h5 class='col-2 fs-4 fw-bold text-end text-darkgreen'>$product_price USD</h5>
-                    </div>
-                </div>";
+                            
+                            <h5 class='col-2 fs-4 fw-bold text-end text-darkgreen'>$product_price USD</h5>
+                        </div>
+                    </div>";
                 }
 
             }
@@ -277,24 +290,72 @@
             $query = mysqli_query($this->connect, "SELECT * FROM addresses WHERE user_id='$user'");
 
             while($addressData = mysqli_fetch_array($query)){
+                $id = $addressData['id'];
                 $building = $addressData['building'];
                 $street = $addressData['street'];
                 $city = $addressData['city'];
                 $country = $addressData['country'];
                 $fullname = $this->getFullName();
 
+                ?>
+                <script>
+                    function toggleEdit<?php echo $id; ?>() {
+                        var form = document.getElementById("editAddressForm<?php echo $id; ?>");
+                        var button = document.getElementById("editBtn<?php echo $id; ?>");
+
+                        if (form.style.display == "none") {
+                            form.style.display = "block";
+                            button.innerHTML = "Cancel";
+                        } else {
+                            form.style.display = "none";
+                            button.innerHTML = "Edit";
+                        }
+                    }
+                </script>
+                <?php
+
                 $addressString .= "
                 <div class='row d-flex mb-4 p-4 rounded-3' style='background-color: #FFFBF8;'>
-                    <div class='d-flex flex-row justify-content-between'>
-                        <div>
+                    <div class='row'>
+                        <div class='col-3'>
                             <h5 class='fs-7 fw-bold'>Name:</h5>
                             <h5 class='fs-7 fw-bold'>$fullname</h5>
                         </div>
-                        <div>
+                        <div class='col'>
                             <h5 class='fs-7 fw-bold'>Address:</h5>
                             <h5 class='fs-7 fw-bold'>$building, $street, $city, $country</h5>
                         </div>
-                        <button class='btn btn-outline-dark'><p class='m-0 p-0'>Edit</p></button>
+                        <button class='col-2 btn btn-outline-dark edit-btn' onclick='toggleEdit$id()'><p id='editBtn$id' class='m-0 p-0'>Edit</p></button>
+                    </div>
+
+                    <div class='row' id='editAddressForm$id' style='display:none;'>
+                        <form action='../../includes/handlers/address-handler.php' method='POST'>
+                        <p class='m-0 mt-3 p-0 pt-2 fs-4 border-top'>Edit Details</p>
+                            <div class='row'>
+                                <div class='col'>
+                                    <label for='editBldg'><h5 class='fs-7 fw-bold'>Building:</h5></label>
+                                    <input type='text' name='building' for='editBldg' class='form-control form-control-sm' value='$building'>
+                                </div>
+                                <div class='col pe-0'>
+                                    <label for='editStreet'><h5 class='fs-7 fw-bold'>Street:</h5></label>
+                                    <input type='text' name='street' for='editStreet' class='form-control form-control-sm' value='$street'>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col'>
+                                    <label for='editCity'><h5 class='fs-7 fw-bold'>City:</h5></label>
+                                    <input type='text' name='city' for='editCity' class='form-control form-control-sm' value='$city'>
+                                </div>
+                                <div class='col pe-0'>
+                                    <label for='editCountry'><h5 class='fs-7 fw-bold'>Country:</h5></label>
+                                    <input type='text' name='country' for='editCountry' class='form-control form-control-sm' value='$country'>
+                                </div>
+                            </div>
+                            <input type='hidden' name='id' value='$id'>
+                            <button type='submit' name='update_address' class='col btn btn-sm btn-dark text-white mt-4'>
+                                <p class='m-0 p-0'>Save Changes</p>
+                            </button>
+                        </form>
                     </div>
                 </div>";
 
@@ -304,7 +365,33 @@
         }
 
         public function loadPaymentList(){
+            $paymentString = "";
+            $user = $this->user["id"];
+            $query = mysqli_query($this->connect, "SELECT * FROM payments WHERE user_id='$user'");
 
+            while($paymentData = mysqli_fetch_array($query)){
+                $id = $paymentData['id'];
+                $cardNumber = $paymentData['card_number'];
+                $expiryMM = $paymentData['expiry_month'];
+                $expiryYY = $paymentData['expiry_year'];
+
+                $month = sprintf("%02d", $expiryMM);
+
+                $paymentString .= "
+                <tr>
+                    <td><p class='m-0 p-0 fw-light'>Card ending in $cardNumber</p></td>
+                    <td><p class='m-0 p-0 fw-light'>$month / $expiryYY</p></td>
+                    <td>
+                        <form action='../../includes/handlers/payment-remove.php' method='POST'>
+                            <input type='hidden' name='payment_id' value='$id'>
+                            <button type='submit' name='delete' class='btn btn-outline-dark w-75'><p class='m-0 p-0'>Delete</p></button>
+                        </form>
+                    </td>
+                </tr>
+                ";
+            }
+
+            echo $paymentString;
         }
     }
 ?>

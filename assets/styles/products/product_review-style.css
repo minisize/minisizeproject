@@ -1,0 +1,16 @@
+.star-btn input[type="radio"] {
+    opacity: 0;
+    z-index: 100;
+}
+
+.star-btn input[type="radio"]:checked + label i{
+    color: #F0BC68;
+}
+
+.make-yellow {
+    color: #F0BC68;
+}
+
+.make-gray{
+    color: #D0CDCB;
+}

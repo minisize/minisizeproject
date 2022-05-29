@@ -52,7 +52,7 @@
         </a>
 
         <div class="d-flex flex-wrap justify-content-between">
-            <a href="../../index.php" class="btn text-decoration-none link-dark pe-4"><i class="bi bi-house-fill fs-5"></i></a>
+            <a href="../../index.php" class="btn text-decoration-none link-dark me-2"><i class="bi bi-house-fill fs-5"></i></a>
             <a href="../purchase/cart.php" class="btn text-decoration-none link-dark"><i class="bi bi-cart-fill fs-5"></i></a>
         </div>
     </header>

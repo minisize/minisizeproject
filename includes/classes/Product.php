@@ -92,7 +92,7 @@
                             <p><strong>$name</strong> <br> with $mainIngredient</p>";
                 }
 
-                $productString .=   "<div class='col product-display position-relative p-4 d-flex flex-column justify-content-between' style='width: 22%'>
+                $productString .=   "<div class='col product-display position-relative p-4 d-flex flex-column justify-content-between'>
                                         <div>
                                             $head
                                         </div>
@@ -120,17 +120,15 @@
 
             $Key_ingredient_ID=$row['key_ingredient_id'];
 
-
-
             //Creates a foreach
             while ( $row = mysqli_fetch_array($productDataQuery)) {
+                $name = $row['name'];
+                $price = $row['base_price'];
+                $ingredient = $row['main_ingredient'];
             
-                //set $jsonobj to the value of input of the array "images" from $row;
-                $jsonobj = $row["images"];
-                //set $obj to the value of a php object converted from the string of $jsonobj
-                $obj = json_decode($jsonobj);
-                // Set $img to the value of image1 from images by php object $obj
-                $img = $obj->images->image1;
+                $jsonobj = $row["images"]; //set $jsonobj to the value of input of the array "images" from $row;
+                $obj = json_decode($jsonobj); //set $obj to the value of a php object converted from the string of $jsonobj
+                $img = $obj->images->image1; // Set $img to the value of image1 from images by php object $obj
 
                 if ($row["id"] != $itemID) {
 
@@ -141,12 +139,11 @@
                         <div class='col product-display'>
                             <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
                             <div class='product-name'>
-                                <p><strong>".$row['name']."</strong></p>
+                                <p class='m-0 p-0'><strong>$name</strong></p>
                             </div>
-                                <p>contains</p>
-                                <img src='#' alt='image of ingredient'>
+                                <p class='fs-7'>contains $ingredient</p>
                             <div>
-                                <label for=''>".$row['base_price']."</label>
+                                <p class='m-0 p-0 fs-5'><strong>$price USD</strong></p>
                             </div>
                         </div>
                     ";
@@ -159,8 +156,8 @@
             if ( $hascontent === true ) {
                 $Similar_String ="
                 <div class='row'>
-                    <h1> Similar Products </h1>
-                    <h6> with the same key ingredients </h6>
+                    <h2 class='fw-bold text-darkgreen'> Similar Products </h2>
+                    <p> with the same key ingredients </p>
                 </div>
 
                 <div class='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
@@ -206,6 +203,7 @@
             $category = $row['category'];
             $mainIngredient = $row['main_ingredient'];
             $cosdnaLink = $row['cosdna_link'];
+            $productLink = $row['product_link'];
             $basePrice = $row['base_price'];
 
             $jsonobjImg = $row["images"]; //set $jsonobj to the value of input of the array "images" from $row;
@@ -314,7 +312,7 @@
                                 " . $this->addToWishlist($id, $userID) . "
                             </div>";
             $productIngredient = "<p class='fs-5'>with $mainIngredient
-                                        <a class='fs-6 d-inline-flex align-items-baseline text-secondary' href='$cosdnaLink'>
+                                        <a class='fs-6 d-inline-flex align-items-baseline text-secondary' href='$cosdnaLink' target='_blank'>
                                             $textLink
                                         </a>
                                     </p>";
@@ -322,12 +320,13 @@
             
             if($category == "Bundles"){
                 $productIngredient = "";
-                $productForm = "<form action='product-item.php?id=$itemID' method='POST'>
+                $productForm = "<form action='includes/handlers/cart-handler.php' method='POST'>
                                     <div class='row'>
                                         <div class='col d-flex justify-content-between align-items-center mt-4'>
                                             <input type='hidden' id='inputPrice' name='price' value='$basePrice'/>
                                             <input type='hidden' id='inputSize' name='size' value=''/>
                                             <input type='hidden' name='item' value='$name'/>
+                                            <input type='hidden' name='img' value='".$this->getProductImage($itemID)."'>
                                             <p id='priceSize' class='fs-4 m-0 text-dark'>$basePrice USD</p>
                                             <div class='d-flex align-items-center gap-4'>
                                                 " . $this->addToCart($id, $userID) . "
@@ -341,7 +340,7 @@
                 $price15ml = $objPrice->prices->price2;
                 $price20ml = $objPrice->prices->price3;
 
-                $productForm = "<form action='product-item.php?id=$itemID' method='POST'>
+                $productForm = "<form action='includes/handlers/cart-handler.php' method='POST'>
                                     <div class='row'>
                                         <div class='col position-relative price-btn'>
                                             <input type='radio' value='$price10ml' id='price10ml' onClick='changePrice()' name='price-selected' class='position-absolute' checked/>
@@ -373,9 +372,10 @@
                                             <input type='hidden' id='inputPrice' name='price' value='$price10ml'/>
                                             <input type='hidden' id='inputSize' name='size' value='10 mL'/>
                                             <input type='hidden' name='item' value='$name'/>
+                                            <input type='hidden' name='img' value='".$this->getProductImage($itemID)."'>
                                             <p id='priceSize' class='fs-4 m-0 text-dark'>$price10ml USD</p>
                                             <div class='d-flex align-items-center gap-4'>
-                                                <p class='m-0'><a href=''>View full product</a></p>
+                                                <p class='m-0'><a href='$productLink' target='_blank'>View full product</a></p>
                                                 " . $this->addToCart($id, $userID) . "
                                             </div>
                                         </div>
@@ -503,5 +503,256 @@
             }
 
             return $button;
+        }
+
+        public function writeReview($itemID,$userID){
+
+            if ($userID == ""){ //if no user logged in , prompt log in modal
+                $button = "<button type='button' class='border-0' data-bs-toggle='modal' data-bs-target='#registerModal'>
+                                <a class='btn btn-primary px-4'>
+                                    <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Write a Review</p>
+                                </a>
+                            </button>";
+            } else { //else proceed to write review
+                $button = "<a href='write-review.php?id=$itemID' class='btn btn-primary w-100 align-self-center rounded'>
+                                <p class='m-0 p-0 fs-5 fw-bold text-white px-4'>Write a Review</p>  
+                            </a>";
+            }
+
+            return $button;
+        }
+
+        public function getReviewsData($itemID, $userID){
+            $result = "";
+            $query = mysqli_query($this->connect, "SELECT * FROM reviews WHERE product_id='$itemID'");
+            $num = mysqli_num_rows($query);
+            $rating = 0;
+            $rating_ave = 0;
+            $rating_five = 0; 
+            $rating_four = 0;
+            $rating_three = 0;
+            $rating_two = 0;
+            $rating_one = 0;
+            $rating_star_ave = 0;
+            $review_count = "";
+            if($num != 0){
+                while($reviewData = mysqli_fetch_array($query)){
+                    $check_rating = $reviewData['rating'];
+                    if ($check_rating == 5) $rating_five++;
+                    if ($check_rating == 4) $rating_four++;
+                    if ($check_rating == 3) $rating_three++;
+                    if ($check_rating == 2) $rating_two++;
+                    if ($check_rating == 1) $rating_one++;
+                    $rating += $check_rating;
+                }
+
+                $rating = $rating / $num;
+                $rating_ave = number_format((float)$rating,2,'.','');
+                $rating_star_ave = ($rating_ave/ 5) *100;
+                $rating_five = ($rating_five / $num) * 100; 
+                $rating_four = ($rating_four / $num) * 100;
+                $rating_three = ($rating_three / $num) * 100;
+                $rating_two = ($rating_two / $num) * 100;
+                $rating_one = ($rating_one / $num) * 100;
+
+                $review_count = $rating_ave . " out of 5";
+            }else{
+                $review_count = "No Reviews Yet";
+            }
+            $result = "
+            <div class='col ps-0'>
+                <p class='fs-3 mb-0'>$review_count</p>
+                <div class= 'py-1'>
+                    <span class='position-relative'>
+                        <span>
+                            <i class='bi bi-star-fill fs-1 make-gray'></i>
+                            <i class='bi bi-star-fill fs-1 make-gray'></i>
+                            <i class='bi bi-star-fill fs-1 make-gray'></i>
+                            <i class='bi bi-star-fill fs-1 make-gray'></i>
+                            <i class='bi bi-star-fill fs-1 make-gray'></i>
+                        </span>
+                        <span class='position-absolute start-0' style='width: $rating_star_ave%;overflow: hidden;white-space: nowrap;'>
+                            <i class='bi bi-star-fill fs-1 make-yellow'></i>
+                            <i class='bi bi-star-fill fs-1 make-yellow'></i>
+                            <i class='bi bi-star-fill fs-1 make-yellow'></i>
+                            <i class='bi bi-star-fill fs-1 make-yellow'></i>
+                            <i class='bi bi-star-fill fs-1 make-yellow'></i>
+                        </span>
+                    </span>
+                    
+                    <p class='mb-0 d-inline'>$num reviews</p>
+                </div>
+                ". $this->writeReview($itemID, $userID) ."
+            </div>
+            <div class='col-8'>
+                <div class='row'>
+                    <p class='col-1'>5</p>
+                    <div class='progress col p-0'>
+                        <div class='progress-bar' style='width: $rating_five%;'></div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <p class='col-1'>4</p>
+                    <div class='progress col p-0'>
+                        <div class='progress-bar' style='width: $rating_four%;'></div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <p class='col-1'>3</p>
+                    <div class='progress col p-0'>
+                        <div class='progress-bar' style='width: $rating_three%;'></div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <p class='col-1'>2</p>
+                    <div class='progress col p-0'>
+                        <div class='progress-bar' style='width: $rating_two%;'></div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <p class='col-1'>1</p>
+                    <div class='progress col p-0'>
+                        <div class='progress-bar' style='width: $rating_one%;'></div>
+                    </div>
+                </div>
+            </div>";
+            
+            echo $result;
+        }
+        
+        public function loadReviews($itemID){
+            $reviewString= "";
+            $query = mysqli_query($this->connect, "SELECT * FROM reviews WHERE product_id='$itemID'");
+
+            while($reviewData = mysqli_fetch_array($query)){
+                $review_id = $reviewData['id'];
+                $userID = $reviewData ['user_id'];
+                $time = $reviewData ['timestamp'];
+                $title = $reviewData ['title'];
+                $body = $reviewData ['body'];
+                $rating = $reviewData ['rating'];
+                $rating = ($rating / 5) * 100; //to set star style
+                $likes = $reviewData['likes'];
+                $dislikes = $reviewData['dislikes'];
+                $reviewImagePreview = "";
+                $imageGroup = "";
+                $timeString = "";
+
+                $jsonobjImg = $reviewData['images']; //set $jsonobj to the value of input of the array "images" from $row;
+                if ($jsonobjImg != "null"){
+                    $objImg = json_decode($jsonobjImg); //set $obj to the value of a php object converted from the string of $jsonobj
+                    $img = $objImg->images; // Set $img to the value of image1 from images by php object $obj
+                    foreach($img as $key => $value) {
+                        $reviewImagePreview .= "
+                        <div class='col p-0' style='height: 6rem; overflow: hidden;'>
+                            <img src='$value' class='h-100' alt='$key'>
+                        </div>"; 
+                    }
+                }
+
+                if($reviewImagePreview != ""){
+                    $imageGroup = "<a class='img-preview'  data-bs-toggle='modal' data-bs-target='#review-img-modal'><div class='row d-flex flex-row gap-1 m-0'>$reviewImagePreview</div></a>";
+                }
+
+                
+                $timeString = new DateTime($time);
+                $month = $timeString->format("m");
+                $day = $timeString->format("d");
+                $year = $timeString->format("Y");
+                if($month == "1"){
+                    $timeString = "January";
+                }else if ($month == "2"){
+                    $timeString = "February";
+                }else if ($month == "3"){
+                    $timeString = "March";
+                }else if ($month== "4"){
+                    $timeString = "April";
+                }else if ($month == "5"){
+                    $timeString = "May";
+                }else if ($month == "6"){
+                    $timeString = "June";
+                }else if ($month == "7"){
+                    $timeString = "July";
+                }else if ($month == "8"){
+                    $timeString = "August";
+                }else if ($month == "9"){
+                    $timeString = "September";
+                }else if ($month == "10"){
+                    $timeString = "October";
+                }else if ($month == "11"){
+                    $timeString = "November";
+                }else if ($month == "12"){
+                    $timeString = "December";
+                }
+
+                $timeString .= " ". $day . " " . $year;
+
+                $userquery = mysqli_query($this->connect, "SELECT * FROM users WHERE id='$userID'");
+                while($userData = mysqli_fetch_array($userquery)){
+                    $username = $userData['username'];
+                    $skin_concern = $userData['skin_concern'];
+                    $skin_type = $userData['skin_type'];
+                    // $age_range = $userData['age_range'];
+                    // $gender = $userData['gender'];
+
+                    $reviewString .= "
+                    <hr>
+                    <div class='row p-2'>
+                    <div class='col d-flex flex-column gap-1'>
+                        <p class='mb-0'>$timeString</p>
+                        <div>
+                            <span class='position-relative'>
+                                <span>
+                                    <i class='bi bi-star-fill fs-3 make-gray'></i>
+                                    <i class='bi bi-star-fill fs-3 make-gray'></i>
+                                    <i class='bi bi-star-fill fs-3 make-gray'></i>
+                                    <i class='bi bi-star-fill fs-3 make-gray'></i>
+                                    <i class='bi bi-star-fill fs-3 make-gray'></i>
+                                </span>
+                                <span class='position-absolute start-0' style='width: $rating%;overflow: hidden;white-space: nowrap;'>
+                                    <i class='bi bi-star-fill fs-3 make-yellow'></i>
+                                    <i class='bi bi-star-fill fs-3 make-yellow'></i>
+                                    <i class='bi bi-star-fill fs-3 make-yellow'></i>
+                                    <i class='bi bi-star-fill fs-3 make-yellow'></i>
+                                    <i class='bi bi-star-fill fs-3 make-yellow'></i>
+                                </span>
+                            </span>
+                        </div>
+                        <h4>$title</h4>
+                        <p class='d-inline mt-auto mb-0'>Was this helpful?
+                            <a class='btn feedback-btn' data-id='$review_id' data-action='like' data-product='product-item.php?id=$itemID'><span class='count'>$likes</span><i class='bi bi-hand-thumbs-up'></i></a>
+                            <a class='btn feedback-btn' data-id='$review_id' data-action='dislike' data-product='product-item.php?id=$itemID'><span class='count'>$dislikes</span><i class='bi bi-hand-thumbs-down'></i></a>
+                        </p>
+                    </div>
+                    <div class='col-5'>
+                        <p>$body</p>
+                    </div>
+                    <div class='col d-flex flex-column justify-content-between gap-3'>
+                        $imageGroup
+                        <div class='d-flex flex-row justify-content-between'>
+                            <div>
+                                <p class='text-dark mb-0 fs-7'>Skin Concern:</p>
+                                <p class='text-dark mb-0 fs-7'>$skin_concern</p>
+                            </div> 
+                            <div>
+                                <p class='text-dark mb-0 fs-7'>Skin Type:</p>
+                                <p class='text-dark mb-0 fs-7'>$skin_type</p>
+                            </div>
+                            <div>
+                                <p class='text-dark mb-0 fs-7'>Age:</p>
+                                <p class='text-dark mb-0 fs-7'>31 - 35</p>
+                            </div>      
+                            <div>
+                                <p class='text-dark mb-0 fs-7'>Gender:</p>
+                                <p class='text-dark mb-0 fs-7'>Female</p>
+                            </div>                      
+                        </div>
+                        <p class='fs-2 mb-0 align-self-end'>$username</p>
+                    </div>
+                </div>";
+                }
+            }
+
+            echo $reviewString;
         }
     }

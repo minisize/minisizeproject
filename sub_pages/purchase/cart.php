@@ -5,7 +5,6 @@
 
 <main>
 
-<div class="transition"> 
 <div class="container-lg">
     <div class="row">
         <!-- LEFT SEGMENT -->
@@ -70,8 +69,7 @@
 
         </div>
     </div>
-</div>
-</div>   
+</div> 
 </main>
 
 
