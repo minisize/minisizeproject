@@ -97,13 +97,14 @@
                                 <label for="skin-concern" class="form-label">Skin Concern</label>
                                 <select class="form-select" name="skinConcern" id="skin-concern" aria-label="Default select example">
                                     <?php
-                                        $userSkinConcern = $user["skin_type"];
+                                        $userSkinConcern = $user["skin_concern"];
                                         $query = mysqli_query($connect, "SELECT name FROM skin_concern");
+
                                         while($row = mysqli_fetch_array($query)){
                                             ?>
                                             <option value="<?php echo $row['name']?>"
                                             <?php
-                                                if ($row['name'] == $userSkinType){
+                                                if ($row['name'] == $userSkinConcern){
                                                     echo 'selected';
                                                 } 
                                             ?> >
