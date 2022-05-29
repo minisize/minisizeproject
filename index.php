@@ -9,24 +9,25 @@ $Home_funct = new Home_functions($connect);
 <style> .bg-home { background-color: #F7E6CA; } </style>
 
 <!--Add hero header in here-->
-<div class="position-relative">
-    <div class="d-flex justify-content-end">
-        <div class="col-6 container mt-5">
-            <h1 class="fw-bold text-darkgreen" style="font-size:3.5rem;">Start Your Skincare Routine!</h1>
-            <p class="fs-5">Lift away impurities with our selection of cleansers.</p>
-            <a href="products.php?category_id=2" class="btn btn-primary btn-header rounded-pill text-white fs-5 fw-bold px-5 py-3 mt-2">
-                <p class="m-0 p-0">CHECK IT OUT</p>
-            </a>
+<div class="transition">
+    <div class="position-relative">
+        <div class="d-flex justify-content-end">
+            <div class="col-6 container mt-5">
+                <h1 class="fw-bold text-darkgreen" style="font-size:3.5rem;">Start Your Skincare Routine!</h1>
+                <p class="fs-5">Lift away impurities with our selection of cleansers.</p>
+                <a href="products.php?category_id=2" class="btn btn-primary btn-header rounded-pill text-white fs-5 fw-bold px-5 py-3 mt-2">
+                    <p class="m-0 p-0">CHECK IT OUT</p>
+                </a>
+            </div>
+            <img src="assets/images/website/index-bg-image.png" class="img-fluid" style="width:30%; z-index: 2">
         </div>
-        <img src="assets/images/website/index-bg-image.png" class="img-fluid" style="width:30%; z-index: 2">
+        <div class="position-absolute p-4 w-100" style="background-color: #F9EFDC; bottom:0; z-index:1;"></div>
     </div>
-    <div class="position-absolute p-4 w-100" style="background-color: #F9EFDC; bottom:0; z-index:1;"></div>
 </div>
 
 </header>
 
 <!-- Enter Main Content Here-->
-
 <main class="">
     <div class="container px-3 py-4">
         <?php 
@@ -52,7 +53,6 @@ $Home_funct = new Home_functions($connect);
             <?php $Home_funct->GenerateList($connect); ?>
         </div>
 
-    </div>
 
     <div class="main_content container px-3 py-3 w-100">
         <div class="row row-cols-2 my-3 py-2">
@@ -68,8 +68,22 @@ $Home_funct = new Home_functions($connect);
                             class="bg-primary border-0 text-white homepage-button-format fs-4"> View all </button></a>
                 </div>
 
-
+                </div>
             </div>
+            <div class="row row-cols-2 my-3 py-2">
+                <div class="col-9 container2_subcontent">
+                    <div class="content">
+                        <h5 class="fw-bold">Full-size products!</h5>
+                        <p class="">Full Sized products are available too! make sure to get a subscription in order to get discounts for the produts!</p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="category.php"><button class="bg-primary border-0 text-white homepage-button-format fs-4"> View all </button></a>
+                    </div>
+
+                </div>
+                <img class="col h-50 w-25" src="<?php $Home_funct->Generate_Random_img($connect, 0) ?>">
+            </div>
+            <h4 class="row d-flex justify-content-center fs-1 mb-5"> Find the right products for your skin type! </h4>
         </div>
         <div class="row row-cols-2 my-3 py-2">
             <div class="col-9 container2_subcontent">
@@ -82,7 +96,6 @@ $Home_funct = new Home_functions($connect);
                     <a href="category.php"><button class="bg-primary border-0 text-white homepage-button-format fs-4">
                             View all </button></a>
                 </div>
-
             </div>
             <img class="col h-50 w-25" src="<?php $Home_funct->Generate_Random_img($connect, 0) ?>">
         </div>
@@ -131,6 +144,9 @@ $Home_funct = new Home_functions($connect);
 
 </main>
 
+        </div>
+    </main>
+</div>
 <!-- Default Footer Paste -->
 <?php
 include("includes/main-footer.php");

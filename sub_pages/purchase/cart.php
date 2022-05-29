@@ -5,7 +5,6 @@
 
 <main>
 
-    
 <div class="container-lg">
     <div class="row">
         <!-- LEFT SEGMENT -->
@@ -70,7 +69,7 @@
 
         </div>
     </div>
-</div>
+</div> 
 </main>
 
 
