@@ -9,7 +9,7 @@ class Home_functions
 
     public function GenerateList($connect)
     {
-        $sql = "SELECT *, AVG(ave_rating) as ave_rating FROM `products` ORDER BY ave_rating DESC";
+        $sql = "SELECT * FROM `products` ORDER BY num_reviews DESC";
         $result = $connect->query($sql);
 
         //Limit the items to display

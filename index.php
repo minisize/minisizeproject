@@ -35,7 +35,7 @@ $Home_funct = new Home_functions($connect);
                 <div class="row">
                     <h3 class="text-center fw-bold">RECOMMENDATIONS</h3>
                 </div>
-                <div class="row py-2 best-sellers-container d-flex justify-content-center">
+                <div class="py-2 best-sellers-container d-flex justify-content-center">
                     <?php $Home_funct->recommendedProducts($userLoggedIn); ?>
                 </div>
             <?php
@@ -47,7 +47,7 @@ $Home_funct = new Home_functions($connect);
         <div class="row">
             <h3 class="text-center fw-bold">BEST SELLERS</h3>
         </div>
-        <div class="row py-2 best-sellers-container d-flex justify-content-center">
+        <div class="py-2 best-sellers-container d-flex justify-content-center">
             <!-- PHP CODE FOR LISTING -->
             <?php $Home_funct->GenerateList($connect); ?>
         </div>
