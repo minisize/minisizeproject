@@ -92,7 +92,7 @@
                             <p><strong>$name</strong> <br> with $mainIngredient</p>";
                 }
 
-                $productString .=   "<div class='col product-display position-relative p-4 d-flex flex-column justify-content-between' style='width: 22%'>
+                $productString .=   "<div class='col product-display position-relative p-4 d-flex flex-column justify-content-between'>
                                         <div>
                                             $head
                                         </div>
