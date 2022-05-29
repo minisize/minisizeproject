@@ -120,17 +120,15 @@
 
             $Key_ingredient_ID=$row['key_ingredient_id'];
 
-
-
             //Creates a foreach
             while ( $row = mysqli_fetch_array($productDataQuery)) {
+                $name = $row['name'];
+                $price = $row['base_price'];
+                $ingredient = $row['main_ingredient'];
             
-                //set $jsonobj to the value of input of the array "images" from $row;
-                $jsonobj = $row["images"];
-                //set $obj to the value of a php object converted from the string of $jsonobj
-                $obj = json_decode($jsonobj);
-                // Set $img to the value of image1 from images by php object $obj
-                $img = $obj->images->image1;
+                $jsonobj = $row["images"]; //set $jsonobj to the value of input of the array "images" from $row;
+                $obj = json_decode($jsonobj); //set $obj to the value of a php object converted from the string of $jsonobj
+                $img = $obj->images->image1; // Set $img to the value of image1 from images by php object $obj
 
                 if ($row["id"] != $itemID) {
 
@@ -141,12 +139,11 @@
                         <div class='col product-display'>
                             <label for=''></label><img src='$img' alt='product image' class='img-fluid display-item-dimension'>
                             <div class='product-name'>
-                                <p><strong>".$row['name']."</strong></p>
+                                <p class='m-0 p-0'><strong>$name</strong></p>
                             </div>
-                                <p>contains</p>
-                                <img src='#' alt='image of ingredient'>
+                                <p class='fs-7'>contains $ingredient</p>
                             <div>
-                                <label for=''>".$row['base_price']."</label>
+                                <p class='m-0 p-0 fs-5'><strong>$price USD</strong></p>
                             </div>
                         </div>
                     ";
@@ -160,7 +157,7 @@
                 $Similar_String ="
                 <div class='row'>
                     <h1> Similar Products </h1>
-                    <h6> with the same key ingredients </h6>
+                    <p> with the same key ingredients </p>
                 </div>
 
                 <div class='row row-cols-1 row-cols-sm-2 row-cols-md-4'>
@@ -206,6 +203,7 @@
             $category = $row['category'];
             $mainIngredient = $row['main_ingredient'];
             $cosdnaLink = $row['cosdna_link'];
+            $productLink = $row['product_link'];
             $basePrice = $row['base_price'];
 
             $jsonobjImg = $row["images"]; //set $jsonobj to the value of input of the array "images" from $row;
@@ -314,7 +312,7 @@
                                 " . $this->addToWishlist($id, $userID) . "
                             </div>";
             $productIngredient = "<p class='fs-5'>with $mainIngredient
-                                        <a class='fs-6 d-inline-flex align-items-baseline text-secondary' href='$cosdnaLink'>
+                                        <a class='fs-6 d-inline-flex align-items-baseline text-secondary' href='$cosdnaLink' target='_blank'>
                                             $textLink
                                         </a>
                                     </p>";
@@ -322,12 +320,13 @@
             
             if($category == "Bundles"){
                 $productIngredient = "";
-                $productForm = "<form action='product-item.php?id=$itemID' method='POST'>
+                $productForm = "<form action='includes/handlers/cart-handler.php' method='POST'>
                                     <div class='row'>
                                         <div class='col d-flex justify-content-between align-items-center mt-4'>
                                             <input type='hidden' id='inputPrice' name='price' value='$basePrice'/>
                                             <input type='hidden' id='inputSize' name='size' value=''/>
                                             <input type='hidden' name='item' value='$name'/>
+                                            <input type='hidden' name='img' value='".$this->getProductImage($itemID)."'>
                                             <p id='priceSize' class='fs-4 m-0 text-dark'>$basePrice USD</p>
                                             <div class='d-flex align-items-center gap-4'>
                                                 " . $this->addToCart($id, $userID) . "
@@ -376,7 +375,7 @@
                                             <input type='hidden' name='img' value='".$this->getProductImage($itemID)."'>
                                             <p id='priceSize' class='fs-4 m-0 text-dark'>$price10ml USD</p>
                                             <div class='d-flex align-items-center gap-4'>
-                                                <p class='m-0'><a href=''>View full product</a></p>
+                                                <p class='m-0'><a href='$productLink' target='_blank'>View full product</a></p>
                                                 " . $this->addToCart($id, $userID) . "
                                             </div>
                                         </div>
