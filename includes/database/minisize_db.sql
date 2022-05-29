@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 29, 2022 at 02:32 PM
+-- Generation Time: May 29, 2022 at 03:00 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -169,7 +169,8 @@ CREATE TABLE IF NOT EXISTS `order_items` (
   `size` varchar(25) NOT NULL,
   `quantity` int(11) NOT NULL,
   `subtotal` decimal(10,0) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `order_item_fk` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -399,6 +400,12 @@ ALTER TABLE `addresses`
 ALTER TABLE `orders`
   ADD CONSTRAINT `address_order_fk` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_order_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD CONSTRAINT `order_item_fk` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `payments`
