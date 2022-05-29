@@ -227,7 +227,7 @@ require 'includes/handlers/signup-handler.php';
                                         <option selected disabled>Please select...</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
-                                        <option value="NA">Prefer not to say</option>
+                                        <option value="Non-binary">Non-binary</option>
                                     </select>
                                 </div>
 
