@@ -66,7 +66,7 @@
                                     <option value="Featured">Featured</option>
                                     <option value="PriceHigh">Price: High to Low</option>
                                     <option value="PriceLow">Price: Low to High</option>
-                                    <option value="HighRated">Highest Rated</option>
+                                    <option value="HighReviewed">Highest Reviewed</option>
                                 </select>
                             </div>
                         </div>

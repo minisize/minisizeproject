@@ -35,6 +35,16 @@
                 echo $product_obj->loadProducts($query);
             }
 
+        } else if ($sortItems == "HighReviewed"){
+            $query.= " ORDER BY num_reviews DESC";
+
+            if ($filterSkinType == "Skin Types" && $filterBenefit == "Benefits"){
+                echo $product_obj->loadProducts($query);
+            }
+        } else if ($sortItems == "Featured"){
+            if ($filterSkinType == "Skin Types" && $filterBenefit == "Benefits"){
+                echo $product_obj->loadProducts($query);
+            }
         }
     }
 
