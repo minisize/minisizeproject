@@ -55,7 +55,7 @@
         </div>
 
         <div class="container mt-4">
-            <h1> Customer Reviews </h1>
+            <h2 class="fw-bold text-darkgreen"> Customer Reviews </h2>
             <!-- Overall results -->
 
             <div class="container">

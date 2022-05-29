@@ -156,7 +156,7 @@
             if ( $hascontent === true ) {
                 $Similar_String ="
                 <div class='row'>
-                    <h1> Similar Products </h1>
+                    <h2 class='fw-bold text-darkgreen'> Similar Products </h2>
                     <p> with the same key ingredients </p>
                 </div>
 
@@ -560,8 +560,8 @@
                 $review_count = "No Reviews Yet";
             }
             $result = "
-            <div class='col'>
-                <p class='fs-1 mb-0'>$review_count</p>
+            <div class='col ps-0'>
+                <p class='fs-3 mb-0'>$review_count</p>
                 <div class= 'py-1'>
                     <span class='position-relative'>
                         <span>
