@@ -64,7 +64,9 @@
 
             <input type="submit" class="btn btn-primary form-control mt-2 p-3" name="login_btn" value="Log In">
         </form>
+        <button class="btn w-100 mt-1"><a href="signup.php">No Account Yet? Create One Here.</a></button>
     </section>
+
 
 </body>
 
