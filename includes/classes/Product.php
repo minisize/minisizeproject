@@ -692,8 +692,8 @@
                     $username = $userData['username'];
                     $skin_concern = $userData['skin_concern'];
                     $skin_type = $userData['skin_type'];
-                    // $age_range = $userData['age_range'];
-                    // $gender = $userData['gender'];
+                    $age_range = $userData['age_range'];
+                    $gender = $userData['gender'];
 
                     $reviewString .= "
                     <hr>
@@ -740,11 +740,11 @@
                             </div>
                             <div>
                                 <p class='text-dark mb-0 fs-7'>Age:</p>
-                                <p class='text-dark mb-0 fs-7'>31 - 35</p>
+                                <p class='text-dark mb-0 fs-7'>$age_range</p>
                             </div>      
                             <div>
                                 <p class='text-dark mb-0 fs-7'>Gender:</p>
-                                <p class='text-dark mb-0 fs-7'>Female</p>
+                                <p class='text-dark mb-0 fs-7'>$gender</p>
                             </div>                      
                         </div>
                         <p class='fs-2 mb-0 align-self-end'>$username</p>
